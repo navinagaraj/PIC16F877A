@@ -1,0 +1,16 @@
+_uart_tx: CODE, 906 0 12
+_delay: CODE, 842 0 18
+_i2c_start: CODE, 948 0 9
+_ISR: CODE, 817 0 25
+_main: CODE, 471 0 107
+_uart_init: CODE, 893 0 13
+___lwdiv: CODE, 578 0 80
+_i2c: CODE, 292 0 179
+_i2c_write: CODE, 929 0 10
+_sprintf: CODE, 82 0 210
+_i2c_stop: CODE, 939 0 9
+_i2c_wait: CODE, 877 0 16
+_i2c_read: CODE, 708 0 48
+_i2c_init: CODE, 918 0 11
+_print_uart: CODE, 791 0 26
+Total: 773

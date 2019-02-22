@@ -1,0 +1,6 @@
+_uart_tx: CODE, 1928 0 25
+_delay: CODE, 1891 0 18
+_lcd_cmd: CODE, 1874 0 17
+_main: CODE, 1953 0 95
+_uart_init: CODE, 1909 0 19
+Total: 174

@@ -1,0 +1,1577 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Fri Aug 24 03:04:27 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad\keypad.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad\keypad.c"
+    45  2007  1F7A               	dw 0x1F7A ;#
+    46                           	FNROOT	_main
+    47                           	global	_PORTC
+    48                           psect	maintext,global,class=CODE,delta=2
+    49                           global __pmaintext
+    50  0605                     __pmaintext:
+    51  0007                     _PORTC	set	7
+    52                           	global	_PORTD
+    53  0008                     _PORTD	set	8
+    54                           	global	_T1CON
+    55  0010                     _T1CON	set	16
+    56                           	global	_TMR1H
+    57  000F                     _TMR1H	set	15
+    58                           	global	_TMR1L
+    59  000E                     _TMR1L	set	14
+    60                           	global	_RB1
+    61  0031                     _RB1	set	49
+    62                           	global	_RBIF
+    63  0058                     _RBIF	set	88
+    64                           	global	_RD0
+    65  0040                     _RD0	set	64
+    66                           	global	_RD1
+    67  0041                     _RD1	set	65
+    68                           	global	_RD2
+    69  0042                     _RD2	set	66
+    70                           	global	_RD3
+    71  0043                     _RD3	set	67
+    72                           	global	_RD4
+    73  0044                     _RD4	set	68
+    74                           	global	_RD5
+    75  0045                     _RD5	set	69
+    76                           	global	_RD6
+    77  0046                     _RD6	set	70
+    78                           	global	_RD7
+    79  0047                     _RD7	set	71
+    80                           	global	_TMR1IF
+    81  0060                     _TMR1IF	set	96
+    82                           	global	_TRISC
+    83  0087                     _TRISC	set	135
+    84                           	global	_TRISD
+    85  0088                     _TRISD	set	136
+    86                           	global	_TRISB1
+    87  0431                     _TRISB1	set	1073
+    88                           	file	"keypad__.as"
+    89                           	line	#
+    90                           psect cinit,class=CODE,delta=2
+    91                           global start_initialization
+    92  0601                     start_initialization:
+    93                           
+    94                           psect cinit,class=CODE,delta=2
+    95                           global end_of_initialization
+    96                           
+    97                           ;End of C runtime variable initialization code
+    98                           
+    99  0601                     end_of_initialization:
+   100  0601  0183               clrf status
+   101  0602  120A  118A  2E05   ljmp _main	;jump to C main() function
+   102                           psect	cstackCOMMON,class=COMMON,space=1
+   103                           global __pcstackCOMMON
+   104  0000                     __pcstackCOMMON:
+   105                           	global	??_main
+   106  0000                     ??_main:	; 0 bytes @ 0x0
+   107                           	global	?_main
+   108  0000                     ?_main:	; 2 bytes @ 0x0
+   109 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   110 ;;Auto spaces:   Size  Autos    Used
+   111 ;; COMMON          14      0       0
+   112 ;; BANK0           80      0       0
+   113 ;; BANK1           80      0       0
+   114 ;; BANK3           96      0       0
+   115 ;; BANK2           96      0       0
+   116                           
+   117 ;;
+   118 ;; Pointer list with targets:
+   119                           
+   120                           
+   121                           
+   122 ;;
+   123 ;; Critical Paths under _main in COMMON
+   124 ;;
+   125 ;;   None.
+   126 ;;
+   127 ;; Critical Paths under _main in BANK0
+   128 ;;
+   129 ;;   None.
+   130 ;;
+   131 ;; Critical Paths under _main in BANK1
+   132 ;;
+   133 ;;   None.
+   134 ;;
+   135 ;; Critical Paths under _main in BANK3
+   136 ;;
+   137 ;;   None.
+   138 ;;
+   139 ;; Critical Paths under _main in BANK2
+   140 ;;
+   141 ;;   None.
+   142                           
+   143 ;;
+   144 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   145 ;;
+   146                           
+   147 ;;
+   148 ;;Call Graph Tables:
+   149 ;;
+   150 ;; ---------------------------------------------------------------------------------
+   151 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   152 ;; ---------------------------------------------------------------------------------
+   153 ;; (0) _main                                                 0     0      0       0
+   154 ;; ---------------------------------------------------------------------------------
+   155 ;; Estimated maximum stack depth 0
+   156 ;; ---------------------------------------------------------------------------------
+   157                           
+   158 ;; Call Graph Graphs:
+   159                           
+   160 ;; _main (ROOT)
+   161 ;;
+   162                           
+   163 ;; Address spaces:
+   164                           
+   165 ;;Name               Size   Autos  Total    Cost      Usage
+   166 ;;BITCOMMON            E      0       0       0        0.0%
+   167 ;;EEDATA             100      0       0       0        0.0%
+   168 ;;NULL                 0      0       0       0        0.0%
+   169 ;;CODE                 0      0       0       0        0.0%
+   170 ;;COMMON               E      0       0       1        0.0%
+   171 ;;BITSFR0              0      0       0       1        0.0%
+   172 ;;SFR0                 0      0       0       1        0.0%
+   173 ;;BITSFR1              0      0       0       2        0.0%
+   174 ;;SFR1                 0      0       0       2        0.0%
+   175 ;;STACK                0      0       0       2        0.0%
+   176 ;;ABS                  0      0       0       3        0.0%
+   177 ;;BITBANK0            50      0       0       4        0.0%
+   178 ;;BITSFR3              0      0       0       4        0.0%
+   179 ;;SFR3                 0      0       0       4        0.0%
+   180 ;;BANK0               50      0       0       5        0.0%
+   181 ;;BITSFR2              0      0       0       5        0.0%
+   182 ;;SFR2                 0      0       0       5        0.0%
+   183 ;;BITBANK1            50      0       0       6        0.0%
+   184 ;;BANK1               50      0       0       7        0.0%
+   185 ;;BITBANK3            60      0       0       8        0.0%
+   186 ;;BANK3               60      0       0       9        0.0%
+   187 ;;BITBANK2            60      0       0      10        0.0%
+   188 ;;BANK2               60      0       0      11        0.0%
+   189 ;;DATA                 0      0       0      12        0.0%
+   190                           
+   191                           	global	_main
+   192                           psect	maintext
+   193                           
+   194 ;; *************** function _main *****************
+   195 ;; Defined at:
+   196 ;;		line 20 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad\keypad.c"
+   197 ;; Parameters:    Size  Location     Type
+   198 ;;		None
+   199 ;; Auto vars:     Size  Location     Type
+   200 ;;		None
+   201 ;; Return value:  Size  Location     Type
+   202 ;;                  2  684[COMMON] int 
+   203 ;; Registers used:
+   204 ;;		wreg, status,2
+   205 ;; Tracked objects:
+   206 ;;		On entry : 17F/0
+   207 ;;		On exit  : 0/0
+   208 ;;		Unchanged: 0/0
+   209 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   210 ;;      Params:         0       0       0       0       0
+   211 ;;      Locals:         0       0       0       0       0
+   212 ;;      Temps:          0       0       0       0       0
+   213 ;;      Totals:         0       0       0       0       0
+   214 ;;Total ram usage:        0 bytes
+   215 ;; This function calls:
+   216 ;;		Nothing
+   217 ;; This function is called by:
+   218 ;;		Startup code after reset
+   219 ;; This function uses a non-reentrant model
+   220 ;;
+   221                           psect	maintext
+   222                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad\keypad.c"
+   223                           	line	20
+   224                           	global	__size_of_main
+   225  01FB                     	__size_of_main	equ	__end_of_main-_main
+   226                           	
+   227  0605                     _main:	
+   228                           	opt	stack 8
+   229                           ; Regs used in _main: [wreg+status,2]
+   230                           	line	21
+   231                           	
+   232  0605                     l1141:	
+   233                           ;keypad.c: 21: TRISD = 0xF0;
+   234  0605  30F0               	movlw	(0F0h)
+   235  0606  1683               	bsf	status, 5	;RP0=1, select bank1
+   236  0607  1303               	bcf	status, 6	;RP1=0, select bank1
+   237  0608  0088               	movwf	(136)^080h	;volatile
+   238                           	line	22
+   239                           	
+   240  0609                     l1143:	
+   241                           ;keypad.c: 22: TRISC = 0;
+   242  0609  0187               	clrf	(135)^080h	;volatile
+   243                           	line	23
+   244                           	
+   245  060A                     l1145:	
+   246                           ;keypad.c: 23: TRISB1 = 0;
+   247  060A  1086               	bcf	(1073/8)^080h,(1073)&7
+   248                           	line	24
+   249                           	
+   250  060B                     l1147:	
+   251                           ;keypad.c: 24: RB1 = 1;
+   252  060B  1283               	bcf	status, 5	;RP0=0, select bank0
+   253  060C  1303               	bcf	status, 6	;RP1=0, select bank0
+   254  060D  1486               	bsf	(49/8),(49)&7
+   255                           	line	25
+   256                           	
+   257  060E                     l1149:	
+   258                           ;keypad.c: 25: RBIF = 0;
+   259  060E  100B               	bcf	(88/8),(88)&7
+   260                           	line	26
+   261                           	
+   262  060F                     l1151:	
+   263                           ;keypad.c: 26: PORTD = 0x0F;
+   264  060F  300F               	movlw	(0Fh)
+   265  0610  0088               	movwf	(8)	;volatile
+   266  0611  2E12               	goto	l1153
+   267                           	line	27
+   268                           ;keypad.c: 27: while(1)
+   269                           	
+   270  0612                     l685:	
+   271                           	line	29
+   272                           	
+   273  0612                     l1153:	
+   274                           ;keypad.c: 28: {
+   275                           ;keypad.c: 29: RD0 = 1;
+   276  0612  1408               	bsf	(64/8),(64)&7
+   277                           	line	30
+   278                           	
+   279  0613                     l1155:	
+   280                           ;keypad.c: 30: RD1 = RD2 = RD3 = 0;
+   281  0613  1188               	bcf	(67/8),(67)&7
+   282  0614  1108               	bcf	(66/8),(66)&7
+   283  0615  1088               	bcf	(65/8),(65)&7
+   284                           	line	31
+   285                           	
+   286  0616                     l1157:	
+   287                           ;keypad.c: 31: if(RD4 == 1 && RD0 == 1 && RD1 ==0 && RD2 == 0 && RD3 == 0)
+   288  0616  1E08               	btfss	(68/8),(68)&7
+   289  0617  2E19               	goto	u11
+   290  0618  2E1A               	goto	u10
+   291  0619                     u11:
+   292  0619  2E33               	goto	l686
+   293  061A                     u10:
+   294                           	
+   295  061A                     l1159:	
+   296  061A  1C08               	btfss	(64/8),(64)&7
+   297  061B  2E1D               	goto	u21
+   298  061C  2E1E               	goto	u20
+   299  061D                     u21:
+   300  061D  2E33               	goto	l686
+   301  061E                     u20:
+   302                           	
+   303  061E                     l1161:	
+   304  061E  1888               	btfsc	(65/8),(65)&7
+   305  061F  2E21               	goto	u31
+   306  0620  2E22               	goto	u30
+   307  0621                     u31:
+   308  0621  2E33               	goto	l686
+   309  0622                     u30:
+   310                           	
+   311  0622                     l1163:	
+   312  0622  1908               	btfsc	(66/8),(66)&7
+   313  0623  2E25               	goto	u41
+   314  0624  2E26               	goto	u40
+   315  0625                     u41:
+   316  0625  2E33               	goto	l686
+   317  0626                     u40:
+   318                           	
+   319  0626                     l1165:	
+   320  0626  1988               	btfsc	(67/8),(67)&7
+   321  0627  2E29               	goto	u51
+   322  0628  2E2A               	goto	u50
+   323  0629                     u51:
+   324  0629  2E33               	goto	l686
+   325  062A                     u50:
+   326                           	line	33
+   327                           	
+   328  062A                     l1167:	
+   329                           ;keypad.c: 32: {
+   330                           ;keypad.c: 33: PORTC = 0xE0;
+   331  062A  30E0               	movlw	(0E0h)
+   332  062B  0087               	movwf	(7)	;volatile
+   333                           	line	34
+   334                           ;keypad.c: 34: while(RD4==1);
+   335  062C  2E2D               	goto	l687
+   336                           	
+   337  062D                     l688:	
+   338                           	
+   339  062D                     l687:	
+   340  062D  1A08               	btfsc	(68/8),(68)&7
+   341  062E  2E30               	goto	u61
+   342  062F  2E31               	goto	u60
+   343  0630                     u61:
+   344  0630  2E2D               	goto	l687
+   345  0631                     u60:
+   346  0631  2E8C               	goto	l690
+   347                           	
+   348  0632                     l689:	
+   349                           	line	35
+   350                           ;keypad.c: 35: }
+   351  0632  2E8C               	goto	l690
+   352                           	line	36
+   353                           	
+   354  0633                     l686:	
+   355                           ;keypad.c: 36: else if(RD5 == 1 && RD0 == 1 && RD1 ==0 && RD2 == 0 && RD3 == 0)
+   356  0633  1E88               	btfss	(69/8),(69)&7
+   357  0634  2E36               	goto	u71
+   358  0635  2E37               	goto	u70
+   359  0636                     u71:
+   360  0636  2E50               	goto	l691
+   361  0637                     u70:
+   362                           	
+   363  0637                     l1169:	
+   364  0637  1C08               	btfss	(64/8),(64)&7
+   365  0638  2E3A               	goto	u81
+   366  0639  2E3B               	goto	u80
+   367  063A                     u81:
+   368  063A  2E50               	goto	l691
+   369  063B                     u80:
+   370                           	
+   371  063B                     l1171:	
+   372  063B  1888               	btfsc	(65/8),(65)&7
+   373  063C  2E3E               	goto	u91
+   374  063D  2E3F               	goto	u90
+   375  063E                     u91:
+   376  063E  2E50               	goto	l691
+   377  063F                     u90:
+   378                           	
+   379  063F                     l1173:	
+   380  063F  1908               	btfsc	(66/8),(66)&7
+   381  0640  2E42               	goto	u101
+   382  0641  2E43               	goto	u100
+   383  0642                     u101:
+   384  0642  2E50               	goto	l691
+   385  0643                     u100:
+   386                           	
+   387  0643                     l1175:	
+   388  0643  1988               	btfsc	(67/8),(67)&7
+   389  0644  2E46               	goto	u111
+   390  0645  2E47               	goto	u110
+   391  0646                     u111:
+   392  0646  2E50               	goto	l691
+   393  0647                     u110:
+   394                           	line	38
+   395                           	
+   396  0647                     l1177:	
+   397                           ;keypad.c: 37: {
+   398                           ;keypad.c: 38: PORTC = 0xFE;
+   399  0647  30FE               	movlw	(0FEh)
+   400  0648  0087               	movwf	(7)	;volatile
+   401                           	line	39
+   402                           ;keypad.c: 39: while(RD5==1);
+   403  0649  2E4A               	goto	l692
+   404                           	
+   405  064A                     l693:	
+   406                           	
+   407  064A                     l692:	
+   408  064A  1A88               	btfsc	(69/8),(69)&7
+   409  064B  2E4D               	goto	u121
+   410  064C  2E4E               	goto	u120
+   411  064D                     u121:
+   412  064D  2E4A               	goto	l692
+   413  064E                     u120:
+   414  064E  2E8C               	goto	l690
+   415                           	
+   416  064F                     l694:	
+   417                           	line	40
+   418                           ;keypad.c: 40: }
+   419  064F  2E8C               	goto	l690
+   420                           	line	41
+   421                           	
+   422  0650                     l691:	
+   423                           ;keypad.c: 41: else if(RD6 == 1 && RD0 == 1 && RD1 ==0 && RD2 == 0 && RD3 == 0)
+   424  0650  1F08               	btfss	(70/8),(70)&7
+   425  0651  2E53               	goto	u131
+   426  0652  2E54               	goto	u130
+   427  0653                     u131:
+   428  0653  2E6D               	goto	l696
+   429  0654                     u130:
+   430                           	
+   431  0654                     l1179:	
+   432  0654  1C08               	btfss	(64/8),(64)&7
+   433  0655  2E57               	goto	u141
+   434  0656  2E58               	goto	u140
+   435  0657                     u141:
+   436  0657  2E6D               	goto	l696
+   437  0658                     u140:
+   438                           	
+   439  0658                     l1181:	
+   440  0658  1888               	btfsc	(65/8),(65)&7
+   441  0659  2E5B               	goto	u151
+   442  065A  2E5C               	goto	u150
+   443  065B                     u151:
+   444  065B  2E6D               	goto	l696
+   445  065C                     u150:
+   446                           	
+   447  065C                     l1183:	
+   448  065C  1908               	btfsc	(66/8),(66)&7
+   449  065D  2E5F               	goto	u161
+   450  065E  2E60               	goto	u160
+   451  065F                     u161:
+   452  065F  2E6D               	goto	l696
+   453  0660                     u160:
+   454                           	
+   455  0660                     l1185:	
+   456  0660  1988               	btfsc	(67/8),(67)&7
+   457  0661  2E63               	goto	u171
+   458  0662  2E64               	goto	u170
+   459  0663                     u171:
+   460  0663  2E6D               	goto	l696
+   461  0664                     u170:
+   462                           	line	43
+   463                           	
+   464  0664                     l1187:	
+   465                           ;keypad.c: 42: {
+   466                           ;keypad.c: 43: PORTC = 0xF6;
+   467  0664  30F6               	movlw	(0F6h)
+   468  0665  0087               	movwf	(7)	;volatile
+   469                           	line	44
+   470                           ;keypad.c: 44: while(RD6==1);
+   471  0666  2E67               	goto	l697
+   472                           	
+   473  0667                     l698:	
+   474                           	
+   475  0667                     l697:	
+   476  0667  1B08               	btfsc	(70/8),(70)&7
+   477  0668  2E6A               	goto	u181
+   478  0669  2E6B               	goto	u180
+   479  066A                     u181:
+   480  066A  2E67               	goto	l697
+   481  066B                     u180:
+   482  066B  2E8C               	goto	l690
+   483                           	
+   484  066C                     l699:	
+   485                           	line	45
+   486                           ;keypad.c: 45: }
+   487  066C  2E8C               	goto	l690
+   488                           	line	46
+   489                           	
+   490  066D                     l696:	
+   491                           ;keypad.c: 46: else if(RD7 == 1 && RD0 == 1 && RD1 ==0 && RD2 == 0 && RD3 == 0)
+   492  066D  1F88               	btfss	(71/8),(71)&7
+   493  066E  2E70               	goto	u191
+   494  066F  2E71               	goto	u190
+   495  0670                     u191:
+   496  0670  2E8C               	goto	l690
+   497  0671                     u190:
+   498                           	
+   499  0671                     l1189:	
+   500  0671  1C08               	btfss	(64/8),(64)&7
+   501  0672  2E74               	goto	u201
+   502  0673  2E75               	goto	u200
+   503  0674                     u201:
+   504  0674  2E8C               	goto	l690
+   505  0675                     u200:
+   506                           	
+   507  0675                     l1191:	
+   508  0675  1888               	btfsc	(65/8),(65)&7
+   509  0676  2E78               	goto	u211
+   510  0677  2E79               	goto	u210
+   511  0678                     u211:
+   512  0678  2E8C               	goto	l690
+   513  0679                     u210:
+   514                           	
+   515  0679                     l1193:	
+   516  0679  1908               	btfsc	(66/8),(66)&7
+   517  067A  2E7C               	goto	u221
+   518  067B  2E7D               	goto	u220
+   519  067C                     u221:
+   520  067C  2E8C               	goto	l690
+   521  067D                     u220:
+   522                           	
+   523  067D                     l1195:	
+   524  067D  1988               	btfsc	(67/8),(67)&7
+   525  067E  2E80               	goto	u231
+   526  067F  2E81               	goto	u230
+   527  0680                     u231:
+   528  0680  2E8C               	goto	l690
+   529  0681                     u230:
+   530                           	line	48
+   531                           	
+   532  0681                     l1197:	
+   533                           ;keypad.c: 47: {
+   534                           ;keypad.c: 48: PORTC = 0xEE;
+   535  0681  30EE               	movlw	(0EEh)
+   536  0682  0087               	movwf	(7)	;volatile
+   537                           	line	49
+   538                           ;keypad.c: 49: while(RD7==1);
+   539  0683  2E84               	goto	l702
+   540                           	
+   541  0684                     l703:	
+   542                           	
+   543  0684                     l702:	
+   544  0684  1B88               	btfsc	(71/8),(71)&7
+   545  0685  2E87               	goto	u241
+   546  0686  2E88               	goto	u240
+   547  0687                     u241:
+   548  0687  2E84               	goto	l702
+   549  0688                     u240:
+   550  0688  2E8C               	goto	l690
+   551                           	
+   552  0689                     l704:	
+   553  0689  2E8C               	goto	l690
+   554                           	line	50
+   555                           	
+   556  068A                     l701:	
+   557  068A  2E8C               	goto	l690
+   558                           	line	51
+   559                           	
+   560  068B                     l700:	
+   561  068B  2E8C               	goto	l690
+   562                           	
+   563  068C                     l695:	
+   564                           	
+   565  068C                     l690:	
+   566                           ;keypad.c: 50: }
+   567                           ;keypad.c: 51: RD0 = 0;
+   568  068C  1008               	bcf	(64/8),(64)&7
+   569                           	line	52
+   570                           ;keypad.c: 52: RD1 = 1;
+   571  068D  1488               	bsf	(65/8),(65)&7
+   572                           	line	53
+   573                           ;keypad.c: 53: RD2 = 0;
+   574  068E  1108               	bcf	(66/8),(66)&7
+   575                           	line	54
+   576                           ;keypad.c: 54: RD3 = 0;
+   577  068F  1188               	bcf	(67/8),(67)&7
+   578                           	line	55
+   579                           ;keypad.c: 55: if(RD4 == 1 && RD1 == 1 && RD0 ==0 && RD2 == 0 && RD3 == 0)
+   580  0690  1E08               	btfss	(68/8),(68)&7
+   581  0691  2E93               	goto	u251
+   582  0692  2E94               	goto	u250
+   583  0693                     u251:
+   584  0693  2EAD               	goto	l705
+   585  0694                     u250:
+   586                           	
+   587  0694                     l1199:	
+   588  0694  1C88               	btfss	(65/8),(65)&7
+   589  0695  2E97               	goto	u261
+   590  0696  2E98               	goto	u260
+   591  0697                     u261:
+   592  0697  2EAD               	goto	l705
+   593  0698                     u260:
+   594                           	
+   595  0698                     l1201:	
+   596  0698  1808               	btfsc	(64/8),(64)&7
+   597  0699  2E9B               	goto	u271
+   598  069A  2E9C               	goto	u270
+   599  069B                     u271:
+   600  069B  2EAD               	goto	l705
+   601  069C                     u270:
+   602                           	
+   603  069C                     l1203:	
+   604  069C  1908               	btfsc	(66/8),(66)&7
+   605  069D  2E9F               	goto	u281
+   606  069E  2EA0               	goto	u280
+   607  069F                     u281:
+   608  069F  2EAD               	goto	l705
+   609  06A0                     u280:
+   610                           	
+   611  06A0                     l1205:	
+   612  06A0  1988               	btfsc	(67/8),(67)&7
+   613  06A1  2EA3               	goto	u291
+   614  06A2  2EA4               	goto	u290
+   615  06A3                     u291:
+   616  06A3  2EAD               	goto	l705
+   617  06A4                     u290:
+   618                           	line	57
+   619                           	
+   620  06A4                     l1207:	
+   621                           ;keypad.c: 56: {
+   622                           ;keypad.c: 57: PORTC = 0x66;
+   623  06A4  3066               	movlw	(066h)
+   624  06A5  0087               	movwf	(7)	;volatile
+   625                           	line	58
+   626                           ;keypad.c: 58: while(RD4==1);
+   627  06A6  2EA7               	goto	l706
+   628                           	
+   629  06A7                     l707:	
+   630                           	
+   631  06A7                     l706:	
+   632  06A7  1A08               	btfsc	(68/8),(68)&7
+   633  06A8  2EAA               	goto	u301
+   634  06A9  2EAB               	goto	u300
+   635  06AA                     u301:
+   636  06AA  2EA7               	goto	l706
+   637  06AB                     u300:
+   638  06AB  2F06               	goto	l709
+   639                           	
+   640  06AC                     l708:	
+   641                           	line	59
+   642                           ;keypad.c: 59: }
+   643  06AC  2F06               	goto	l709
+   644                           	line	60
+   645                           	
+   646  06AD                     l705:	
+   647                           ;keypad.c: 60: else if(RD5 == 1 && RD1 == 1 && RD0 ==0 && RD2 == 0 && RD3 == 0)
+   648  06AD  1E88               	btfss	(69/8),(69)&7
+   649  06AE  2EB0               	goto	u311
+   650  06AF  2EB1               	goto	u310
+   651  06B0                     u311:
+   652  06B0  2ECA               	goto	l710
+   653  06B1                     u310:
+   654                           	
+   655  06B1                     l1209:	
+   656  06B1  1C88               	btfss	(65/8),(65)&7
+   657  06B2  2EB4               	goto	u321
+   658  06B3  2EB5               	goto	u320
+   659  06B4                     u321:
+   660  06B4  2ECA               	goto	l710
+   661  06B5                     u320:
+   662                           	
+   663  06B5                     l1211:	
+   664  06B5  1808               	btfsc	(64/8),(64)&7
+   665  06B6  2EB8               	goto	u331
+   666  06B7  2EB9               	goto	u330
+   667  06B8                     u331:
+   668  06B8  2ECA               	goto	l710
+   669  06B9                     u330:
+   670                           	
+   671  06B9                     l1213:	
+   672  06B9  1908               	btfsc	(66/8),(66)&7
+   673  06BA  2EBC               	goto	u341
+   674  06BB  2EBD               	goto	u340
+   675  06BC                     u341:
+   676  06BC  2ECA               	goto	l710
+   677  06BD                     u340:
+   678                           	
+   679  06BD                     l1215:	
+   680  06BD  1988               	btfsc	(67/8),(67)&7
+   681  06BE  2EC0               	goto	u351
+   682  06BF  2EC1               	goto	u350
+   683  06C0                     u351:
+   684  06C0  2ECA               	goto	l710
+   685  06C1                     u350:
+   686                           	line	62
+   687                           	
+   688  06C1                     l1217:	
+   689                           ;keypad.c: 61: {
+   690                           ;keypad.c: 62: PORTC = 0xB6;
+   691  06C1  30B6               	movlw	(0B6h)
+   692  06C2  0087               	movwf	(7)	;volatile
+   693                           	line	63
+   694                           ;keypad.c: 63: while(RD5==1);
+   695  06C3  2EC4               	goto	l711
+   696                           	
+   697  06C4                     l712:	
+   698                           	
+   699  06C4                     l711:	
+   700  06C4  1A88               	btfsc	(69/8),(69)&7
+   701  06C5  2EC7               	goto	u361
+   702  06C6  2EC8               	goto	u360
+   703  06C7                     u361:
+   704  06C7  2EC4               	goto	l711
+   705  06C8                     u360:
+   706  06C8  2F06               	goto	l709
+   707                           	
+   708  06C9                     l713:	
+   709                           	line	64
+   710                           ;keypad.c: 64: }
+   711  06C9  2F06               	goto	l709
+   712                           	line	65
+   713                           	
+   714  06CA                     l710:	
+   715                           ;keypad.c: 65: else if(RD6 == 1 && RD1 == 1 && RD0 ==0 && RD2 == 0 && RD3 == 0)
+   716  06CA  1F08               	btfss	(70/8),(70)&7
+   717  06CB  2ECD               	goto	u371
+   718  06CC  2ECE               	goto	u370
+   719  06CD                     u371:
+   720  06CD  2EE7               	goto	l715
+   721  06CE                     u370:
+   722                           	
+   723  06CE                     l1219:	
+   724  06CE  1C88               	btfss	(65/8),(65)&7
+   725  06CF  2ED1               	goto	u381
+   726  06D0  2ED2               	goto	u380
+   727  06D1                     u381:
+   728  06D1  2EE7               	goto	l715
+   729  06D2                     u380:
+   730                           	
+   731  06D2                     l1221:	
+   732  06D2  1808               	btfsc	(64/8),(64)&7
+   733  06D3  2ED5               	goto	u391
+   734  06D4  2ED6               	goto	u390
+   735  06D5                     u391:
+   736  06D5  2EE7               	goto	l715
+   737  06D6                     u390:
+   738                           	
+   739  06D6                     l1223:	
+   740  06D6  1908               	btfsc	(66/8),(66)&7
+   741  06D7  2ED9               	goto	u401
+   742  06D8  2EDA               	goto	u400
+   743  06D9                     u401:
+   744  06D9  2EE7               	goto	l715
+   745  06DA                     u400:
+   746                           	
+   747  06DA                     l1225:	
+   748  06DA  1988               	btfsc	(67/8),(67)&7
+   749  06DB  2EDD               	goto	u411
+   750  06DC  2EDE               	goto	u410
+   751  06DD                     u411:
+   752  06DD  2EE7               	goto	l715
+   753  06DE                     u410:
+   754                           	line	67
+   755                           	
+   756  06DE                     l1227:	
+   757                           ;keypad.c: 66: {
+   758                           ;keypad.c: 67: PORTC = 0xBE;
+   759  06DE  30BE               	movlw	(0BEh)
+   760  06DF  0087               	movwf	(7)	;volatile
+   761                           	line	68
+   762                           ;keypad.c: 68: while(RD6==1);
+   763  06E0  2EE1               	goto	l716
+   764                           	
+   765  06E1                     l717:	
+   766                           	
+   767  06E1                     l716:	
+   768  06E1  1B08               	btfsc	(70/8),(70)&7
+   769  06E2  2EE4               	goto	u421
+   770  06E3  2EE5               	goto	u420
+   771  06E4                     u421:
+   772  06E4  2EE1               	goto	l716
+   773  06E5                     u420:
+   774  06E5  2F06               	goto	l709
+   775                           	
+   776  06E6                     l718:	
+   777                           	line	69
+   778                           ;keypad.c: 69: }
+   779  06E6  2F06               	goto	l709
+   780                           	line	70
+   781                           	
+   782  06E7                     l715:	
+   783                           ;keypad.c: 70: else if(RD7 == 1 && RD1 == 1 && RD0 ==0 && RD2 == 0 && RD3 == 0)
+   784  06E7  1F88               	btfss	(71/8),(71)&7
+   785  06E8  2EEA               	goto	u431
+   786  06E9  2EEB               	goto	u430
+   787  06EA                     u431:
+   788  06EA  2F06               	goto	l709
+   789  06EB                     u430:
+   790                           	
+   791  06EB                     l1229:	
+   792  06EB  1C88               	btfss	(65/8),(65)&7
+   793  06EC  2EEE               	goto	u441
+   794  06ED  2EEF               	goto	u440
+   795  06EE                     u441:
+   796  06EE  2F06               	goto	l709
+   797  06EF                     u440:
+   798                           	
+   799  06EF                     l1231:	
+   800  06EF  1808               	btfsc	(64/8),(64)&7
+   801  06F0  2EF2               	goto	u451
+   802  06F1  2EF3               	goto	u450
+   803  06F2                     u451:
+   804  06F2  2F06               	goto	l709
+   805  06F3                     u450:
+   806                           	
+   807  06F3                     l1233:	
+   808  06F3  1908               	btfsc	(66/8),(66)&7
+   809  06F4  2EF6               	goto	u461
+   810  06F5  2EF7               	goto	u460
+   811  06F6                     u461:
+   812  06F6  2F06               	goto	l709
+   813  06F7                     u460:
+   814                           	
+   815  06F7                     l1235:	
+   816  06F7  1988               	btfsc	(67/8),(67)&7
+   817  06F8  2EFA               	goto	u471
+   818  06F9  2EFB               	goto	u470
+   819  06FA                     u471:
+   820  06FA  2F06               	goto	l709
+   821  06FB                     u470:
+   822                           	line	72
+   823                           	
+   824  06FB                     l1237:	
+   825                           ;keypad.c: 71: {
+   826                           ;keypad.c: 72: PORTC = 0x3E;
+   827  06FB  303E               	movlw	(03Eh)
+   828  06FC  0087               	movwf	(7)	;volatile
+   829                           	line	73
+   830                           ;keypad.c: 73: while(RD7==1);
+   831  06FD  2EFE               	goto	l721
+   832                           	
+   833  06FE                     l722:	
+   834                           	
+   835  06FE                     l721:	
+   836  06FE  1B88               	btfsc	(71/8),(71)&7
+   837  06FF  2F01               	goto	u481
+   838  0700  2F02               	goto	u480
+   839  0701                     u481:
+   840  0701  2EFE               	goto	l721
+   841  0702                     u480:
+   842  0702  2F06               	goto	l709
+   843                           	
+   844  0703                     l723:	
+   845  0703  2F06               	goto	l709
+   846                           	line	74
+   847                           	
+   848  0704                     l720:	
+   849  0704  2F06               	goto	l709
+   850                           	line	75
+   851                           	
+   852  0705                     l719:	
+   853  0705  2F06               	goto	l709
+   854                           	
+   855  0706                     l714:	
+   856                           	
+   857  0706                     l709:	
+   858                           ;keypad.c: 74: }
+   859                           ;keypad.c: 75: RD0 = 0;
+   860  0706  1008               	bcf	(64/8),(64)&7
+   861                           	line	76
+   862                           ;keypad.c: 76: RD1 = 0;
+   863  0707  1088               	bcf	(65/8),(65)&7
+   864                           	line	77
+   865                           ;keypad.c: 77: RD2 = 1;
+   866  0708  1508               	bsf	(66/8),(66)&7
+   867                           	line	78
+   868                           ;keypad.c: 78: RD3 = 0;
+   869  0709  1188               	bcf	(67/8),(67)&7
+   870                           	line	79
+   871                           ;keypad.c: 79: if(RD4 == 1 && RD2 == 1 && RD1 ==0 && RD0 == 0 && RD3 == 0)
+   872  070A  1E08               	btfss	(68/8),(68)&7
+   873  070B  2F0D               	goto	u491
+   874  070C  2F0E               	goto	u490
+   875  070D                     u491:
+   876  070D  2F27               	goto	l724
+   877  070E                     u490:
+   878                           	
+   879  070E                     l1239:	
+   880  070E  1D08               	btfss	(66/8),(66)&7
+   881  070F  2F11               	goto	u501
+   882  0710  2F12               	goto	u500
+   883  0711                     u501:
+   884  0711  2F27               	goto	l724
+   885  0712                     u500:
+   886                           	
+   887  0712                     l1241:	
+   888  0712  1888               	btfsc	(65/8),(65)&7
+   889  0713  2F15               	goto	u511
+   890  0714  2F16               	goto	u510
+   891  0715                     u511:
+   892  0715  2F27               	goto	l724
+   893  0716                     u510:
+   894                           	
+   895  0716                     l1243:	
+   896  0716  1808               	btfsc	(64/8),(64)&7
+   897  0717  2F19               	goto	u521
+   898  0718  2F1A               	goto	u520
+   899  0719                     u521:
+   900  0719  2F27               	goto	l724
+   901  071A                     u520:
+   902                           	
+   903  071A                     l1245:	
+   904  071A  1988               	btfsc	(67/8),(67)&7
+   905  071B  2F1D               	goto	u531
+   906  071C  2F1E               	goto	u530
+   907  071D                     u531:
+   908  071D  2F27               	goto	l724
+   909  071E                     u530:
+   910                           	line	81
+   911                           	
+   912  071E                     l1247:	
+   913                           ;keypad.c: 80: {
+   914                           ;keypad.c: 81: PORTC = 0x60;
+   915  071E  3060               	movlw	(060h)
+   916  071F  0087               	movwf	(7)	;volatile
+   917                           	line	82
+   918                           ;keypad.c: 82: while(RD4==1);
+   919  0720  2F21               	goto	l725
+   920                           	
+   921  0721                     l726:	
+   922                           	
+   923  0721                     l725:	
+   924  0721  1A08               	btfsc	(68/8),(68)&7
+   925  0722  2F24               	goto	u541
+   926  0723  2F25               	goto	u540
+   927  0724                     u541:
+   928  0724  2F21               	goto	l725
+   929  0725                     u540:
+   930  0725  2F80               	goto	l728
+   931                           	
+   932  0726                     l727:	
+   933                           	line	83
+   934                           ;keypad.c: 83: }
+   935  0726  2F80               	goto	l728
+   936                           	line	84
+   937                           	
+   938  0727                     l724:	
+   939                           ;keypad.c: 84: else if(RD5 == 1 && RD2 == 1 && RD1 ==0 && RD0 == 0 && RD3 == 0)
+   940  0727  1E88               	btfss	(69/8),(69)&7
+   941  0728  2F2A               	goto	u551
+   942  0729  2F2B               	goto	u550
+   943  072A                     u551:
+   944  072A  2F44               	goto	l729
+   945  072B                     u550:
+   946                           	
+   947  072B                     l1249:	
+   948  072B  1D08               	btfss	(66/8),(66)&7
+   949  072C  2F2E               	goto	u561
+   950  072D  2F2F               	goto	u560
+   951  072E                     u561:
+   952  072E  2F44               	goto	l729
+   953  072F                     u560:
+   954                           	
+   955  072F                     l1251:	
+   956  072F  1888               	btfsc	(65/8),(65)&7
+   957  0730  2F32               	goto	u571
+   958  0731  2F33               	goto	u570
+   959  0732                     u571:
+   960  0732  2F44               	goto	l729
+   961  0733                     u570:
+   962                           	
+   963  0733                     l1253:	
+   964  0733  1808               	btfsc	(64/8),(64)&7
+   965  0734  2F36               	goto	u581
+   966  0735  2F37               	goto	u580
+   967  0736                     u581:
+   968  0736  2F44               	goto	l729
+   969  0737                     u580:
+   970                           	
+   971  0737                     l1255:	
+   972  0737  1988               	btfsc	(67/8),(67)&7
+   973  0738  2F3A               	goto	u591
+   974  0739  2F3B               	goto	u590
+   975  073A                     u591:
+   976  073A  2F44               	goto	l729
+   977  073B                     u590:
+   978                           	line	86
+   979                           	
+   980  073B                     l1257:	
+   981                           ;keypad.c: 85: {
+   982                           ;keypad.c: 86: PORTC = 0xDA;
+   983  073B  30DA               	movlw	(0DAh)
+   984  073C  0087               	movwf	(7)	;volatile
+   985                           	line	87
+   986                           ;keypad.c: 87: while(RD5==1);
+   987  073D  2F3E               	goto	l730
+   988                           	
+   989  073E                     l731:	
+   990                           	
+   991  073E                     l730:	
+   992  073E  1A88               	btfsc	(69/8),(69)&7
+   993  073F  2F41               	goto	u601
+   994  0740  2F42               	goto	u600
+   995  0741                     u601:
+   996  0741  2F3E               	goto	l730
+   997  0742                     u600:
+   998  0742  2F80               	goto	l728
+   999                           	
+  1000  0743                     l732:	
+  1001                           	line	88
+  1002                           ;keypad.c: 88: }
+  1003  0743  2F80               	goto	l728
+  1004                           	line	89
+  1005                           	
+  1006  0744                     l729:	
+  1007                           ;keypad.c: 89: else if(RD6 == 1 && RD2 == 1 && RD1 ==0 && RD0 == 0 && RD3 == 0)
+  1008  0744  1F08               	btfss	(70/8),(70)&7
+  1009  0745  2F47               	goto	u611
+  1010  0746  2F48               	goto	u610
+  1011  0747                     u611:
+  1012  0747  2F61               	goto	l734
+  1013  0748                     u610:
+  1014                           	
+  1015  0748                     l1259:	
+  1016  0748  1D08               	btfss	(66/8),(66)&7
+  1017  0749  2F4B               	goto	u621
+  1018  074A  2F4C               	goto	u620
+  1019  074B                     u621:
+  1020  074B  2F61               	goto	l734
+  1021  074C                     u620:
+  1022                           	
+  1023  074C                     l1261:	
+  1024  074C  1888               	btfsc	(65/8),(65)&7
+  1025  074D  2F4F               	goto	u631
+  1026  074E  2F50               	goto	u630
+  1027  074F                     u631:
+  1028  074F  2F61               	goto	l734
+  1029  0750                     u630:
+  1030                           	
+  1031  0750                     l1263:	
+  1032  0750  1808               	btfsc	(64/8),(64)&7
+  1033  0751  2F53               	goto	u641
+  1034  0752  2F54               	goto	u640
+  1035  0753                     u641:
+  1036  0753  2F61               	goto	l734
+  1037  0754                     u640:
+  1038                           	
+  1039  0754                     l1265:	
+  1040  0754  1988               	btfsc	(67/8),(67)&7
+  1041  0755  2F57               	goto	u651
+  1042  0756  2F58               	goto	u650
+  1043  0757                     u651:
+  1044  0757  2F61               	goto	l734
+  1045  0758                     u650:
+  1046                           	line	91
+  1047                           	
+  1048  0758                     l1267:	
+  1049                           ;keypad.c: 90: {
+  1050                           ;keypad.c: 91: PORTC = 0xF2;
+  1051  0758  30F2               	movlw	(0F2h)
+  1052  0759  0087               	movwf	(7)	;volatile
+  1053                           	line	92
+  1054                           ;keypad.c: 92: while(RD6==1);
+  1055  075A  2F5B               	goto	l735
+  1056                           	
+  1057  075B                     l736:	
+  1058                           	
+  1059  075B                     l735:	
+  1060  075B  1B08               	btfsc	(70/8),(70)&7
+  1061  075C  2F5E               	goto	u661
+  1062  075D  2F5F               	goto	u660
+  1063  075E                     u661:
+  1064  075E  2F5B               	goto	l735
+  1065  075F                     u660:
+  1066  075F  2F80               	goto	l728
+  1067                           	
+  1068  0760                     l737:	
+  1069                           	line	93
+  1070                           ;keypad.c: 93: }
+  1071  0760  2F80               	goto	l728
+  1072                           	line	94
+  1073                           	
+  1074  0761                     l734:	
+  1075                           ;keypad.c: 94: else if(RD7 == 1 && RD2 == 1 && RD1 ==0 && RD0 == 0 && RD3 == 0)
+  1076  0761  1F88               	btfss	(71/8),(71)&7
+  1077  0762  2F64               	goto	u671
+  1078  0763  2F65               	goto	u670
+  1079  0764                     u671:
+  1080  0764  2F80               	goto	l728
+  1081  0765                     u670:
+  1082                           	
+  1083  0765                     l1269:	
+  1084  0765  1D08               	btfss	(66/8),(66)&7
+  1085  0766  2F68               	goto	u681
+  1086  0767  2F69               	goto	u680
+  1087  0768                     u681:
+  1088  0768  2F80               	goto	l728
+  1089  0769                     u680:
+  1090                           	
+  1091  0769                     l1271:	
+  1092  0769  1888               	btfsc	(65/8),(65)&7
+  1093  076A  2F6C               	goto	u691
+  1094  076B  2F6D               	goto	u690
+  1095  076C                     u691:
+  1096  076C  2F80               	goto	l728
+  1097  076D                     u690:
+  1098                           	
+  1099  076D                     l1273:	
+  1100  076D  1808               	btfsc	(64/8),(64)&7
+  1101  076E  2F70               	goto	u701
+  1102  076F  2F71               	goto	u700
+  1103  0770                     u701:
+  1104  0770  2F80               	goto	l728
+  1105  0771                     u700:
+  1106                           	
+  1107  0771                     l1275:	
+  1108  0771  1988               	btfsc	(67/8),(67)&7
+  1109  0772  2F74               	goto	u711
+  1110  0773  2F75               	goto	u710
+  1111  0774                     u711:
+  1112  0774  2F80               	goto	l728
+  1113  0775                     u710:
+  1114                           	line	96
+  1115                           	
+  1116  0775                     l1277:	
+  1117                           ;keypad.c: 95: {
+  1118                           ;keypad.c: 96: PORTC = 0x1A;
+  1119  0775  301A               	movlw	(01Ah)
+  1120  0776  0087               	movwf	(7)	;volatile
+  1121                           	line	97
+  1122                           ;keypad.c: 97: while(RD7==1);
+  1123  0777  2F78               	goto	l740
+  1124                           	
+  1125  0778                     l741:	
+  1126                           	
+  1127  0778                     l740:	
+  1128  0778  1B88               	btfsc	(71/8),(71)&7
+  1129  0779  2F7B               	goto	u721
+  1130  077A  2F7C               	goto	u720
+  1131  077B                     u721:
+  1132  077B  2F78               	goto	l740
+  1133  077C                     u720:
+  1134  077C  2F80               	goto	l728
+  1135                           	
+  1136  077D                     l742:	
+  1137  077D  2F80               	goto	l728
+  1138                           	line	98
+  1139                           	
+  1140  077E                     l739:	
+  1141  077E  2F80               	goto	l728
+  1142                           	line	99
+  1143                           	
+  1144  077F                     l738:	
+  1145  077F  2F80               	goto	l728
+  1146                           	
+  1147  0780                     l733:	
+  1148                           	
+  1149  0780                     l728:	
+  1150                           ;keypad.c: 98: }
+  1151                           ;keypad.c: 99: RD0 = 0;
+  1152  0780  1008               	bcf	(64/8),(64)&7
+  1153                           	line	100
+  1154                           ;keypad.c: 100: RD1 = 0;
+  1155  0781  1088               	bcf	(65/8),(65)&7
+  1156                           	line	101
+  1157                           ;keypad.c: 101: RD2 = 0;
+  1158  0782  1108               	bcf	(66/8),(66)&7
+  1159                           	line	102
+  1160                           ;keypad.c: 102: RD3 = 1;
+  1161  0783  1588               	bsf	(67/8),(67)&7
+  1162                           	line	103
+  1163                           ;keypad.c: 103: if(RD4 == 1 && RD3 == 1 && RD1 ==0 && RD2 == 0 && RD0 == 0)
+  1164  0784  1E08               	btfss	(68/8),(68)&7
+  1165  0785  2F87               	goto	u731
+  1166  0786  2F88               	goto	u730
+  1167  0787                     u731:
+  1168  0787  2FA1               	goto	l743
+  1169  0788                     u730:
+  1170                           	
+  1171  0788                     l1279:	
+  1172  0788  1D88               	btfss	(67/8),(67)&7
+  1173  0789  2F8B               	goto	u741
+  1174  078A  2F8C               	goto	u740
+  1175  078B                     u741:
+  1176  078B  2FA1               	goto	l743
+  1177  078C                     u740:
+  1178                           	
+  1179  078C                     l1281:	
+  1180  078C  1888               	btfsc	(65/8),(65)&7
+  1181  078D  2F8F               	goto	u751
+  1182  078E  2F90               	goto	u750
+  1183  078F                     u751:
+  1184  078F  2FA1               	goto	l743
+  1185  0790                     u750:
+  1186                           	
+  1187  0790                     l1283:	
+  1188  0790  1908               	btfsc	(66/8),(66)&7
+  1189  0791  2F93               	goto	u761
+  1190  0792  2F94               	goto	u760
+  1191  0793                     u761:
+  1192  0793  2FA1               	goto	l743
+  1193  0794                     u760:
+  1194                           	
+  1195  0794                     l1285:	
+  1196  0794  1808               	btfsc	(64/8),(64)&7
+  1197  0795  2F97               	goto	u771
+  1198  0796  2F98               	goto	u770
+  1199  0797                     u771:
+  1200  0797  2FA1               	goto	l743
+  1201  0798                     u770:
+  1202                           	line	105
+  1203                           	
+  1204  0798                     l1287:	
+  1205                           ;keypad.c: 104: {
+  1206                           ;keypad.c: 105: PORTC = 0x02;
+  1207  0798  3002               	movlw	(02h)
+  1208  0799  0087               	movwf	(7)	;volatile
+  1209                           	line	106
+  1210                           ;keypad.c: 106: while(RD4==1);
+  1211  079A  2F9B               	goto	l744
+  1212                           	
+  1213  079B                     l745:	
+  1214                           	
+  1215  079B                     l744:	
+  1216  079B  1A08               	btfsc	(68/8),(68)&7
+  1217  079C  2F9E               	goto	u781
+  1218  079D  2F9F               	goto	u780
+  1219  079E                     u781:
+  1220  079E  2F9B               	goto	l744
+  1221  079F                     u780:
+  1222  079F  2E12               	goto	l1153
+  1223                           	
+  1224  07A0                     l746:	
+  1225                           	line	107
+  1226                           ;keypad.c: 107: }
+  1227  07A0  2E12               	goto	l1153
+  1228                           	line	108
+  1229                           	
+  1230  07A1                     l743:	
+  1231                           ;keypad.c: 108: else if(RD5 == 1 && RD3 == 1 && RD1 ==0 && RD2 == 0 && RD0 == 0)
+  1232  07A1  1E88               	btfss	(69/8),(69)&7
+  1233  07A2  2FA4               	goto	u791
+  1234  07A3  2FA5               	goto	u790
+  1235  07A4                     u791:
+  1236  07A4  2FBE               	goto	l748
+  1237  07A5                     u790:
+  1238                           	
+  1239  07A5                     l1289:	
+  1240  07A5  1D88               	btfss	(67/8),(67)&7
+  1241  07A6  2FA8               	goto	u801
+  1242  07A7  2FA9               	goto	u800
+  1243  07A8                     u801:
+  1244  07A8  2FBE               	goto	l748
+  1245  07A9                     u800:
+  1246                           	
+  1247  07A9                     l1291:	
+  1248  07A9  1888               	btfsc	(65/8),(65)&7
+  1249  07AA  2FAC               	goto	u811
+  1250  07AB  2FAD               	goto	u810
+  1251  07AC                     u811:
+  1252  07AC  2FBE               	goto	l748
+  1253  07AD                     u810:
+  1254                           	
+  1255  07AD                     l1293:	
+  1256  07AD  1908               	btfsc	(66/8),(66)&7
+  1257  07AE  2FB0               	goto	u821
+  1258  07AF  2FB1               	goto	u820
+  1259  07B0                     u821:
+  1260  07B0  2FBE               	goto	l748
+  1261  07B1                     u820:
+  1262                           	
+  1263  07B1                     l1295:	
+  1264  07B1  1808               	btfsc	(64/8),(64)&7
+  1265  07B2  2FB4               	goto	u831
+  1266  07B3  2FB5               	goto	u830
+  1267  07B4                     u831:
+  1268  07B4  2FBE               	goto	l748
+  1269  07B5                     u830:
+  1270                           	line	110
+  1271                           	
+  1272  07B5                     l1297:	
+  1273                           ;keypad.c: 109: {
+  1274                           ;keypad.c: 110: PORTC = 0xFC;
+  1275  07B5  30FC               	movlw	(0FCh)
+  1276  07B6  0087               	movwf	(7)	;volatile
+  1277                           	line	111
+  1278                           ;keypad.c: 111: while(RD5==1);
+  1279  07B7  2FB8               	goto	l749
+  1280                           	
+  1281  07B8                     l750:	
+  1282                           	
+  1283  07B8                     l749:	
+  1284  07B8  1A88               	btfsc	(69/8),(69)&7
+  1285  07B9  2FBB               	goto	u841
+  1286  07BA  2FBC               	goto	u840
+  1287  07BB                     u841:
+  1288  07BB  2FB8               	goto	l749
+  1289  07BC                     u840:
+  1290  07BC  2E12               	goto	l1153
+  1291                           	
+  1292  07BD                     l751:	
+  1293                           	line	112
+  1294                           ;keypad.c: 112: }
+  1295  07BD  2E12               	goto	l1153
+  1296                           	line	113
+  1297                           	
+  1298  07BE                     l748:	
+  1299                           ;keypad.c: 113: else if(RD6 == 1 && RD3 == 1 && RD1 ==0 && RD2 == 0 && RD0 == 0)
+  1300  07BE  1F08               	btfss	(70/8),(70)&7
+  1301  07BF  2FC1               	goto	u851
+  1302  07C0  2FC2               	goto	u850
+  1303  07C1                     u851:
+  1304  07C1  2FDB               	goto	l753
+  1305  07C2                     u850:
+  1306                           	
+  1307  07C2                     l1299:	
+  1308  07C2  1D88               	btfss	(67/8),(67)&7
+  1309  07C3  2FC5               	goto	u861
+  1310  07C4  2FC6               	goto	u860
+  1311  07C5                     u861:
+  1312  07C5  2FDB               	goto	l753
+  1313  07C6                     u860:
+  1314                           	
+  1315  07C6                     l1301:	
+  1316  07C6  1888               	btfsc	(65/8),(65)&7
+  1317  07C7  2FC9               	goto	u871
+  1318  07C8  2FCA               	goto	u870
+  1319  07C9                     u871:
+  1320  07C9  2FDB               	goto	l753
+  1321  07CA                     u870:
+  1322                           	
+  1323  07CA                     l1303:	
+  1324  07CA  1908               	btfsc	(66/8),(66)&7
+  1325  07CB  2FCD               	goto	u881
+  1326  07CC  2FCE               	goto	u880
+  1327  07CD                     u881:
+  1328  07CD  2FDB               	goto	l753
+  1329  07CE                     u880:
+  1330                           	
+  1331  07CE                     l1305:	
+  1332  07CE  1808               	btfsc	(64/8),(64)&7
+  1333  07CF  2FD1               	goto	u891
+  1334  07D0  2FD2               	goto	u890
+  1335  07D1                     u891:
+  1336  07D1  2FDB               	goto	l753
+  1337  07D2                     u890:
+  1338                           	line	115
+  1339                           	
+  1340  07D2                     l1307:	
+  1341                           ;keypad.c: 114: {
+  1342                           ;keypad.c: 115: PORTC = 0x02;
+  1343  07D2  3002               	movlw	(02h)
+  1344  07D3  0087               	movwf	(7)	;volatile
+  1345                           	line	116
+  1346                           ;keypad.c: 116: while(RD6==1);
+  1347  07D4  2FD5               	goto	l754
+  1348                           	
+  1349  07D5                     l755:	
+  1350                           	
+  1351  07D5                     l754:	
+  1352  07D5  1B08               	btfsc	(70/8),(70)&7
+  1353  07D6  2FD8               	goto	u901
+  1354  07D7  2FD9               	goto	u900
+  1355  07D8                     u901:
+  1356  07D8  2FD5               	goto	l754
+  1357  07D9                     u900:
+  1358  07D9  2E12               	goto	l1153
+  1359                           	
+  1360  07DA                     l756:	
+  1361                           	line	117
+  1362                           ;keypad.c: 117: }
+  1363  07DA  2E12               	goto	l1153
+  1364                           	line	118
+  1365                           	
+  1366  07DB                     l753:	
+  1367                           ;keypad.c: 118: else if(RD7 == 1 && RD3 == 1 && RD1 ==0 && RD2 == 0 && RD0 == 0)
+  1368  07DB  1F88               	btfss	(71/8),(71)&7
+  1369  07DC  2FDE               	goto	u911
+  1370  07DD  2FDF               	goto	u910
+  1371  07DE                     u911:
+  1372  07DE  2E12               	goto	l1153
+  1373  07DF                     u910:
+  1374                           	
+  1375  07DF                     l1309:	
+  1376  07DF  1D88               	btfss	(67/8),(67)&7
+  1377  07E0  2FE2               	goto	u921
+  1378  07E1  2FE3               	goto	u920
+  1379  07E2                     u921:
+  1380  07E2  2E12               	goto	l1153
+  1381  07E3                     u920:
+  1382                           	
+  1383  07E3                     l1311:	
+  1384  07E3  1888               	btfsc	(65/8),(65)&7
+  1385  07E4  2FE6               	goto	u931
+  1386  07E5  2FE7               	goto	u930
+  1387  07E6                     u931:
+  1388  07E6  2E12               	goto	l1153
+  1389  07E7                     u930:
+  1390                           	
+  1391  07E7                     l1313:	
+  1392  07E7  1908               	btfsc	(66/8),(66)&7
+  1393  07E8  2FEA               	goto	u941
+  1394  07E9  2FEB               	goto	u940
+  1395  07EA                     u941:
+  1396  07EA  2E12               	goto	l1153
+  1397  07EB                     u940:
+  1398                           	
+  1399  07EB                     l1315:	
+  1400  07EB  1808               	btfsc	(64/8),(64)&7
+  1401  07EC  2FEE               	goto	u951
+  1402  07ED  2FEF               	goto	u950
+  1403  07EE                     u951:
+  1404  07EE  2E12               	goto	l1153
+  1405  07EF                     u950:
+  1406                           	line	120
+  1407                           	
+  1408  07EF                     l1317:	
+  1409                           ;keypad.c: 119: {
+  1410                           ;keypad.c: 120: PORTC = 0x7A;
+  1411  07EF  307A               	movlw	(07Ah)
+  1412  07F0  0087               	movwf	(7)	;volatile
+  1413                           	line	121
+  1414                           ;keypad.c: 121: while(RD7==1);
+  1415  07F1  2FF2               	goto	l759
+  1416                           	
+  1417  07F2                     l760:	
+  1418                           	
+  1419  07F2                     l759:	
+  1420  07F2  1B88               	btfsc	(71/8),(71)&7
+  1421  07F3  2FF5               	goto	u961
+  1422  07F4  2FF6               	goto	u960
+  1423  07F5                     u961:
+  1424  07F5  2FF2               	goto	l759
+  1425  07F6                     u960:
+  1426  07F6  2E12               	goto	l1153
+  1427                           	
+  1428  07F7                     l761:	
+  1429  07F7  2E12               	goto	l1153
+  1430                           	line	122
+  1431                           	
+  1432  07F8                     l758:	
+  1433  07F8  2E12               	goto	l1153
+  1434                           	line	123
+  1435                           	
+  1436  07F9                     l757:	
+  1437  07F9  2E12               	goto	l1153
+  1438                           	
+  1439  07FA                     l752:	
+  1440  07FA  2E12               	goto	l1153
+  1441                           	
+  1442  07FB                     l747:	
+  1443  07FB  2E12               	goto	l1153
+  1444                           	
+  1445  07FC                     l762:	
+  1446                           	line	27
+  1447  07FC  2E12               	goto	l1153
+  1448                           	
+  1449  07FD                     l763:	
+  1450                           	line	125
+  1451                           	
+  1452  07FD                     l764:	
+  1453                           	global	start
+  1454  07FD  120A  118A  2800   	ljmp	start
+  1455                           	opt stack 0
+  1456                           GLOBAL	__end_of_main
+  1457  0800                     	__end_of_main:
+  1458 ;; =============== function _main ends ============
+  1459                           
+  1460                           	signat	_main,90
+  1461                           psect	maintext
+  1462                           	global	btemp
+  1463  007E                     	btemp set 07Eh
+  1464                           
+  1465                           	DABS	1,126,2	;btemp
+  1466                           	global	wtemp0
+  1467  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Fri Aug 24 03:04:27 2018
+
+                  u10 061A                    u11 0619                    u20 061E                    u21 061D  
+                  u30 0622                    u31 0621                    u40 0626                    u41 0625  
+                  u50 062A                    u51 0629                    u60 0631                    u61 0630  
+                  u70 0637                    u71 0636                    u80 063B                    u81 063A  
+                  u90 063F                    u91 063E                   l700 068B                   l701 068A  
+                 l710 06CA                   l702 0684                   l711 06C4                   l703 0684  
+                 l720 0704                   l712 06C4                   l704 0689                   l721 06FE  
+                 l713 06C9                   l705 06AD                   l730 073E                   l714 0706  
+                 l722 06FE                   l706 06A7                   l731 073E                   l723 0703  
+                 l715 06E7                   l707 06A7                   l740 0778                   l732 0743  
+                 l724 0727                   l716 06E1                   l708 06AC                   l733 0780  
+                 l741 0778                   l725 0721                   l717 06E1                   l709 0706  
+                 l750 07B8                   l742 077D                   l734 0761                   l726 0721  
+                 l718 06E6                   l751 07BD                   l743 07A1                   l735 075B  
+                 l727 0726                   l719 0705                   l752 07FA                   l760 07F2  
+                 l744 079B                   l736 075B                   l728 0780                   l761 07F7  
+                 l753 07DB                   l745 079B                   l737 0760                   l729 0744  
+                 l762 07FC                   l754 07D5                   l746 07A0                   l738 077F  
+                 l690 068C                   l763 07FD                   l747 07FB                   l755 07D5  
+                 l739 077E                   l691 0650                   l764 07FD                   l756 07DA  
+                 l748 07BE                   l692 064A                   l757 07F9                   l749 07B8  
+                 l693 064A                   l685 0612                   l758 07F8                   l694 064F  
+                 l686 0633                   l759 07F2                   l695 068C                   l687 062D  
+                 l696 066D                   l688 062D                   l697 0667                   l689 0632  
+                 l698 0667                   l699 066C                   _RB1 0031                   _RD0 0040  
+                 _RD1 0041                   _RD2 0042                   _RD3 0043                   u100 0643  
+                 _RD4 0044                   u101 0642                   _RD5 0045                   u110 0647  
+                 _RD6 0046                   u111 0646                   _RD7 0047                   u200 0675  
+                 u120 064E                   u201 0674                   u121 064D                   u210 0679  
+                 u130 0654                   u211 0678                   u131 0653                   u300 06AB  
+                 u220 067D                   u140 0658                   u301 06AA                   u221 067C  
+                 u141 0657                   u310 06B1                   u230 0681                   u150 065C  
+                 u311 06B0                   u231 0680                   u151 065B                   u400 06DA  
+                 u320 06B5                   u240 0688                   u160 0660                   u401 06D9  
+                 u321 06B4                   u241 0687                   u161 065F                   u410 06DE  
+                 u330 06B9                   u250 0694                   u170 0664                   u411 06DD  
+                 u331 06B8                   u251 0693                   u171 0663                   u500 0712  
+                 u420 06E5                   u340 06BD                   u260 0698                   u180 066B  
+                 u501 0711                   u421 06E4                   u341 06BC                   u261 0697  
+                 u181 066A                   u510 0716                   u430 06EB                   u350 06C1  
+                 u270 069C                   u190 0671                   u511 0715                   u431 06EA  
+                 u351 06C0                   u271 069B                   u191 0670                   u600 0742  
+                 u520 071A                   u440 06EF                   u360 06C8                   u280 06A0  
+                 u601 0741                   u521 0719                   u441 06EE                   u361 06C7  
+                 u281 069F                   u610 0748                   u530 071E                   u450 06F3  
+                 u370 06CE                   u290 06A4                   u611 0747                   u531 071D  
+                 u451 06F2                   u371 06CD                   u291 06A3                   u700 0771  
+                 u620 074C                   u540 0725                   u460 06F7                   u380 06D2  
+                 u701 0770                   u621 074B                   u541 0724                   u461 06F6  
+                 u381 06D1                   u710 0775                   u630 0750                   u550 072B  
+                 u470 06FB                   u390 06D6                   u711 0774                   u631 074F  
+                 u551 072A                   u471 06FA                   u391 06D5                   u800 07A9  
+                 u720 077C                   u640 0754                   u560 072F                   u480 0702  
+                 u801 07A8                   u721 077B                   u641 0753                   u561 072E  
+                 u481 0701                   u810 07AD                   u730 0788                   u650 0758  
+                 u570 0733                   u490 070E                   u811 07AC                   u731 0787  
+                 u651 0757                   u571 0732                   u491 070D                   u900 07D9  
+                 u820 07B1                   u740 078C                   u660 075F                   u580 0737  
+                 u901 07D8                   u821 07B0                   u741 078B                   u661 075E  
+                 u581 0736                   u910 07DF                   u830 07B5                   u750 0790  
+                 u670 0765                   u590 073B                   u911 07DE                   u831 07B4  
+                 u751 078F                   u671 0764                   u591 073A                   u920 07E3  
+                 u840 07BC                   u760 0794                   u680 0769                   u921 07E2  
+                 u841 07BB                   u761 0793                   u681 0768                   u930 07E7  
+                 u850 07C2                   u770 0798                   u690 076D                   u931 07E6  
+                 u851 07C1                   u771 0797                   u691 076C                   u940 07EB  
+                 u860 07C6                   u780 079F                   u941 07EA                   u861 07C5  
+                 u781 079E                   u950 07EF                   u870 07CA                   u790 07A5  
+                 u951 07EE                   u871 07C9                   u791 07A4                   u960 07F6  
+                 u880 07CE                   u961 07F5                   u881 07CD                   u890 07D2  
+                 u891 07D1                  l1201 0698                  l1211 06B5                  l1203 069C  
+                l1301 07C6                  l1221 06D2                  l1213 06B9                  l1205 06A0  
+                l1141 0605                  l1311 07E3                  l1303 07CA                  l1231 06EF  
+                l1223 06D6                  l1215 06BD                  l1207 06A4                  l1151 060F  
+                l1143 0609                  l1313 07E7                  l1305 07CE                  l1241 0712  
+                l1233 06F3                  l1225 06DA                  l1217 06C1                  l1209 06B1  
+                l1161 061E                  l1153 0612                  l1145 060A                  l1315 07EB  
+                l1307 07D2                  l1251 072F                  l1243 0716                  l1235 06F7  
+                l1227 06DE                  l1219 06CE                  l1171 063B                  l1163 0622  
+                l1155 0613                  l1147 060B                  l1317 07EF                  l1309 07DF  
+                l1261 074C                  l1253 0733                  l1245 071A                  l1237 06FB  
+                l1229 06EB                  l1181 0658                  l1173 063F                  l1165 0626  
+                l1157 0616                  l1149 060E                  l1271 0769                  l1263 0750  
+                l1255 0737                  l1247 071E                  l1239 070E                  l1191 0675  
+                l1183 065C                  l1175 0643                  l1167 062A                  l1159 061A  
+                l1281 078C                  l1273 076D                  l1265 0754                  l1257 073B  
+                l1249 072B                  l1193 0679                  l1185 0660                  l1177 0647  
+                l1169 0637                  l1291 07A9                  l1283 0790                  l1275 0771  
+                l1267 0758                  l1259 0748                  l1195 067D                  l1187 0664  
+                l1179 0654                  l1293 07AD                  l1285 0794                  l1277 0775  
+                l1269 0765                  l1197 0681                  l1189 0671                  l1295 07B1  
+                l1287 0798                  l1279 0788                  l1199 0694                  l1297 07B5  
+                l1289 07A5                  l1299 07C2                  _RBIF 0058                  _main 0605  
+                btemp 007E                  start 0000                 ?_main 0000                 _T1CON 0010  
+               _TMR1H 000F                 _TMR1L 000E                 _PORTC 0007                 _PORTD 0008  
+               _TRISC 0087                 _TRISD 0088                 status 0003                 wtemp0 007E  
+        __end_of_main 0800                ??_main 0000                _TMR1IF 0060                _TRISB1 0431  
+      __pcstackCOMMON 0000            __pmaintext 0605  end_of_initialization 0601   start_initialization 0601  
+       __size_of_main 01FB  

@@ -1,0 +1,3 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+Error[480]   : function signatures do not match: _sprintf (C:\Program Files\HI-TECH Software\PICC-Lite\9.50\lib\pcl40c-c.lib: mprnt.obj): 0x1249/0x42

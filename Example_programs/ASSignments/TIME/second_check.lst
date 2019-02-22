@@ -1,0 +1,1467 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Mon Aug 13 12:01:04 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 16 "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 16 "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+    45  2007  1F7A               	dw 0x1F7A ;#
+    46                           	FNCALL	_main,_num
+    47                           	FNCALL	_num,_second_1st_dig
+    48                           	FNCALL	_num,_second_2nd_dig
+    49                           	FNCALL	_num,_min_1st_dig
+    50                           	FNCALL	_num,_min_2nd_dig
+    51                           	FNCALL	_min_2nd_dig,_delay
+    52                           	FNCALL	_min_1st_dig,_delay
+    53                           	FNCALL	_second_2nd_dig,_delay
+    54                           	FNCALL	_second_1st_dig,_delay
+    55                           	FNROOT	_main
+    56                           	global	_arr
+    57                           psect	idataBANK0,class=CODE,space=0,delta=2
+    58                           global __pidataBANK0
+    59  064C                     __pidataBANK0:
+    60                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+    61                           	line	23
+    62                           
+    63                           ;initializer for _arr
+    64  064C  34FC               	retlw	0FCh
+    65  064D  3460               	retlw	060h
+    66  064E  34DA               	retlw	0DAh
+    67  064F  34F2               	retlw	0F2h
+    68  0650  3466               	retlw	066h
+    69  0651  34B6               	retlw	0B6h
+    70  0652  34BE               	retlw	0BEh
+    71  0653  34E0               	retlw	0E0h
+    72  0654  34FE               	retlw	0FEh
+    73  0655  34F6               	retlw	0F6h
+    74                           	global	_e
+    75                           	global	_f
+    76                           	global	_b
+    77                           	global	_c
+    78                           	global	_d
+    79                           	global	_i
+    80                           	global	_j
+    81                           	global	_a
+    82                           psect	nvCOMMON,class=COMMON,space=1
+    83                           global __pnvCOMMON
+    84  007A                     __pnvCOMMON:
+    85  007A                     _a:
+    86  007A                            ds      2
+    87                           
+    88                           	global	_PORTB
+    89  0006                     _PORTB	set	6
+    90                           	global	_TMR1H
+    91  000F                     _TMR1H	set	15
+    92                           	global	_TMR1L
+    93  000E                     _TMR1L	set	14
+    94                           	global	_RD0
+    95  0040                     _RD0	set	64
+    96                           	global	_RD1
+    97  0041                     _RD1	set	65
+    98                           	global	_RD2
+    99  0042                     _RD2	set	66
+   100                           	global	_RD3
+   101  0043                     _RD3	set	67
+   102                           	global	_T1CKPS0
+   103  0084                     _T1CKPS0	set	132
+   104                           	global	_T1CKPS1
+   105  0085                     _T1CKPS1	set	133
+   106                           	global	_TMR1CS
+   107  0081                     _TMR1CS	set	129
+   108                           	global	_TMR1IF
+   109  0060                     _TMR1IF	set	96
+   110                           	global	_TMR1ON
+   111  0080                     _TMR1ON	set	128
+   112                           	global	_TRISB
+   113  0086                     _TRISB	set	134
+   114                           	global	_TRISD0
+   115  0440                     _TRISD0	set	1088
+   116                           	global	_TRISD1
+   117  0441                     _TRISD1	set	1089
+   118                           	global	_TRISD2
+   119  0442                     _TRISD2	set	1090
+   120                           	global	_TRISD3
+   121  0443                     _TRISD3	set	1091
+   122                           	file	"second_check.as"
+   123                           	line	#
+   124                           psect cinit,class=CODE,delta=2
+   125                           global start_initialization
+   126  06B0                     start_initialization:
+   127                           
+   128                           psect	bssCOMMON,class=COMMON,space=1
+   129                           global __pbssCOMMON
+   130  0070                     __pbssCOMMON:
+   131  0070                     _b:
+   132  0070                            ds      2
+   133                           
+   134  0072                     _c:
+   135  0072                            ds      2
+   136                           
+   137  0074                     _d:
+   138  0074                            ds      2
+   139                           
+   140  0076                     _i:
+   141  0076                            ds      2
+   142                           
+   143  0078                     _j:
+   144  0078                            ds      2
+   145                           
+   146                           psect	bssBANK0,class=BANK0,space=1
+   147                           global __pbssBANK0
+   148  002A                     __pbssBANK0:
+   149  002A                     _e:
+   150  002A                            ds      2
+   151                           
+   152  002C                     _f:
+   153  002C                            ds      2
+   154                           
+   155                           psect	dataBANK0,class=BANK0,space=1
+   156                           global __pdataBANK0
+   157  0020                     __pdataBANK0:
+   158                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   159  0020                     _arr:
+   160  0020                            ds      10
+   161                           
+   162                           ; Clear objects allocated to COMMON
+   163                           psect cinit,class=CODE,delta=2
+   164  06B0  01F0               	clrf	((__pbssCOMMON)+0)&07Fh
+   165  06B1  01F1               	clrf	((__pbssCOMMON)+1)&07Fh
+   166  06B2  01F2               	clrf	((__pbssCOMMON)+2)&07Fh
+   167  06B3  01F3               	clrf	((__pbssCOMMON)+3)&07Fh
+   168  06B4  01F4               	clrf	((__pbssCOMMON)+4)&07Fh
+   169  06B5  01F5               	clrf	((__pbssCOMMON)+5)&07Fh
+   170  06B6  01F6               	clrf	((__pbssCOMMON)+6)&07Fh
+   171  06B7  01F7               	clrf	((__pbssCOMMON)+7)&07Fh
+   172  06B8  01F8               	clrf	((__pbssCOMMON)+8)&07Fh
+   173  06B9  01F9               	clrf	((__pbssCOMMON)+9)&07Fh
+   174                           ; Clear objects allocated to BANK0
+   175                           psect cinit,class=CODE,delta=2
+   176  06BA  01AA               	clrf	((__pbssBANK0)+0)&07Fh
+   177  06BB  01AB               	clrf	((__pbssBANK0)+1)&07Fh
+   178  06BC  01AC               	clrf	((__pbssBANK0)+2)&07Fh
+   179  06BD  01AD               	clrf	((__pbssBANK0)+3)&07Fh
+   180                           global btemp
+   181                           psect inittext,class=CODE,delta=2
+   182                           global init_fetch,btemp
+   183                           ;	Called with low address in FSR and high address in W
+   184  0656                     init_fetch:
+   185  0656  087E               	movf btemp,w
+   186  0657  008A               	movwf pclath
+   187  0658  087F               	movf btemp+1,w
+   188  0659  0082               	movwf pc
+   189                           global init_ram
+   190                           ;Called with:
+   191                           ;	high address of idata address in btemp 
+   192                           ;	low address of idata address in btemp+1 
+   193                           ;	low address of data in FSR
+   194                           ;	high address + 1 of data in btemp-1
+   195  065A                     init_ram:
+   196  065A  2656  120A  118A   	fcall init_fetch
+   197  065D  0080               	movwf indf,f
+   198  065E  0A84               	incf fsr,f
+   199  065F  0804               	movf fsr,w
+   200  0660  067D               	xorwf btemp-1,w
+   201  0661  1903               	btfsc status,2
+   202  0662  3400               	retlw 0
+   203  0663  0AFF               	incf btemp+1,f
+   204  0664  1903               	btfsc status,2
+   205  0665  0AFE               	incf btemp,f
+   206  0666  2E5A               	goto init_ram
+   207                           ; Initialize objects allocated to BANK0
+   208                           psect cinit,class=CODE,delta=2
+   209                           global init_ram, __pidataBANK0
+   210  06BE  1383               	bcf	status, 7	;select IRP bank0
+   211  06BF  302A               	movlw low(__pdataBANK0+10)
+   212  06C0  00FD               	movwf btemp-1,f
+   213  06C1  3006               	movlw high(__pidataBANK0)
+   214  06C2  00FE               	movwf btemp,f
+   215  06C3  304C               	movlw low(__pidataBANK0)
+   216  06C4  00FF               	movwf btemp+1,f
+   217  06C5  3020               	movlw low(__pdataBANK0)
+   218  06C6  0084               	movwf fsr,f
+   219  06C7  120A  118A  265A   	fcall init_ram
+              120A  118A         
+   220                           psect cinit,class=CODE,delta=2
+   221                           global end_of_initialization
+   222                           
+   223                           ;End of C runtime variable initialization code
+   224                           
+   225  06CC                     end_of_initialization:
+   226  06CC  0183               clrf status
+   227  06CD  120A  118A  2F5B   ljmp _main	;jump to C main() function
+   228                           psect	cstackCOMMON,class=COMMON,space=1
+   229                           global __pcstackCOMMON
+   230  007C                     __pcstackCOMMON:
+   231                           	global	?_num
+   232  007C                     ?_num:	; 0 bytes @ 0x0
+   233                           	global	?_second_1st_dig
+   234  007C                     ?_second_1st_dig:	; 0 bytes @ 0x0
+   235                           	global	?_second_2nd_dig
+   236  007C                     ?_second_2nd_dig:	; 0 bytes @ 0x0
+   237                           	global	?_min_1st_dig
+   238  007C                     ?_min_1st_dig:	; 0 bytes @ 0x0
+   239                           	global	?_min_2nd_dig
+   240  007C                     ?_min_2nd_dig:	; 0 bytes @ 0x0
+   241                           	global	?_delay
+   242  007C                     ?_delay:	; 0 bytes @ 0x0
+   243                           	global	??_delay
+   244  007C                     ??_delay:	; 0 bytes @ 0x0
+   245                           	global	?_main
+   246  007C                     ?_main:	; 2 bytes @ 0x0
+   247  007C                     	ds	2
+   248                           	global	??_num
+   249  007E                     ??_num:	; 0 bytes @ 0x2
+   250                           	global	??_second_1st_dig
+   251  007E                     ??_second_1st_dig:	; 0 bytes @ 0x2
+   252                           	global	??_second_2nd_dig
+   253  007E                     ??_second_2nd_dig:	; 0 bytes @ 0x2
+   254                           	global	??_min_1st_dig
+   255  007E                     ??_min_1st_dig:	; 0 bytes @ 0x2
+   256                           	global	??_min_2nd_dig
+   257  007E                     ??_min_2nd_dig:	; 0 bytes @ 0x2
+   258                           	global	??_main
+   259  007E                     ??_main:	; 0 bytes @ 0x2
+   260 ;;Data sizes: Strings 0, constant 0, data 10, bss 14, persistent 2 stack 0
+   261 ;;Auto spaces:   Size  Autos    Used
+   262 ;; COMMON          14      2      14
+   263 ;; BANK0           80      0      14
+   264 ;; BANK1           80      0       0
+   265 ;; BANK3           96      0       0
+   266 ;; BANK2           96      0       0
+   267                           
+   268 ;;
+   269 ;; Pointer list with targets:
+   270                           
+   271 ;; ?_min_2nd_dig	void  size(1) Largest target is 0
+   272 ;;
+   273 ;; ?_min_1st_dig	void  size(1) Largest target is 0
+   274 ;;
+   275 ;; ?_second_2nd_dig	void  size(1) Largest target is 0
+   276 ;;
+   277 ;; ?_second_1st_dig	void  size(1) Largest target is 0
+   278 ;;
+   279                           
+   280                           
+   281 ;;
+   282 ;; Critical Paths under _main in COMMON
+   283 ;;
+   284 ;;   _num->_second_1st_dig
+   285 ;;   _num->_second_2nd_dig
+   286 ;;   _num->_min_1st_dig
+   287 ;;   _num->_min_2nd_dig
+   288 ;;
+   289 ;; Critical Paths under _main in BANK0
+   290 ;;
+   291 ;;   None.
+   292 ;;
+   293 ;; Critical Paths under _main in BANK1
+   294 ;;
+   295 ;;   None.
+   296 ;;
+   297 ;; Critical Paths under _main in BANK3
+   298 ;;
+   299 ;;   None.
+   300 ;;
+   301 ;; Critical Paths under _main in BANK2
+   302 ;;
+   303 ;;   None.
+   304                           
+   305 ;;
+   306 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   307 ;;
+   308                           
+   309 ;;
+   310 ;;Call Graph Tables:
+   311 ;;
+   312 ;; ---------------------------------------------------------------------------------
+   313 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   314 ;; ---------------------------------------------------------------------------------
+   315 ;; (0) _main                                                 0     0      0       0
+   316 ;;                                _num
+   317 ;; ---------------------------------------------------------------------------------
+   318 ;; (1) _num                                                  0     0      0       0
+   319 ;;                     _second_1st_dig
+   320 ;;                     _second_2nd_dig
+   321 ;;                        _min_1st_dig
+   322 ;;                        _min_2nd_dig
+   323 ;; ---------------------------------------------------------------------------------
+   324 ;; (2) _min_2nd_dig                                          2     0      2       0
+   325 ;;                                              0 COMMON     2     0      2
+   326 ;;                              _delay
+   327 ;; ---------------------------------------------------------------------------------
+   328 ;; (2) _min_1st_dig                                          2     0      2       0
+   329 ;;                                              0 COMMON     2     0      2
+   330 ;;                              _delay
+   331 ;; ---------------------------------------------------------------------------------
+   332 ;; (2) _second_2nd_dig                                       2     0      2       0
+   333 ;;                                              0 COMMON     2     0      2
+   334 ;;                              _delay
+   335 ;; ---------------------------------------------------------------------------------
+   336 ;; (2) _second_1st_dig                                       2     0      2       0
+   337 ;;                                              0 COMMON     2     0      2
+   338 ;;                              _delay
+   339 ;; ---------------------------------------------------------------------------------
+   340 ;; (3) _delay                                                0     0      0       0
+   341 ;; ---------------------------------------------------------------------------------
+   342 ;; Estimated maximum stack depth 3
+   343 ;; ---------------------------------------------------------------------------------
+   344                           
+   345 ;; Call Graph Graphs:
+   346                           
+   347 ;; _main (ROOT)
+   348 ;;   _num
+   349 ;;     _second_1st_dig
+   350 ;;       _delay
+   351 ;;     _second_2nd_dig
+   352 ;;       _delay
+   353 ;;     _min_1st_dig
+   354 ;;       _delay
+   355 ;;     _min_2nd_dig
+   356 ;;       _delay
+   357 ;;
+   358                           
+   359 ;; Address spaces:
+   360                           
+   361 ;;Name               Size   Autos  Total    Cost      Usage
+   362 ;;BANK3               60      0       0       9        0.0%
+   363 ;;BITBANK3            60      0       0       8        0.0%
+   364 ;;SFR3                 0      0       0       4        0.0%
+   365 ;;BITSFR3              0      0       0       4        0.0%
+   366 ;;BANK2               60      0       0      11        0.0%
+   367 ;;BITBANK2            60      0       0      10        0.0%
+   368 ;;SFR2                 0      0       0       5        0.0%
+   369 ;;BITSFR2              0      0       0       5        0.0%
+   370 ;;SFR1                 0      0       0       2        0.0%
+   371 ;;BITSFR1              0      0       0       2        0.0%
+   372 ;;BANK1               50      0       0       7        0.0%
+   373 ;;BITBANK1            50      0       0       6        0.0%
+   374 ;;CODE                 0      0       0       0        0.0%
+   375 ;;DATA                 0      0      1F      12        0.0%
+   376 ;;ABS                  0      0      1C       3        0.0%
+   377 ;;NULL                 0      0       0       0        0.0%
+   378 ;;STACK                0      0       3       2        0.0%
+   379 ;;BANK0               50      0       E       5       17.5%
+   380 ;;BITBANK0            50      0       0       4        0.0%
+   381 ;;SFR0                 0      0       0       1        0.0%
+   382 ;;BITSFR0              0      0       0       1        0.0%
+   383 ;;COMMON               E      2       E       1      100.0%
+   384 ;;BITCOMMON            E      0       0       0        0.0%
+   385 ;;EEDATA             100      0       0       0        0.0%
+   386                           
+   387                           	global	_main
+   388                           psect	maintext,global,class=CODE,delta=2
+   389                           global __pmaintext
+   390  075B                     __pmaintext:
+   391                           
+   392 ;; *************** function _main *****************
+   393 ;; Defined at:
+   394 ;;		line 28 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   395 ;; Parameters:    Size  Location     Type
+   396 ;;		None
+   397 ;; Auto vars:     Size  Location     Type
+   398 ;;		None
+   399 ;; Return value:  Size  Location     Type
+   400 ;;                  2  712[COMMON] int 
+   401 ;; Registers used:
+   402 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   403 ;; Tracked objects:
+   404 ;;		On entry : 17F/0
+   405 ;;		On exit  : 0/0
+   406 ;;		Unchanged: 0/0
+   407 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   408 ;;      Params:         0       0       0       0       0
+   409 ;;      Locals:         0       0       0       0       0
+   410 ;;      Temps:          0       0       0       0       0
+   411 ;;      Totals:         0       0       0       0       0
+   412 ;;Total ram usage:        0 bytes
+   413 ;; Hardware stack levels required when called:    3
+   414 ;; This function calls:
+   415 ;;		_num
+   416 ;; This function is called by:
+   417 ;;		Startup code after reset
+   418 ;; This function uses a non-reentrant model
+   419 ;;
+   420                           psect	maintext
+   421                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   422                           	line	28
+   423                           	global	__size_of_main
+   424  00A5                     	__size_of_main	equ	__end_of_main-_main
+   425                           	
+   426  075B                     _main:	
+   427                           	opt	stack 5
+   428                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   429                           	line	29
+   430                           	
+   431  075B                     l2032:	
+   432                           ;second_check.c: 29: TRISD3 = TRISD2 = TRISD1 = TRISD0 = 0;
+   433  075B  1683               	bsf	status, 5	;RP0=1, select bank1
+   434  075C  1303               	bcf	status, 6	;RP1=0, select bank1
+   435  075D  1008               	bcf	(1088/8)^080h,(1088)&7
+   436  075E  1088               	bcf	(1089/8)^080h,(1089)&7
+   437  075F  1108               	bcf	(1090/8)^080h,(1090)&7
+   438  0760  1188               	bcf	(1091/8)^080h,(1091)&7
+   439                           	line	30
+   440                           	
+   441  0761                     l2034:	
+   442                           ;second_check.c: 30: TRISB = 0;
+   443  0761  0186               	clrf	(134)^080h	;volatile
+   444                           	line	31
+   445                           ;second_check.c: 31: while(1)
+   446                           	
+   447  0762                     l713:	
+   448                           	line	33
+   449                           ;second_check.c: 32: {
+   450                           ;second_check.c: 33: for(a=0;a<6;a++)
+   451  0762  01FA               	clrf	(_a)
+   452  0763  01FB               	clrf	(_a+1)
+   453                           	
+   454  0764                     l2036:	
+   455  0764  087B               	movf	(_a+1),w
+   456  0765  3A80               	xorlw	80h
+   457  0766  00FF               	movwf	btemp+1
+   458  0767  3080               	movlw	(high(06h))^80h
+   459  0768  027F               	subwf	btemp+1,w
+   460  0769  1D03               	skipz
+   461  076A  2F6D               	goto	u2325
+   462  076B  3006               	movlw	low(06h)
+   463  076C  027A               	subwf	(_a),w
+   464  076D                     u2325:
+   465                           
+   466  076D  1C03               	skipc
+   467  076E  2F70               	goto	u2321
+   468  076F  2F71               	goto	u2320
+   469  0770                     u2321:
+   470  0770  2F73               	goto	l2040
+   471  0771                     u2320:
+   472  0771  2F62               	goto	l713
+   473                           	
+   474  0772                     l2038:	
+   475  0772  2F62               	goto	l713
+   476                           	line	34
+   477                           	
+   478  0773                     l714:	
+   479                           	
+   480  0773                     l2040:	
+   481                           ;second_check.c: 34: for(b=0;b<10;b++)
+   482  0773  01F0               	clrf	(_b)
+   483  0774  01F1               	clrf	(_b+1)
+   484                           	
+   485  0775                     l2042:	
+   486  0775  0871               	movf	(_b+1),w
+   487  0776  3A80               	xorlw	80h
+   488  0777  00FF               	movwf	btemp+1
+   489  0778  3080               	movlw	(high(0Ah))^80h
+   490  0779  027F               	subwf	btemp+1,w
+   491  077A  1D03               	skipz
+   492  077B  2F7E               	goto	u2335
+   493  077C  300A               	movlw	low(0Ah)
+   494  077D  0270               	subwf	(_b),w
+   495  077E                     u2335:
+   496                           
+   497  077E  1C03               	skipc
+   498  077F  2F81               	goto	u2331
+   499  0780  2F82               	goto	u2330
+   500  0781                     u2331:
+   501  0781  2F84               	goto	l2046
+   502  0782                     u2330:
+   503  0782  2FE7               	goto	l2072
+   504                           	
+   505  0783                     l2044:	
+   506  0783  2FE7               	goto	l2072
+   507                           	line	37
+   508                           	
+   509  0784                     l716:	
+   510                           	
+   511  0784                     l2046:	
+   512                           ;second_check.c: 37: for(c=0;c<6;c++)
+   513  0784  01F2               	clrf	(_c)
+   514  0785  01F3               	clrf	(_c+1)
+   515                           	
+   516  0786                     l2048:	
+   517  0786  0873               	movf	(_c+1),w
+   518  0787  3A80               	xorlw	80h
+   519  0788  00FF               	movwf	btemp+1
+   520  0789  3080               	movlw	(high(06h))^80h
+   521  078A  027F               	subwf	btemp+1,w
+   522  078B  1D03               	skipz
+   523  078C  2F8F               	goto	u2345
+   524  078D  3006               	movlw	low(06h)
+   525  078E  0272               	subwf	(_c),w
+   526  078F                     u2345:
+   527                           
+   528  078F  1C03               	skipc
+   529  0790  2F92               	goto	u2341
+   530  0791  2F93               	goto	u2340
+   531  0792                     u2341:
+   532  0792  2F95               	goto	l2052
+   533  0793                     u2340:
+   534  0793  2FD3               	goto	l2068
+   535                           	
+   536  0794                     l2050:	
+   537  0794  2FD3               	goto	l2068
+   538                           	line	38
+   539                           	
+   540  0795                     l718:	
+   541                           	
+   542  0795                     l2052:	
+   543                           ;second_check.c: 38: for(d=0;d<10;d++)
+   544  0795  01F4               	clrf	(_d)
+   545  0796  01F5               	clrf	(_d+1)
+   546                           	
+   547  0797                     l2054:	
+   548  0797  0875               	movf	(_d+1),w
+   549  0798  3A80               	xorlw	80h
+   550  0799  00FF               	movwf	btemp+1
+   551  079A  3080               	movlw	(high(0Ah))^80h
+   552  079B  027F               	subwf	btemp+1,w
+   553  079C  1D03               	skipz
+   554  079D  2FA0               	goto	u2355
+   555  079E  300A               	movlw	low(0Ah)
+   556  079F  0274               	subwf	(_d),w
+   557  07A0                     u2355:
+   558                           
+   559  07A0  1C03               	skipc
+   560  07A1  2FA3               	goto	u2351
+   561  07A2  2FA4               	goto	u2350
+   562  07A3                     u2351:
+   563  07A3  2FA6               	goto	l2058
+   564  07A4                     u2350:
+   565  07A4  2FBF               	goto	l2064
+   566                           	
+   567  07A5                     l2056:	
+   568  07A5  2FBF               	goto	l2064
+   569                           	line	39
+   570                           	
+   571  07A6                     l720:	
+   572                           	
+   573  07A6                     l2058:	
+   574                           ;second_check.c: 39: num();
+   575  07A6  120A  118A  26F6   	fcall	_num
+              120A  118A         
+   576                           	line	38
+   577                           	
+   578  07AB                     l2060:	
+   579  07AB  3001               	movlw	low(01h)
+   580  07AC  07F4               	addwf	(_d),f
+   581  07AD  1803               	skipnc
+   582  07AE  0AF5               	incf	(_d+1),f
+   583  07AF  3000               	movlw	high(01h)
+   584  07B0  07F5               	addwf	(_d+1),f
+   585                           	
+   586  07B1                     l2062:	
+   587  07B1  0875               	movf	(_d+1),w
+   588  07B2  3A80               	xorlw	80h
+   589  07B3  00FF               	movwf	btemp+1
+   590  07B4  3080               	movlw	(high(0Ah))^80h
+   591  07B5  027F               	subwf	btemp+1,w
+   592  07B6  1D03               	skipz
+   593  07B7  2FBA               	goto	u2365
+   594  07B8  300A               	movlw	low(0Ah)
+   595  07B9  0274               	subwf	(_d),w
+   596  07BA                     u2365:
+   597                           
+   598  07BA  1C03               	skipc
+   599  07BB  2FBD               	goto	u2361
+   600  07BC  2FBE               	goto	u2360
+   601  07BD                     u2361:
+   602  07BD  2FA6               	goto	l2058
+   603  07BE                     u2360:
+   604  07BE  2FBF               	goto	l2064
+   605                           	
+   606  07BF                     l721:	
+   607                           	line	37
+   608                           	
+   609  07BF                     l2064:	
+   610  07BF  3001               	movlw	low(01h)
+   611  07C0  07F2               	addwf	(_c),f
+   612  07C1  1803               	skipnc
+   613  07C2  0AF3               	incf	(_c+1),f
+   614  07C3  3000               	movlw	high(01h)
+   615  07C4  07F3               	addwf	(_c+1),f
+   616                           	
+   617  07C5                     l2066:	
+   618  07C5  0873               	movf	(_c+1),w
+   619  07C6  3A80               	xorlw	80h
+   620  07C7  00FF               	movwf	btemp+1
+   621  07C8  3080               	movlw	(high(06h))^80h
+   622  07C9  027F               	subwf	btemp+1,w
+   623  07CA  1D03               	skipz
+   624  07CB  2FCE               	goto	u2375
+   625  07CC  3006               	movlw	low(06h)
+   626  07CD  0272               	subwf	(_c),w
+   627  07CE                     u2375:
+   628                           
+   629  07CE  1C03               	skipc
+   630  07CF  2FD1               	goto	u2371
+   631  07D0  2FD2               	goto	u2370
+   632  07D1                     u2371:
+   633  07D1  2F95               	goto	l2052
+   634  07D2                     u2370:
+   635  07D2  2FD3               	goto	l2068
+   636                           	
+   637  07D3                     l719:	
+   638                           	line	34
+   639                           	
+   640  07D3                     l2068:	
+   641  07D3  3001               	movlw	low(01h)
+   642  07D4  07F0               	addwf	(_b),f
+   643  07D5  1803               	skipnc
+   644  07D6  0AF1               	incf	(_b+1),f
+   645  07D7  3000               	movlw	high(01h)
+   646  07D8  07F1               	addwf	(_b+1),f
+   647                           	
+   648  07D9                     l2070:	
+   649  07D9  0871               	movf	(_b+1),w
+   650  07DA  3A80               	xorlw	80h
+   651  07DB  00FF               	movwf	btemp+1
+   652  07DC  3080               	movlw	(high(0Ah))^80h
+   653  07DD  027F               	subwf	btemp+1,w
+   654  07DE  1D03               	skipz
+   655  07DF  2FE2               	goto	u2385
+   656  07E0  300A               	movlw	low(0Ah)
+   657  07E1  0270               	subwf	(_b),w
+   658  07E2                     u2385:
+   659                           
+   660  07E2  1C03               	skipc
+   661  07E3  2FE5               	goto	u2381
+   662  07E4  2FE6               	goto	u2380
+   663  07E5                     u2381:
+   664  07E5  2F84               	goto	l2046
+   665  07E6                     u2380:
+   666  07E6  2FE7               	goto	l2072
+   667                           	
+   668  07E7                     l717:	
+   669                           	line	33
+   670                           	
+   671  07E7                     l2072:	
+   672  07E7  3001               	movlw	low(01h)
+   673  07E8  07FA               	addwf	(_a),f
+   674  07E9  1803               	skipnc
+   675  07EA  0AFB               	incf	(_a+1),f
+   676  07EB  3000               	movlw	high(01h)
+   677  07EC  07FB               	addwf	(_a+1),f
+   678                           	
+   679  07ED                     l2074:	
+   680  07ED  087B               	movf	(_a+1),w
+   681  07EE  3A80               	xorlw	80h
+   682  07EF  00FF               	movwf	btemp+1
+   683  07F0  3080               	movlw	(high(06h))^80h
+   684  07F1  027F               	subwf	btemp+1,w
+   685  07F2  1D03               	skipz
+   686  07F3  2FF6               	goto	u2395
+   687  07F4  3006               	movlw	low(06h)
+   688  07F5  027A               	subwf	(_a),w
+   689  07F6                     u2395:
+   690                           
+   691  07F6  1C03               	skipc
+   692  07F7  2FF9               	goto	u2391
+   693  07F8  2FFA               	goto	u2390
+   694  07F9                     u2391:
+   695  07F9  2F73               	goto	l2040
+   696  07FA                     u2390:
+   697  07FA  2F62               	goto	l713
+   698                           	
+   699  07FB                     l715:	
+   700  07FB  2F62               	goto	l713
+   701                           	line	40
+   702                           	
+   703  07FC                     l722:	
+   704                           	line	31
+   705  07FC  2F62               	goto	l713
+   706                           	
+   707  07FD                     l723:	
+   708                           	line	41
+   709                           	
+   710  07FD                     l724:	
+   711                           	global	start
+   712  07FD  120A  118A  2800   	ljmp	start
+   713                           	opt stack 0
+   714                           GLOBAL	__end_of_main
+   715  0800                     	__end_of_main:
+   716 ;; =============== function _main ends ============
+   717                           
+   718                           	signat	_main,90
+   719                           	global	_num
+   720                           psect	text193,local,class=CODE,delta=2
+   721                           global __ptext193
+   722  06F6                     __ptext193:
+   723                           
+   724 ;; *************** function _num *****************
+   725 ;; Defined at:
+   726 ;;		line 46 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   727 ;; Parameters:    Size  Location     Type
+   728 ;;		None
+   729 ;; Auto vars:     Size  Location     Type
+   730 ;;		None
+   731 ;; Return value:  Size  Location     Type
+   732 ;;		None               void
+   733 ;; Registers used:
+   734 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   735 ;; Tracked objects:
+   736 ;;		On entry : 0/0
+   737 ;;		On exit  : 0/0
+   738 ;;		Unchanged: 0/0
+   739 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   740 ;;      Params:         0       0       0       0       0
+   741 ;;      Locals:         0       0       0       0       0
+   742 ;;      Temps:          0       0       0       0       0
+   743 ;;      Totals:         0       0       0       0       0
+   744 ;;Total ram usage:        0 bytes
+   745 ;; Hardware stack levels used:    1
+   746 ;; Hardware stack levels required when called:    2
+   747 ;; This function calls:
+   748 ;;		_second_1st_dig
+   749 ;;		_second_2nd_dig
+   750 ;;		_min_1st_dig
+   751 ;;		_min_2nd_dig
+   752 ;; This function is called by:
+   753 ;;		_main
+   754 ;; This function uses a non-reentrant model
+   755 ;;
+   756                           psect	text193
+   757                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   758                           	line	46
+   759                           	global	__size_of_num
+   760  0065                     	__size_of_num	equ	__end_of_num-_num
+   761                           	
+   762  06F6                     _num:	
+   763                           	opt	stack 5
+   764                           ; Regs used in _num: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   765                           	line	47
+   766                           	
+   767  06F6                     l2014:	
+   768                           ;second_check.c: 47: for(i=0;i<10;i++)
+   769  06F6  01F6               	clrf	(_i)
+   770  06F7  01F7               	clrf	(_i+1)
+   771                           	
+   772  06F8                     l2016:	
+   773  06F8  0877               	movf	(_i+1),w
+   774  06F9  3A80               	xorlw	80h
+   775  06FA  00FF               	movwf	btemp+1
+   776  06FB  3080               	movlw	(high(0Ah))^80h
+   777  06FC  027F               	subwf	btemp+1,w
+   778  06FD  1D03               	skipz
+   779  06FE  2F01               	goto	u2295
+   780  06FF  300A               	movlw	low(0Ah)
+   781  0700  0276               	subwf	(_i),w
+   782  0701                     u2295:
+   783                           
+   784  0701  1C03               	skipc
+   785  0702  2F04               	goto	u2291
+   786  0703  2F05               	goto	u2290
+   787  0704                     u2291:
+   788  0704  2F07               	goto	l727
+   789  0705                     u2290:
+   790  0705  2F5A               	goto	l732
+   791                           	
+   792  0706                     l2018:	
+   793  0706  2F5A               	goto	l732
+   794                           	line	48
+   795                           	
+   796  0707                     l727:	
+   797                           	line	49
+   798                           ;second_check.c: 48: {
+   799                           ;second_check.c: 49: TMR1CS = 0;
+   800  0707  1283               	bcf	status, 5	;RP0=0, select bank0
+   801  0708  1303               	bcf	status, 6	;RP1=0, select bank0
+   802  0709  1090               	bcf	(129/8),(129)&7
+   803                           	line	50
+   804                           ;second_check.c: 50: T1CKPS0 = 1;
+   805  070A  1610               	bsf	(132/8),(132)&7
+   806                           	line	51
+   807                           ;second_check.c: 51: T1CKPS1 = 1;
+   808  070B  1690               	bsf	(133/8),(133)&7
+   809                           	line	52
+   810                           	
+   811  070C                     l2020:	
+   812                           ;second_check.c: 52: TMR1H = 0X0B;
+   813  070C  300B               	movlw	(0Bh)
+   814  070D  008F               	movwf	(15)	;volatile
+   815                           	line	53
+   816                           ;second_check.c: 53: TMR1L = 0XDC;
+   817  070E  30DC               	movlw	(0DCh)
+   818  070F  008E               	movwf	(14)	;volatile
+   819                           	line	54
+   820                           	
+   821  0710                     l2022:	
+   822                           ;second_check.c: 54: TMR1ON = 1;
+   823  0710  1410               	bsf	(128/8),(128)&7
+   824                           	line	55
+   825                           ;second_check.c: 55: while(!TMR1IF)
+   826  0711  2F3F               	goto	l2026
+   827                           	
+   828  0712                     l730:	
+   829                           	line	57
+   830                           	
+   831  0712                     l2024:	
+   832                           ;second_check.c: 56: {
+   833                           ;second_check.c: 57: second_1st_dig(d);
+   834  0712  0875               	movf	(_d+1),w
+   835  0713  01FD               	clrf	(?_second_1st_dig+1)
+   836  0714  07FD               	addwf	(?_second_1st_dig+1)
+   837  0715  0874               	movf	(_d),w
+   838  0716  01FC               	clrf	(?_second_1st_dig)
+   839  0717  07FC               	addwf	(?_second_1st_dig)
+   840                           
+   841  0718  120A  118A  2667   	fcall	_second_1st_dig
+              120A  118A         
+   842                           	line	58
+   843                           ;second_check.c: 58: second_2nd_dig(c);
+   844  071D  0873               	movf	(_c+1),w
+   845  071E  01FD               	clrf	(?_second_2nd_dig+1)
+   846  071F  07FD               	addwf	(?_second_2nd_dig+1)
+   847  0720  0872               	movf	(_c),w
+   848  0721  01FC               	clrf	(?_second_2nd_dig)
+   849  0722  07FC               	addwf	(?_second_2nd_dig)
+   850                           
+   851  0723  120A  118A  2679   	fcall	_second_2nd_dig
+              120A  118A         
+   852                           	line	59
+   853                           ;second_check.c: 59: min_1st_dig(b);
+   854  0728  0871               	movf	(_b+1),w
+   855  0729  01FD               	clrf	(?_min_1st_dig+1)
+   856  072A  07FD               	addwf	(?_min_1st_dig+1)
+   857  072B  0870               	movf	(_b),w
+   858  072C  01FC               	clrf	(?_min_1st_dig)
+   859  072D  07FC               	addwf	(?_min_1st_dig)
+   860                           
+   861  072E  120A  118A  269D   	fcall	_min_1st_dig
+              120A  118A         
+   862                           	line	60
+   863                           ;second_check.c: 60: min_2nd_dig(a);
+   864  0733  087B               	movf	(_a+1),w
+   865  0734  01FD               	clrf	(?_min_2nd_dig+1)
+   866  0735  07FD               	addwf	(?_min_2nd_dig+1)
+   867  0736  087A               	movf	(_a),w
+   868  0737  01FC               	clrf	(?_min_2nd_dig)
+   869  0738  07FC               	addwf	(?_min_2nd_dig)
+   870                           
+   871  0739  120A  118A  268B   	fcall	_min_2nd_dig
+              120A  118A         
+   872  073E  2F3F               	goto	l2026
+   873                           	line	61
+   874                           	
+   875  073F                     l729:	
+   876                           	line	55
+   877                           	
+   878  073F                     l2026:	
+   879  073F  1283               	bcf	status, 5	;RP0=0, select bank0
+   880  0740  1303               	bcf	status, 6	;RP1=0, select bank0
+   881  0741  1C0C               	btfss	(96/8),(96)&7
+   882  0742  2F44               	goto	u2301
+   883  0743  2F45               	goto	u2300
+   884  0744                     u2301:
+   885  0744  2F12               	goto	l2024
+   886  0745                     u2300:
+   887                           	
+   888  0745                     l731:	
+   889                           	line	62
+   890                           ;second_check.c: 61: }
+   891                           ;second_check.c: 62: TMR1IF = 0;
+   892  0745  100C               	bcf	(96/8),(96)&7
+   893                           	line	47
+   894                           	
+   895  0746                     l2028:	
+   896  0746  3001               	movlw	low(01h)
+   897  0747  07F6               	addwf	(_i),f
+   898  0748  1803               	skipnc
+   899  0749  0AF7               	incf	(_i+1),f
+   900  074A  3000               	movlw	high(01h)
+   901  074B  07F7               	addwf	(_i+1),f
+   902                           	
+   903  074C                     l2030:	
+   904  074C  0877               	movf	(_i+1),w
+   905  074D  3A80               	xorlw	80h
+   906  074E  00FF               	movwf	btemp+1
+   907  074F  3080               	movlw	(high(0Ah))^80h
+   908  0750  027F               	subwf	btemp+1,w
+   909  0751  1D03               	skipz
+   910  0752  2F55               	goto	u2315
+   911  0753  300A               	movlw	low(0Ah)
+   912  0754  0276               	subwf	(_i),w
+   913  0755                     u2315:
+   914                           
+   915  0755  1C03               	skipc
+   916  0756  2F58               	goto	u2311
+   917  0757  2F59               	goto	u2310
+   918  0758                     u2311:
+   919  0758  2F07               	goto	l727
+   920  0759                     u2310:
+   921  0759  2F5A               	goto	l732
+   922                           	
+   923  075A                     l728:	
+   924                           	line	64
+   925                           	
+   926  075A                     l732:	
+   927  075A  0008               	return
+   928                           	opt stack 0
+   929                           GLOBAL	__end_of_num
+   930  075B                     	__end_of_num:
+   931 ;; =============== function _num ends ============
+   932                           
+   933                           	signat	_num,88
+   934                           	global	_min_2nd_dig
+   935                           psect	text194,local,class=CODE,delta=2
+   936                           global __ptext194
+   937  068B                     __ptext194:
+   938                           
+   939 ;; *************** function _min_2nd_dig *****************
+   940 ;; Defined at:
+   941 ;;		line 106 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   942 ;; Parameters:    Size  Location     Type
+   943 ;;		None
+   944 ;; Auto vars:     Size  Location     Type
+   945 ;;		None
+   946 ;; Return value:  Size  Location     Type
+   947 ;;		None               void
+   948 ;; Registers used:
+   949 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   950 ;; Tracked objects:
+   951 ;;		On entry : 0/0
+   952 ;;		On exit  : 0/0
+   953 ;;		Unchanged: 0/0
+   954 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   955 ;;      Params:         2       0       0       0       0
+   956 ;;      Locals:         0       0       0       0       0
+   957 ;;      Temps:          0       0       0       0       0
+   958 ;;      Totals:         2       0       0       0       0
+   959 ;;Total ram usage:        2 bytes
+   960 ;; Hardware stack levels used:    1
+   961 ;; Hardware stack levels required when called:    1
+   962 ;; This function calls:
+   963 ;;		_delay
+   964 ;; This function is called by:
+   965 ;;		_num
+   966 ;; This function uses a non-reentrant model
+   967 ;;
+   968                           psect	text194
+   969                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+   970                           	line	106
+   971                           	global	__size_of_min_2nd_dig
+   972  0012                     	__size_of_min_2nd_dig	equ	__end_of_min_2nd_dig-_min_2nd_dig
+   973                           	
+   974  068B                     _min_2nd_dig:	
+   975                           	opt	stack 5
+   976                           ; Regs used in _min_2nd_dig: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   977                           	line	107
+   978                           	
+   979  068B                     l2008:	
+   980                           ;second_check.c: 107: RD0 = 1;
+   981  068B  1283               	bcf	status, 5	;RP0=0, select bank0
+   982  068C  1303               	bcf	status, 6	;RP1=0, select bank0
+   983  068D  1408               	bsf	(64/8),(64)&7
+   984                           	line	108
+   985                           ;second_check.c: 108: RD1 = RD2 = RD3 = 0;
+   986  068E  1188               	bcf	(67/8),(67)&7
+   987  068F  1108               	bcf	(66/8),(66)&7
+   988  0690  1088               	bcf	(65/8),(65)&7
+   989                           	line	109
+   990                           	
+   991  0691                     l2010:	
+   992                           ;second_check.c: 109: PORTB = arr[a];
+   993  0691  087A               	movf	(_a),w
+   994  0692  3E20               	addlw	_arr&0ffh
+   995  0693  0084               	movwf	fsr0
+   996  0694  1383               	bcf	status, 7	;select IRP bank0
+   997  0695  0800               	movf	indf,w
+   998  0696  0086               	movwf	(6)	;volatile
+   999                           	line	110
+  1000                           	
+  1001  0697                     l2012:	
+  1002                           ;second_check.c: 110: delay();
+  1003  0697  120A  118A  26D0   	fcall	_delay
+              120A  118A         
+  1004                           	line	111
+  1005                           	
+  1006  069C                     l749:	
+  1007  069C  0008               	return
+  1008                           	opt stack 0
+  1009                           GLOBAL	__end_of_min_2nd_dig
+  1010  069D                     	__end_of_min_2nd_dig:
+  1011 ;; =============== function _min_2nd_dig ends ============
+  1012                           
+  1013                           	signat	_min_2nd_dig,88
+  1014                           	global	_min_1st_dig
+  1015                           psect	text195,local,class=CODE,delta=2
+  1016                           global __ptext195
+  1017  069D                     __ptext195:
+  1018                           
+  1019 ;; *************** function _min_1st_dig *****************
+  1020 ;; Defined at:
+  1021 ;;		line 96 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1022 ;; Parameters:    Size  Location     Type
+  1023 ;;		None
+  1024 ;; Auto vars:     Size  Location     Type
+  1025 ;;		None
+  1026 ;; Return value:  Size  Location     Type
+  1027 ;;		None               void
+  1028 ;; Registers used:
+  1029 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1030 ;; Tracked objects:
+  1031 ;;		On entry : 0/0
+  1032 ;;		On exit  : 0/0
+  1033 ;;		Unchanged: 0/0
+  1034 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1035 ;;      Params:         2       0       0       0       0
+  1036 ;;      Locals:         0       0       0       0       0
+  1037 ;;      Temps:          0       0       0       0       0
+  1038 ;;      Totals:         2       0       0       0       0
+  1039 ;;Total ram usage:        2 bytes
+  1040 ;; Hardware stack levels used:    1
+  1041 ;; Hardware stack levels required when called:    1
+  1042 ;; This function calls:
+  1043 ;;		_delay
+  1044 ;; This function is called by:
+  1045 ;;		_num
+  1046 ;; This function uses a non-reentrant model
+  1047 ;;
+  1048                           psect	text195
+  1049                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1050                           	line	96
+  1051                           	global	__size_of_min_1st_dig
+  1052  0013                     	__size_of_min_1st_dig	equ	__end_of_min_1st_dig-_min_1st_dig
+  1053                           	
+  1054  069D                     _min_1st_dig:	
+  1055                           	opt	stack 5
+  1056                           ; Regs used in _min_1st_dig: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1057                           	line	97
+  1058                           	
+  1059  069D                     l2002:	
+  1060                           ;second_check.c: 97: RD1 = 1;
+  1061  069D  1283               	bcf	status, 5	;RP0=0, select bank0
+  1062  069E  1303               	bcf	status, 6	;RP1=0, select bank0
+  1063  069F  1488               	bsf	(65/8),(65)&7
+  1064                           	line	98
+  1065                           ;second_check.c: 98: RD0 = RD2 = RD3 = 0;
+  1066  06A0  1188               	bcf	(67/8),(67)&7
+  1067  06A1  1108               	bcf	(66/8),(66)&7
+  1068  06A2  1008               	bcf	(64/8),(64)&7
+  1069                           	line	99
+  1070                           	
+  1071  06A3                     l2004:	
+  1072                           ;second_check.c: 99: PORTB = arr[b]+1;
+  1073  06A3  0870               	movf	(_b),w
+  1074  06A4  3E20               	addlw	_arr&0ffh
+  1075  06A5  0084               	movwf	fsr0
+  1076  06A6  1383               	bcf	status, 7	;select IRP bank0
+  1077  06A7  0800               	movf	indf,w
+  1078  06A8  3E01               	addlw	01h
+  1079  06A9  0086               	movwf	(6)	;volatile
+  1080                           	line	100
+  1081                           	
+  1082  06AA                     l2006:	
+  1083                           ;second_check.c: 100: delay();
+  1084  06AA  120A  118A  26D0   	fcall	_delay
+              120A  118A         
+  1085                           	line	101
+  1086                           	
+  1087  06AF                     l746:	
+  1088  06AF  0008               	return
+  1089                           	opt stack 0
+  1090                           GLOBAL	__end_of_min_1st_dig
+  1091  06B0                     	__end_of_min_1st_dig:
+  1092 ;; =============== function _min_1st_dig ends ============
+  1093                           
+  1094                           	signat	_min_1st_dig,88
+  1095                           	global	_second_2nd_dig
+  1096                           psect	text196,local,class=CODE,delta=2
+  1097                           global __ptext196
+  1098  0679                     __ptext196:
+  1099                           
+  1100 ;; *************** function _second_2nd_dig *****************
+  1101 ;; Defined at:
+  1102 ;;		line 86 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1103 ;; Parameters:    Size  Location     Type
+  1104 ;;		None
+  1105 ;; Auto vars:     Size  Location     Type
+  1106 ;;		None
+  1107 ;; Return value:  Size  Location     Type
+  1108 ;;		None               void
+  1109 ;; Registers used:
+  1110 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1111 ;; Tracked objects:
+  1112 ;;		On entry : 0/0
+  1113 ;;		On exit  : 0/0
+  1114 ;;		Unchanged: 0/0
+  1115 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1116 ;;      Params:         2       0       0       0       0
+  1117 ;;      Locals:         0       0       0       0       0
+  1118 ;;      Temps:          0       0       0       0       0
+  1119 ;;      Totals:         2       0       0       0       0
+  1120 ;;Total ram usage:        2 bytes
+  1121 ;; Hardware stack levels used:    1
+  1122 ;; Hardware stack levels required when called:    1
+  1123 ;; This function calls:
+  1124 ;;		_delay
+  1125 ;; This function is called by:
+  1126 ;;		_num
+  1127 ;; This function uses a non-reentrant model
+  1128 ;;
+  1129                           psect	text196
+  1130                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1131                           	line	86
+  1132                           	global	__size_of_second_2nd_dig
+  1133  0012                     	__size_of_second_2nd_dig	equ	__end_of_second_2nd_dig-_second_2nd_dig
+  1134                           	
+  1135  0679                     _second_2nd_dig:	
+  1136                           	opt	stack 5
+  1137                           ; Regs used in _second_2nd_dig: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1138                           	line	87
+  1139                           	
+  1140  0679                     l1996:	
+  1141                           ;second_check.c: 87: RD2 = 1;
+  1142  0679  1283               	bcf	status, 5	;RP0=0, select bank0
+  1143  067A  1303               	bcf	status, 6	;RP1=0, select bank0
+  1144  067B  1508               	bsf	(66/8),(66)&7
+  1145                           	line	88
+  1146                           ;second_check.c: 88: RD0 = RD1 = RD3 = 0;
+  1147  067C  1188               	bcf	(67/8),(67)&7
+  1148  067D  1088               	bcf	(65/8),(65)&7
+  1149  067E  1008               	bcf	(64/8),(64)&7
+  1150                           	line	89
+  1151                           	
+  1152  067F                     l1998:	
+  1153                           ;second_check.c: 89: PORTB = arr[c];
+  1154  067F  0872               	movf	(_c),w
+  1155  0680  3E20               	addlw	_arr&0ffh
+  1156  0681  0084               	movwf	fsr0
+  1157  0682  1383               	bcf	status, 7	;select IRP bank0
+  1158  0683  0800               	movf	indf,w
+  1159  0684  0086               	movwf	(6)	;volatile
+  1160                           	line	90
+  1161                           	
+  1162  0685                     l2000:	
+  1163                           ;second_check.c: 90: delay();
+  1164  0685  120A  118A  26D0   	fcall	_delay
+              120A  118A         
+  1165                           	line	91
+  1166                           	
+  1167  068A                     l743:	
+  1168  068A  0008               	return
+  1169                           	opt stack 0
+  1170                           GLOBAL	__end_of_second_2nd_dig
+  1171  068B                     	__end_of_second_2nd_dig:
+  1172 ;; =============== function _second_2nd_dig ends ============
+  1173                           
+  1174                           	signat	_second_2nd_dig,88
+  1175                           	global	_second_1st_dig
+  1176                           psect	text197,local,class=CODE,delta=2
+  1177                           global __ptext197
+  1178  0667                     __ptext197:
+  1179                           
+  1180 ;; *************** function _second_1st_dig *****************
+  1181 ;; Defined at:
+  1182 ;;		line 76 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1183 ;; Parameters:    Size  Location     Type
+  1184 ;;		None
+  1185 ;; Auto vars:     Size  Location     Type
+  1186 ;;		None
+  1187 ;; Return value:  Size  Location     Type
+  1188 ;;		None               void
+  1189 ;; Registers used:
+  1190 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1191 ;; Tracked objects:
+  1192 ;;		On entry : 0/0
+  1193 ;;		On exit  : 0/0
+  1194 ;;		Unchanged: 0/0
+  1195 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1196 ;;      Params:         2       0       0       0       0
+  1197 ;;      Locals:         0       0       0       0       0
+  1198 ;;      Temps:          0       0       0       0       0
+  1199 ;;      Totals:         2       0       0       0       0
+  1200 ;;Total ram usage:        2 bytes
+  1201 ;; Hardware stack levels used:    1
+  1202 ;; Hardware stack levels required when called:    1
+  1203 ;; This function calls:
+  1204 ;;		_delay
+  1205 ;; This function is called by:
+  1206 ;;		_num
+  1207 ;; This function uses a non-reentrant model
+  1208 ;;
+  1209                           psect	text197
+  1210                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1211                           	line	76
+  1212                           	global	__size_of_second_1st_dig
+  1213  0012                     	__size_of_second_1st_dig	equ	__end_of_second_1st_dig-_second_1st_dig
+  1214                           	
+  1215  0667                     _second_1st_dig:	
+  1216                           	opt	stack 5
+  1217                           ; Regs used in _second_1st_dig: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1218                           	line	77
+  1219                           	
+  1220  0667                     l1990:	
+  1221                           ;second_check.c: 77: RD3 = 1;
+  1222  0667  1283               	bcf	status, 5	;RP0=0, select bank0
+  1223  0668  1303               	bcf	status, 6	;RP1=0, select bank0
+  1224  0669  1588               	bsf	(67/8),(67)&7
+  1225                           	line	78
+  1226                           ;second_check.c: 78: RD0 = RD1 = RD2 = 0;
+  1227  066A  1108               	bcf	(66/8),(66)&7
+  1228  066B  1088               	bcf	(65/8),(65)&7
+  1229  066C  1008               	bcf	(64/8),(64)&7
+  1230                           	line	79
+  1231                           	
+  1232  066D                     l1992:	
+  1233                           ;second_check.c: 79: PORTB = arr[d];
+  1234  066D  0874               	movf	(_d),w
+  1235  066E  3E20               	addlw	_arr&0ffh
+  1236  066F  0084               	movwf	fsr0
+  1237  0670  1383               	bcf	status, 7	;select IRP bank0
+  1238  0671  0800               	movf	indf,w
+  1239  0672  0086               	movwf	(6)	;volatile
+  1240                           	line	80
+  1241                           	
+  1242  0673                     l1994:	
+  1243                           ;second_check.c: 80: delay();
+  1244  0673  120A  118A  26D0   	fcall	_delay
+              120A  118A         
+  1245                           	line	81
+  1246                           	
+  1247  0678                     l740:	
+  1248  0678  0008               	return
+  1249                           	opt stack 0
+  1250                           GLOBAL	__end_of_second_1st_dig
+  1251  0679                     	__end_of_second_1st_dig:
+  1252 ;; =============== function _second_1st_dig ends ============
+  1253                           
+  1254                           	signat	_second_1st_dig,88
+  1255                           	global	_delay
+  1256                           psect	text198,local,class=CODE,delta=2
+  1257                           global __ptext198
+  1258  06D0                     __ptext198:
+  1259                           
+  1260 ;; *************** function _delay *****************
+  1261 ;; Defined at:
+  1262 ;;		line 69 in file "C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1263 ;; Parameters:    Size  Location     Type
+  1264 ;;		None
+  1265 ;; Auto vars:     Size  Location     Type
+  1266 ;;		None
+  1267 ;; Return value:  Size  Location     Type
+  1268 ;;		None               void
+  1269 ;; Registers used:
+  1270 ;;		wreg, status,2, btemp+1
+  1271 ;; Tracked objects:
+  1272 ;;		On entry : 0/0
+  1273 ;;		On exit  : 0/0
+  1274 ;;		Unchanged: 0/0
+  1275 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1276 ;;      Params:         0       0       0       0       0
+  1277 ;;      Locals:         0       0       0       0       0
+  1278 ;;      Temps:          0       0       0       0       0
+  1279 ;;      Totals:         0       0       0       0       0
+  1280 ;;Total ram usage:        0 bytes
+  1281 ;; Hardware stack levels used:    1
+  1282 ;; This function calls:
+  1283 ;;		Nothing
+  1284 ;; This function is called by:
+  1285 ;;		_second_1st_dig
+  1286 ;;		_second_2nd_dig
+  1287 ;;		_min_1st_dig
+  1288 ;;		_min_2nd_dig
+  1289 ;; This function uses a non-reentrant model
+  1290 ;;
+  1291                           psect	text198
+  1292                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\TIME\second_check.c"
+  1293                           	line	69
+  1294                           	global	__size_of_delay
+  1295  0026                     	__size_of_delay	equ	__end_of_delay-_delay
+  1296                           	
+  1297  06D0                     _delay:	
+  1298                           	opt	stack 5
+  1299                           ; Regs used in _delay: [wreg+status,2+btemp+1]
+  1300                           	line	70
+  1301                           	
+  1302  06D0                     l1980:	
+  1303                           ;second_check.c: 70: for(j=0;j<1000;j++);
+  1304  06D0  01F8               	clrf	(_j)
+  1305  06D1  01F9               	clrf	(_j+1)
+  1306                           	
+  1307  06D2                     l1982:	
+  1308  06D2  0879               	movf	(_j+1),w
+  1309  06D3  3A80               	xorlw	80h
+  1310  06D4  00FF               	movwf	btemp+1
+  1311  06D5  3083               	movlw	(high(03E8h))^80h
+  1312  06D6  027F               	subwf	btemp+1,w
+  1313  06D7  1D03               	skipz
+  1314  06D8  2EDB               	goto	u2275
+  1315  06D9  30E8               	movlw	low(03E8h)
+  1316  06DA  0278               	subwf	(_j),w
+  1317  06DB                     u2275:
+  1318                           
+  1319  06DB  1C03               	skipc
+  1320  06DC  2EDE               	goto	u2271
+  1321  06DD  2EDF               	goto	u2270
+  1322  06DE                     u2271:
+  1323  06DE  2EE1               	goto	l1986
+  1324  06DF                     u2270:
+  1325  06DF  2EF5               	goto	l737
+  1326                           	
+  1327  06E0                     l1984:	
+  1328  06E0  2EF5               	goto	l737
+  1329                           	
+  1330  06E1                     l735:	
+  1331                           	
+  1332  06E1                     l1986:	
+  1333  06E1  3001               	movlw	low(01h)
+  1334  06E2  07F8               	addwf	(_j),f
+  1335  06E3  1803               	skipnc
+  1336  06E4  0AF9               	incf	(_j+1),f
+  1337  06E5  3000               	movlw	high(01h)
+  1338  06E6  07F9               	addwf	(_j+1),f
+  1339                           	
+  1340  06E7                     l1988:	
+  1341  06E7  0879               	movf	(_j+1),w
+  1342  06E8  3A80               	xorlw	80h
+  1343  06E9  00FF               	movwf	btemp+1
+  1344  06EA  3083               	movlw	(high(03E8h))^80h
+  1345  06EB  027F               	subwf	btemp+1,w
+  1346  06EC  1D03               	skipz
+  1347  06ED  2EF0               	goto	u2285
+  1348  06EE  30E8               	movlw	low(03E8h)
+  1349  06EF  0278               	subwf	(_j),w
+  1350  06F0                     u2285:
+  1351                           
+  1352  06F0  1C03               	skipc
+  1353  06F1  2EF3               	goto	u2281
+  1354  06F2  2EF4               	goto	u2280
+  1355  06F3                     u2281:
+  1356  06F3  2EE1               	goto	l1986
+  1357  06F4                     u2280:
+  1358  06F4  2EF5               	goto	l737
+  1359                           	
+  1360  06F5                     l736:	
+  1361                           	line	71
+  1362                           	
+  1363  06F5                     l737:	
+  1364  06F5  0008               	return
+  1365                           	opt stack 0
+  1366                           GLOBAL	__end_of_delay
+  1367  06F6                     	__end_of_delay:
+  1368 ;; =============== function _delay ends ============
+  1369                           
+  1370                           	signat	_delay,88
+  1371                           psect	text199,local,class=CODE,delta=2
+  1372                           global __ptext199
+  1373  0000                     __ptext199:
+  1374                           	global	btemp
+  1375  007E                     	btemp set 07Eh
+  1376                           
+  1377                           	DABS	1,126,2	;btemp
+  1378                           	global	wtemp0
+  1379  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Mon Aug 13 12:01:04 2018
+
+                      _a 007A                        _b 0070                        _c 0072  
+                      _d 0074                        _e 002A                        _f 002C  
+                      _i 0076                        _j 0078                        pc 0002  
+                     fsr 0004                      l720 07A6                      l721 07BF  
+                    l713 0762                      l730 0712                      l722 07FC  
+                    l714 0773                      l731 0745                      l723 07FD  
+                    l715 07FB                      l740 0678                      l732 075A  
+                    l724 07FD                      l716 0784                      l717 07E7  
+                    l718 0795                      l735 06E1                      l743 068A  
+                    l727 0707                      l719 07D3                      l736 06F5  
+                    l728 075A                      l737 06F5                      l729 073F  
+                    l746 06AF                      l749 069C                      _RD0 0040  
+                    _RD1 0041                      _RD2 0042                      _RD3 0043  
+                    _arr 0020                      _num 06F6                      fsr0 0004  
+                    indf 0000                     l2000 0685                     l2002 069D  
+                   l2010 0691                     l2004 06A3                     l2012 0697  
+                   l2020 070C                     l2006 06AA                     l2030 074C  
+                   l2022 0710                     l2014 06F6                     l2008 068B  
+                   l2024 0712                     l2016 06F8                     l2040 0773  
+                   l2032 075B                     l2026 073F                     l2018 0706  
+                   l2050 0794                     l2042 0775                     l2034 0761  
+                   l2028 0746                     l2060 07AB                     l2052 0795  
+                   l2044 0783                     l2036 0764                     l2070 07D9  
+                   l2062 07B1                     l2054 0797                     l2046 0784  
+                   l2038 0772                     l2056 07A5                     l2064 07BF  
+                   l2048 0786                     l2072 07E7                     l2074 07ED  
+                   l2066 07C5                     l2058 07A6                     l2068 07D3  
+                   l1980 06D0                     l1982 06D2                     l1990 0667  
+                   l1984 06E0                     l1992 066D                     l1986 06E1  
+                   l1994 0673                     l1988 06E7                     l1996 0679  
+                   l1998 067F                     ?_num 007C                     u2300 0745  
+                   u2301 0744                     u2310 0759                     u2311 0758  
+                   u2320 0771                     u2321 0770                     u2330 0782  
+                   u2315 0755                     u2331 0781                     u2340 0793  
+                   u2341 0792                     u2325 076D                     u2270 06DF  
+                   u2350 07A4                     u2271 06DE                     u2351 07A3  
+                   u2335 077E                     u2280 06F4                     u2360 07BE  
+                   u2281 06F3                     u2361 07BD                     u2345 078F  
+                   u2290 0705                     u2370 07D2                     u2275 06DB  
+                   u2291 0704                     u2371 07D1                     u2355 07A0  
+                   u2380 07E6                     u2285 06F0                     u2381 07E5  
+                   u2365 07BA                     u2390 07FA                     u2295 0701  
+                   u2391 07F9                     u2375 07CE                     u2385 07E2  
+                   u2395 07F6             ?_min_2nd_dig 007C             ?_min_1st_dig 007C  
+                   _main 075B                     btemp 007E                     start 0000  
+                  ??_num 007E                    ?_main 007C           _second_2nd_dig 0679  
+                  _TMR1H 000F                    _TMR1L 000E                    _PORTB 0006  
+                  _TRISB 0086           _second_1st_dig 0667                    _delay 06D0  
+                  pclath 000A                    status 0003                    wtemp0 007E  
+           __end_of_main 0800   __end_of_second_2nd_dig 068B                   ??_main 007E  
+ __end_of_second_1st_dig 0679                   ?_delay 007C                   _TMR1IF 0060  
+                 _TMR1CS 0081                   _TMR1ON 0080                   _TRISD0 0440  
+                 _TRISD1 0441                   _TRISD2 0442                   _TRISD3 0443  
+        ?_second_2nd_dig 007C          ?_second_1st_dig 007C     __size_of_min_2nd_dig 0012  
+   __size_of_min_1st_dig 0013           __pcstackCOMMON 007C             __pidataBANK0 064C  
+          __end_of_delay 06F6                  ??_delay 007C               __pbssBANK0 002A  
+             __pnvCOMMON 007A               __pmaintext 075B                  _T1CKPS0 0084  
+                _T1CKPS1 0085             __size_of_num 0065     end_of_initialization 06CC  
+                init_ram 065A         ??_second_2nd_dig 007E         ??_second_1st_dig 007E  
+    start_initialization 06B0              __end_of_num 075B            ??_min_2nd_dig 007E  
+          ??_min_1st_dig 007E              __pdataBANK0 0020              __pbssCOMMON 0070  
+    __end_of_min_2nd_dig 069D      __end_of_min_1st_dig 06B0                __ptext193 06F6  
+              __ptext194 068B                __ptext195 069D                __ptext196 0679  
+              __ptext197 0667                __ptext198 06D0                __ptext199 0000  
+         __size_of_delay 0026              _min_2nd_dig 068B              _min_1st_dig 069D  
+              init_fetch 0656            __size_of_main 00A5  __size_of_second_2nd_dig 0012  
+__size_of_second_1st_dig 0012  

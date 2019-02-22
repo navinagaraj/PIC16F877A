@@ -1,0 +1,1923 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Sun Sep 16 10:14:41 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 2 "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c
+                                 "
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 2 "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c
+                                 "
+    45  2007  FF7A               	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
+    46                           	FNCALL	_main,_uart_init
+    47                           	FNCALL	_main,_lcd_cmd
+    48                           	FNCALL	_main,_lcd_data
+    49                           	FNCALL	_main,_uart_tx
+    50                           	FNCALL	_lcd_data,_delay
+    51                           	FNCALL	_lcd_cmd,_delay
+    52                           	FNROOT	_main
+    53                           	global	_PORTB
+    54                           psect	text110,local,class=CODE,delta=2
+    55                           global __ptext110
+    56  0000                     __ptext110:
+    57  0006                     _PORTB	set	6
+    58                           	global	_PORTD
+    59  0008                     _PORTD	set	8
+    60                           	global	_RCREG
+    61  001A                     _RCREG	set	26
+    62                           	global	_RCSTA
+    63  0018                     _RCSTA	set	24
+    64                           	global	_TMR1H
+    65  000F                     _TMR1H	set	15
+    66                           	global	_TMR1L
+    67  000E                     _TMR1L	set	14
+    68                           	global	_TXREG
+    69  0019                     _TXREG	set	25
+    70                           	global	_RC0
+    71  0038                     _RC0	set	56
+    72                           	global	_RC1
+    73  0039                     _RC1	set	57
+    74                           	global	_RC2
+    75  003A                     _RC2	set	58
+    76                           	global	_RCIF
+    77  0065                     _RCIF	set	101
+    78                           	global	_RD0
+    79  0040                     _RD0	set	64
+    80                           	global	_RD1
+    81  0041                     _RD1	set	65
+    82                           	global	_RD2
+    83  0042                     _RD2	set	66
+    84                           	global	_RD3
+    85  0043                     _RD3	set	67
+    86                           	global	_RD4
+    87  0044                     _RD4	set	68
+    88                           	global	_RD5
+    89  0045                     _RD5	set	69
+    90                           	global	_RD6
+    91  0046                     _RD6	set	70
+    92                           	global	_RD7
+    93  0047                     _RD7	set	71
+    94                           	global	_SPEN
+    95  00C7                     _SPEN	set	199
+    96                           	global	_T1CKPS0
+    97  0084                     _T1CKPS0	set	132
+    98                           	global	_T1CKPS1
+    99  0085                     _T1CKPS1	set	133
+   100                           	global	_TMR1CS
+   101  0081                     _TMR1CS	set	129
+   102                           	global	_TMR1IF
+   103  0060                     _TMR1IF	set	96
+   104                           	global	_TMR1ON
+   105  0080                     _TMR1ON	set	128
+   106                           	global	_TXIF
+   107  0064                     _TXIF	set	100
+   108                           	global	_SPBRG
+   109  0099                     _SPBRG	set	153
+   110                           	global	_TRISB
+   111  0086                     _TRISB	set	134
+   112                           	global	_TRISD
+   113  0088                     _TRISD	set	136
+   114                           	global	_TXSTA
+   115  0098                     _TXSTA	set	152
+   116                           	global	_TRISC0
+   117  0438                     _TRISC0	set	1080
+   118                           	global	_TRISC1
+   119  0439                     _TRISC1	set	1081
+   120                           	global	_TRISC2
+   121  043A                     _TRISC2	set	1082
+   122                           	global	_TRISC6
+   123  043E                     _TRISC6	set	1086
+   124                           	global	_TRISC7
+   125  043F                     _TRISC7	set	1087
+   126                           	global	_TXEN
+   127  04C5                     _TXEN	set	1221
+   128                           	file	"keypad_uart_lcd.as"
+   129                           	line	#
+   130                           psect cinit,class=CODE,delta=2
+   131                           global start_initialization
+   132  0590                     start_initialization:
+   133                           
+   134                           psect cinit,class=CODE,delta=2
+   135                           global end_of_initialization
+   136                           
+   137                           ;End of C runtime variable initialization code
+   138                           
+   139  0590                     end_of_initialization:
+   140  0590  0183               clrf status
+   141  0591  120A  118A  2DE7   ljmp _main	;jump to C main() function
+   142                           psect	cstackCOMMON,class=COMMON,space=1
+   143                           global __pcstackCOMMON
+   144  0070                     __pcstackCOMMON:
+   145                           	global	?_uart_init
+   146  0070                     ?_uart_init:	; 0 bytes @ 0x0
+   147                           	global	??_uart_init
+   148  0070                     ??_uart_init:	; 0 bytes @ 0x0
+   149                           	global	?_lcd_cmd
+   150  0070                     ?_lcd_cmd:	; 0 bytes @ 0x0
+   151                           	global	??_lcd_cmd
+   152  0070                     ??_lcd_cmd:	; 0 bytes @ 0x0
+   153                           	global	?_lcd_data
+   154  0070                     ?_lcd_data:	; 0 bytes @ 0x0
+   155                           	global	??_lcd_data
+   156  0070                     ??_lcd_data:	; 0 bytes @ 0x0
+   157                           	global	?_uart_tx
+   158  0070                     ?_uart_tx:	; 0 bytes @ 0x0
+   159                           	global	??_uart_tx
+   160  0070                     ??_uart_tx:	; 0 bytes @ 0x0
+   161                           	global	?_delay
+   162  0070                     ?_delay:	; 0 bytes @ 0x0
+   163                           	global	??_delay
+   164  0070                     ??_delay:	; 0 bytes @ 0x0
+   165                           	global	?_main
+   166  0070                     ?_main:	; 2 bytes @ 0x0
+   167                           	global	lcd_cmd@cmd
+   168  0070                     lcd_cmd@cmd:	; 1 bytes @ 0x0
+   169                           	global	lcd_data@data
+   170  0070                     lcd_data@data:	; 1 bytes @ 0x0
+   171                           	global	uart_tx@val
+   172  0070                     uart_tx@val:	; 1 bytes @ 0x0
+   173  0070                     	ds	1
+   174                           	global	??_main
+   175  0071                     ??_main:	; 0 bytes @ 0x1
+   176 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   177 ;;Auto spaces:   Size  Autos    Used
+   178 ;; COMMON          14      1       1
+   179 ;; BANK0           80      0       0
+   180 ;; BANK1           80      0       0
+   181 ;; BANK3           96      0       0
+   182 ;; BANK2           96      0       0
+   183                           
+   184 ;;
+   185 ;; Pointer list with targets:
+   186                           
+   187                           
+   188                           
+   189 ;;
+   190 ;; Critical Paths under _main in COMMON
+   191 ;;
+   192 ;;   _main->_lcd_cmd
+   193 ;;   _main->_lcd_data
+   194 ;;   _main->_uart_tx
+   195 ;;
+   196 ;; Critical Paths under _main in BANK0
+   197 ;;
+   198 ;;   None.
+   199 ;;
+   200 ;; Critical Paths under _main in BANK1
+   201 ;;
+   202 ;;   None.
+   203 ;;
+   204 ;; Critical Paths under _main in BANK3
+   205 ;;
+   206 ;;   None.
+   207 ;;
+   208 ;; Critical Paths under _main in BANK2
+   209 ;;
+   210 ;;   None.
+   211                           
+   212 ;;
+   213 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   214 ;;
+   215                           
+   216 ;;
+   217 ;;Call Graph Tables:
+   218 ;;
+   219 ;; ---------------------------------------------------------------------------------
+   220 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   221 ;; ---------------------------------------------------------------------------------
+   222 ;; (0) _main                                                 0     0      0      45
+   223 ;;                          _uart_init
+   224 ;;                            _lcd_cmd
+   225 ;;                           _lcd_data
+   226 ;;                            _uart_tx
+   227 ;; ---------------------------------------------------------------------------------
+   228 ;; (1) _lcd_data                                             1     1      0      15
+   229 ;;                                              0 COMMON     1     1      0
+   230 ;;                              _delay
+   231 ;; ---------------------------------------------------------------------------------
+   232 ;; (1) _lcd_cmd                                              1     1      0      15
+   233 ;;                                              0 COMMON     1     1      0
+   234 ;;                              _delay
+   235 ;; ---------------------------------------------------------------------------------
+   236 ;; (2) _delay                                                0     0      0       0
+   237 ;; ---------------------------------------------------------------------------------
+   238 ;; (1) _uart_tx                                              1     1      0      15
+   239 ;;                                              0 COMMON     1     1      0
+   240 ;; ---------------------------------------------------------------------------------
+   241 ;; (1) _uart_init                                            0     0      0       0
+   242 ;; ---------------------------------------------------------------------------------
+   243 ;; Estimated maximum stack depth 2
+   244 ;; ---------------------------------------------------------------------------------
+   245                           
+   246 ;; Call Graph Graphs:
+   247                           
+   248 ;; _main (ROOT)
+   249 ;;   _uart_init
+   250 ;;   _lcd_cmd
+   251 ;;     _delay
+   252 ;;   _lcd_data
+   253 ;;     _delay
+   254 ;;   _uart_tx
+   255 ;;
+   256                           
+   257 ;; Address spaces:
+   258                           
+   259 ;;Name               Size   Autos  Total    Cost      Usage
+   260 ;;BITCOMMON            E      0       0       0        0.0%
+   261 ;;EEDATA             100      0       0       0        0.0%
+   262 ;;NULL                 0      0       0       0        0.0%
+   263 ;;CODE                 0      0       0       0        0.0%
+   264 ;;COMMON               E      1       1       1        7.1%
+   265 ;;BITSFR0              0      0       0       1        0.0%
+   266 ;;SFR0                 0      0       0       1        0.0%
+   267 ;;BITSFR1              0      0       0       2        0.0%
+   268 ;;SFR1                 0      0       0       2        0.0%
+   269 ;;STACK                0      0       2       2        0.0%
+   270 ;;ABS                  0      0       0       3        0.0%
+   271 ;;BITBANK0            50      0       0       4        0.0%
+   272 ;;BITSFR3              0      0       0       4        0.0%
+   273 ;;SFR3                 0      0       0       4        0.0%
+   274 ;;BANK0               50      0       0       5        0.0%
+   275 ;;BITSFR2              0      0       0       5        0.0%
+   276 ;;SFR2                 0      0       0       5        0.0%
+   277 ;;BITBANK1            50      0       0       6        0.0%
+   278 ;;BANK1               50      0       0       7        0.0%
+   279 ;;BITBANK3            60      0       0       8        0.0%
+   280 ;;BANK3               60      0       0       9        0.0%
+   281 ;;BITBANK2            60      0       0      10        0.0%
+   282 ;;BANK2               60      0       0      11        0.0%
+   283 ;;DATA                 0      0       0      12        0.0%
+   284                           
+   285                           	global	_main
+   286                           psect	maintext,global,class=CODE,delta=2
+   287                           global __pmaintext
+   288  05E7                     __pmaintext:
+   289                           
+   290 ;; *************** function _main *****************
+   291 ;; Defined at:
+   292 ;;		line 28 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+   293 ;; Parameters:    Size  Location     Type
+   294 ;;		None
+   295 ;; Auto vars:     Size  Location     Type
+   296 ;;		None
+   297 ;; Return value:  Size  Location     Type
+   298 ;;                  2  694[COMMON] int 
+   299 ;; Registers used:
+   300 ;;		wreg, status,2, status,0, pclath, cstack
+   301 ;; Tracked objects:
+   302 ;;		On entry : 17F/0
+   303 ;;		On exit  : 0/0
+   304 ;;		Unchanged: 0/0
+   305 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   306 ;;      Params:         0       0       0       0       0
+   307 ;;      Locals:         0       0       0       0       0
+   308 ;;      Temps:          0       0       0       0       0
+   309 ;;      Totals:         0       0       0       0       0
+   310 ;;Total ram usage:        0 bytes
+   311 ;; Hardware stack levels required when called:    2
+   312 ;; This function calls:
+   313 ;;		_uart_init
+   314 ;;		_lcd_cmd
+   315 ;;		_lcd_data
+   316 ;;		_uart_tx
+   317 ;; This function is called by:
+   318 ;;		Startup code after reset
+   319 ;; This function uses a non-reentrant model
+   320 ;;
+   321                           psect	maintext
+   322                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+   323                           	line	28
+   324                           	global	__size_of_main
+   325  0219                     	__size_of_main	equ	__end_of_main-_main
+   326                           	
+   327  05E7                     _main:	
+   328                           	opt	stack 6
+   329                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   330                           	line	29
+   331                           	
+   332  05E7                     l1984:	
+   333                           ;keypad_uart_lcd.c: 29: uart_init();
+   334  05E7  120A  118A  25D4   	fcall	_uart_init
+              120A  118A         
+   335                           	line	30
+   336                           	
+   337  05EC                     l1986:	
+   338                           ;keypad_uart_lcd.c: 30: TRISD = 0xF0;
+   339  05EC  30F0               	movlw	(0F0h)
+   340  05ED  1683               	bsf	status, 5	;RP0=1, select bank1
+   341  05EE  1303               	bcf	status, 6	;RP1=0, select bank1
+   342  05EF  0088               	movwf	(136)^080h	;volatile
+   343                           	line	31
+   344                           	
+   345  05F0                     l1988:	
+   346                           ;keypad_uart_lcd.c: 31: TRISB = 0;
+   347  05F0  0186               	clrf	(134)^080h	;volatile
+   348                           	line	32
+   349                           	
+   350  05F1                     l1990:	
+   351                           ;keypad_uart_lcd.c: 32: TRISC0 = 0;
+   352  05F1  1007               	bcf	(1080/8)^080h,(1080)&7
+   353                           	line	33
+   354                           	
+   355  05F2                     l1992:	
+   356                           ;keypad_uart_lcd.c: 33: TRISC1 = 0;
+   357  05F2  1087               	bcf	(1081/8)^080h,(1081)&7
+   358                           	line	34
+   359                           	
+   360  05F3                     l1994:	
+   361                           ;keypad_uart_lcd.c: 34: TRISC2 = 0;
+   362  05F3  1107               	bcf	(1082/8)^080h,(1082)&7
+   363                           	line	35
+   364                           	
+   365  05F4                     l1996:	
+   366                           ;keypad_uart_lcd.c: 35: TRISC6 = 0;
+   367  05F4  1307               	bcf	(1086/8)^080h,(1086)&7
+   368                           	line	36
+   369                           	
+   370  05F5                     l1998:	
+   371                           ;keypad_uart_lcd.c: 36: TRISC7 = 1;
+   372  05F5  1787               	bsf	(1087/8)^080h,(1087)&7
+   373                           	line	37
+   374                           	
+   375  05F6                     l2000:	
+   376                           ;keypad_uart_lcd.c: 37: TRISB = 0;
+   377  05F6  0186               	clrf	(134)^080h	;volatile
+   378                           	line	38
+   379                           	
+   380  05F7                     l2002:	
+   381                           ;keypad_uart_lcd.c: 38: PORTD = 0x0F;
+   382  05F7  300F               	movlw	(0Fh)
+   383  05F8  1283               	bcf	status, 5	;RP0=0, select bank0
+   384  05F9  1303               	bcf	status, 6	;RP1=0, select bank0
+   385  05FA  0088               	movwf	(8)	;volatile
+   386                           	line	40
+   387                           ;keypad_uart_lcd.c: 40: lcd_cmd(0x38);
+   388  05FB  3038               	movlw	(038h)
+   389  05FC  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   390                           	line	41
+   391                           ;keypad_uart_lcd.c: 41: lcd_cmd(0x01);
+   392  0601  3001               	movlw	(01h)
+   393  0602  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   394                           	line	42
+   395                           ;keypad_uart_lcd.c: 42: lcd_cmd(0x02);
+   396  0607  3002               	movlw	(02h)
+   397  0608  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   398                           	line	43
+   399                           ;keypad_uart_lcd.c: 43: lcd_cmd(0x0F);
+   400  060D  300F               	movlw	(0Fh)
+   401  060E  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   402                           	line	44
+   403                           ;keypad_uart_lcd.c: 44: lcd_cmd(0X06);
+   404  0613  3006               	movlw	(06h)
+   405  0614  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   406                           	line	45
+   407                           ;keypad_uart_lcd.c: 45: lcd_cmd(0X80);
+   408  0619  3080               	movlw	(080h)
+   409  061A  120A  118A  25A0   	fcall	_lcd_cmd
+              120A  118A         
+   410  061F  2E20               	goto	l2004
+   411                           	line	47
+   412                           ;keypad_uart_lcd.c: 47: while(1)
+   413                           	
+   414  0620                     l695:	
+   415                           	line	49
+   416                           	
+   417  0620                     l2004:	
+   418                           ;keypad_uart_lcd.c: 48: {
+   419                           ;keypad_uart_lcd.c: 49: RD0 = 1;
+   420  0620  1283               	bcf	status, 5	;RP0=0, select bank0
+   421  0621  1303               	bcf	status, 6	;RP1=0, select bank0
+   422  0622  1408               	bsf	(64/8),(64)&7
+   423                           	line	50
+   424                           	
+   425  0623                     l2006:	
+   426                           ;keypad_uart_lcd.c: 50: RD1 = RD2 = RD3 = 0;
+   427  0623  1188               	bcf	(67/8),(67)&7
+   428  0624  1108               	bcf	(66/8),(66)&7
+   429  0625  1088               	bcf	(65/8),(65)&7
+   430                           	line	51
+   431                           	
+   432  0626                     l2008:	
+   433                           ;keypad_uart_lcd.c: 51: if(PORTD == 0x11)
+   434  0626  0808               	movf	(8),w	;volatile
+   435  0627  3A11               	xorlw	011h
+   436  0628  1D03               	skipz
+   437  0629  2E2B               	goto	u2171
+   438  062A  2E2C               	goto	u2170
+   439  062B                     u2171:
+   440  062B  2E41               	goto	l2012
+   441  062C                     u2170:
+   442                           	line	53
+   443                           	
+   444  062C                     l2010:	
+   445                           ;keypad_uart_lcd.c: 52: {
+   446                           ;keypad_uart_lcd.c: 53: lcd_data('7');
+   447  062C  3037               	movlw	(037h)
+   448  062D  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   449                           	line	54
+   450                           ;keypad_uart_lcd.c: 54: uart_tx('7');
+   451  0632  3037               	movlw	(037h)
+   452  0633  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   453                           	line	55
+   454                           ;keypad_uart_lcd.c: 55: while(RD4==1);
+   455  0638  2E39               	goto	l697
+   456                           	
+   457  0639                     l698:	
+   458                           	
+   459  0639                     l697:	
+   460  0639  1283               	bcf	status, 5	;RP0=0, select bank0
+   461  063A  1303               	bcf	status, 6	;RP1=0, select bank0
+   462  063B  1A08               	btfsc	(68/8),(68)&7
+   463  063C  2E3E               	goto	u2181
+   464  063D  2E3F               	goto	u2180
+   465  063E                     u2181:
+   466  063E  2E39               	goto	l697
+   467  063F                     u2180:
+   468  063F  2E98               	goto	l700
+   469                           	
+   470  0640                     l699:	
+   471                           	line	57
+   472                           ;keypad_uart_lcd.c: 57: }
+   473  0640  2E98               	goto	l700
+   474                           	line	58
+   475                           	
+   476  0641                     l696:	
+   477                           	
+   478  0641                     l2012:	
+   479                           ;keypad_uart_lcd.c: 58: else if(PORTD == 0x21)
+   480  0641  0808               	movf	(8),w	;volatile
+   481  0642  3A21               	xorlw	021h
+   482  0643  1D03               	skipz
+   483  0644  2E46               	goto	u2191
+   484  0645  2E47               	goto	u2190
+   485  0646                     u2191:
+   486  0646  2E5C               	goto	l2016
+   487  0647                     u2190:
+   488                           	line	60
+   489                           	
+   490  0647                     l2014:	
+   491                           ;keypad_uart_lcd.c: 59: {
+   492                           ;keypad_uart_lcd.c: 60: lcd_data('8');
+   493  0647  3038               	movlw	(038h)
+   494  0648  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   495                           	line	61
+   496                           ;keypad_uart_lcd.c: 61: uart_tx('8');
+   497  064D  3038               	movlw	(038h)
+   498  064E  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   499                           	line	62
+   500                           ;keypad_uart_lcd.c: 62: while(RD5==1);
+   501  0653  2E54               	goto	l702
+   502                           	
+   503  0654                     l703:	
+   504                           	
+   505  0654                     l702:	
+   506  0654  1283               	bcf	status, 5	;RP0=0, select bank0
+   507  0655  1303               	bcf	status, 6	;RP1=0, select bank0
+   508  0656  1A88               	btfsc	(69/8),(69)&7
+   509  0657  2E59               	goto	u2201
+   510  0658  2E5A               	goto	u2200
+   511  0659                     u2201:
+   512  0659  2E54               	goto	l702
+   513  065A                     u2200:
+   514  065A  2E98               	goto	l700
+   515                           	
+   516  065B                     l704:	
+   517                           	line	64
+   518                           ;keypad_uart_lcd.c: 64: }
+   519  065B  2E98               	goto	l700
+   520                           	line	65
+   521                           	
+   522  065C                     l701:	
+   523                           	
+   524  065C                     l2016:	
+   525                           ;keypad_uart_lcd.c: 65: else if(PORTD == 0x41)
+   526  065C  0808               	movf	(8),w	;volatile
+   527  065D  3A41               	xorlw	041h
+   528  065E  1D03               	skipz
+   529  065F  2E61               	goto	u2211
+   530  0660  2E62               	goto	u2210
+   531  0661                     u2211:
+   532  0661  2E77               	goto	l2020
+   533  0662                     u2210:
+   534                           	line	67
+   535                           	
+   536  0662                     l2018:	
+   537                           ;keypad_uart_lcd.c: 66: {
+   538                           ;keypad_uart_lcd.c: 67: lcd_data('9');
+   539  0662  3039               	movlw	(039h)
+   540  0663  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   541                           	line	68
+   542                           ;keypad_uart_lcd.c: 68: uart_tx('9');
+   543  0668  3039               	movlw	(039h)
+   544  0669  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   545                           	line	69
+   546                           ;keypad_uart_lcd.c: 69: while(RD6==1);
+   547  066E  2E6F               	goto	l707
+   548                           	
+   549  066F                     l708:	
+   550                           	
+   551  066F                     l707:	
+   552  066F  1283               	bcf	status, 5	;RP0=0, select bank0
+   553  0670  1303               	bcf	status, 6	;RP1=0, select bank0
+   554  0671  1B08               	btfsc	(70/8),(70)&7
+   555  0672  2E74               	goto	u2221
+   556  0673  2E75               	goto	u2220
+   557  0674                     u2221:
+   558  0674  2E6F               	goto	l707
+   559  0675                     u2220:
+   560  0675  2E98               	goto	l700
+   561                           	
+   562  0676                     l709:	
+   563                           	line	71
+   564                           ;keypad_uart_lcd.c: 71: }
+   565  0676  2E98               	goto	l700
+   566                           	line	72
+   567                           	
+   568  0677                     l706:	
+   569                           	
+   570  0677                     l2020:	
+   571                           ;keypad_uart_lcd.c: 72: else if(PORTD == 0x81)
+   572  0677  0808               	movf	(8),w	;volatile
+   573  0678  3A81               	xorlw	081h
+   574  0679  1D03               	skipz
+   575  067A  2E7C               	goto	u2231
+   576  067B  2E7D               	goto	u2230
+   577  067C                     u2231:
+   578  067C  2E92               	goto	l711
+   579  067D                     u2230:
+   580                           	line	74
+   581                           	
+   582  067D                     l2022:	
+   583                           ;keypad_uart_lcd.c: 73: {
+   584                           ;keypad_uart_lcd.c: 74: lcd_data('A');
+   585  067D  3041               	movlw	(041h)
+   586  067E  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   587                           	line	75
+   588                           ;keypad_uart_lcd.c: 75: uart_tx('A');
+   589  0683  3041               	movlw	(041h)
+   590  0684  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   591                           	line	76
+   592                           ;keypad_uart_lcd.c: 76: while(RD7==1);
+   593  0689  2E8A               	goto	l712
+   594                           	
+   595  068A                     l713:	
+   596                           	
+   597  068A                     l712:	
+   598  068A  1283               	bcf	status, 5	;RP0=0, select bank0
+   599  068B  1303               	bcf	status, 6	;RP1=0, select bank0
+   600  068C  1B88               	btfsc	(71/8),(71)&7
+   601  068D  2E8F               	goto	u2241
+   602  068E  2E90               	goto	u2240
+   603  068F                     u2241:
+   604  068F  2E8A               	goto	l712
+   605  0690                     u2240:
+   606  0690  2E98               	goto	l700
+   607                           	
+   608  0691                     l714:	
+   609                           	line	78
+   610                           ;keypad_uart_lcd.c: 78: }
+   611  0691  2E98               	goto	l700
+   612                           	line	79
+   613                           	
+   614  0692                     l711:	
+   615                           	line	81
+   616                           ;keypad_uart_lcd.c: 79: else
+   617                           ;keypad_uart_lcd.c: 80: {
+   618                           ;keypad_uart_lcd.c: 81: RC0 = 0;
+   619  0692  1007               	bcf	(56/8),(56)&7
+   620                           	line	82
+   621                           ;keypad_uart_lcd.c: 82: RC1 = 0;
+   622  0693  1087               	bcf	(57/8),(57)&7
+   623                           	line	83
+   624                           ;keypad_uart_lcd.c: 83: RC2 = 0;
+   625  0694  1107               	bcf	(58/8),(58)&7
+   626  0695  2E98               	goto	l700
+   627                           	line	84
+   628                           	
+   629  0696                     l715:	
+   630  0696  2E98               	goto	l700
+   631                           	
+   632  0697                     l710:	
+   633  0697  2E98               	goto	l700
+   634                           	
+   635  0698                     l705:	
+   636                           	
+   637  0698                     l700:	
+   638                           	line	85
+   639                           ;keypad_uart_lcd.c: 84: }
+   640                           ;keypad_uart_lcd.c: 85: RD0 = 0;
+   641  0698  1008               	bcf	(64/8),(64)&7
+   642                           	line	86
+   643                           ;keypad_uart_lcd.c: 86: RD1 = 1;
+   644  0699  1488               	bsf	(65/8),(65)&7
+   645                           	line	87
+   646                           ;keypad_uart_lcd.c: 87: RD2 = 0;
+   647  069A  1108               	bcf	(66/8),(66)&7
+   648                           	line	88
+   649                           ;keypad_uart_lcd.c: 88: RD3 = 0;
+   650  069B  1188               	bcf	(67/8),(67)&7
+   651                           	line	89
+   652                           	
+   653  069C                     l2024:	
+   654                           ;keypad_uart_lcd.c: 89: if(PORTD == 0x12)
+   655  069C  0808               	movf	(8),w	;volatile
+   656  069D  3A12               	xorlw	012h
+   657  069E  1D03               	skipz
+   658  069F  2EA1               	goto	u2251
+   659  06A0  2EA2               	goto	u2250
+   660  06A1                     u2251:
+   661  06A1  2EB7               	goto	l2028
+   662  06A2                     u2250:
+   663                           	line	91
+   664                           	
+   665  06A2                     l2026:	
+   666                           ;keypad_uart_lcd.c: 90: {
+   667                           ;keypad_uart_lcd.c: 91: lcd_data('4');
+   668  06A2  3034               	movlw	(034h)
+   669  06A3  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   670                           	line	92
+   671                           ;keypad_uart_lcd.c: 92: uart_tx('4');
+   672  06A8  3034               	movlw	(034h)
+   673  06A9  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   674                           	line	93
+   675                           ;keypad_uart_lcd.c: 93: while(RD4==1);
+   676  06AE  2EAF               	goto	l717
+   677                           	
+   678  06AF                     l718:	
+   679                           	
+   680  06AF                     l717:	
+   681  06AF  1283               	bcf	status, 5	;RP0=0, select bank0
+   682  06B0  1303               	bcf	status, 6	;RP1=0, select bank0
+   683  06B1  1A08               	btfsc	(68/8),(68)&7
+   684  06B2  2EB4               	goto	u2261
+   685  06B3  2EB5               	goto	u2260
+   686  06B4                     u2261:
+   687  06B4  2EAF               	goto	l717
+   688  06B5                     u2260:
+   689  06B5  2F0E               	goto	l720
+   690                           	
+   691  06B6                     l719:	
+   692                           	line	95
+   693                           ;keypad_uart_lcd.c: 95: }
+   694  06B6  2F0E               	goto	l720
+   695                           	line	96
+   696                           	
+   697  06B7                     l716:	
+   698                           	
+   699  06B7                     l2028:	
+   700                           ;keypad_uart_lcd.c: 96: else if(PORTD == 0x22)
+   701  06B7  0808               	movf	(8),w	;volatile
+   702  06B8  3A22               	xorlw	022h
+   703  06B9  1D03               	skipz
+   704  06BA  2EBC               	goto	u2271
+   705  06BB  2EBD               	goto	u2270
+   706  06BC                     u2271:
+   707  06BC  2ED2               	goto	l2032
+   708  06BD                     u2270:
+   709                           	line	98
+   710                           	
+   711  06BD                     l2030:	
+   712                           ;keypad_uart_lcd.c: 97: {
+   713                           ;keypad_uart_lcd.c: 98: lcd_data('5');
+   714  06BD  3035               	movlw	(035h)
+   715  06BE  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   716                           	line	99
+   717                           ;keypad_uart_lcd.c: 99: uart_tx('5');
+   718  06C3  3035               	movlw	(035h)
+   719  06C4  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   720                           	line	100
+   721                           ;keypad_uart_lcd.c: 100: while(RD5==1);
+   722  06C9  2ECA               	goto	l722
+   723                           	
+   724  06CA                     l723:	
+   725                           	
+   726  06CA                     l722:	
+   727  06CA  1283               	bcf	status, 5	;RP0=0, select bank0
+   728  06CB  1303               	bcf	status, 6	;RP1=0, select bank0
+   729  06CC  1A88               	btfsc	(69/8),(69)&7
+   730  06CD  2ECF               	goto	u2281
+   731  06CE  2ED0               	goto	u2280
+   732  06CF                     u2281:
+   733  06CF  2ECA               	goto	l722
+   734  06D0                     u2280:
+   735  06D0  2F0E               	goto	l720
+   736                           	
+   737  06D1                     l724:	
+   738                           	line	101
+   739                           ;keypad_uart_lcd.c: 101: }
+   740  06D1  2F0E               	goto	l720
+   741                           	line	102
+   742                           	
+   743  06D2                     l721:	
+   744                           	
+   745  06D2                     l2032:	
+   746                           ;keypad_uart_lcd.c: 102: else if(PORTD == 0x42)
+   747  06D2  0808               	movf	(8),w	;volatile
+   748  06D3  3A42               	xorlw	042h
+   749  06D4  1D03               	skipz
+   750  06D5  2ED7               	goto	u2291
+   751  06D6  2ED8               	goto	u2290
+   752  06D7                     u2291:
+   753  06D7  2EED               	goto	l2036
+   754  06D8                     u2290:
+   755                           	line	104
+   756                           	
+   757  06D8                     l2034:	
+   758                           ;keypad_uart_lcd.c: 103: {
+   759                           ;keypad_uart_lcd.c: 104: lcd_data('6');
+   760  06D8  3036               	movlw	(036h)
+   761  06D9  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   762                           	line	105
+   763                           ;keypad_uart_lcd.c: 105: uart_tx('6');
+   764  06DE  3036               	movlw	(036h)
+   765  06DF  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   766                           	line	106
+   767                           ;keypad_uart_lcd.c: 106: while(RD6==1);
+   768  06E4  2EE5               	goto	l727
+   769                           	
+   770  06E5                     l728:	
+   771                           	
+   772  06E5                     l727:	
+   773  06E5  1283               	bcf	status, 5	;RP0=0, select bank0
+   774  06E6  1303               	bcf	status, 6	;RP1=0, select bank0
+   775  06E7  1B08               	btfsc	(70/8),(70)&7
+   776  06E8  2EEA               	goto	u2301
+   777  06E9  2EEB               	goto	u2300
+   778  06EA                     u2301:
+   779  06EA  2EE5               	goto	l727
+   780  06EB                     u2300:
+   781  06EB  2F0E               	goto	l720
+   782                           	
+   783  06EC                     l729:	
+   784                           	line	108
+   785                           ;keypad_uart_lcd.c: 108: }
+   786  06EC  2F0E               	goto	l720
+   787                           	line	109
+   788                           	
+   789  06ED                     l726:	
+   790                           	
+   791  06ED                     l2036:	
+   792                           ;keypad_uart_lcd.c: 109: else if(PORTD == 0x82)
+   793  06ED  0808               	movf	(8),w	;volatile
+   794  06EE  3A82               	xorlw	082h
+   795  06EF  1D03               	skipz
+   796  06F0  2EF2               	goto	u2311
+   797  06F1  2EF3               	goto	u2310
+   798  06F2                     u2311:
+   799  06F2  2F08               	goto	l731
+   800  06F3                     u2310:
+   801                           	line	111
+   802                           	
+   803  06F3                     l2038:	
+   804                           ;keypad_uart_lcd.c: 110: {
+   805                           ;keypad_uart_lcd.c: 111: lcd_data('B');
+   806  06F3  3042               	movlw	(042h)
+   807  06F4  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   808                           	line	112
+   809                           ;keypad_uart_lcd.c: 112: uart_tx('B');
+   810  06F9  3042               	movlw	(042h)
+   811  06FA  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   812                           	line	113
+   813                           ;keypad_uart_lcd.c: 113: while(RD7==1);
+   814  06FF  2F00               	goto	l732
+   815                           	
+   816  0700                     l733:	
+   817                           	
+   818  0700                     l732:	
+   819  0700  1283               	bcf	status, 5	;RP0=0, select bank0
+   820  0701  1303               	bcf	status, 6	;RP1=0, select bank0
+   821  0702  1B88               	btfsc	(71/8),(71)&7
+   822  0703  2F05               	goto	u2321
+   823  0704  2F06               	goto	u2320
+   824  0705                     u2321:
+   825  0705  2F00               	goto	l732
+   826  0706                     u2320:
+   827  0706  2F0E               	goto	l720
+   828                           	
+   829  0707                     l734:	
+   830                           	line	114
+   831                           ;keypad_uart_lcd.c: 114: }
+   832  0707  2F0E               	goto	l720
+   833                           	line	115
+   834                           	
+   835  0708                     l731:	
+   836                           	line	117
+   837                           ;keypad_uart_lcd.c: 115: else
+   838                           ;keypad_uart_lcd.c: 116: {
+   839                           ;keypad_uart_lcd.c: 117: RC0 = 0;
+   840  0708  1007               	bcf	(56/8),(56)&7
+   841                           	line	118
+   842                           ;keypad_uart_lcd.c: 118: RC1 = 0;
+   843  0709  1087               	bcf	(57/8),(57)&7
+   844                           	line	119
+   845                           ;keypad_uart_lcd.c: 119: RC2 = 0;
+   846  070A  1107               	bcf	(58/8),(58)&7
+   847  070B  2F0E               	goto	l720
+   848                           	line	121
+   849                           	
+   850  070C                     l735:	
+   851  070C  2F0E               	goto	l720
+   852                           	
+   853  070D                     l730:	
+   854  070D  2F0E               	goto	l720
+   855                           	
+   856  070E                     l725:	
+   857                           	
+   858  070E                     l720:	
+   859                           	line	122
+   860                           ;keypad_uart_lcd.c: 121: }
+   861                           ;keypad_uart_lcd.c: 122: RD0 = 0;
+   862  070E  1008               	bcf	(64/8),(64)&7
+   863                           	line	123
+   864                           ;keypad_uart_lcd.c: 123: RD1 = 0;
+   865  070F  1088               	bcf	(65/8),(65)&7
+   866                           	line	124
+   867                           ;keypad_uart_lcd.c: 124: RD2 = 1;
+   868  0710  1508               	bsf	(66/8),(66)&7
+   869                           	line	125
+   870                           ;keypad_uart_lcd.c: 125: RD3 = 0;
+   871  0711  1188               	bcf	(67/8),(67)&7
+   872                           	line	126
+   873                           	
+   874  0712                     l2040:	
+   875                           ;keypad_uart_lcd.c: 126: if(PORTD == 0x14)
+   876  0712  0808               	movf	(8),w	;volatile
+   877  0713  3A14               	xorlw	014h
+   878  0714  1D03               	skipz
+   879  0715  2F17               	goto	u2331
+   880  0716  2F18               	goto	u2330
+   881  0717                     u2331:
+   882  0717  2F2D               	goto	l2044
+   883  0718                     u2330:
+   884                           	line	128
+   885                           	
+   886  0718                     l2042:	
+   887                           ;keypad_uart_lcd.c: 127: {
+   888                           ;keypad_uart_lcd.c: 128: lcd_data('1');
+   889  0718  3031               	movlw	(031h)
+   890  0719  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   891                           	line	129
+   892                           ;keypad_uart_lcd.c: 129: uart_tx('1');
+   893  071E  3031               	movlw	(031h)
+   894  071F  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   895                           	line	130
+   896                           ;keypad_uart_lcd.c: 130: while(RD4==1);
+   897  0724  2F25               	goto	l737
+   898                           	
+   899  0725                     l738:	
+   900                           	
+   901  0725                     l737:	
+   902  0725  1283               	bcf	status, 5	;RP0=0, select bank0
+   903  0726  1303               	bcf	status, 6	;RP1=0, select bank0
+   904  0727  1A08               	btfsc	(68/8),(68)&7
+   905  0728  2F2A               	goto	u2341
+   906  0729  2F2B               	goto	u2340
+   907  072A                     u2341:
+   908  072A  2F25               	goto	l737
+   909  072B                     u2340:
+   910  072B  2F84               	goto	l740
+   911                           	
+   912  072C                     l739:	
+   913                           	line	131
+   914                           ;keypad_uart_lcd.c: 131: }
+   915  072C  2F84               	goto	l740
+   916                           	line	132
+   917                           	
+   918  072D                     l736:	
+   919                           	
+   920  072D                     l2044:	
+   921                           ;keypad_uart_lcd.c: 132: else if(PORTD == 0x24)
+   922  072D  0808               	movf	(8),w	;volatile
+   923  072E  3A24               	xorlw	024h
+   924  072F  1D03               	skipz
+   925  0730  2F32               	goto	u2351
+   926  0731  2F33               	goto	u2350
+   927  0732                     u2351:
+   928  0732  2F48               	goto	l2048
+   929  0733                     u2350:
+   930                           	line	134
+   931                           	
+   932  0733                     l2046:	
+   933                           ;keypad_uart_lcd.c: 133: {
+   934                           ;keypad_uart_lcd.c: 134: lcd_data('2');
+   935  0733  3032               	movlw	(032h)
+   936  0734  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   937                           	line	135
+   938                           ;keypad_uart_lcd.c: 135: uart_tx('2');
+   939  0739  3032               	movlw	(032h)
+   940  073A  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   941                           	line	136
+   942                           ;keypad_uart_lcd.c: 136: while(RD5==1);
+   943  073F  2F40               	goto	l742
+   944                           	
+   945  0740                     l743:	
+   946                           	
+   947  0740                     l742:	
+   948  0740  1283               	bcf	status, 5	;RP0=0, select bank0
+   949  0741  1303               	bcf	status, 6	;RP1=0, select bank0
+   950  0742  1A88               	btfsc	(69/8),(69)&7
+   951  0743  2F45               	goto	u2361
+   952  0744  2F46               	goto	u2360
+   953  0745                     u2361:
+   954  0745  2F40               	goto	l742
+   955  0746                     u2360:
+   956  0746  2F84               	goto	l740
+   957                           	
+   958  0747                     l744:	
+   959                           	line	138
+   960                           ;keypad_uart_lcd.c: 138: }
+   961  0747  2F84               	goto	l740
+   962                           	line	139
+   963                           	
+   964  0748                     l741:	
+   965                           	
+   966  0748                     l2048:	
+   967                           ;keypad_uart_lcd.c: 139: else if(PORTD == 0x44)
+   968  0748  0808               	movf	(8),w	;volatile
+   969  0749  3A44               	xorlw	044h
+   970  074A  1D03               	skipz
+   971  074B  2F4D               	goto	u2371
+   972  074C  2F4E               	goto	u2370
+   973  074D                     u2371:
+   974  074D  2F63               	goto	l2052
+   975  074E                     u2370:
+   976                           	line	141
+   977                           	
+   978  074E                     l2050:	
+   979                           ;keypad_uart_lcd.c: 140: {
+   980                           ;keypad_uart_lcd.c: 141: lcd_data('3');
+   981  074E  3033               	movlw	(033h)
+   982  074F  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+   983                           	line	142
+   984                           ;keypad_uart_lcd.c: 142: uart_tx('3');
+   985  0754  3033               	movlw	(033h)
+   986  0755  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+   987                           	line	143
+   988                           ;keypad_uart_lcd.c: 143: while(RD6==1);
+   989  075A  2F5B               	goto	l747
+   990                           	
+   991  075B                     l748:	
+   992                           	
+   993  075B                     l747:	
+   994  075B  1283               	bcf	status, 5	;RP0=0, select bank0
+   995  075C  1303               	bcf	status, 6	;RP1=0, select bank0
+   996  075D  1B08               	btfsc	(70/8),(70)&7
+   997  075E  2F60               	goto	u2381
+   998  075F  2F61               	goto	u2380
+   999  0760                     u2381:
+  1000  0760  2F5B               	goto	l747
+  1001  0761                     u2380:
+  1002  0761  2F84               	goto	l740
+  1003                           	
+  1004  0762                     l749:	
+  1005                           	line	145
+  1006                           ;keypad_uart_lcd.c: 145: }
+  1007  0762  2F84               	goto	l740
+  1008                           	line	146
+  1009                           	
+  1010  0763                     l746:	
+  1011                           	
+  1012  0763                     l2052:	
+  1013                           ;keypad_uart_lcd.c: 146: else if(PORTD == 0x84)
+  1014  0763  0808               	movf	(8),w	;volatile
+  1015  0764  3A84               	xorlw	084h
+  1016  0765  1D03               	skipz
+  1017  0766  2F68               	goto	u2391
+  1018  0767  2F69               	goto	u2390
+  1019  0768                     u2391:
+  1020  0768  2F7E               	goto	l751
+  1021  0769                     u2390:
+  1022                           	line	148
+  1023                           	
+  1024  0769                     l2054:	
+  1025                           ;keypad_uart_lcd.c: 147: {
+  1026                           ;keypad_uart_lcd.c: 148: lcd_data('C');
+  1027  0769  3043               	movlw	(043h)
+  1028  076A  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+  1029                           	line	149
+  1030                           ;keypad_uart_lcd.c: 149: uart_tx('C');
+  1031  076F  3043               	movlw	(043h)
+  1032  0770  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+  1033                           	line	150
+  1034                           ;keypad_uart_lcd.c: 150: while(RD7==1);
+  1035  0775  2F76               	goto	l752
+  1036                           	
+  1037  0776                     l753:	
+  1038                           	
+  1039  0776                     l752:	
+  1040  0776  1283               	bcf	status, 5	;RP0=0, select bank0
+  1041  0777  1303               	bcf	status, 6	;RP1=0, select bank0
+  1042  0778  1B88               	btfsc	(71/8),(71)&7
+  1043  0779  2F7B               	goto	u2401
+  1044  077A  2F7C               	goto	u2400
+  1045  077B                     u2401:
+  1046  077B  2F76               	goto	l752
+  1047  077C                     u2400:
+  1048  077C  2F84               	goto	l740
+  1049                           	
+  1050  077D                     l754:	
+  1051                           	line	152
+  1052                           ;keypad_uart_lcd.c: 152: }
+  1053  077D  2F84               	goto	l740
+  1054                           	line	153
+  1055                           	
+  1056  077E                     l751:	
+  1057                           	line	155
+  1058                           ;keypad_uart_lcd.c: 153: else
+  1059                           ;keypad_uart_lcd.c: 154: {
+  1060                           ;keypad_uart_lcd.c: 155: RC0 = 0;
+  1061  077E  1007               	bcf	(56/8),(56)&7
+  1062                           	line	156
+  1063                           ;keypad_uart_lcd.c: 156: RC1 = 0;
+  1064  077F  1087               	bcf	(57/8),(57)&7
+  1065                           	line	157
+  1066                           ;keypad_uart_lcd.c: 157: RC2 = 0;
+  1067  0780  1107               	bcf	(58/8),(58)&7
+  1068  0781  2F84               	goto	l740
+  1069                           	line	159
+  1070                           	
+  1071  0782                     l755:	
+  1072  0782  2F84               	goto	l740
+  1073                           	
+  1074  0783                     l750:	
+  1075  0783  2F84               	goto	l740
+  1076                           	
+  1077  0784                     l745:	
+  1078                           	
+  1079  0784                     l740:	
+  1080                           	line	160
+  1081                           ;keypad_uart_lcd.c: 159: }
+  1082                           ;keypad_uart_lcd.c: 160: RD0 = 0;
+  1083  0784  1008               	bcf	(64/8),(64)&7
+  1084                           	line	161
+  1085                           ;keypad_uart_lcd.c: 161: RD1 = 0;
+  1086  0785  1088               	bcf	(65/8),(65)&7
+  1087                           	line	162
+  1088                           ;keypad_uart_lcd.c: 162: RD2 = 0;
+  1089  0786  1108               	bcf	(66/8),(66)&7
+  1090                           	line	163
+  1091                           ;keypad_uart_lcd.c: 163: RD3 = 1;
+  1092  0787  1588               	bsf	(67/8),(67)&7
+  1093                           	line	164
+  1094                           	
+  1095  0788                     l2056:	
+  1096                           ;keypad_uart_lcd.c: 164: if(PORTD == 0x18)
+  1097  0788  0808               	movf	(8),w	;volatile
+  1098  0789  3A18               	xorlw	018h
+  1099  078A  1D03               	skipz
+  1100  078B  2F8D               	goto	u2411
+  1101  078C  2F8E               	goto	u2410
+  1102  078D                     u2411:
+  1103  078D  2FA3               	goto	l2060
+  1104  078E                     u2410:
+  1105                           	line	166
+  1106                           	
+  1107  078E                     l2058:	
+  1108                           ;keypad_uart_lcd.c: 165: {
+  1109                           ;keypad_uart_lcd.c: 166: lcd_data('/');
+  1110  078E  302F               	movlw	(02Fh)
+  1111  078F  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+  1112                           	line	167
+  1113                           ;keypad_uart_lcd.c: 167: uart_tx('/');
+  1114  0794  302F               	movlw	(02Fh)
+  1115  0795  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+  1116                           	line	168
+  1117                           ;keypad_uart_lcd.c: 168: while(RD4==1);
+  1118  079A  2F9B               	goto	l757
+  1119                           	
+  1120  079B                     l758:	
+  1121                           	
+  1122  079B                     l757:	
+  1123  079B  1283               	bcf	status, 5	;RP0=0, select bank0
+  1124  079C  1303               	bcf	status, 6	;RP1=0, select bank0
+  1125  079D  1A08               	btfsc	(68/8),(68)&7
+  1126  079E  2FA0               	goto	u2421
+  1127  079F  2FA1               	goto	u2420
+  1128  07A0                     u2421:
+  1129  07A0  2F9B               	goto	l757
+  1130  07A1                     u2420:
+  1131  07A1  2E20               	goto	l2004
+  1132                           	
+  1133  07A2                     l759:	
+  1134                           	line	170
+  1135                           ;keypad_uart_lcd.c: 170: }
+  1136  07A2  2E20               	goto	l2004
+  1137                           	line	171
+  1138                           	
+  1139  07A3                     l756:	
+  1140                           	
+  1141  07A3                     l2060:	
+  1142                           ;keypad_uart_lcd.c: 171: else if(PORTD == 0x28)
+  1143  07A3  0808               	movf	(8),w	;volatile
+  1144  07A4  3A28               	xorlw	028h
+  1145  07A5  1D03               	skipz
+  1146  07A6  2FA8               	goto	u2431
+  1147  07A7  2FA9               	goto	u2430
+  1148  07A8                     u2431:
+  1149  07A8  2FBE               	goto	l2064
+  1150  07A9                     u2430:
+  1151                           	line	173
+  1152                           	
+  1153  07A9                     l2062:	
+  1154                           ;keypad_uart_lcd.c: 172: {
+  1155                           ;keypad_uart_lcd.c: 173: lcd_data('0');
+  1156  07A9  3030               	movlw	(030h)
+  1157  07AA  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+  1158                           	line	174
+  1159                           ;keypad_uart_lcd.c: 174: uart_tx('0');
+  1160  07AF  3030               	movlw	(030h)
+  1161  07B0  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+  1162                           	line	175
+  1163                           ;keypad_uart_lcd.c: 175: while(RD5==1);
+  1164  07B5  2FB6               	goto	l762
+  1165                           	
+  1166  07B6                     l763:	
+  1167                           	
+  1168  07B6                     l762:	
+  1169  07B6  1283               	bcf	status, 5	;RP0=0, select bank0
+  1170  07B7  1303               	bcf	status, 6	;RP1=0, select bank0
+  1171  07B8  1A88               	btfsc	(69/8),(69)&7
+  1172  07B9  2FBB               	goto	u2441
+  1173  07BA  2FBC               	goto	u2440
+  1174  07BB                     u2441:
+  1175  07BB  2FB6               	goto	l762
+  1176  07BC                     u2440:
+  1177  07BC  2E20               	goto	l2004
+  1178                           	
+  1179  07BD                     l764:	
+  1180                           	line	177
+  1181                           ;keypad_uart_lcd.c: 177: }
+  1182  07BD  2E20               	goto	l2004
+  1183                           	line	178
+  1184                           	
+  1185  07BE                     l761:	
+  1186                           	
+  1187  07BE                     l2064:	
+  1188                           ;keypad_uart_lcd.c: 178: else if(PORTD == 0x48)
+  1189  07BE  0808               	movf	(8),w	;volatile
+  1190  07BF  3A48               	xorlw	048h
+  1191  07C0  1D03               	skipz
+  1192  07C1  2FC3               	goto	u2451
+  1193  07C2  2FC4               	goto	u2450
+  1194  07C3                     u2451:
+  1195  07C3  2FD9               	goto	l2068
+  1196  07C4                     u2450:
+  1197                           	line	180
+  1198                           	
+  1199  07C4                     l2066:	
+  1200                           ;keypad_uart_lcd.c: 179: {
+  1201                           ;keypad_uart_lcd.c: 180: lcd_data('=');
+  1202  07C4  303D               	movlw	(03Dh)
+  1203  07C5  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+  1204                           	line	181
+  1205                           ;keypad_uart_lcd.c: 181: uart_tx('=');
+  1206  07CA  303D               	movlw	(03Dh)
+  1207  07CB  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+  1208                           	line	182
+  1209                           ;keypad_uart_lcd.c: 182: while(RD6==1);
+  1210  07D0  2FD1               	goto	l767
+  1211                           	
+  1212  07D1                     l768:	
+  1213                           	
+  1214  07D1                     l767:	
+  1215  07D1  1283               	bcf	status, 5	;RP0=0, select bank0
+  1216  07D2  1303               	bcf	status, 6	;RP1=0, select bank0
+  1217  07D3  1B08               	btfsc	(70/8),(70)&7
+  1218  07D4  2FD6               	goto	u2461
+  1219  07D5  2FD7               	goto	u2460
+  1220  07D6                     u2461:
+  1221  07D6  2FD1               	goto	l767
+  1222  07D7                     u2460:
+  1223  07D7  2E20               	goto	l2004
+  1224                           	
+  1225  07D8                     l769:	
+  1226                           	line	184
+  1227                           ;keypad_uart_lcd.c: 184: }
+  1228  07D8  2E20               	goto	l2004
+  1229                           	line	185
+  1230                           	
+  1231  07D9                     l766:	
+  1232                           	
+  1233  07D9                     l2068:	
+  1234                           ;keypad_uart_lcd.c: 185: else if(PORTD == 0x88)
+  1235  07D9  0808               	movf	(8),w	;volatile
+  1236  07DA  3A88               	xorlw	088h
+  1237  07DB  1D03               	skipz
+  1238  07DC  2FDE               	goto	u2471
+  1239  07DD  2FDF               	goto	u2470
+  1240  07DE                     u2471:
+  1241  07DE  2FF4               	goto	l771
+  1242  07DF                     u2470:
+  1243                           	line	187
+  1244                           	
+  1245  07DF                     l2070:	
+  1246                           ;keypad_uart_lcd.c: 186: {
+  1247                           ;keypad_uart_lcd.c: 187: lcd_data('D');
+  1248  07DF  3044               	movlw	(044h)
+  1249  07E0  120A  118A  25B1   	fcall	_lcd_data
+              120A  118A         
+  1250                           	line	188
+  1251                           ;keypad_uart_lcd.c: 188: uart_tx('D');
+  1252  07E5  3044               	movlw	(044h)
+  1253  07E6  120A  118A  2594   	fcall	_uart_tx
+              120A  118A         
+  1254                           	line	189
+  1255                           ;keypad_uart_lcd.c: 189: while(RD7==1);
+  1256  07EB  2FEC               	goto	l772
+  1257                           	
+  1258  07EC                     l773:	
+  1259                           	
+  1260  07EC                     l772:	
+  1261  07EC  1283               	bcf	status, 5	;RP0=0, select bank0
+  1262  07ED  1303               	bcf	status, 6	;RP1=0, select bank0
+  1263  07EE  1B88               	btfsc	(71/8),(71)&7
+  1264  07EF  2FF1               	goto	u2481
+  1265  07F0  2FF2               	goto	u2480
+  1266  07F1                     u2481:
+  1267  07F1  2FEC               	goto	l772
+  1268  07F2                     u2480:
+  1269  07F2  2E20               	goto	l2004
+  1270                           	
+  1271  07F3                     l774:	
+  1272                           	line	191
+  1273                           ;keypad_uart_lcd.c: 191: }
+  1274  07F3  2E20               	goto	l2004
+  1275                           	line	192
+  1276                           	
+  1277  07F4                     l771:	
+  1278                           	line	194
+  1279                           ;keypad_uart_lcd.c: 192: else
+  1280                           ;keypad_uart_lcd.c: 193: {
+  1281                           ;keypad_uart_lcd.c: 194: RC0 = 0;
+  1282  07F4  1007               	bcf	(56/8),(56)&7
+  1283                           	line	195
+  1284                           ;keypad_uart_lcd.c: 195: RC1 = 0;
+  1285  07F5  1087               	bcf	(57/8),(57)&7
+  1286                           	line	196
+  1287                           ;keypad_uart_lcd.c: 196: RC2 = 0;
+  1288  07F6  1107               	bcf	(58/8),(58)&7
+  1289  07F7  2E20               	goto	l2004
+  1290                           	line	197
+  1291                           	
+  1292  07F8                     l775:	
+  1293  07F8  2E20               	goto	l2004
+  1294                           	
+  1295  07F9                     l770:	
+  1296  07F9  2E20               	goto	l2004
+  1297                           	
+  1298  07FA                     l765:	
+  1299  07FA  2E20               	goto	l2004
+  1300                           	
+  1301  07FB                     l760:	
+  1302  07FB  2E20               	goto	l2004
+  1303                           	line	199
+  1304                           	
+  1305  07FC                     l776:	
+  1306                           	line	47
+  1307  07FC  2E20               	goto	l2004
+  1308                           	
+  1309  07FD                     l777:	
+  1310                           	line	200
+  1311                           	
+  1312  07FD                     l778:	
+  1313                           	global	start
+  1314  07FD  120A  118A  2800   	ljmp	start
+  1315                           	opt stack 0
+  1316                           GLOBAL	__end_of_main
+  1317  0800                     	__end_of_main:
+  1318 ;; =============== function _main ends ============
+  1319                           
+  1320                           	signat	_main,90
+  1321                           	global	_lcd_data
+  1322                           psect	text111,local,class=CODE,delta=2
+  1323                           global __ptext111
+  1324  05B1                     __ptext111:
+  1325                           
+  1326 ;; *************** function _lcd_data *****************
+  1327 ;; Defined at:
+  1328 ;;		line 216 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+  1329 ;; Parameters:    Size  Location     Type
+  1330 ;;  data            1    wreg     unsigned char 
+  1331 ;; Auto vars:     Size  Location     Type
+  1332 ;;  data            1    0[COMMON] unsigned char 
+  1333 ;; Return value:  Size  Location     Type
+  1334 ;;		None               void
+  1335 ;; Registers used:
+  1336 ;;		wreg, status,2, status,0, pclath, cstack
+  1337 ;; Tracked objects:
+  1338 ;;		On entry : 0/0
+  1339 ;;		On exit  : 0/0
+  1340 ;;		Unchanged: 0/0
+  1341 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1342 ;;      Params:         0       0       0       0       0
+  1343 ;;      Locals:         1       0       0       0       0
+  1344 ;;      Temps:          0       0       0       0       0
+  1345 ;;      Totals:         1       0       0       0       0
+  1346 ;;Total ram usage:        1 bytes
+  1347 ;; Hardware stack levels used:    1
+  1348 ;; Hardware stack levels required when called:    1
+  1349 ;; This function calls:
+  1350 ;;		_delay
+  1351 ;; This function is called by:
+  1352 ;;		_main
+  1353 ;; This function uses a non-reentrant model
+  1354 ;;
+  1355                           psect	text111
+  1356                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+  1357                           	line	216
+  1358                           	global	__size_of_lcd_data
+  1359  0011                     	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
+  1360                           	
+  1361  05B1                     _lcd_data:	
+  1362                           	opt	stack 6
+  1363                           ; Regs used in _lcd_data: [wreg+status,2+status,0+pclath+cstack]
+  1364                           ;lcd_data@data stored from wreg
+  1365  05B1  00F0               	movwf	(lcd_data@data)
+  1366                           	line	217
+  1367                           	
+  1368  05B2                     l1976:	
+  1369                           ;keypad_uart_lcd.c: 217: RC0 = 1;
+  1370  05B2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1371  05B3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1372  05B4  1407               	bsf	(56/8),(56)&7
+  1373                           	line	218
+  1374                           ;keypad_uart_lcd.c: 218: RC1 = 0;
+  1375  05B5  1087               	bcf	(57/8),(57)&7
+  1376                           	line	219
+  1377                           ;keypad_uart_lcd.c: 219: RC2 = 1;
+  1378  05B6  1507               	bsf	(58/8),(58)&7
+  1379                           	line	220
+  1380                           	
+  1381  05B7                     l1978:	
+  1382                           ;keypad_uart_lcd.c: 220: PORTB = data;
+  1383  05B7  0870               	movf	(lcd_data@data),w
+  1384  05B8  0086               	movwf	(6)	;volatile
+  1385                           	line	221
+  1386                           	
+  1387  05B9                     l1980:	
+  1388                           ;keypad_uart_lcd.c: 221: delay();
+  1389  05B9  120A  118A  25C2   	fcall	_delay
+              120A  118A         
+  1390                           	line	222
+  1391                           	
+  1392  05BE                     l1982:	
+  1393                           ;keypad_uart_lcd.c: 222: RC2 = 0;
+  1394  05BE  1283               	bcf	status, 5	;RP0=0, select bank0
+  1395  05BF  1303               	bcf	status, 6	;RP1=0, select bank0
+  1396  05C0  1107               	bcf	(58/8),(58)&7
+  1397                           	line	223
+  1398                           	
+  1399  05C1                     l784:	
+  1400  05C1  0008               	return
+  1401                           	opt stack 0
+  1402                           GLOBAL	__end_of_lcd_data
+  1403  05C2                     	__end_of_lcd_data:
+  1404 ;; =============== function _lcd_data ends ============
+  1405                           
+  1406                           	signat	_lcd_data,4216
+  1407                           	global	_lcd_cmd
+  1408                           psect	text112,local,class=CODE,delta=2
+  1409                           global __ptext112
+  1410  05A0                     __ptext112:
+  1411                           
+  1412 ;; *************** function _lcd_cmd *****************
+  1413 ;; Defined at:
+  1414 ;;		line 205 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+  1415 ;; Parameters:    Size  Location     Type
+  1416 ;;  cmd             1    wreg     unsigned char 
+  1417 ;; Auto vars:     Size  Location     Type
+  1418 ;;  cmd             1    0[COMMON] unsigned char 
+  1419 ;; Return value:  Size  Location     Type
+  1420 ;;		None               void
+  1421 ;; Registers used:
+  1422 ;;		wreg, status,2, status,0, pclath, cstack
+  1423 ;; Tracked objects:
+  1424 ;;		On entry : 0/0
+  1425 ;;		On exit  : 0/0
+  1426 ;;		Unchanged: 0/0
+  1427 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1428 ;;      Params:         0       0       0       0       0
+  1429 ;;      Locals:         1       0       0       0       0
+  1430 ;;      Temps:          0       0       0       0       0
+  1431 ;;      Totals:         1       0       0       0       0
+  1432 ;;Total ram usage:        1 bytes
+  1433 ;; Hardware stack levels used:    1
+  1434 ;; Hardware stack levels required when called:    1
+  1435 ;; This function calls:
+  1436 ;;		_delay
+  1437 ;; This function is called by:
+  1438 ;;		_main
+  1439 ;; This function uses a non-reentrant model
+  1440 ;;
+  1441                           psect	text112
+  1442                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+  1443                           	line	205
+  1444                           	global	__size_of_lcd_cmd
+  1445  0011                     	__size_of_lcd_cmd	equ	__end_of_lcd_cmd-_lcd_cmd
+  1446                           	
+  1447  05A0                     _lcd_cmd:	
+  1448                           	opt	stack 6
+  1449                           ; Regs used in _lcd_cmd: [wreg+status,2+status,0+pclath+cstack]
+  1450                           ;lcd_cmd@cmd stored from wreg
+  1451  05A0  00F0               	movwf	(lcd_cmd@cmd)
+  1452                           	line	206
+  1453                           	
+  1454  05A1                     l1968:	
+  1455                           ;keypad_uart_lcd.c: 206: RC0 = 0;
+  1456  05A1  1283               	bcf	status, 5	;RP0=0, select bank0
+  1457  05A2  1303               	bcf	status, 6	;RP1=0, select bank0
+  1458  05A3  1007               	bcf	(56/8),(56)&7
+  1459                           	line	207
+  1460                           ;keypad_uart_lcd.c: 207: RC1 = 0;
+  1461  05A4  1087               	bcf	(57/8),(57)&7
+  1462                           	line	208
+  1463                           ;keypad_uart_lcd.c: 208: RC2 = 1;
+  1464  05A5  1507               	bsf	(58/8),(58)&7
+  1465                           	line	209
+  1466                           	
+  1467  05A6                     l1970:	
+  1468                           ;keypad_uart_lcd.c: 209: PORTB = cmd;
+  1469  05A6  0870               	movf	(lcd_cmd@cmd),w
+  1470  05A7  0086               	movwf	(6)	;volatile
+  1471                           	line	210
+  1472                           	
+  1473  05A8                     l1972:	
+  1474                           ;keypad_uart_lcd.c: 210: delay();
+  1475  05A8  120A  118A  25C2   	fcall	_delay
+              120A  118A         
+  1476                           	line	211
+  1477                           	
+  1478  05AD                     l1974:	
+  1479                           ;keypad_uart_lcd.c: 211: RC2 = 0;
+  1480  05AD  1283               	bcf	status, 5	;RP0=0, select bank0
+  1481  05AE  1303               	bcf	status, 6	;RP1=0, select bank0
+  1482  05AF  1107               	bcf	(58/8),(58)&7
+  1483                           	line	212
+  1484                           	
+  1485  05B0                     l781:	
+  1486  05B0  0008               	return
+  1487                           	opt stack 0
+  1488                           GLOBAL	__end_of_lcd_cmd
+  1489  05B1                     	__end_of_lcd_cmd:
+  1490 ;; =============== function _lcd_cmd ends ============
+  1491                           
+  1492                           	signat	_lcd_cmd,4216
+  1493                           	global	_delay
+  1494                           psect	text113,local,class=CODE,delta=2
+  1495                           global __ptext113
+  1496  05C2                     __ptext113:
+  1497                           
+  1498 ;; *************** function _delay *****************
+  1499 ;; Defined at:
+  1500 ;;		line 227 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+  1501 ;; Parameters:    Size  Location     Type
+  1502 ;;		None
+  1503 ;; Auto vars:     Size  Location     Type
+  1504 ;;		None
+  1505 ;; Return value:  Size  Location     Type
+  1506 ;;		None               void
+  1507 ;; Registers used:
+  1508 ;;		wreg
+  1509 ;; Tracked objects:
+  1510 ;;		On entry : 0/0
+  1511 ;;		On exit  : 0/0
+  1512 ;;		Unchanged: 0/0
+  1513 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1514 ;;      Params:         0       0       0       0       0
+  1515 ;;      Locals:         0       0       0       0       0
+  1516 ;;      Temps:          0       0       0       0       0
+  1517 ;;      Totals:         0       0       0       0       0
+  1518 ;;Total ram usage:        0 bytes
+  1519 ;; Hardware stack levels used:    1
+  1520 ;; This function calls:
+  1521 ;;		Nothing
+  1522 ;; This function is called by:
+  1523 ;;		_lcd_cmd
+  1524 ;;		_lcd_data
+  1525 ;; This function uses a non-reentrant model
+  1526 ;;
+  1527                           psect	text113
+  1528                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+  1529                           	line	227
+  1530                           	global	__size_of_delay
+  1531  0012                     	__size_of_delay	equ	__end_of_delay-_delay
+  1532                           	
+  1533  05C2                     _delay:	
+  1534                           	opt	stack 6
+  1535                           ; Regs used in _delay: [wreg]
+  1536                           	line	228
+  1537                           	
+  1538  05C2                     l1190:	
+  1539                           ;keypad_uart_lcd.c: 228: TMR1CS = 0;
+  1540  05C2  1283               	bcf	status, 5	;RP0=0, select bank0
+  1541  05C3  1303               	bcf	status, 6	;RP1=0, select bank0
+  1542  05C4  1090               	bcf	(129/8),(129)&7
+  1543                           	line	229
+  1544                           ;keypad_uart_lcd.c: 229: T1CKPS0 = 1;
+  1545  05C5  1610               	bsf	(132/8),(132)&7
+  1546                           	line	230
+  1547                           ;keypad_uart_lcd.c: 230: T1CKPS1 = 1;
+  1548  05C6  1690               	bsf	(133/8),(133)&7
+  1549                           	line	231
+  1550                           	
+  1551  05C7                     l1192:	
+  1552                           ;keypad_uart_lcd.c: 231: TMR1H = 0X3C;
+  1553  05C7  303C               	movlw	(03Ch)
+  1554  05C8  008F               	movwf	(15)	;volatile
+  1555                           	line	232
+  1556                           ;keypad_uart_lcd.c: 232: TMR1L = 0XB0;
+  1557  05C9  30B0               	movlw	(0B0h)
+  1558  05CA  008E               	movwf	(14)	;volatile
+  1559                           	line	233
+  1560                           	
+  1561  05CB                     l1194:	
+  1562                           ;keypad_uart_lcd.c: 233: TMR1ON = 1;
+  1563  05CB  1410               	bsf	(128/8),(128)&7
+  1564                           	line	234
+  1565                           ;keypad_uart_lcd.c: 234: while(TMR1IF==0);
+  1566  05CC  2DCD               	goto	l787
+  1567                           	
+  1568  05CD                     l788:	
+  1569                           	
+  1570  05CD                     l787:	
+  1571  05CD  1C0C               	btfss	(96/8),(96)&7
+  1572  05CE  2DD0               	goto	u21
+  1573  05CF  2DD1               	goto	u20
+  1574  05D0                     u21:
+  1575  05D0  2DCD               	goto	l787
+  1576  05D1                     u20:
+  1577                           	
+  1578  05D1                     l789:	
+  1579                           	line	235
+  1580                           ;keypad_uart_lcd.c: 235: TMR1IF = 0;
+  1581  05D1  100C               	bcf	(96/8),(96)&7
+  1582                           	line	236
+  1583                           ;keypad_uart_lcd.c: 236: TMR1ON= 1;
+  1584  05D2  1410               	bsf	(128/8),(128)&7
+  1585                           	line	237
+  1586                           	
+  1587  05D3                     l790:	
+  1588  05D3  0008               	return
+  1589                           	opt stack 0
+  1590                           GLOBAL	__end_of_delay
+  1591  05D4                     	__end_of_delay:
+  1592 ;; =============== function _delay ends ============
+  1593                           
+  1594                           	signat	_delay,88
+  1595                           	global	_uart_tx
+  1596                           psect	text114,local,class=CODE,delta=2
+  1597                           global __ptext114
+  1598  0594                     __ptext114:
+  1599                           
+  1600 ;; *************** function _uart_tx *****************
+  1601 ;; Defined at:
+  1602 ;;		line 241 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+  1603 ;; Parameters:    Size  Location     Type
+  1604 ;;  val             1    wreg     unsigned char 
+  1605 ;; Auto vars:     Size  Location     Type
+  1606 ;;  val             1    0[COMMON] unsigned char 
+  1607 ;; Return value:  Size  Location     Type
+  1608 ;;		None               void
+  1609 ;; Registers used:
+  1610 ;;		wreg
+  1611 ;; Tracked objects:
+  1612 ;;		On entry : 0/0
+  1613 ;;		On exit  : 0/0
+  1614 ;;		Unchanged: 0/0
+  1615 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1616 ;;      Params:         0       0       0       0       0
+  1617 ;;      Locals:         1       0       0       0       0
+  1618 ;;      Temps:          0       0       0       0       0
+  1619 ;;      Totals:         1       0       0       0       0
+  1620 ;;Total ram usage:        1 bytes
+  1621 ;; Hardware stack levels used:    1
+  1622 ;; This function calls:
+  1623 ;;		Nothing
+  1624 ;; This function is called by:
+  1625 ;;		_main
+  1626 ;; This function uses a non-reentrant model
+  1627 ;;
+  1628                           psect	text114
+  1629                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+  1630                           	line	241
+  1631                           	global	__size_of_uart_tx
+  1632  000C                     	__size_of_uart_tx	equ	__end_of_uart_tx-_uart_tx
+  1633                           	
+  1634  0594                     _uart_tx:	
+  1635                           	opt	stack 7
+  1636                           ; Regs used in _uart_tx: [wreg]
+  1637                           ;uart_tx@val stored from wreg
+  1638                           	line	243
+  1639  0594  00F0               	movwf	(uart_tx@val)
+  1640                           	
+  1641  0595                     l1188:	
+  1642                           ;keypad_uart_lcd.c: 243: TXREG = val;
+  1643  0595  0870               	movf	(uart_tx@val),w
+  1644  0596  1283               	bcf	status, 5	;RP0=0, select bank0
+  1645  0597  1303               	bcf	status, 6	;RP1=0, select bank0
+  1646  0598  0099               	movwf	(25)	;volatile
+  1647                           	line	244
+  1648                           ;keypad_uart_lcd.c: 244: while(TXIF==0);
+  1649  0599  2D9A               	goto	l793
+  1650                           	
+  1651  059A                     l794:	
+  1652                           	
+  1653  059A                     l793:	
+  1654  059A  1E0C               	btfss	(100/8),(100)&7
+  1655  059B  2D9D               	goto	u11
+  1656  059C  2D9E               	goto	u10
+  1657  059D                     u11:
+  1658  059D  2D9A               	goto	l793
+  1659  059E                     u10:
+  1660                           	
+  1661  059E                     l795:	
+  1662                           	line	245
+  1663                           ;keypad_uart_lcd.c: 245: TXIF=0;
+  1664  059E  120C               	bcf	(100/8),(100)&7
+  1665                           	line	246
+  1666                           	
+  1667  059F                     l796:	
+  1668  059F  0008               	return
+  1669                           	opt stack 0
+  1670                           GLOBAL	__end_of_uart_tx
+  1671  05A0                     	__end_of_uart_tx:
+  1672 ;; =============== function _uart_tx ends ============
+  1673                           
+  1674                           	signat	_uart_tx,4216
+  1675                           	global	_uart_init
+  1676                           psect	text115,local,class=CODE,delta=2
+  1677                           global __ptext115
+  1678  05D4                     __ptext115:
+  1679                           
+  1680 ;; *************** function _uart_init *****************
+  1681 ;; Defined at:
+  1682 ;;		line 256 in file "C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd.c"
+  1683 ;; Parameters:    Size  Location     Type
+  1684 ;;		None
+  1685 ;; Auto vars:     Size  Location     Type
+  1686 ;;		None
+  1687 ;; Return value:  Size  Location     Type
+  1688 ;;		None               void
+  1689 ;; Registers used:
+  1690 ;;		wreg, status,2
+  1691 ;; Tracked objects:
+  1692 ;;		On entry : 0/0
+  1693 ;;		On exit  : 0/0
+  1694 ;;		Unchanged: 0/0
+  1695 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1696 ;;      Params:         0       0       0       0       0
+  1697 ;;      Locals:         0       0       0       0       0
+  1698 ;;      Temps:          0       0       0       0       0
+  1699 ;;      Totals:         0       0       0       0       0
+  1700 ;;Total ram usage:        0 bytes
+  1701 ;; Hardware stack levels used:    1
+  1702 ;; This function calls:
+  1703 ;;		Nothing
+  1704 ;; This function is called by:
+  1705 ;;		_main
+  1706 ;; This function uses a non-reentrant model
+  1707 ;;
+  1708                           psect	text115
+  1709                           	file	"C:\Users\Jeeva\Desktop\mplab\hardware\ASSignments\keypad_uart_lcd\keypad_uart_lcd
+                                 .c"
+  1710                           	line	256
+  1711                           	global	__size_of_uart_init
+  1712  0013                     	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
+  1713                           	
+  1714  05D4                     _uart_init:	
+  1715                           	opt	stack 7
+  1716                           ; Regs used in _uart_init: [wreg+status,2]
+  1717                           	line	257
+  1718                           	
+  1719  05D4                     l1174:	
+  1720                           ;keypad_uart_lcd.c: 257: TRISC6 = 0;
+  1721  05D4  1683               	bsf	status, 5	;RP0=1, select bank1
+  1722  05D5  1303               	bcf	status, 6	;RP1=0, select bank1
+  1723  05D6  1307               	bcf	(1086/8)^080h,(1086)&7
+  1724                           	line	258
+  1725                           ;keypad_uart_lcd.c: 258: TRISC7 = 1;
+  1726  05D7  1787               	bsf	(1087/8)^080h,(1087)&7
+  1727                           	line	260
+  1728                           	
+  1729  05D8                     l1176:	
+  1730                           ;keypad_uart_lcd.c: 260: TXSTA = 0x00;
+  1731  05D8  0198               	clrf	(152)^080h	;volatile
+  1732                           	line	261
+  1733                           ;keypad_uart_lcd.c: 261: RCSTA = 0x00;
+  1734  05D9  1283               	bcf	status, 5	;RP0=0, select bank0
+  1735  05DA  1303               	bcf	status, 6	;RP1=0, select bank0
+  1736  05DB  0198               	clrf	(24)	;volatile
+  1737                           	line	262
+  1738                           	
+  1739  05DC                     l1178:	
+  1740                           ;keypad_uart_lcd.c: 262: SPBRG = 31;
+  1741  05DC  301F               	movlw	(01Fh)
+  1742  05DD  1683               	bsf	status, 5	;RP0=1, select bank1
+  1743  05DE  1303               	bcf	status, 6	;RP1=0, select bank1
+  1744  05DF  0099               	movwf	(153)^080h	;volatile
+  1745                           	line	263
+  1746                           	
+  1747  05E0                     l1180:	
+  1748                           ;keypad_uart_lcd.c: 263: TXEN = 1;
+  1749  05E0  1698               	bsf	(1221/8)^080h,(1221)&7
+  1750                           	line	264
+  1751                           	
+  1752  05E1                     l1182:	
+  1753                           ;keypad_uart_lcd.c: 264: SPEN = 1;
+  1754  05E1  1283               	bcf	status, 5	;RP0=0, select bank0
+  1755  05E2  1303               	bcf	status, 6	;RP1=0, select bank0
+  1756  05E3  1798               	bsf	(199/8),(199)&7
+  1757                           	line	265
+  1758                           	
+  1759  05E4                     l1184:	
+  1760                           ;keypad_uart_lcd.c: 265: TXIF=0;
+  1761  05E4  120C               	bcf	(100/8),(100)&7
+  1762                           	line	266
+  1763                           	
+  1764  05E5                     l1186:	
+  1765                           ;keypad_uart_lcd.c: 266: RCIF=0;
+  1766  05E5  128C               	bcf	(101/8),(101)&7
+  1767                           	line	267
+  1768                           	
+  1769  05E6                     l805:	
+  1770  05E6  0008               	return
+  1771                           	opt stack 0
+  1772                           GLOBAL	__end_of_uart_init
+  1773  05E7                     	__end_of_uart_init:
+  1774 ;; =============== function _uart_init ends ============
+  1775                           
+  1776                           	signat	_uart_init,88
+  1777                           psect	text116,local,class=CODE,delta=2
+  1778                           global __ptext116
+  1779  0000                     __ptext116:
+  1780                           	global	btemp
+  1781  007E                     	btemp set 07Eh
+  1782                           
+  1783                           	DABS	1,126,2	;btemp
+  1784                           	global	wtemp0
+  1785  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Sun Sep 16 10:14:41 2018
+
+        lcd_data@data 0070                    u10 059E                    u11 059D                    u20 05D1  
+                  u21 05D0                   l700 0698                   l701 065C                   l710 0697  
+                 l702 0654                   l711 0692                   l703 0654                   l720 070E  
+                 l712 068A                   l704 065B                   l721 06D2                   l705 0698  
+                 l713 068A                   l730 070D                   l722 06CA                   l714 0691  
+                 l706 0677                   l731 0708                   l723 06CA                   l715 0696  
+                 l707 066F                   l740 0784                   l732 0700                   l724 06D1  
+                 l716 06B7                   l708 066F                   l805 05E6                   l741 0748  
+                 l725 070E                   l733 0700                   l717 06AF                   l709 0676  
+                 l750 0783                   l742 0740                   l734 0707                   l726 06ED  
+                 l718 06AF                   l751 077E                   l743 0740                   l735 070C  
+                 l727 06E5                   l719 06B6                   l760 07FB                   l752 0776  
+                 l744 0747                   l736 072D                   l728 06E5                   l761 07BE  
+                 l745 0784                   l753 0776                   l737 0725                   l729 06EC  
+                 l770 07F9                   l762 07B6                   l754 077D                   l746 0763  
+                 l738 0725                   l771 07F4                   l763 07B6                   l755 0782  
+                 l747 075B                   l739 072C                   l772 07EC                   l764 07BD  
+                 l756 07A3                   l748 075B                   l781 05B0                   l765 07FA  
+                 l773 07EC                   l757 079B                   l749 0762                   l790 05D3  
+                 l774 07F3                   l766 07D9                   l758 079B                   l775 07F8  
+                 l767 07D1                   l759 07A2                   l695 0620                   l784 05C1  
+                 l776 07FC                   l768 07D1                   l696 0641                   l793 059A  
+                 l777 07FD                   l769 07D8                   l697 0639                   l794 059A  
+                 l778 07FD                   l698 0639                   l795 059E                   l787 05CD  
+                 l699 0640                   l796 059F                   l788 05CD                   l789 05D1  
+                 _RC0 0038                   _RC1 0039                   _RD0 0040                   _RC2 003A  
+                 _RD1 0041                   _RD2 0042                   _RD3 0043                   _RD4 0044  
+                 _RD5 0045                   _RD6 0046                   _RD7 0047                  l2000 05F6  
+                l2010 062C                  l2002 05F7                  l2020 0677                  l2012 0641  
+                l2004 0620                  l2030 06BD                  l2022 067D                  l2014 0647  
+                l2006 0623                  l2040 0712                  l2032 06D2                  l2024 069C  
+                l2016 065C                  l2008 0626                  l2050 074E                  l2042 0718  
+                l2034 06D8                  l2026 06A2                  l2018 0662                  l1180 05E0  
+                l2060 07A3                  l2052 0763                  l2044 072D                  l2036 06ED  
+                l2028 06B7                  l1182 05E1                  l1174 05D4                  l1190 05C2  
+                l2070 07DF                  l2062 07A9                  l2054 0769                  l2046 0733  
+                l2038 06F3                  l1184 05E4                  l1176 05D8                  l1192 05C7  
+                l2064 07BE                  l2056 0788                  l2048 0748                  l1186 05E5  
+                l1178 05DC                  l1194 05CB                  l2066 07C4                  l2058 078E  
+                l1188 0595                  l2068 07D9                  l1970 05A6                  l1972 05A8  
+                l1980 05B9                  l1974 05AD                  l1982 05BE                  l1990 05F1  
+                l1968 05A1                  l1976 05B2                  l1992 05F2                  l1984 05E7  
+                l1978 05B7                  l1994 05F3                  l1986 05EC                  l1996 05F4  
+                l1988 05F0                  l1998 05F5                  u2200 065A                  u2201 0659  
+                u2210 0662                  u2211 0661                  u2300 06EB                  u2220 0675  
+                u2301 06EA                  u2221 0674                  u2310 06F3                  u2230 067D  
+                u2311 06F2                  u2231 067C                  u2400 077C                  u2320 0706  
+                u2240 0690                  u2401 077B                  u2321 0705                  u2241 068F  
+                u2410 078E                  u2330 0718                  u2250 06A2                  u2170 062C  
+                u2411 078D                  u2331 0717                  u2251 06A1                  u2171 062B  
+                u2420 07A1                  u2340 072B                  u2260 06B5                  u2180 063F  
+                u2421 07A0                  u2341 072A                  u2261 06B4                  u2181 063E  
+                u2430 07A9                  u2350 0733                  u2270 06BD                  u2190 0647  
+                u2431 07A8                  u2351 0732                  u2271 06BC                  u2191 0646  
+                u2440 07BC                  u2360 0746                  u2280 06D0                  u2441 07BB  
+                u2361 0745                  u2281 06CF                  u2450 07C4                  u2370 074E  
+                u2290 06D8                  u2451 07C3                  u2371 074D                  u2291 06D7  
+                u2460 07D7                  u2380 0761                  u2461 07D6                  u2381 0760  
+                u2470 07DF                  u2390 0769                  u2471 07DE                  u2391 0768  
+                u2480 07F2                  u2481 07F1                  _RCIF 0065                  _SPEN 00C7  
+                _TXEN 04C5                  _TXIF 0064                  _main 05E7                  btemp 007E  
+                start 0000                 ?_main 0070                 _RCREG 001A                 _RCSTA 0018  
+               _TMR1H 000F                 _TMR1L 000E                 _SPBRG 0099                 _PORTB 0006  
+               _PORTD 0008                 _TRISB 0086                 _TRISD 0088                 _TXREG 0019  
+               _TXSTA 0098       __end_of_lcd_cmd 05B1                 _delay 05C2       __end_of_uart_tx 05A0  
+               status 0003                 wtemp0 007E          __end_of_main 0800                ??_main 0071  
+              ?_delay 0070                _TMR1IF 0060                _TMR1CS 0081                _TMR1ON 0080  
+              _TRISC0 0438                _TRISC1 0439                _TRISC2 043A                _TRISC6 043E  
+              _TRISC7 043F      __end_of_lcd_data 05C2             ??_lcd_cmd 0070             ??_uart_tx 0070  
+      __pcstackCOMMON 0070         __end_of_delay 05D4               ??_delay 0070            __pmaintext 05E7  
+             _T1CKPS0 0084               _T1CKPS1 0085    __size_of_uart_init 0013             ?_lcd_data 0070  
+             _lcd_cmd 05A0               _uart_tx 0594            ??_lcd_data 0070  end_of_initialization 0590  
+   __end_of_uart_init 05E7            lcd_cmd@cmd 0070   start_initialization 0590     __size_of_lcd_data 0011  
+           __ptext110 0000             __ptext111 05B1             __ptext112 05A0             __ptext113 05C2  
+           __ptext114 0594             __ptext115 05D4             __ptext116 0000              ?_lcd_cmd 0070  
+            ?_uart_tx 0070        __size_of_delay 0012             _uart_init 05D4            uart_tx@val 0070  
+          ?_uart_init 0070      __size_of_lcd_cmd 0011              _lcd_data 05B1      __size_of_uart_tx 000C  
+       __size_of_main 0219           ??_uart_init 0070  

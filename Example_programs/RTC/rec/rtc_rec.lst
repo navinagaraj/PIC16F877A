@@ -1,0 +1,891 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Mon Nov 26 21:30:59 2018
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+    45  2007  FF7A               	dw 0xFFFE&0xFFFB&0xFFFF&0xFFFF&0xFF7F ;#
+    46                           	FNCALL	_main,_uart_init
+    47                           	FNROOT	_main
+    48                           	FNCALL	_ISR,_print_uart
+    49                           	FNCALL	_print_uart,_uart_tx
+    50                           	FNCALL	intlevel1,_ISR
+    51                           	global	intlevel1
+    52                           	FNROOT	intlevel1
+    53                           	global	_string
+    54                           psect	idataBANK0,class=CODE,space=0,delta=2
+    55                           global __pidataBANK0
+    56  0015                     __pidataBANK0:
+    57                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+    58                           	line	8
+    59                           
+    60                           ;initializer for _string
+    61  0015  3446               	retlw	046h
+    62  0016  3469               	retlw	069h
+    63  0017  3472               	retlw	072h
+    64  0018  3473               	retlw	073h
+    65  0019  3474               	retlw	074h
+    66  001A  3420               	retlw	020h
+    67  001B  3443               	retlw	043h
+    68  001C  346F               	retlw	06Fh
+    69  001D  346E               	retlw	06Eh
+    70  001E  3474               	retlw	074h
+    71  001F  3472               	retlw	072h
+    72  0020  346F               	retlw	06Fh
+    73  0021  346C               	retlw	06Ch
+    74  0022  346C               	retlw	06Ch
+    75  0023  3465               	retlw	065h
+    76  0024  3472               	retlw	072h
+    77  0025  3420               	retlw	020h
+    78  0026  3469               	retlw	069h
+    79  0027  3473               	retlw	073h
+    80  0028  3420               	retlw	020h
+    81  0029  3477               	retlw	077h
+    82  002A  346F               	retlw	06Fh
+    83  002B  3472               	retlw	072h
+    84  002C  346B               	retlw	06Bh
+    85  002D  3469               	retlw	069h
+    86  002E  346E               	retlw	06Eh
+    87  002F  3467               	retlw	067h
+    88  0030  340D               	retlw	0Dh
+    89  0031  3400               	retlw	0
+    90  0032  3400               	retlw	0
+    91  0033  3400               	retlw	0
+    92  0034  3400               	retlw	0
+    93  0035  3400               	retlw	0
+    94  0036  3400               	retlw	0
+    95  0037  3400               	retlw	0
+    96  0038  3400               	retlw	0
+    97  0039  3400               	retlw	0
+    98  003A  3400               	retlw	0
+    99  003B  3400               	retlw	0
+   100  003C  3400               	retlw	0
+   101  003D  3400               	retlw	0
+   102  003E  3400               	retlw	0
+   103  003F  3400               	retlw	0
+   104  0040  3400               	retlw	0
+   105  0041  3400               	retlw	0
+   106  0042  3400               	retlw	0
+   107  0043  3400               	retlw	0
+   108  0044  3400               	retlw	0
+   109  0045  3400               	retlw	0
+   110  0046  3400               	retlw	0
+   111                           	global	_TXREG
+   112  0019                     _TXREG	set	25
+   113                           	global	_GIE
+   114  005F                     _GIE	set	95
+   115                           	global	_INTE
+   116  005C                     _INTE	set	92
+   117                           	global	_INTF
+   118  0059                     _INTF	set	89
+   119                           	global	_PEIE
+   120  005E                     _PEIE	set	94
+   121                           	global	_RCIF
+   122  0065                     _RCIF	set	101
+   123                           	global	_SPEN
+   124  00C7                     _SPEN	set	199
+   125                           	global	_TXIF
+   126  0064                     _TXIF	set	100
+   127                           	global	_OPTION_REG
+   128  0081                     _OPTION_REG	set	129
+   129                           	global	_SPBRG
+   130  0099                     _SPBRG	set	153
+   131                           	global	_TRISB0
+   132  0430                     _TRISB0	set	1072
+   133                           	global	_TRISC6
+   134  043E                     _TRISC6	set	1086
+   135                           	global	_TRISC7
+   136  043F                     _TRISC7	set	1087
+   137                           	global	_TXEN
+   138  04C5                     _TXEN	set	1221
+   139                           	file	"rtc_rec.as"
+   140                           	line	#
+   141                           psect cinit,class=CODE,delta=2
+   142                           global start_initialization
+   143  007A                     start_initialization:
+   144                           
+   145                           psect	dataBANK0,class=BANK0,space=1
+   146                           global __pdataBANK0
+   147  0020                     __pdataBANK0:
+   148                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   149  0020                     _string:
+   150  0020                            ds      50
+   151                           
+   152                           global btemp
+   153                           psect inittext,class=CODE,delta=2
+   154                           global init_fetch,btemp
+   155                           ;	Called with low address in FSR and high address in W
+   156  008C                     init_fetch:
+   157  008C  087E               	movf btemp,w
+   158  008D  008A               	movwf pclath
+   159  008E  087F               	movf btemp+1,w
+   160  008F  0082               	movwf pc
+   161                           global init_ram
+   162                           ;Called with:
+   163                           ;	high address of idata address in btemp 
+   164                           ;	low address of idata address in btemp+1 
+   165                           ;	low address of data in FSR
+   166                           ;	high address + 1 of data in btemp-1
+   167  0090                     init_ram:
+   168  0090  208C  120A  118A   	fcall init_fetch
+   169  0093  0080               	movwf indf,f
+   170  0094  0A84               	incf fsr,f
+   171  0095  0804               	movf fsr,w
+   172  0096  067D               	xorwf btemp-1,w
+   173  0097  1903               	btfsc status,2
+   174  0098  3400               	retlw 0
+   175  0099  0AFF               	incf btemp+1,f
+   176  009A  1903               	btfsc status,2
+   177  009B  0AFE               	incf btemp,f
+   178  009C  2890               	goto init_ram
+   179                           ; Initialize objects allocated to BANK0
+   180                           psect cinit,class=CODE,delta=2
+   181                           global init_ram, __pidataBANK0
+   182  007A  1383               	bcf	status, 7	;select IRP bank0
+   183  007B  3052               	movlw low(__pdataBANK0+50)
+   184  007C  00FD               	movwf btemp-1,f
+   185  007D  3000               	movlw high(__pidataBANK0)
+   186  007E  00FE               	movwf btemp,f
+   187  007F  3015               	movlw low(__pidataBANK0)
+   188  0080  00FF               	movwf btemp+1,f
+   189  0081  3020               	movlw low(__pdataBANK0)
+   190  0082  0084               	movwf fsr,f
+   191  0083  120A  118A  2090   	fcall init_ram
+              120A  118A         
+   192                           psect cinit,class=CODE,delta=2
+   193                           global end_of_initialization
+   194                           
+   195                           ;End of C runtime variable initialization code
+   196                           
+   197  0088                     end_of_initialization:
+   198  0088  0183               clrf status
+   199  0089  120A  118A  289D   ljmp _main	;jump to C main() function
+   200                           psect	cstackCOMMON,class=COMMON,space=1
+   201                           global __pcstackCOMMON
+   202  0070                     __pcstackCOMMON:
+   203                           	global	?_uart_init
+   204  0070                     ?_uart_init:	; 0 bytes @ 0x0
+   205                           	global	?_print_uart
+   206  0070                     ?_print_uart:	; 0 bytes @ 0x0
+   207                           	global	?_uart_tx
+   208  0070                     ?_uart_tx:	; 0 bytes @ 0x0
+   209                           	global	??_uart_tx
+   210  0070                     ??_uart_tx:	; 0 bytes @ 0x0
+   211                           	global	?_ISR
+   212  0070                     ?_ISR:	; 0 bytes @ 0x0
+   213                           	global	?_main
+   214  0070                     ?_main:	; 2 bytes @ 0x0
+   215                           	global	uart_tx@val
+   216  0070                     uart_tx@val:	; 1 bytes @ 0x0
+   217  0070                     	ds	1
+   218                           	global	??_print_uart
+   219  0071                     ??_print_uart:	; 0 bytes @ 0x1
+   220  0071                     	ds	1
+   221                           	global	print_uart@str
+   222  0072                     print_uart@str:	; 1 bytes @ 0x2
+   223  0072                     	ds	1
+   224                           	global	??_ISR
+   225  0073                     ??_ISR:	; 0 bytes @ 0x3
+   226  0073                     	ds	4
+   227                           	global	??_uart_init
+   228  0077                     ??_uart_init:	; 0 bytes @ 0x7
+   229                           	global	??_main
+   230  0077                     ??_main:	; 0 bytes @ 0x7
+   231 ;;Data sizes: Strings 0, constant 0, data 50, bss 0, persistent 0 stack 0
+   232 ;;Auto spaces:   Size  Autos    Used
+   233 ;; COMMON          14      7       7
+   234 ;; BANK0           80      0      50
+   235 ;; BANK1           80      0       0
+   236 ;; BANK3           96      0       0
+   237 ;; BANK2           96      0       0
+   238                           
+   239 ;;
+   240 ;; Pointer list with targets:
+   241                           
+   242 ;; print_uart@str	PTR unsigned char  size(1) Largest target is 50
+   243 ;;		 -> string(BANK0[50]), 
+   244 ;;
+   245                           
+   246                           
+   247 ;;
+   248 ;; Critical Paths under _main in COMMON
+   249 ;;
+   250 ;;   None.
+   251 ;;
+   252 ;; Critical Paths under _ISR in COMMON
+   253 ;;
+   254 ;;   _ISR->_print_uart
+   255 ;;   _print_uart->_uart_tx
+   256 ;;
+   257 ;; Critical Paths under _main in BANK0
+   258 ;;
+   259 ;;   None.
+   260 ;;
+   261 ;; Critical Paths under _ISR in BANK0
+   262 ;;
+   263 ;;   None.
+   264 ;;
+   265 ;; Critical Paths under _main in BANK1
+   266 ;;
+   267 ;;   None.
+   268 ;;
+   269 ;; Critical Paths under _ISR in BANK1
+   270 ;;
+   271 ;;   None.
+   272 ;;
+   273 ;; Critical Paths under _main in BANK3
+   274 ;;
+   275 ;;   None.
+   276 ;;
+   277 ;; Critical Paths under _ISR in BANK3
+   278 ;;
+   279 ;;   None.
+   280 ;;
+   281 ;; Critical Paths under _main in BANK2
+   282 ;;
+   283 ;;   None.
+   284 ;;
+   285 ;; Critical Paths under _ISR in BANK2
+   286 ;;
+   287 ;;   None.
+   288                           
+   289 ;;
+   290 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   291 ;;
+   292                           
+   293 ;;
+   294 ;;Call Graph Tables:
+   295 ;;
+   296 ;; ---------------------------------------------------------------------------------
+   297 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   298 ;; ---------------------------------------------------------------------------------
+   299 ;; (0) _main                                                 0     0      0       0
+   300 ;;                          _uart_init
+   301 ;; ---------------------------------------------------------------------------------
+   302 ;; (1) _uart_init                                            0     0      0       0
+   303 ;; ---------------------------------------------------------------------------------
+   304 ;; Estimated maximum stack depth 1
+   305 ;; ---------------------------------------------------------------------------------
+   306 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   307 ;; ---------------------------------------------------------------------------------
+   308 ;; (2) _ISR                                                  4     4      0      45
+   309 ;;                                              3 COMMON     4     4      0
+   310 ;;                         _print_uart
+   311 ;; ---------------------------------------------------------------------------------
+   312 ;; (3) _print_uart                                           2     2      0      45
+   313 ;;                                              1 COMMON     2     2      0
+   314 ;;                            _uart_tx
+   315 ;; ---------------------------------------------------------------------------------
+   316 ;; (4) _uart_tx                                              1     1      0      15
+   317 ;;                                              0 COMMON     1     1      0
+   318 ;; ---------------------------------------------------------------------------------
+   319 ;; Estimated maximum stack depth 4
+   320 ;; ---------------------------------------------------------------------------------
+   321                           
+   322 ;; Call Graph Graphs:
+   323                           
+   324 ;; _main (ROOT)
+   325 ;;   _uart_init
+   326 ;;
+   327 ;; _ISR (ROOT)
+   328 ;;   _print_uart
+   329 ;;     _uart_tx
+   330 ;;
+   331                           
+   332 ;; Address spaces:
+   333                           
+   334 ;;Name               Size   Autos  Total    Cost      Usage
+   335 ;;BANK3               60      0       0       9        0.0%
+   336 ;;BITBANK3            60      0       0       8        0.0%
+   337 ;;SFR3                 0      0       0       4        0.0%
+   338 ;;BITSFR3              0      0       0       4        0.0%
+   339 ;;BANK2               60      0       0      11        0.0%
+   340 ;;BITBANK2            60      0       0      10        0.0%
+   341 ;;SFR2                 0      0       0       5        0.0%
+   342 ;;BITSFR2              0      0       0       5        0.0%
+   343 ;;SFR1                 0      0       0       2        0.0%
+   344 ;;BITSFR1              0      0       0       2        0.0%
+   345 ;;BANK1               50      0       0       7        0.0%
+   346 ;;BITBANK1            50      0       0       6        0.0%
+   347 ;;CODE                 0      0       0       0        0.0%
+   348 ;;DATA                 0      0      40      12        0.0%
+   349 ;;ABS                  0      0      39       3        0.0%
+   350 ;;NULL                 0      0       0       0        0.0%
+   351 ;;STACK                0      0       7       2        0.0%
+   352 ;;BANK0               50      0      32       5       62.5%
+   353 ;;BITBANK0            50      0       0       4        0.0%
+   354 ;;SFR0                 0      0       0       1        0.0%
+   355 ;;BITSFR0              0      0       0       1        0.0%
+   356 ;;COMMON               E      7       7       1       50.0%
+   357 ;;BITCOMMON            E      0       0       0        0.0%
+   358 ;;EEDATA             100      0       0       0        0.0%
+   359                           
+   360                           	global	_main
+   361                           psect	maintext,global,class=CODE,delta=2
+   362                           global __pmaintext
+   363  009D                     __pmaintext:
+   364                           
+   365 ;; *************** function _main *****************
+   366 ;; Defined at:
+   367 ;;		line 11 in file "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   368 ;; Parameters:    Size  Location     Type
+   369 ;;		None
+   370 ;; Auto vars:     Size  Location     Type
+   371 ;;		None
+   372 ;; Return value:  Size  Location     Type
+   373 ;;                  2  692[COMMON] int 
+   374 ;; Registers used:
+   375 ;;		wreg, status,2, status,0, pclath, cstack
+   376 ;; Tracked objects:
+   377 ;;		On entry : 17F/0
+   378 ;;		On exit  : 0/0
+   379 ;;		Unchanged: 0/0
+   380 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   381 ;;      Params:         0       0       0       0       0
+   382 ;;      Locals:         0       0       0       0       0
+   383 ;;      Temps:          0       0       0       0       0
+   384 ;;      Totals:         0       0       0       0       0
+   385 ;;Total ram usage:        0 bytes
+   386 ;; Hardware stack levels required when called:    4
+   387 ;; This function calls:
+   388 ;;		_uart_init
+   389 ;; This function is called by:
+   390 ;;		Startup code after reset
+   391 ;; This function uses a non-reentrant model
+   392 ;;
+   393                           psect	maintext
+   394                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   395                           	line	11
+   396                           	global	__size_of_main
+   397  0011                     	__size_of_main	equ	__end_of_main-_main
+   398                           	
+   399  009D                     _main:	
+   400                           	opt	stack 4
+   401                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   402                           	line	12
+   403                           	
+   404  009D                     l1882:	
+   405                           ;rtc_rr.c: 12: uart_init();
+   406  009D  120A  118A  20AE   	fcall	_uart_init
+              120A  118A         
+   407                           	line	13
+   408                           	
+   409  00A2                     l1884:	
+   410                           ;rtc_rr.c: 13: TRISB0 = 1;
+   411  00A2  1683               	bsf	status, 5	;RP0=1, select bank1
+   412  00A3  1303               	bcf	status, 6	;RP1=0, select bank1
+   413  00A4  1406               	bsf	(1072/8)^080h,(1072)&7
+   414                           	line	14
+   415                           	
+   416  00A5                     l1886:	
+   417                           ;rtc_rr.c: 14: OPTION_REG = 0x00;
+   418  00A5  0181               	clrf	(129)^080h	;volatile
+   419                           	line	15
+   420                           	
+   421  00A6                     l1888:	
+   422                           ;rtc_rr.c: 15: GIE = 1;
+   423  00A6  178B               	bsf	(95/8),(95)&7
+   424                           	line	16
+   425                           	
+   426  00A7                     l1890:	
+   427                           ;rtc_rr.c: 16: PEIE = 1;
+   428  00A7  170B               	bsf	(94/8),(94)&7
+   429                           	line	17
+   430                           	
+   431  00A8                     l1892:	
+   432                           ;rtc_rr.c: 17: INTE = 1;
+   433  00A8  160B               	bsf	(92/8),(92)&7
+   434  00A9  28AA               	goto	l694
+   435                           	line	18
+   436                           ;rtc_rr.c: 18: while(1);
+   437                           	
+   438  00AA                     l693:	
+   439                           	
+   440  00AA                     l694:	
+   441  00AA  28AA               	goto	l694
+   442                           	
+   443  00AB                     l695:	
+   444                           	line	19
+   445                           	
+   446  00AB                     l696:	
+   447                           	global	start
+   448  00AB  120A  118A  2812   	ljmp	start
+   449                           	opt stack 0
+   450                           GLOBAL	__end_of_main
+   451  00AE                     	__end_of_main:
+   452 ;; =============== function _main ends ============
+   453                           
+   454                           	signat	_main,90
+   455                           	global	_uart_init
+   456                           psect	text97,local,class=CODE,delta=2
+   457                           global __ptext97
+   458  00AE                     __ptext97:
+   459                           
+   460 ;; *************** function _uart_init *****************
+   461 ;; Defined at:
+   462 ;;		line 30 in file "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   463 ;; Parameters:    Size  Location     Type
+   464 ;;		None
+   465 ;; Auto vars:     Size  Location     Type
+   466 ;;		None
+   467 ;; Return value:  Size  Location     Type
+   468 ;;		None               void
+   469 ;; Registers used:
+   470 ;;		wreg
+   471 ;; Tracked objects:
+   472 ;;		On entry : 0/0
+   473 ;;		On exit  : 0/0
+   474 ;;		Unchanged: 0/0
+   475 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   476 ;;      Params:         0       0       0       0       0
+   477 ;;      Locals:         0       0       0       0       0
+   478 ;;      Temps:          0       0       0       0       0
+   479 ;;      Totals:         0       0       0       0       0
+   480 ;;Total ram usage:        0 bytes
+   481 ;; Hardware stack levels used:    1
+   482 ;; Hardware stack levels required when called:    3
+   483 ;; This function calls:
+   484 ;;		Nothing
+   485 ;; This function is called by:
+   486 ;;		_main
+   487 ;; This function uses a non-reentrant model
+   488 ;;
+   489                           psect	text97
+   490                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   491                           	line	30
+   492                           	global	__size_of_uart_init
+   493  000D                     	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
+   494                           	
+   495  00AE                     _uart_init:	
+   496                           	opt	stack 4
+   497                           ; Regs used in _uart_init: [wreg]
+   498                           	line	31
+   499                           	
+   500  00AE                     l1088:	
+   501                           ;rtc_rr.c: 31: TRISC6=0;
+   502  00AE  1683               	bsf	status, 5	;RP0=1, select bank1
+   503  00AF  1303               	bcf	status, 6	;RP1=0, select bank1
+   504  00B0  1307               	bcf	(1086/8)^080h,(1086)&7
+   505                           	line	32
+   506                           ;rtc_rr.c: 32: TRISC7=1;
+   507  00B1  1787               	bsf	(1087/8)^080h,(1087)&7
+   508                           	line	33
+   509                           	
+   510  00B2                     l1090:	
+   511                           ;rtc_rr.c: 33: SPBRG=31;
+   512  00B2  301F               	movlw	(01Fh)
+   513  00B3  0099               	movwf	(153)^080h	;volatile
+   514                           	line	34
+   515                           	
+   516  00B4                     l1092:	
+   517                           ;rtc_rr.c: 34: TXEN=1;
+   518  00B4  1698               	bsf	(1221/8)^080h,(1221)&7
+   519                           	line	35
+   520                           	
+   521  00B5                     l1094:	
+   522                           ;rtc_rr.c: 35: SPEN=1;
+   523  00B5  1283               	bcf	status, 5	;RP0=0, select bank0
+   524  00B6  1303               	bcf	status, 6	;RP1=0, select bank0
+   525  00B7  1798               	bsf	(199/8),(199)&7
+   526                           	line	36
+   527                           	
+   528  00B8                     l1096:	
+   529                           ;rtc_rr.c: 36: TXIF=0;
+   530  00B8  120C               	bcf	(100/8),(100)&7
+   531                           	line	37
+   532                           	
+   533  00B9                     l1098:	
+   534                           ;rtc_rr.c: 37: RCIF=0;
+   535  00B9  128C               	bcf	(101/8),(101)&7
+   536                           	line	38
+   537                           	
+   538  00BA                     l703:	
+   539  00BA  0008               	return
+   540                           	opt stack 0
+   541                           GLOBAL	__end_of_uart_init
+   542  00BB                     	__end_of_uart_init:
+   543 ;; =============== function _uart_init ends ============
+   544                           
+   545                           	signat	_uart_init,88
+   546                           	global	_ISR
+   547                           psect	text98,local,class=CODE,delta=2
+   548                           global __ptext98
+   549  0061                     __ptext98:
+   550                           
+   551 ;; *************** function _ISR *****************
+   552 ;; Defined at:
+   553 ;;		line 21 in file "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   554 ;; Parameters:    Size  Location     Type
+   555 ;;		None
+   556 ;; Auto vars:     Size  Location     Type
+   557 ;;		None
+   558 ;; Return value:  Size  Location     Type
+   559 ;;		None               void
+   560 ;; Registers used:
+   561 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
+   562 ;; Tracked objects:
+   563 ;;		On entry : 0/0
+   564 ;;		On exit  : 0/0
+   565 ;;		Unchanged: 0/0
+   566 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   567 ;;      Params:         0       0       0       0       0
+   568 ;;      Locals:         0       0       0       0       0
+   569 ;;      Temps:          4       0       0       0       0
+   570 ;;      Totals:         4       0       0       0       0
+   571 ;;Total ram usage:        4 bytes
+   572 ;; Hardware stack levels used:    1
+   573 ;; Hardware stack levels required when called:    2
+   574 ;; This function calls:
+   575 ;;		_print_uart
+   576 ;; This function is called by:
+   577 ;;		Interrupt level 1
+   578 ;; This function uses a non-reentrant model
+   579 ;;
+   580                           psect	text98
+   581                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   582                           	line	21
+   583                           	global	__size_of_ISR
+   584  0019                     	__size_of_ISR	equ	__end_of_ISR-_ISR
+   585                           	
+   586  0061                     _ISR:	
+   587                           	opt	stack 4
+   588                           ; Regs used in _ISR: [allreg]
+   589                           psect	intentry,class=CODE,delta=2
+   590                           global __pintentry
+   591  0004                     __pintentry:
+   592                           global interrupt_function
+   593  0004                     interrupt_function:
+   594                           	global saved_w
+   595  007E                     	saved_w	set	btemp+0
+   596  0004  00FE               	movwf	saved_w
+   597  0005  0E03               	swapf	status,w
+   598  0006  00F3               	movwf	(??_ISR+0)
+   599  0007  0804               	movf	fsr0,w
+   600  0008  00F4               	movwf	(??_ISR+1)
+   601  0009  080A               	movf	pclath,w
+   602  000A  00F5               	movwf	(??_ISR+2)
+   603  000B  1283               	bcf	status, 5	;RP0=0, select bank0
+   604  000C  1303               	bcf	status, 6	;RP1=0, select bank0
+   605  000D  087F               	movf	btemp+1,w
+   606  000E  00F6               	movwf	(??_ISR+3)
+   607  000F  120A  118A  2861   	ljmp	_ISR
+   608                           psect	text98
+   609                           	line	22
+   610                           	
+   611  0061                     i1l1100:	
+   612                           ;rtc_rr.c: 22: if(INTF)
+   613  0061  1C8B               	btfss	(89/8),(89)&7
+   614  0062  2864               	goto	u1_21
+   615  0063  2865               	goto	u1_20
+   616  0064                     u1_21:
+   617  0064  286C               	goto	i1l1104
+   618  0065                     u1_20:
+   619                           	line	24
+   620                           	
+   621  0065                     i1l1102:	
+   622                           ;rtc_rr.c: 23: {
+   623                           ;rtc_rr.c: 24: print_uart(string);
+   624  0065  3020               	movlw	(_string)&0ffh
+   625  0066  120A  118A  2047   	fcall	_print_uart
+              120A  118A         
+   626  006B  286C               	goto	i1l1104
+   627                           	line	25
+   628                           	
+   629  006C                     i1l699:	
+   630                           	line	26
+   631                           	
+   632  006C                     i1l1104:	
+   633                           ;rtc_rr.c: 25: }
+   634                           ;rtc_rr.c: 26: INTF = 0;
+   635  006C  108B               	bcf	(89/8),(89)&7
+   636                           	line	27
+   637                           	
+   638  006D                     i1l700:	
+   639  006D  0876               	movf	(??_ISR+3),w
+   640  006E  1283               	bcf	status, 5	;RP0=0, select bank0
+   641  006F  1303               	bcf	status, 6	;RP1=0, select bank0
+   642  0070  00FF               	movwf	btemp+1
+   643  0071  0875               	movf	(??_ISR+2),w
+   644  0072  008A               	movwf	pclath
+   645  0073  0874               	movf	(??_ISR+1),w
+   646  0074  0084               	movwf	fsr0
+   647  0075  0E73               	swapf	(??_ISR+0)^0FFFFFF80h,w
+   648  0076  0083               	movwf	status
+   649  0077  0EFE               	swapf	saved_w,f
+   650  0078  0E7E               	swapf	saved_w,w
+   651  0079  0009               	retfie
+   652                           	opt stack 0
+   653                           GLOBAL	__end_of_ISR
+   654  007A                     	__end_of_ISR:
+   655 ;; =============== function _ISR ends ============
+   656                           
+   657                           	signat	_ISR,88
+   658                           	global	_print_uart
+   659                           psect	text99,local,class=CODE,delta=2
+   660                           global __ptext99
+   661  0047                     __ptext99:
+   662                           
+   663 ;; *************** function _print_uart *****************
+   664 ;; Defined at:
+   665 ;;		line 41 in file "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   666 ;; Parameters:    Size  Location     Type
+   667 ;;  str             1    wreg     PTR unsigned char 
+   668 ;;		 -> string(50), 
+   669 ;; Auto vars:     Size  Location     Type
+   670 ;;  str             1    2[COMMON] PTR unsigned char 
+   671 ;;		 -> string(50), 
+   672 ;; Return value:  Size  Location     Type
+   673 ;;		None               void
+   674 ;; Registers used:
+   675 ;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
+   676 ;; Tracked objects:
+   677 ;;		On entry : 0/0
+   678 ;;		On exit  : 0/0
+   679 ;;		Unchanged: 0/0
+   680 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   681 ;;      Params:         0       0       0       0       0
+   682 ;;      Locals:         1       0       0       0       0
+   683 ;;      Temps:          1       0       0       0       0
+   684 ;;      Totals:         2       0       0       0       0
+   685 ;;Total ram usage:        2 bytes
+   686 ;; Hardware stack levels used:    1
+   687 ;; Hardware stack levels required when called:    1
+   688 ;; This function calls:
+   689 ;;		_uart_tx
+   690 ;; This function is called by:
+   691 ;;		_ISR
+   692 ;; This function uses a non-reentrant model
+   693 ;;
+   694                           psect	text99
+   695                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   696                           	line	41
+   697                           	global	__size_of_print_uart
+   698  001A                     	__size_of_print_uart	equ	__end_of_print_uart-_print_uart
+   699                           	
+   700  0047                     _print_uart:	
+   701                           	opt	stack 4
+   702                           ; Regs used in _print_uart: [allreg]
+   703                           ;print_uart@str stored from wreg
+   704  0047  00F2               	movwf	(print_uart@str)
+   705                           	line	43
+   706                           	
+   707  0048                     i1l1106:	
+   708                           ;rtc_rr.c: 43: while(*str)
+   709  0048  2857               	goto	i1l1112
+   710                           	
+   711  0049                     i1l707:	
+   712                           	line	45
+   713                           	
+   714  0049                     i1l1108:	
+   715                           ;rtc_rr.c: 44: {
+   716                           ;rtc_rr.c: 45: uart_tx(*str);
+   717  0049  0872               	movf	(print_uart@str),w
+   718  004A  0084               	movwf	fsr0
+   719  004B  1383               	bcf	status, 7	;select IRP bank0
+   720  004C  0800               	movf	indf,w
+   721  004D  120A  118A  20BB   	fcall	_uart_tx
+              120A  118A         
+   722                           	line	46
+   723                           	
+   724  0052                     i1l1110:	
+   725                           ;rtc_rr.c: 46: str++;
+   726  0052  3001               	movlw	(01h)
+   727  0053  00F1               	movwf	(??_print_uart+0)+0
+   728  0054  0871               	movf	(??_print_uart+0)+0,w
+   729  0055  07F2               	addwf	(print_uart@str),f
+   730  0056  2857               	goto	i1l1112
+   731                           	line	47
+   732                           	
+   733  0057                     i1l706:	
+   734                           	line	43
+   735                           	
+   736  0057                     i1l1112:	
+   737  0057  0872               	movf	(print_uart@str),w
+   738  0058  0084               	movwf	fsr0
+   739  0059  1383               	bcf	status, 7	;select IRP bank0
+   740  005A  0880               	movf	indf,f
+   741  005B  1D03               	skipz
+   742  005C  285E               	goto	u2_21
+   743  005D  285F               	goto	u2_20
+   744  005E                     u2_21:
+   745  005E  2849               	goto	i1l1108
+   746  005F                     u2_20:
+   747  005F  2860               	goto	i1l709
+   748                           	
+   749  0060                     i1l708:	
+   750                           	line	48
+   751                           	
+   752  0060                     i1l709:	
+   753  0060  0008               	return
+   754                           	opt stack 0
+   755                           GLOBAL	__end_of_print_uart
+   756  0061                     	__end_of_print_uart:
+   757 ;; =============== function _print_uart ends ============
+   758                           
+   759                           	signat	_print_uart,4216
+   760                           	global	_uart_tx
+   761                           psect	text100,local,class=CODE,delta=2
+   762                           global __ptext100
+   763  00BB                     __ptext100:
+   764                           
+   765 ;; *************** function _uart_tx *****************
+   766 ;; Defined at:
+   767 ;;		line 51 in file "D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   768 ;; Parameters:    Size  Location     Type
+   769 ;;  val             1    wreg     unsigned char 
+   770 ;; Auto vars:     Size  Location     Type
+   771 ;;  val             1    0[COMMON] unsigned char 
+   772 ;; Return value:  Size  Location     Type
+   773 ;;		None               void
+   774 ;; Registers used:
+   775 ;;		wreg
+   776 ;; Tracked objects:
+   777 ;;		On entry : 0/0
+   778 ;;		On exit  : 0/0
+   779 ;;		Unchanged: 0/0
+   780 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   781 ;;      Params:         0       0       0       0       0
+   782 ;;      Locals:         1       0       0       0       0
+   783 ;;      Temps:          0       0       0       0       0
+   784 ;;      Totals:         1       0       0       0       0
+   785 ;;Total ram usage:        1 bytes
+   786 ;; Hardware stack levels used:    1
+   787 ;; This function calls:
+   788 ;;		Nothing
+   789 ;; This function is called by:
+   790 ;;		_print_uart
+   791 ;; This function uses a non-reentrant model
+   792 ;;
+   793                           psect	text100
+   794                           	file	"D:\programs_AND_ softwares\programs\mplab\hardware\RTC\rec\rtc_rr.c"
+   795                           	line	51
+   796                           	global	__size_of_uart_tx
+   797  000C                     	__size_of_uart_tx	equ	__end_of_uart_tx-_uart_tx
+   798                           	
+   799  00BB                     _uart_tx:	
+   800                           	opt	stack 4
+   801                           ; Regs used in _uart_tx: [wreg]
+   802                           ;uart_tx@val stored from wreg
+   803  00BB  00F0               	movwf	(uart_tx@val)
+   804                           	line	52
+   805                           	
+   806  00BC                     i1l1114:	
+   807                           ;rtc_rr.c: 52: TXREG=val;
+   808  00BC  0870               	movf	(uart_tx@val),w
+   809  00BD  1283               	bcf	status, 5	;RP0=0, select bank0
+   810  00BE  1303               	bcf	status, 6	;RP1=0, select bank0
+   811  00BF  0099               	movwf	(25)	;volatile
+   812                           	line	53
+   813                           ;rtc_rr.c: 53: while(TXIF==0);
+   814  00C0  28C1               	goto	i1l712
+   815                           	
+   816  00C1                     i1l713:	
+   817                           	
+   818  00C1                     i1l712:	
+   819  00C1  1E0C               	btfss	(100/8),(100)&7
+   820  00C2  28C4               	goto	u3_21
+   821  00C3  28C5               	goto	u3_20
+   822  00C4                     u3_21:
+   823  00C4  28C1               	goto	i1l712
+   824  00C5                     u3_20:
+   825                           	
+   826  00C5                     i1l714:	
+   827                           	line	54
+   828                           ;rtc_rr.c: 54: TXIF=0;
+   829  00C5  120C               	bcf	(100/8),(100)&7
+   830                           	line	55
+   831                           	
+   832  00C6                     i1l715:	
+   833  00C6  0008               	return
+   834                           	opt stack 0
+   835                           GLOBAL	__end_of_uart_tx
+   836  00C7                     	__end_of_uart_tx:
+   837 ;; =============== function _uart_tx ends ============
+   838                           
+   839                           	signat	_uart_tx,4216
+   840                           psect	text101,local,class=CODE,delta=2
+   841                           global __ptext101
+   842  0000                     __ptext101:
+   843                           	global	btemp
+   844  007E                     	btemp set 07Eh
+   845                           
+   846                           	DABS	1,126,2	;btemp
+   847                           	global	wtemp0
+   848  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Mon Nov 26 21:30:59 2018
+
+                   pc 0002                    fsr 0004                   l703 00BA                   l693 00AA  
+                 l694 00AA                   l695 00AB                   l696 00AB                   _GIE 005F  
+                 _ISR 0061                   fsr0 0004                   indf 0000                  ?_ISR 0070  
+                l1090 00B2                  l1092 00B4                  l1094 00B5                  l1096 00B8  
+                l1088 00AE                  l1098 00B9                  l1890 00A7                  l1882 009D  
+                l1892 00A8                  l1884 00A2                  l1886 00A5                  l1888 00A6  
+                _PEIE 005E                  _INTE 005C                  _INTF 0059                  _RCIF 0065  
+                _SPEN 00C7                  _TXEN 04C5                  _TXIF 0064                  u1_20 0065  
+                u1_21 0064                  u2_20 005F                  u2_21 005E                  u3_20 00C5  
+                u3_21 00C4                  _main 009D                  btemp 007E                  start 0012  
+               ??_ISR 0073                 ?_main 0070                 i1l700 006D                 i1l712 00C1  
+               i1l713 00C1                 i1l714 00C5                 i1l706 0057                 i1l715 00C6  
+               i1l707 0049                 i1l708 0060                 i1l709 0060                 i1l699 006C  
+               _SPBRG 0099                 _TXREG 0019                 pclath 000A       __end_of_uart_tx 00C7  
+               status 0003                 wtemp0 007E          __end_of_main 00AE         print_uart@str 0072  
+              ??_main 0077                i1l1100 0061                i1l1110 0052                i1l1102 0065  
+              i1l1112 0057                i1l1104 006C                i1l1114 00BC                i1l1106 0048  
+              i1l1108 0049                _TRISB0 0430                _TRISC6 043E                _TRISC7 043F  
+              _string 0020                saved_w 007E             ??_uart_tx 0070        __pcstackCOMMON 0070  
+        __pidataBANK0 0015            __pmaintext 009D            __pintentry 0004    __size_of_uart_init 000D  
+        __size_of_ISR 0019               _uart_tx 00BB  end_of_initialization 0088               init_ram 0090  
+   __end_of_uart_init 00BB            _print_uart 0047   start_initialization 007A           __end_of_ISR 007A  
+         __pdataBANK0 0020           ?_print_uart 0070             __ptext100 00BB             __ptext101 0000  
+            ?_uart_tx 0070     interrupt_function 0004   __size_of_print_uart 001A             _uart_init 00AE  
+          uart_tx@val 0070             init_fetch 008C            ?_uart_init 0070              __ptext97 00AE  
+            __ptext98 0061              __ptext99 0047      __size_of_uart_tx 000C         __size_of_main 0011  
+        ??_print_uart 0071              intlevel1 0000    __end_of_print_uart 0061           ??_uart_init 0077  
+          _OPTION_REG 0081  

@@ -1,0 +1,10 @@
+_uart_tx: CODE, 1415 0 12
+_delay: CODE, 1458 0 18
+_main: CODE, 1696 0 143
+_spi_transfer: CODE, 1427 0 14
+_uart_init: CODE, 1476 0 19
+___lwdiv: CODE, 1618 0 78
+_spi_init: CODE, 1515 0 21
+_sprintf: CODE, 1839 0 209
+_print_uart: CODE, 1557 0 30
+Total: 544

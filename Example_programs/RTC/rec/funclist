@@ -1,0 +1,6 @@
+_uart_tx: CODE, 187 0 12
+_ISR: CODE, 97 0 25
+_main: CODE, 157 0 17
+_uart_init: CODE, 174 0 13
+_print_uart: CODE, 71 0 26
+Total: 93
