@@ -1,0 +1,1458 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Mon Aug 12 12:02:29 2019
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           # 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+    43                           	psect config,class=CONFIG,delta=2 ;#
+    44                           # 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+    45  2007  FF7A               	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
+    46                           	FNCALL	_main,_lcd_cmd
+    47                           	FNCALL	_main,_ADC_Init
+    48                           	FNCALL	_main,_ADC_Read
+    49                           	FNCALL	_main,___wmul
+    50                           	FNCALL	_main,_lcd_data
+    51                           	FNCALL	_lcd_data,_delay
+    52                           	FNCALL	_lcd_cmd,_delay
+    53                           	FNROOT	_main
+    54                           	global	_ADCON0
+    55                           psect	text115,local,class=CODE,delta=2
+    56                           global __ptext115
+    57  0000                     __ptext115:
+    58  001F                     _ADCON0	set	31
+    59                           	global	_ADRESH
+    60  001E                     _ADRESH	set	30
+    61                           	global	_PORTD
+    62  0008                     _PORTD	set	8
+    63                           	global	_TMR1H
+    64  000F                     _TMR1H	set	15
+    65                           	global	_TMR1L
+    66  000E                     _TMR1L	set	14
+    67                           	global	_GO_nDONE
+    68  00FA                     _GO_nDONE	set	250
+    69                           	global	_RC0
+    70  0038                     _RC0	set	56
+    71                           	global	_RC1
+    72  0039                     _RC1	set	57
+    73                           	global	_RC2
+    74  003A                     _RC2	set	58
+    75                           	global	_T1CKPS0
+    76  0084                     _T1CKPS0	set	132
+    77                           	global	_T1CKPS1
+    78  0085                     _T1CKPS1	set	133
+    79                           	global	_TMR1CS
+    80  0081                     _TMR1CS	set	129
+    81                           	global	_TMR1IF
+    82  0060                     _TMR1IF	set	96
+    83                           	global	_TMR1ON
+    84  0080                     _TMR1ON	set	128
+    85                           	global	_ADCON1
+    86  009F                     _ADCON1	set	159
+    87                           	global	_ADRESL
+    88  009E                     _ADRESL	set	158
+    89                           	global	_TRISC
+    90  0087                     _TRISC	set	135
+    91                           	global	_TRISD
+    92  0088                     _TRISD	set	136
+    93                           	global	_TRISB0
+    94  0430                     _TRISB0	set	1072
+    95                           	file	"soil sensor.as"
+    96                           	line	#
+    97                           psect cinit,class=CODE,delta=2
+    98                           global start_initialization
+    99  0647                     start_initialization:
+   100                           
+   101                           psect cinit,class=CODE,delta=2
+   102                           global end_of_initialization
+   103                           
+   104                           ;End of C runtime variable initialization code
+   105                           
+   106  0647                     end_of_initialization:
+   107  0647  0183               clrf status
+   108  0648  120A  118A  2EEA   ljmp _main	;jump to C main() function
+   109                           psect	cstackCOMMON,class=COMMON,space=1
+   110                           global __pcstackCOMMON
+   111  0070                     __pcstackCOMMON:
+   112                           	global	?_lcd_cmd
+   113  0070                     ?_lcd_cmd:	; 0 bytes @ 0x0
+   114                           	global	??_lcd_cmd
+   115  0070                     ??_lcd_cmd:	; 0 bytes @ 0x0
+   116                           	global	?_ADC_Init
+   117  0070                     ?_ADC_Init:	; 0 bytes @ 0x0
+   118                           	global	??_ADC_Init
+   119  0070                     ??_ADC_Init:	; 0 bytes @ 0x0
+   120                           	global	?_lcd_data
+   121  0070                     ?_lcd_data:	; 0 bytes @ 0x0
+   122                           	global	??_lcd_data
+   123  0070                     ??_lcd_data:	; 0 bytes @ 0x0
+   124                           	global	?_delay
+   125  0070                     ?_delay:	; 0 bytes @ 0x0
+   126                           	global	??_delay
+   127  0070                     ??_delay:	; 0 bytes @ 0x0
+   128                           	global	?_ADC_Read
+   129  0070                     ?_ADC_Read:	; 2 bytes @ 0x0
+   130                           	global	?_main
+   131  0070                     ?_main:	; 2 bytes @ 0x0
+   132                           	global	?___wmul
+   133  0070                     ?___wmul:	; 2 bytes @ 0x0
+   134                           	global	lcd_cmd@cmd
+   135  0070                     lcd_cmd@cmd:	; 1 bytes @ 0x0
+   136                           	global	lcd_data@data
+   137  0070                     lcd_data@data:	; 1 bytes @ 0x0
+   138                           	global	___wmul@multiplier
+   139  0070                     ___wmul@multiplier:	; 2 bytes @ 0x0
+   140  0070                     	ds	2
+   141                           	global	??_ADC_Read
+   142  0072                     ??_ADC_Read:	; 0 bytes @ 0x2
+   143                           	global	___wmul@multiplicand
+   144  0072                     ___wmul@multiplicand:	; 2 bytes @ 0x2
+   145  0072                     	ds	2
+   146                           	global	??___wmul
+   147  0074                     ??___wmul:	; 0 bytes @ 0x4
+   148                           	global	ADC_Read@ADC_channel
+   149  0074                     ADC_Read@ADC_channel:	; 1 bytes @ 0x4
+   150                           	global	___wmul@product
+   151  0074                     ___wmul@product:	; 2 bytes @ 0x4
+   152  0074                     	ds	2
+   153                           	global	??_main
+   154  0076                     ??_main:	; 0 bytes @ 0x6
+   155  0076                     	ds	3
+   156                           	global	main@i
+   157  0079                     main@i:	; 2 bytes @ 0x9
+   158  0079                     	ds	2
+   159                           	global	main@data
+   160  007B                     main@data:	; 2 bytes @ 0xB
+   161  007B                     	ds	2
+   162 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+   163 ;;Auto spaces:   Size  Autos    Used
+   164 ;; COMMON          14     13      13
+   165 ;; BANK0           80      0       0
+   166 ;; BANK1           80      0       0
+   167 ;; BANK3           96      0       0
+   168 ;; BANK2           96      0       0
+   169                           
+   170 ;;
+   171 ;; Pointer list with targets:
+   172                           
+   173 ;; ?_ADC_Read	unsigned int  size(1) Largest target is 0
+   174 ;;
+   175 ;; ?___wmul	unsigned int  size(1) Largest target is 0
+   176 ;;
+   177                           
+   178                           
+   179 ;;
+   180 ;; Critical Paths under _main in COMMON
+   181 ;;
+   182 ;;   _main->___wmul
+   183 ;;
+   184 ;; Critical Paths under _main in BANK0
+   185 ;;
+   186 ;;   None.
+   187 ;;
+   188 ;; Critical Paths under _main in BANK1
+   189 ;;
+   190 ;;   None.
+   191 ;;
+   192 ;; Critical Paths under _main in BANK3
+   193 ;;
+   194 ;;   None.
+   195 ;;
+   196 ;; Critical Paths under _main in BANK2
+   197 ;;
+   198 ;;   None.
+   199                           
+   200 ;;
+   201 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   202 ;;
+   203                           
+   204 ;;
+   205 ;;Call Graph Tables:
+   206 ;;
+   207 ;; ---------------------------------------------------------------------------------
+   208 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   209 ;; ---------------------------------------------------------------------------------
+   210 ;; (0) _main                                                17    17      0     300
+   211 ;;                                              6 COMMON     7     7      0
+   212 ;;                            _lcd_cmd
+   213 ;;                           _ADC_Init
+   214 ;;                           _ADC_Read
+   215 ;;                             ___wmul
+   216 ;;                           _lcd_data
+   217 ;; ---------------------------------------------------------------------------------
+   218 ;; (1) _lcd_data                                             1     1      0      15
+   219 ;;                                              0 COMMON     1     1      0
+   220 ;;                              _delay
+   221 ;; ---------------------------------------------------------------------------------
+   222 ;; (1) _ADC_Read                                             5     3      2      15
+   223 ;;                                              0 COMMON     5     3      2
+   224 ;; ---------------------------------------------------------------------------------
+   225 ;; (1) _lcd_cmd                                              1     1      0      15
+   226 ;;                                              0 COMMON     1     1      0
+   227 ;;                              _delay
+   228 ;; ---------------------------------------------------------------------------------
+   229 ;; (1) ___wmul                                               6     2      4      60
+   230 ;;                                              0 COMMON     6     2      4
+   231 ;; ---------------------------------------------------------------------------------
+   232 ;; (2) _delay                                                0     0      0       0
+   233 ;; ---------------------------------------------------------------------------------
+   234 ;; (1) _ADC_Init                                             0     0      0       0
+   235 ;; ---------------------------------------------------------------------------------
+   236 ;; Estimated maximum stack depth 2
+   237 ;; ---------------------------------------------------------------------------------
+   238                           
+   239 ;; Call Graph Graphs:
+   240                           
+   241 ;; _main (ROOT)
+   242 ;;   _lcd_cmd
+   243 ;;     _delay
+   244 ;;   _ADC_Init
+   245 ;;   _ADC_Read
+   246 ;;   ___wmul
+   247 ;;   _lcd_data
+   248 ;;     _delay
+   249 ;;
+   250                           
+   251 ;; Address spaces:
+   252                           
+   253 ;;Name               Size   Autos  Total    Cost      Usage
+   254 ;;BITCOMMON            E      0       0       0        0.0%
+   255 ;;EEDATA             100      0       0       0        0.0%
+   256 ;;NULL                 0      0       0       0        0.0%
+   257 ;;CODE                 0      0       0       0        0.0%
+   258 ;;COMMON               E      D       D       1       92.9%
+   259 ;;BITSFR0              0      0       0       1        0.0%
+   260 ;;SFR0                 0      0       0       1        0.0%
+   261 ;;BITSFR1              0      0       0       2        0.0%
+   262 ;;SFR1                 0      0       0       2        0.0%
+   263 ;;STACK                0      0       2       2        0.0%
+   264 ;;ABS                  0      0       0       3        0.0%
+   265 ;;BITBANK0            50      0       0       4        0.0%
+   266 ;;BITSFR3              0      0       0       4        0.0%
+   267 ;;SFR3                 0      0       0       4        0.0%
+   268 ;;BANK0               50      0       0       5        0.0%
+   269 ;;BITSFR2              0      0       0       5        0.0%
+   270 ;;SFR2                 0      0       0       5        0.0%
+   271 ;;BITBANK1            50      0       0       6        0.0%
+   272 ;;BANK1               50      0       0       7        0.0%
+   273 ;;BITBANK3            60      0       0       8        0.0%
+   274 ;;BANK3               60      0       0       9        0.0%
+   275 ;;BITBANK2            60      0       0      10        0.0%
+   276 ;;BANK2               60      0       0      11        0.0%
+   277 ;;DATA                 0      0       0      12        0.0%
+   278                           
+   279                           	global	_main
+   280                           psect	maintext,global,class=CODE,delta=2
+   281                           global __pmaintext
+   282  06EA                     __pmaintext:
+   283                           
+   284 ;; *************** function _main *****************
+   285 ;; Defined at:
+   286 ;;		line 18 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   287 ;; Parameters:    Size  Location     Type
+   288 ;;		None
+   289 ;; Auto vars:     Size  Location     Type
+   290 ;;  i               2    9[COMMON] int 
+   291 ;;  data            2   11[COMMON] unsigned int 
+   292 ;;  e               2    0        int 
+   293 ;;  d               2    0        int 
+   294 ;;  c               2    0        int 
+   295 ;;  b               2    0        int 
+   296 ;;  a               2    0        int 
+   297 ;; Return value:  Size  Location     Type
+   298 ;;                  2  694[COMMON] int 
+   299 ;; Registers used:
+   300 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   301 ;; Tracked objects:
+   302 ;;		On entry : 17F/0
+   303 ;;		On exit  : 0/0
+   304 ;;		Unchanged: 0/0
+   305 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   306 ;;      Params:         0       0       0       0       0
+   307 ;;      Locals:         4       0       0       0       0
+   308 ;;      Temps:          3       0       0       0       0
+   309 ;;      Totals:         7       0       0       0       0
+   310 ;;Total ram usage:        7 bytes
+   311 ;; Hardware stack levels required when called:    2
+   312 ;; This function calls:
+   313 ;;		_lcd_cmd
+   314 ;;		_ADC_Init
+   315 ;;		_ADC_Read
+   316 ;;		___wmul
+   317 ;;		_lcd_data
+   318 ;; This function is called by:
+   319 ;;		Startup code after reset
+   320 ;; This function uses a non-reentrant model
+   321 ;;
+   322                           psect	maintext
+   323                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   324                           	line	18
+   325                           	global	__size_of_main
+   326  0116                     	__size_of_main	equ	__end_of_main-_main
+   327                           	
+   328  06EA                     _main:	
+   329                           	opt	stack 6
+   330                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   331                           	line	20
+   332                           	
+   333  06EA                     l1934:	
+   334                           ;soil sensor.c: 20: TRISD = 0;
+   335  06EA  1683               	bsf	status, 5	;RP0=1, select bank1
+   336  06EB  1303               	bcf	status, 6	;RP1=0, select bank1
+   337  06EC  0188               	clrf	(136)^080h	;volatile
+   338                           	line	21
+   339                           ;soil sensor.c: 21: TRISC = 0;
+   340  06ED  0187               	clrf	(135)^080h	;volatile
+   341                           	line	22
+   342                           	
+   343  06EE                     l1936:	
+   344                           ;soil sensor.c: 22: TRISB0 = 1;
+   345  06EE  1406               	bsf	(1072/8)^080h,(1072)&7
+   346                           	line	24
+   347                           	
+   348  06EF                     l1938:	
+   349                           ;soil sensor.c: 24: lcd_cmd(0x38);
+   350  06EF  3038               	movlw	(038h)
+   351  06F0  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   352                           	line	25
+   353                           	
+   354  06F5                     l1940:	
+   355                           ;soil sensor.c: 25: lcd_cmd(0x01);
+   356  06F5  3001               	movlw	(01h)
+   357  06F6  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   358                           	line	26
+   359                           	
+   360  06FB                     l1942:	
+   361                           ;soil sensor.c: 26: lcd_cmd(0x02);
+   362  06FB  3002               	movlw	(02h)
+   363  06FC  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   364                           	line	27
+   365                           	
+   366  0701                     l1944:	
+   367                           ;soil sensor.c: 27: lcd_cmd(0x0F);
+   368  0701  300F               	movlw	(0Fh)
+   369  0702  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   370                           	line	28
+   371                           	
+   372  0707                     l1946:	
+   373                           ;soil sensor.c: 28: lcd_cmd(0X06);
+   374  0707  3006               	movlw	(06h)
+   375  0708  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   376                           	line	29
+   377                           	
+   378  070D                     l1948:	
+   379                           ;soil sensor.c: 29: lcd_cmd(0X80);
+   380  070D  3080               	movlw	(080h)
+   381  070E  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   382                           	line	30
+   383                           	
+   384  0713                     l1950:	
+   385                           ;soil sensor.c: 30: ADC_Init();
+   386  0713  120A  118A  264B   	fcall	_ADC_Init
+              120A  118A         
+   387  0718  2F19               	goto	l1952
+   388                           	line	31
+   389                           ;soil sensor.c: 31: while(1)
+   390                           	
+   391  0719                     l695:	
+   392                           	line	34
+   393                           	
+   394  0719                     l1952:	
+   395                           ;soil sensor.c: 32: {
+   396                           ;soil sensor.c: 33: int a,b,c,d,e;
+   397                           ;soil sensor.c: 34: unsigned int data=ADC_Read(0);
+   398  0719  3000               	movlw	(0)
+   399  071A  120A  118A  26B2   	fcall	_ADC_Read
+              120A  118A         
+   400  071F  0871               	movf	(1+(?_ADC_Read)),w
+   401  0720  01FC               	clrf	(main@data+1)
+   402  0721  07FC               	addwf	(main@data+1)
+   403  0722  0870               	movf	(0+(?_ADC_Read)),w
+   404  0723  01FB               	clrf	(main@data)
+   405  0724  07FB               	addwf	(main@data)
+   406                           
+   407                           	line	35
+   408                           	
+   409  0725                     l1954:	
+   410                           ;soil sensor.c: 35: data = ((data*100)/(1024));
+   411  0725  087C               	movf	(main@data+1),w
+   412  0726  01F1               	clrf	(?___wmul+1)
+   413  0727  07F1               	addwf	(?___wmul+1)
+   414  0728  087B               	movf	(main@data),w
+   415  0729  01F0               	clrf	(?___wmul)
+   416  072A  07F0               	addwf	(?___wmul)
+   417                           
+   418  072B  3064               	movlw	low(064h)
+   419  072C  00F2               	movwf	0+(?___wmul)+02h
+   420  072D  3000               	movlw	high(064h)
+   421  072E  00F3               	movwf	(0+(?___wmul)+02h)+1
+   422  072F  120A  118A  2688   	fcall	___wmul
+              120A  118A         
+   423  0734  0870               	movf	(0+?___wmul),w
+   424  0735  00F6               	movwf	(??_main+0)+0
+   425  0736  0871               	movf	(1+?___wmul),w
+   426  0737  00F7               	movwf	((??_main+0)+0+1)
+   427  0738  300A               	movlw	0Ah
+   428  0739                     u2205:
+   429  0739  1003               	clrc
+   430  073A  0CF7               	rrf	(??_main+0)+1,f
+   431  073B  0CF6               	rrf	(??_main+0)+0,f
+   432  073C  3EFF               	addlw	-1
+   433  073D  1D03               	skipz
+   434  073E  2F39               	goto	u2205
+   435  073F  0876               	movf	0+(??_main+0)+0,w
+   436  0740  00FB               	movwf	(main@data)
+   437  0741  0877               	movf	1+(??_main+0)+0,w
+   438  0742  00FC               	movwf	(main@data+1)
+   439                           	line	36
+   440                           	
+   441  0743                     l1956:	
+   442                           ;soil sensor.c: 36: if(data == 0 )
+   443  0743  087C               	movf	((main@data+1)),w
+   444  0744  047B               	iorwf	((main@data)),w
+   445  0745  1D03               	skipz
+   446  0746  2F48               	goto	u2211
+   447  0747  2F49               	goto	u2210
+   448  0748                     u2211:
+   449  0748  2F50               	goto	l1960
+   450  0749                     u2210:
+   451                           	line	38
+   452                           	
+   453  0749                     l1958:	
+   454                           ;soil sensor.c: 37: {
+   455                           ;soil sensor.c: 38: lcd_data('0');
+   456  0749  3030               	movlw	(030h)
+   457  074A  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   458  074F  2F50               	goto	l1960
+   459                           	line	39
+   460                           	
+   461  0750                     l696:	
+   462                           	line	41
+   463                           	
+   464  0750                     l1960:	
+   465                           ;soil sensor.c: 39: }
+   466                           ;soil sensor.c: 41: if(data > 1 && data <10)
+   467  0750  3000               	movlw	high(02h)
+   468  0751  027C               	subwf	(main@data+1),w
+   469  0752  3002               	movlw	low(02h)
+   470  0753  1903               	skipnz
+   471  0754  027B               	subwf	(main@data),w
+   472  0755  1C03               	skipc
+   473  0756  2F58               	goto	u2221
+   474  0757  2F59               	goto	u2220
+   475  0758                     u2221:
+   476  0758  2F69               	goto	l1966
+   477  0759                     u2220:
+   478                           	
+   479  0759                     l1962:	
+   480  0759  3000               	movlw	high(0Ah)
+   481  075A  027C               	subwf	(main@data+1),w
+   482  075B  300A               	movlw	low(0Ah)
+   483  075C  1903               	skipnz
+   484  075D  027B               	subwf	(main@data),w
+   485  075E  1803               	skipnc
+   486  075F  2F61               	goto	u2231
+   487  0760  2F62               	goto	u2230
+   488  0761                     u2231:
+   489  0761  2F69               	goto	l1966
+   490  0762                     u2230:
+   491                           	line	43
+   492                           	
+   493  0762                     l1964:	
+   494                           ;soil sensor.c: 42: {
+   495                           ;soil sensor.c: 43: lcd_data('1');
+   496  0762  3031               	movlw	(031h)
+   497  0763  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   498  0768  2F69               	goto	l1966
+   499                           	line	44
+   500                           	
+   501  0769                     l697:	
+   502                           	line	46
+   503                           	
+   504  0769                     l1966:	
+   505                           ;soil sensor.c: 44: }
+   506                           ;soil sensor.c: 46: if(data > 10 && data < 20)
+   507  0769  3000               	movlw	high(0Bh)
+   508  076A  027C               	subwf	(main@data+1),w
+   509  076B  300B               	movlw	low(0Bh)
+   510  076C  1903               	skipnz
+   511  076D  027B               	subwf	(main@data),w
+   512  076E  1C03               	skipc
+   513  076F  2F71               	goto	u2241
+   514  0770  2F72               	goto	u2240
+   515  0771                     u2241:
+   516  0771  2F82               	goto	l1972
+   517  0772                     u2240:
+   518                           	
+   519  0772                     l1968:	
+   520  0772  3000               	movlw	high(014h)
+   521  0773  027C               	subwf	(main@data+1),w
+   522  0774  3014               	movlw	low(014h)
+   523  0775  1903               	skipnz
+   524  0776  027B               	subwf	(main@data),w
+   525  0777  1803               	skipnc
+   526  0778  2F7A               	goto	u2251
+   527  0779  2F7B               	goto	u2250
+   528  077A                     u2251:
+   529  077A  2F82               	goto	l1972
+   530  077B                     u2250:
+   531                           	line	48
+   532                           	
+   533  077B                     l1970:	
+   534                           ;soil sensor.c: 47: {
+   535                           ;soil sensor.c: 48: lcd_data('2');
+   536  077B  3032               	movlw	(032h)
+   537  077C  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   538  0781  2F82               	goto	l1972
+   539                           	line	49
+   540                           	
+   541  0782                     l698:	
+   542                           	line	50
+   543                           	
+   544  0782                     l1972:	
+   545                           ;soil sensor.c: 49: }
+   546                           ;soil sensor.c: 50: if(data > 20 && data < 30)
+   547  0782  3000               	movlw	high(015h)
+   548  0783  027C               	subwf	(main@data+1),w
+   549  0784  3015               	movlw	low(015h)
+   550  0785  1903               	skipnz
+   551  0786  027B               	subwf	(main@data),w
+   552  0787  1C03               	skipc
+   553  0788  2F8A               	goto	u2261
+   554  0789  2F8B               	goto	u2260
+   555  078A                     u2261:
+   556  078A  2F9B               	goto	l1978
+   557  078B                     u2260:
+   558                           	
+   559  078B                     l1974:	
+   560  078B  3000               	movlw	high(01Eh)
+   561  078C  027C               	subwf	(main@data+1),w
+   562  078D  301E               	movlw	low(01Eh)
+   563  078E  1903               	skipnz
+   564  078F  027B               	subwf	(main@data),w
+   565  0790  1803               	skipnc
+   566  0791  2F93               	goto	u2271
+   567  0792  2F94               	goto	u2270
+   568  0793                     u2271:
+   569  0793  2F9B               	goto	l1978
+   570  0794                     u2270:
+   571                           	line	52
+   572                           	
+   573  0794                     l1976:	
+   574                           ;soil sensor.c: 51: {
+   575                           ;soil sensor.c: 52: lcd_data('3');
+   576  0794  3033               	movlw	(033h)
+   577  0795  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   578  079A  2F9B               	goto	l1978
+   579                           	line	53
+   580                           	
+   581  079B                     l699:	
+   582                           	line	55
+   583                           	
+   584  079B                     l1978:	
+   585                           ;soil sensor.c: 53: }
+   586                           ;soil sensor.c: 55: if(data > 30 && data < 40)
+   587  079B  3000               	movlw	high(01Fh)
+   588  079C  027C               	subwf	(main@data+1),w
+   589  079D  301F               	movlw	low(01Fh)
+   590  079E  1903               	skipnz
+   591  079F  027B               	subwf	(main@data),w
+   592  07A0  1C03               	skipc
+   593  07A1  2FA3               	goto	u2281
+   594  07A2  2FA4               	goto	u2280
+   595  07A3                     u2281:
+   596  07A3  2FB4               	goto	l1984
+   597  07A4                     u2280:
+   598                           	
+   599  07A4                     l1980:	
+   600  07A4  3000               	movlw	high(028h)
+   601  07A5  027C               	subwf	(main@data+1),w
+   602  07A6  3028               	movlw	low(028h)
+   603  07A7  1903               	skipnz
+   604  07A8  027B               	subwf	(main@data),w
+   605  07A9  1803               	skipnc
+   606  07AA  2FAC               	goto	u2291
+   607  07AB  2FAD               	goto	u2290
+   608  07AC                     u2291:
+   609  07AC  2FB4               	goto	l1984
+   610  07AD                     u2290:
+   611                           	line	57
+   612                           	
+   613  07AD                     l1982:	
+   614                           ;soil sensor.c: 56: {
+   615                           ;soil sensor.c: 57: lcd_data('4');
+   616  07AD  3034               	movlw	(034h)
+   617  07AE  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   618  07B3  2FB4               	goto	l1984
+   619                           	line	58
+   620                           	
+   621  07B4                     l700:	
+   622                           	line	59
+   623                           	
+   624  07B4                     l1984:	
+   625                           ;soil sensor.c: 58: }
+   626                           ;soil sensor.c: 59: if(data > 50)
+   627  07B4  3000               	movlw	high(033h)
+   628  07B5  027C               	subwf	(main@data+1),w
+   629  07B6  3033               	movlw	low(033h)
+   630  07B7  1903               	skipnz
+   631  07B8  027B               	subwf	(main@data),w
+   632  07B9  1C03               	skipc
+   633  07BA  2FBC               	goto	u2301
+   634  07BB  2FBD               	goto	u2300
+   635  07BC                     u2301:
+   636  07BC  2FC4               	goto	l1988
+   637  07BD                     u2300:
+   638                           	line	61
+   639                           	
+   640  07BD                     l1986:	
+   641                           ;soil sensor.c: 60: {
+   642                           ;soil sensor.c: 61: lcd_data('5');
+   643  07BD  3035               	movlw	(035h)
+   644  07BE  120A  118A  2665   	fcall	_lcd_data
+              120A  118A         
+   645  07C3  2FC4               	goto	l1988
+   646                           	line	62
+   647                           	
+   648  07C4                     l701:	
+   649                           	line	63
+   650                           	
+   651  07C4                     l1988:	
+   652                           ;soil sensor.c: 62: }
+   653                           ;soil sensor.c: 63: for(int i=0;i<20;i++)
+   654  07C4  01F9               	clrf	(main@i)
+   655  07C5  01FA               	clrf	(main@i+1)
+   656                           	
+   657  07C6                     l1990:	
+   658  07C6  087A               	movf	(main@i+1),w
+   659  07C7  3A80               	xorlw	80h
+   660  07C8  00FF               	movwf	btemp+1
+   661  07C9  3080               	movlw	(high(014h))^80h
+   662  07CA  027F               	subwf	btemp+1,w
+   663  07CB  1D03               	skipz
+   664  07CC  2FCF               	goto	u2315
+   665  07CD  3014               	movlw	low(014h)
+   666  07CE  0279               	subwf	(main@i),w
+   667  07CF                     u2315:
+   668                           
+   669  07CF  1C03               	skipc
+   670  07D0  2FD2               	goto	u2311
+   671  07D1  2FD3               	goto	u2310
+   672  07D2                     u2311:
+   673  07D2  2FD5               	goto	l1994
+   674  07D3                     u2310:
+   675  07D3  2FF5               	goto	l1998
+   676                           	
+   677  07D4                     l1992:	
+   678  07D4  2FF5               	goto	l1998
+   679                           	line	64
+   680                           	
+   681  07D5                     l702:	
+   682                           	line	65
+   683                           	
+   684  07D5                     l1994:	
+   685                           ;soil sensor.c: 64: {
+   686                           ;soil sensor.c: 65: _delay((unsigned long)((100)*(20000000/4000.0)));
+   687                           	opt asmopt_off
+   688  07D5  3003               movlw  3
+   689  07D6  00F8               movwf	((??_main+0)+0+2),f
+   690  07D7  3088               movlw	136
+   691  07D8  00F7               movwf	((??_main+0)+0+1),f
+   692  07D9  3056               	movlw	86
+   693  07DA  00F6               movwf	((??_main+0)+0),f
+   694  07DB                     u2337:
+   695  07DB  0BF6               	decfsz	((??_main+0)+0),f
+   696  07DC  2FDB               	goto	u2337
+   697  07DD  0BF7               	decfsz	((??_main+0)+0+1),f
+   698  07DE  2FDB               	goto	u2337
+   699  07DF  0BF8               	decfsz	((??_main+0)+0+2),f
+   700  07E0  2FDB               	goto	u2337
+   701                           opt asmopt_on
+   702                           
+   703                           	line	63
+   704  07E1  3001               	movlw	low(01h)
+   705  07E2  07F9               	addwf	(main@i),f
+   706  07E3  1803               	skipnc
+   707  07E4  0AFA               	incf	(main@i+1),f
+   708  07E5  3000               	movlw	high(01h)
+   709  07E6  07FA               	addwf	(main@i+1),f
+   710                           	
+   711  07E7                     l1996:	
+   712  07E7  087A               	movf	(main@i+1),w
+   713  07E8  3A80               	xorlw	80h
+   714  07E9  00FF               	movwf	btemp+1
+   715  07EA  3080               	movlw	(high(014h))^80h
+   716  07EB  027F               	subwf	btemp+1,w
+   717  07EC  1D03               	skipz
+   718  07ED  2FF0               	goto	u2325
+   719  07EE  3014               	movlw	low(014h)
+   720  07EF  0279               	subwf	(main@i),w
+   721  07F0                     u2325:
+   722                           
+   723  07F0  1C03               	skipc
+   724  07F1  2FF3               	goto	u2321
+   725  07F2  2FF4               	goto	u2320
+   726  07F3                     u2321:
+   727  07F3  2FD5               	goto	l1994
+   728  07F4                     u2320:
+   729  07F4  2FF5               	goto	l1998
+   730                           	
+   731  07F5                     l703:	
+   732                           	line	67
+   733                           	
+   734  07F5                     l1998:	
+   735                           ;soil sensor.c: 66: }
+   736                           ;soil sensor.c: 67: lcd_cmd(0x01);
+   737  07F5  3001               	movlw	(01h)
+   738  07F6  120A  118A  2654   	fcall	_lcd_cmd
+              120A  118A         
+   739  07FB  2F19               	goto	l1952
+   740                           	line	68
+   741                           	
+   742  07FC                     l704:	
+   743                           	line	31
+   744  07FC  2F19               	goto	l1952
+   745                           	
+   746  07FD                     l705:	
+   747                           	line	70
+   748                           	
+   749  07FD                     l706:	
+   750                           	global	start
+   751  07FD  120A  118A  2800   	ljmp	start
+   752                           	opt stack 0
+   753                           GLOBAL	__end_of_main
+   754  0800                     	__end_of_main:
+   755 ;; =============== function _main ends ============
+   756                           
+   757                           	signat	_main,90
+   758                           	global	_lcd_data
+   759                           psect	text116,local,class=CODE,delta=2
+   760                           global __ptext116
+   761  0665                     __ptext116:
+   762                           
+   763 ;; *************** function _lcd_data *****************
+   764 ;; Defined at:
+   765 ;;		line 134 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   766 ;; Parameters:    Size  Location     Type
+   767 ;;  data            1    wreg     unsigned char 
+   768 ;; Auto vars:     Size  Location     Type
+   769 ;;  data            1    0[COMMON] unsigned char 
+   770 ;; Return value:  Size  Location     Type
+   771 ;;		None               void
+   772 ;; Registers used:
+   773 ;;		wreg, status,2, status,0, pclath, cstack
+   774 ;; Tracked objects:
+   775 ;;		On entry : 0/0
+   776 ;;		On exit  : 0/0
+   777 ;;		Unchanged: 0/0
+   778 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   779 ;;      Params:         0       0       0       0       0
+   780 ;;      Locals:         1       0       0       0       0
+   781 ;;      Temps:          0       0       0       0       0
+   782 ;;      Totals:         1       0       0       0       0
+   783 ;;Total ram usage:        1 bytes
+   784 ;; Hardware stack levels used:    1
+   785 ;; Hardware stack levels required when called:    1
+   786 ;; This function calls:
+   787 ;;		_delay
+   788 ;; This function is called by:
+   789 ;;		_main
+   790 ;; This function uses a non-reentrant model
+   791 ;;
+   792                           psect	text116
+   793                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   794                           	line	134
+   795                           	global	__size_of_lcd_data
+   796  0011                     	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
+   797                           	
+   798  0665                     _lcd_data:	
+   799                           	opt	stack 6
+   800                           ; Regs used in _lcd_data: [wreg+status,2+status,0+pclath+cstack]
+   801                           ;lcd_data@data stored from wreg
+   802  0665  00F0               	movwf	(lcd_data@data)
+   803                           	line	135
+   804                           	
+   805  0666                     l1926:	
+   806                           ;soil sensor.c: 135: RC0 = 1;
+   807  0666  1283               	bcf	status, 5	;RP0=0, select bank0
+   808  0667  1303               	bcf	status, 6	;RP1=0, select bank0
+   809  0668  1407               	bsf	(56/8),(56)&7
+   810                           	line	136
+   811                           ;soil sensor.c: 136: RC1 = 0;
+   812  0669  1087               	bcf	(57/8),(57)&7
+   813                           	line	137
+   814                           ;soil sensor.c: 137: RC2 = 1;
+   815  066A  1507               	bsf	(58/8),(58)&7
+   816                           	line	138
+   817                           	
+   818  066B                     l1928:	
+   819                           ;soil sensor.c: 138: PORTD = data;
+   820  066B  0870               	movf	(lcd_data@data),w
+   821  066C  0088               	movwf	(8)	;volatile
+   822                           	line	139
+   823                           	
+   824  066D                     l1930:	
+   825                           ;soil sensor.c: 139: delay();
+   826  066D  120A  118A  2676   	fcall	_delay
+              120A  118A         
+   827                           	line	140
+   828                           	
+   829  0672                     l1932:	
+   830                           ;soil sensor.c: 140: RC2 = 0;
+   831  0672  1283               	bcf	status, 5	;RP0=0, select bank0
+   832  0673  1303               	bcf	status, 6	;RP1=0, select bank0
+   833  0674  1107               	bcf	(58/8),(58)&7
+   834                           	line	141
+   835                           	
+   836  0675                     l735:	
+   837  0675  0008               	return
+   838                           	opt stack 0
+   839                           GLOBAL	__end_of_lcd_data
+   840  0676                     	__end_of_lcd_data:
+   841 ;; =============== function _lcd_data ends ============
+   842                           
+   843                           	signat	_lcd_data,4216
+   844                           	global	_ADC_Read
+   845                           psect	text117,local,class=CODE,delta=2
+   846                           global __ptext117
+   847  06B2                     __ptext117:
+   848                           
+   849 ;; *************** function _ADC_Read *****************
+   850 ;; Defined at:
+   851 ;;		line 81 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   852 ;; Parameters:    Size  Location     Type
+   853 ;;  ADC_channel     1    wreg     unsigned char 
+   854 ;; Auto vars:     Size  Location     Type
+   855 ;;  ADC_channel     1    4[COMMON] unsigned char 
+   856 ;; Return value:  Size  Location     Type
+   857 ;;                  2    0[COMMON] unsigned int 
+   858 ;; Registers used:
+   859 ;;		wreg, status,2, status,0, btemp+1
+   860 ;; Tracked objects:
+   861 ;;		On entry : 0/0
+   862 ;;		On exit  : 0/0
+   863 ;;		Unchanged: 0/0
+   864 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   865 ;;      Params:         2       0       0       0       0
+   866 ;;      Locals:         1       0       0       0       0
+   867 ;;      Temps:          2       0       0       0       0
+   868 ;;      Totals:         5       0       0       0       0
+   869 ;;Total ram usage:        5 bytes
+   870 ;; Hardware stack levels used:    1
+   871 ;; This function calls:
+   872 ;;		Nothing
+   873 ;; This function is called by:
+   874 ;;		_main
+   875 ;; This function uses a non-reentrant model
+   876 ;;
+   877                           psect	text117
+   878                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   879                           	line	81
+   880                           	global	__size_of_ADC_Read
+   881  0038                     	__size_of_ADC_Read	equ	__end_of_ADC_Read-_ADC_Read
+   882                           	
+   883  06B2                     _ADC_Read:	
+   884                           	opt	stack 7
+   885                           ; Regs used in _ADC_Read: [wreg+status,2+status,0+btemp+1]
+   886                           ;ADC_Read@ADC_channel stored from wreg
+   887  06B2  00F4               	movwf	(ADC_Read@ADC_channel)
+   888                           	line	82
+   889                           	
+   890  06B3                     l1916:	
+   891                           ;soil sensor.c: 82: ADCON0 &= 0xC5;
+   892  06B3  30C5               	movlw	(0C5h)
+   893  06B4  00F2               	movwf	(??_ADC_Read+0)+0
+   894  06B5  0872               	movf	(??_ADC_Read+0)+0,w
+   895  06B6  1283               	bcf	status, 5	;RP0=0, select bank0
+   896  06B7  1303               	bcf	status, 6	;RP1=0, select bank0
+   897  06B8  059F               	andwf	(31),f	;volatile
+   898                           	line	83
+   899                           ;soil sensor.c: 83: ADCON0 |= ADC_channel<<3;
+   900  06B9  0874               	movf	(ADC_Read@ADC_channel),w
+   901  06BA  00F2               	movwf	(??_ADC_Read+0)+0
+   902  06BB  3002               	movlw	(03h)-1
+   903  06BC                     u2185:
+   904  06BC  1003               	clrc
+   905  06BD  0DF2               	rlf	(??_ADC_Read+0)+0,f
+   906  06BE  3EFF               	addlw	-1
+   907  06BF  1D03               	skipz
+   908  06C0  2EBC               	goto	u2185
+   909  06C1  1003               	clrc
+   910  06C2  0D72               	rlf	(??_ADC_Read+0)+0,w
+   911  06C3  00F3               	movwf	(??_ADC_Read+1)+0
+   912  06C4  0873               	movf	(??_ADC_Read+1)+0,w
+   913  06C5  049F               	iorwf	(31),f	;volatile
+   914                           	line	84
+   915                           	
+   916  06C6                     l1918:	
+   917                           ;soil sensor.c: 84: _delay((unsigned long)((2)*(20000000/4000.0)));
+   918                           	opt asmopt_off
+   919  06C6  300D               movlw	13
+   920  06C7  00F3               movwf	((??_ADC_Read+0)+0+1),f
+   921  06C8  30FB               	movlw	251
+   922  06C9  00F2               movwf	((??_ADC_Read+0)+0),f
+   923  06CA                     u2347:
+   924  06CA  0BF2               	decfsz	((??_ADC_Read+0)+0),f
+   925  06CB  2ECA               	goto	u2347
+   926  06CC  0BF3               	decfsz	((??_ADC_Read+0)+0+1),f
+   927  06CD  2ECA               	goto	u2347
+   928  06CE  2ECF               	nop2
+   929                           opt asmopt_on
+   930                           
+   931                           	line	85
+   932                           	
+   933  06CF                     l1920:	
+   934                           ;soil sensor.c: 85: GO_nDONE = 1;
+   935  06CF  1283               	bcf	status, 5	;RP0=0, select bank0
+   936  06D0  1303               	bcf	status, 6	;RP1=0, select bank0
+   937  06D1  151F               	bsf	(250/8),(250)&7
+   938                           	line	86
+   939                           ;soil sensor.c: 86: while(GO_nDONE);
+   940  06D2  2ED3               	goto	l712
+   941                           	
+   942  06D3                     l713:	
+   943                           	
+   944  06D3                     l712:	
+   945  06D3  191F               	btfsc	(250/8),(250)&7
+   946  06D4  2ED6               	goto	u2191
+   947  06D5  2ED7               	goto	u2190
+   948  06D6                     u2191:
+   949  06D6  2ED3               	goto	l712
+   950  06D7                     u2190:
+   951  06D7  2ED8               	goto	l1922
+   952                           	
+   953  06D8                     l714:	
+   954                           	line	87
+   955                           	
+   956  06D8                     l1922:	
+   957                           ;soil sensor.c: 87: return ((ADRESH<<8)+ADRESL);
+   958  06D8  081E               	movf	(30),w	;volatile
+   959  06D9  00F2               	movwf	(??_ADC_Read+0)+0
+   960  06DA  01F3               	clrf	(??_ADC_Read+0)+0+1
+   961  06DB  0872               	movf	(??_ADC_Read+0)+0,w
+   962  06DC  00F3               	movwf	(??_ADC_Read+0)+1
+   963  06DD  01F2               	clrf	(??_ADC_Read+0)+0
+   964  06DE  1683               	bsf	status, 5	;RP0=1, select bank1
+   965  06DF  1303               	bcf	status, 6	;RP1=0, select bank1
+   966  06E0  081E               	movf	(158)^080h,w	;volatile
+   967  06E1  0772               	addwf	0+(??_ADC_Read+0)+0,w
+   968  06E2  00F0               	movwf	(?_ADC_Read)
+   969  06E3  3000               	movlw	0
+   970  06E4  1803               	skipnc
+   971  06E5  3001               	movlw	1
+   972  06E6  0773               	addwf	1+(??_ADC_Read+0)+0,w
+   973  06E7  00F1               	movwf	1+(?_ADC_Read)
+   974  06E8  2EE9               	goto	l715
+   975                           	
+   976  06E9                     l1924:	
+   977                           	line	88
+   978                           	
+   979  06E9                     l715:	
+   980  06E9  0008               	return
+   981                           	opt stack 0
+   982                           GLOBAL	__end_of_ADC_Read
+   983  06EA                     	__end_of_ADC_Read:
+   984 ;; =============== function _ADC_Read ends ============
+   985                           
+   986                           	signat	_ADC_Read,4218
+   987                           	global	_lcd_cmd
+   988                           psect	text118,local,class=CODE,delta=2
+   989                           global __ptext118
+   990  0654                     __ptext118:
+   991                           
+   992 ;; *************** function _lcd_cmd *****************
+   993 ;; Defined at:
+   994 ;;		line 123 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   995 ;; Parameters:    Size  Location     Type
+   996 ;;  cmd             1    wreg     unsigned char 
+   997 ;; Auto vars:     Size  Location     Type
+   998 ;;  cmd             1    0[COMMON] unsigned char 
+   999 ;; Return value:  Size  Location     Type
+  1000 ;;		None               void
+  1001 ;; Registers used:
+  1002 ;;		wreg, status,2, status,0, pclath, cstack
+  1003 ;; Tracked objects:
+  1004 ;;		On entry : 0/0
+  1005 ;;		On exit  : 0/0
+  1006 ;;		Unchanged: 0/0
+  1007 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1008 ;;      Params:         0       0       0       0       0
+  1009 ;;      Locals:         1       0       0       0       0
+  1010 ;;      Temps:          0       0       0       0       0
+  1011 ;;      Totals:         1       0       0       0       0
+  1012 ;;Total ram usage:        1 bytes
+  1013 ;; Hardware stack levels used:    1
+  1014 ;; Hardware stack levels required when called:    1
+  1015 ;; This function calls:
+  1016 ;;		_delay
+  1017 ;; This function is called by:
+  1018 ;;		_main
+  1019 ;; This function uses a non-reentrant model
+  1020 ;;
+  1021                           psect	text118
+  1022                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1023                           	line	123
+  1024                           	global	__size_of_lcd_cmd
+  1025  0011                     	__size_of_lcd_cmd	equ	__end_of_lcd_cmd-_lcd_cmd
+  1026                           	
+  1027  0654                     _lcd_cmd:	
+  1028                           	opt	stack 6
+  1029                           ; Regs used in _lcd_cmd: [wreg+status,2+status,0+pclath+cstack]
+  1030                           ;lcd_cmd@cmd stored from wreg
+  1031  0654  00F0               	movwf	(lcd_cmd@cmd)
+  1032                           	line	124
+  1033                           	
+  1034  0655                     l1908:	
+  1035                           ;soil sensor.c: 124: RC0 = 0;
+  1036  0655  1283               	bcf	status, 5	;RP0=0, select bank0
+  1037  0656  1303               	bcf	status, 6	;RP1=0, select bank0
+  1038  0657  1007               	bcf	(56/8),(56)&7
+  1039                           	line	125
+  1040                           ;soil sensor.c: 125: RC1 = 0;
+  1041  0658  1087               	bcf	(57/8),(57)&7
+  1042                           	line	126
+  1043                           ;soil sensor.c: 126: RC2 = 1;
+  1044  0659  1507               	bsf	(58/8),(58)&7
+  1045                           	line	127
+  1046                           	
+  1047  065A                     l1910:	
+  1048                           ;soil sensor.c: 127: PORTD = cmd;
+  1049  065A  0870               	movf	(lcd_cmd@cmd),w
+  1050  065B  0088               	movwf	(8)	;volatile
+  1051                           	line	128
+  1052                           	
+  1053  065C                     l1912:	
+  1054                           ;soil sensor.c: 128: delay();
+  1055  065C  120A  118A  2676   	fcall	_delay
+              120A  118A         
+  1056                           	line	129
+  1057                           	
+  1058  0661                     l1914:	
+  1059                           ;soil sensor.c: 129: RC2 = 0;
+  1060  0661  1283               	bcf	status, 5	;RP0=0, select bank0
+  1061  0662  1303               	bcf	status, 6	;RP1=0, select bank0
+  1062  0663  1107               	bcf	(58/8),(58)&7
+  1063                           	line	130
+  1064                           	
+  1065  0664                     l732:	
+  1066  0664  0008               	return
+  1067                           	opt stack 0
+  1068                           GLOBAL	__end_of_lcd_cmd
+  1069  0665                     	__end_of_lcd_cmd:
+  1070 ;; =============== function _lcd_cmd ends ============
+  1071                           
+  1072                           	signat	_lcd_cmd,4216
+  1073                           	global	___wmul
+  1074                           psect	text119,local,class=CODE,delta=2
+  1075                           global __ptext119
+  1076  0688                     __ptext119:
+  1077                           
+  1078 ;; *************** function ___wmul *****************
+  1079 ;; Defined at:
+  1080 ;;		line 3 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c"
+  1081 ;; Parameters:    Size  Location     Type
+  1082 ;;  multiplier      2    0[COMMON] unsigned int 
+  1083 ;;  multiplicand    2    2[COMMON] unsigned int 
+  1084 ;; Auto vars:     Size  Location     Type
+  1085 ;;  product         2    4[COMMON] unsigned int 
+  1086 ;; Return value:  Size  Location     Type
+  1087 ;;                  2    0[COMMON] unsigned int 
+  1088 ;; Registers used:
+  1089 ;;		wreg, status,2, status,0
+  1090 ;; Tracked objects:
+  1091 ;;		On entry : 0/0
+  1092 ;;		On exit  : 0/0
+  1093 ;;		Unchanged: 0/0
+  1094 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1095 ;;      Params:         4       0       0       0       0
+  1096 ;;      Locals:         2       0       0       0       0
+  1097 ;;      Temps:          0       0       0       0       0
+  1098 ;;      Totals:         6       0       0       0       0
+  1099 ;;Total ram usage:        6 bytes
+  1100 ;; Hardware stack levels used:    1
+  1101 ;; This function calls:
+  1102 ;;		Nothing
+  1103 ;; This function is called by:
+  1104 ;;		_main
+  1105 ;; This function uses a non-reentrant model
+  1106 ;;
+  1107                           psect	text119
+  1108                           	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c"
+  1109                           	line	3
+  1110                           	global	__size_of___wmul
+  1111  002A                     	__size_of___wmul	equ	__end_of___wmul-___wmul
+  1112                           	
+  1113  0688                     ___wmul:	
+  1114                           	opt	stack 7
+  1115                           ; Regs used in ___wmul: [wreg+status,2+status,0]
+  1116                           	line	4
+  1117                           	
+  1118  0688                     l1148:	
+  1119  0688  01F4               	clrf	(___wmul@product)
+  1120  0689  01F5               	clrf	(___wmul@product+1)
+  1121  068A  2E8B               	goto	l1150
+  1122                           	line	6
+  1123                           	
+  1124  068B                     l744:	
+  1125                           	line	7
+  1126                           	
+  1127  068B                     l1150:	
+  1128  068B  1C70               	btfss	(___wmul@multiplier),(0)&7
+  1129  068C  2E8E               	goto	u71
+  1130  068D  2E8F               	goto	u70
+  1131  068E                     u71:
+  1132  068E  2E95               	goto	l745
+  1133  068F                     u70:
+  1134                           	line	8
+  1135                           	
+  1136  068F                     l1152:	
+  1137  068F  0872               	movf	(___wmul@multiplicand),w
+  1138  0690  07F4               	addwf	(___wmul@product),f
+  1139  0691  1803               	skipnc
+  1140  0692  0AF5               	incf	(___wmul@product+1),f
+  1141  0693  0873               	movf	(___wmul@multiplicand+1),w
+  1142  0694  07F5               	addwf	(___wmul@product+1),f
+  1143                           	
+  1144  0695                     l745:	
+  1145                           	line	9
+  1146  0695  3001               	movlw	01h
+  1147                           	
+  1148  0696                     u85:
+  1149  0696  1003               	clrc
+  1150  0697  0DF2               	rlf	(___wmul@multiplicand),f
+  1151  0698  0DF3               	rlf	(___wmul@multiplicand+1),f
+  1152  0699  3EFF               	addlw	-1
+  1153  069A  1D03               	skipz
+  1154  069B  2E96               	goto	u85
+  1155                           	line	10
+  1156                           	
+  1157  069C                     l1154:	
+  1158  069C  3001               	movlw	01h
+  1159                           	
+  1160  069D                     u95:
+  1161  069D  1003               	clrc
+  1162  069E  0CF1               	rrf	(___wmul@multiplier+1),f
+  1163  069F  0CF0               	rrf	(___wmul@multiplier),f
+  1164  06A0  3EFF               	addlw	-1
+  1165  06A1  1D03               	skipz
+  1166  06A2  2E9D               	goto	u95
+  1167                           	line	11
+  1168  06A3  0871               	movf	((___wmul@multiplier+1)),w
+  1169  06A4  0470               	iorwf	((___wmul@multiplier)),w
+  1170  06A5  1D03               	skipz
+  1171  06A6  2EA8               	goto	u101
+  1172  06A7  2EA9               	goto	u100
+  1173  06A8                     u101:
+  1174  06A8  2E8B               	goto	l1150
+  1175  06A9                     u100:
+  1176  06A9  2EAA               	goto	l1156
+  1177                           	
+  1178  06AA                     l746:	
+  1179                           	line	12
+  1180                           	
+  1181  06AA                     l1156:	
+  1182  06AA  0875               	movf	(___wmul@product+1),w
+  1183  06AB  01F1               	clrf	(?___wmul+1)
+  1184  06AC  07F1               	addwf	(?___wmul+1)
+  1185  06AD  0874               	movf	(___wmul@product),w
+  1186  06AE  01F0               	clrf	(?___wmul)
+  1187  06AF  07F0               	addwf	(?___wmul)
+  1188                           
+  1189  06B0  2EB1               	goto	l747
+  1190                           	
+  1191  06B1                     l1158:	
+  1192                           	line	13
+  1193                           	
+  1194  06B1                     l747:	
+  1195  06B1  0008               	return
+  1196                           	opt stack 0
+  1197                           GLOBAL	__end_of___wmul
+  1198  06B2                     	__end_of___wmul:
+  1199 ;; =============== function ___wmul ends ============
+  1200                           
+  1201                           	signat	___wmul,8314
+  1202                           	global	_delay
+  1203                           psect	text120,local,class=CODE,delta=2
+  1204                           global __ptext120
+  1205  0676                     __ptext120:
+  1206                           
+  1207 ;; *************** function _delay *****************
+  1208 ;; Defined at:
+  1209 ;;		line 92 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1210 ;; Parameters:    Size  Location     Type
+  1211 ;;		None
+  1212 ;; Auto vars:     Size  Location     Type
+  1213 ;;		None
+  1214 ;; Return value:  Size  Location     Type
+  1215 ;;		None               void
+  1216 ;; Registers used:
+  1217 ;;		wreg
+  1218 ;; Tracked objects:
+  1219 ;;		On entry : 0/0
+  1220 ;;		On exit  : 0/0
+  1221 ;;		Unchanged: 0/0
+  1222 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1223 ;;      Params:         0       0       0       0       0
+  1224 ;;      Locals:         0       0       0       0       0
+  1225 ;;      Temps:          0       0       0       0       0
+  1226 ;;      Totals:         0       0       0       0       0
+  1227 ;;Total ram usage:        0 bytes
+  1228 ;; Hardware stack levels used:    1
+  1229 ;; This function calls:
+  1230 ;;		Nothing
+  1231 ;; This function is called by:
+  1232 ;;		_lcd_cmd
+  1233 ;;		_lcd_data
+  1234 ;; This function uses a non-reentrant model
+  1235 ;;
+  1236                           psect	text120
+  1237                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1238                           	line	92
+  1239                           	global	__size_of_delay
+  1240  0012                     	__size_of_delay	equ	__end_of_delay-_delay
+  1241                           	
+  1242  0676                     _delay:	
+  1243                           	opt	stack 6
+  1244                           ; Regs used in _delay: [wreg]
+  1245                           	line	93
+  1246                           	
+  1247  0676                     l1118:	
+  1248                           ;soil sensor.c: 93: TMR1CS = 0;
+  1249  0676  1283               	bcf	status, 5	;RP0=0, select bank0
+  1250  0677  1303               	bcf	status, 6	;RP1=0, select bank0
+  1251  0678  1090               	bcf	(129/8),(129)&7
+  1252                           	line	94
+  1253                           ;soil sensor.c: 94: T1CKPS0 = 1;
+  1254  0679  1610               	bsf	(132/8),(132)&7
+  1255                           	line	95
+  1256                           ;soil sensor.c: 95: T1CKPS1 = 1;
+  1257  067A  1690               	bsf	(133/8),(133)&7
+  1258                           	line	96
+  1259                           	
+  1260  067B                     l1120:	
+  1261                           ;soil sensor.c: 96: TMR1H = 0X3C;
+  1262  067B  303C               	movlw	(03Ch)
+  1263  067C  008F               	movwf	(15)	;volatile
+  1264                           	line	97
+  1265                           ;soil sensor.c: 97: TMR1L = 0XB0;
+  1266  067D  30B0               	movlw	(0B0h)
+  1267  067E  008E               	movwf	(14)	;volatile
+  1268                           	line	98
+  1269                           	
+  1270  067F                     l1122:	
+  1271                           ;soil sensor.c: 98: TMR1ON = 1;
+  1272  067F  1410               	bsf	(128/8),(128)&7
+  1273                           	line	99
+  1274                           ;soil sensor.c: 99: while(TMR1IF==0);
+  1275  0680  2E81               	goto	l718
+  1276                           	
+  1277  0681                     l719:	
+  1278                           	
+  1279  0681                     l718:	
+  1280  0681  1C0C               	btfss	(96/8),(96)&7
+  1281  0682  2E84               	goto	u11
+  1282  0683  2E85               	goto	u10
+  1283  0684                     u11:
+  1284  0684  2E81               	goto	l718
+  1285  0685                     u10:
+  1286                           	
+  1287  0685                     l720:	
+  1288                           	line	100
+  1289                           ;soil sensor.c: 100: TMR1IF = 0;
+  1290  0685  100C               	bcf	(96/8),(96)&7
+  1291                           	line	101
+  1292                           ;soil sensor.c: 101: TMR1ON= 1;
+  1293  0686  1410               	bsf	(128/8),(128)&7
+  1294                           	line	102
+  1295                           	
+  1296  0687                     l721:	
+  1297  0687  0008               	return
+  1298                           	opt stack 0
+  1299                           GLOBAL	__end_of_delay
+  1300  0688                     	__end_of_delay:
+  1301 ;; =============== function _delay ends ============
+  1302                           
+  1303                           	signat	_delay,88
+  1304                           	global	_ADC_Init
+  1305                           psect	text121,local,class=CODE,delta=2
+  1306                           global __ptext121
+  1307  064B                     __ptext121:
+  1308                           
+  1309 ;; *************** function _ADC_Init *****************
+  1310 ;; Defined at:
+  1311 ;;		line 74 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1312 ;; Parameters:    Size  Location     Type
+  1313 ;;		None
+  1314 ;; Auto vars:     Size  Location     Type
+  1315 ;;		None
+  1316 ;; Return value:  Size  Location     Type
+  1317 ;;		None               void
+  1318 ;; Registers used:
+  1319 ;;		wreg
+  1320 ;; Tracked objects:
+  1321 ;;		On entry : 0/0
+  1322 ;;		On exit  : 0/0
+  1323 ;;		Unchanged: 0/0
+  1324 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1325 ;;      Params:         0       0       0       0       0
+  1326 ;;      Locals:         0       0       0       0       0
+  1327 ;;      Temps:          0       0       0       0       0
+  1328 ;;      Totals:         0       0       0       0       0
+  1329 ;;Total ram usage:        0 bytes
+  1330 ;; Hardware stack levels used:    1
+  1331 ;; This function calls:
+  1332 ;;		Nothing
+  1333 ;; This function is called by:
+  1334 ;;		_main
+  1335 ;; This function uses a non-reentrant model
+  1336 ;;
+  1337                           psect	text121
+  1338                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1339                           	line	74
+  1340                           	global	__size_of_ADC_Init
+  1341  0009                     	__size_of_ADC_Init	equ	__end_of_ADC_Init-_ADC_Init
+  1342                           	
+  1343  064B                     _ADC_Init:	
+  1344                           	opt	stack 7
+  1345                           ; Regs used in _ADC_Init: [wreg]
+  1346                           	line	75
+  1347                           	
+  1348  064B                     l1116:	
+  1349                           ;soil sensor.c: 75: ADCON0 = 0x41;
+  1350  064B  3041               	movlw	(041h)
+  1351  064C  1283               	bcf	status, 5	;RP0=0, select bank0
+  1352  064D  1303               	bcf	status, 6	;RP1=0, select bank0
+  1353  064E  009F               	movwf	(31)	;volatile
+  1354                           	line	76
+  1355                           ;soil sensor.c: 76: ADCON1 = 0xC0;
+  1356  064F  30C0               	movlw	(0C0h)
+  1357  0650  1683               	bsf	status, 5	;RP0=1, select bank1
+  1358  0651  1303               	bcf	status, 6	;RP1=0, select bank1
+  1359  0652  009F               	movwf	(159)^080h	;volatile
+  1360                           	line	78
+  1361                           	
+  1362  0653                     l709:	
+  1363  0653  0008               	return
+  1364                           	opt stack 0
+  1365                           GLOBAL	__end_of_ADC_Init
+  1366  0654                     	__end_of_ADC_Init:
+  1367 ;; =============== function _ADC_Init ends ============
+  1368                           
+  1369                           	signat	_ADC_Init,88
+  1370                           psect	text122,local,class=CODE,delta=2
+  1371                           global __ptext122
+  1372  0000                     __ptext122:
+  1373                           	global	btemp
+  1374  007E                     	btemp set 07Eh
+  1375                           
+  1376                           	DABS	1,126,2	;btemp
+  1377                           	global	wtemp0
+  1378  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Mon Aug 12 12:02:29 2019
+
+        lcd_data@data 0070                    u10 0685                    u11 0684                    u70 068F  
+                  u71 068E                    u85 0696                    u95 069D   ___wmul@multiplicand 0072  
+                 l700 07B4                   l701 07C4                   l702 07D5                   l703 07F5  
+                 l720 0685                   l712 06D3                   l704 07FC                   l721 0687  
+                 l713 06D3                   l705 07FD                   l714 06D8                   l706 07FD  
+                 l715 06E9                   l732 0664                   l709 0653                   l718 0681  
+                 l719 0681                   l735 0675                   l744 068B                   l745 0695  
+                 l746 06AA                   l747 06B1                   l695 0719                   l696 0750  
+                 l697 0769                   l698 0782                   l699 079B                   _RC0 0038  
+                 _RC1 0039                   _RC2 003A                   u100 06A9                   u101 06A8  
+                l1120 067B                  l1122 067F                  l1116 064B                  l1118 0676  
+                l1150 068B                  l1152 068F                  l1154 069C                  l1156 06AA  
+                l1148 0688                  l1158 06B1                  l1910 065A                  l1912 065C  
+                l1920 06CF                  l1914 0661                  l1922 06D8                  l1930 066D  
+                l1908 0655                  l1924 06E9                  l1916 06B3                  l1932 0672  
+                l1940 06F5                  l1918 06C6                  l1926 0666                  l1950 0713  
+                l1942 06FB                  l1934 06EA                  l1928 066B                  l1960 0750  
+                l1952 0719                  l1944 0701                  l1936 06EE                  l1970 077B  
+                l1962 0759                  l1954 0725                  l1946 0707                  l1938 06EF  
+                l1980 07A4                  l1972 0782                  l1964 0762                  l1956 0743  
+                l1948 070D                  l1990 07C6                  l1982 07AD                  l1974 078B  
+                l1966 0769                  l1958 0749                  l1992 07D4                  l1984 07B4  
+                l1976 0794                  l1968 0772                  l1994 07D5                  l1986 07BD  
+                l1978 079B                  l1996 07E7                  l1988 07C4                  l1998 07F5  
+                u2210 0749                  u2211 0748                  u2300 07BD                  u2220 0759  
+                u2301 07BC                  u2221 0758                  u2205 0739                  u2310 07D3  
+                u2230 0762                  u2311 07D2                  u2231 0761                  u2320 07F4  
+                u2240 0772                  u2321 07F3                  u2241 0771                  u2250 077B  
+                u2315 07CF                  u2251 077A                  u2260 078B                  u2325 07F0  
+                u2261 078A                  u2190 06D7                  u2270 0794                  u2191 06D6  
+                u2271 0793                  u2280 07A4                  u2185 06BC                  u2337 07DB  
+                u2281 07A3                  u2290 07AD                  u2347 06CA                  u2291 07AC  
+                _main 06EA                  btemp 007E      __end_of_ADC_Init 0654      __end_of_ADC_Read 06EA  
+                start 0000                 ?_main 0070                 _TMR1H 000F                 _TMR1L 000E  
+               _PORTD 0008                 _TRISC 0087                 _TRISD 0088       __end_of_lcd_cmd 0665  
+               _delay 0676                 main@i 0079                 status 0003                 wtemp0 007E  
+        __end_of_main 0800                ??_main 0076                ?_delay 0070                _ADCON0 001F  
+              _ADCON1 009F                _ADRESH 001E                _ADRESL 009E                _TMR1IF 0060  
+              _TMR1CS 0081                _TMR1ON 0080                _TRISB0 0430      __end_of_lcd_data 0676  
+              ___wmul 0688             ??_lcd_cmd 0070             ?_ADC_Init 0070             ?_ADC_Read 0070  
+      __pcstackCOMMON 0070         __end_of_delay 0688            ??_ADC_Init 0070            ??_ADC_Read 0072  
+             ??_delay 0070            __pmaintext 06EA   ADC_Read@ADC_channel 0074               ?___wmul 0070  
+             _T1CKPS0 0084               _T1CKPS1 0085             ?_lcd_data 0070       __size_of___wmul 002A  
+             _lcd_cmd 0654            ??_lcd_data 0070  end_of_initialization 0647            lcd_cmd@cmd 0070  
+   __size_of_ADC_Init 0009     __size_of_ADC_Read 0038        __end_of___wmul 06B2   start_initialization 0647  
+            ??___wmul 0074     __size_of_lcd_data 0011             __ptext120 0676             __ptext121 064B  
+           __ptext122 0000             __ptext115 0000             __ptext116 0665             __ptext117 06B2  
+           __ptext118 0654             __ptext119 0688              ?_lcd_cmd 0070              _ADC_Init 064B  
+            _ADC_Read 06B2        __size_of_delay 0012        ___wmul@product 0074              _GO_nDONE 00FA  
+   ___wmul@multiplier 0070      __size_of_lcd_cmd 0011              _lcd_data 0665         __size_of_main 0116  
+            main@data 007B  
