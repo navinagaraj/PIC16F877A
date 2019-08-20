@@ -1,0 +1,9 @@
+___awdiv: CODE, 1797 0 116
+_uart_tx: CODE, 1440 0 12
+_delay: CODE, 1619 0 76
+_call: CODE, 1913 0 135
+___awmod: CODE, 1695 0 102
+_main: CODE, 1571 0 48
+_uart_init: CODE, 1483 0 19
+_print_uart: CODE, 1502 0 26
+Total: 534
