@@ -39,9 +39,9 @@ fsr0	equ	4
 c	equ	1
 z	equ	0
 pclath	equ	10
-# 11 "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+# 11 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	psect config,class=CONFIG,delta=2 ;#
-# 11 "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+# 11 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
 	FNCALL	_main,_uart_init
 	FNCALL	_main,_delay
@@ -58,7 +58,7 @@ pclath	equ	10
 psect	idataCOMMON,class=CODE,space=0,delta=2
 global __pidataCOMMON
 __pidataCOMMON:
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	line	14
 
 ;initializer for _i
@@ -71,13 +71,16 @@ __pidataBANK0:
 	line	21
 
 ;initializer for _text_uart2
+	retlw	020h
+	retlw	020h
 	retlw	053h
 	retlw	065h
 	retlw	063h
 	retlw	06Fh
 	retlw	06Eh
 	retlw	064h
-	retlw	09h
+	retlw	0Ah
+	retlw	0Dh
 	retlw	0
 psect	idataBANK1,class=CODE,space=0,delta=2
 global __pidataBANK1
@@ -129,8 +132,8 @@ _TXIF	set	100
 _SPBRG	set	153
 	global	_TXSTA
 _TXSTA	set	152
-	global	_TRISB0
-_TRISB0	set	1072
+	global	_TRISB7
+_TRISB7	set	1079
 	global	_TRISC6
 _TRISC6	set	1086
 	global	_TRISC7
@@ -146,7 +149,7 @@ start_initialization:
 psect	dataCOMMON,class=COMMON,space=1
 global __pdataCOMMON
 __pdataCOMMON:
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	line	14
 _i:
        ds      2
@@ -154,15 +157,15 @@ _i:
 psect	dataBANK0,class=BANK0,space=1
 global __pdataBANK0
 __pdataBANK0:
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	line	21
 _text_uart2:
-       ds      8
+       ds      11
 
 psect	dataBANK1,class=BANK1,space=1
 global __pdataBANK1
 __pdataBANK1:
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	line	20
 _text_uart:
        ds      14
@@ -210,7 +213,7 @@ global init_ram, __pidataBANK1
 ; Initialize objects allocated to BANK0
 psect cinit,class=CODE,delta=2
 global init_ram, __pidataBANK0
-	movlw low(__pdataBANK0+8)
+	movlw low(__pdataBANK0+11)
 	movwf btemp-1,f
 	movlw high(__pidataBANK0)
 	movwf btemp,f
@@ -319,10 +322,10 @@ call@data:	; 2 bytes @ 0x3E
 	global	call@count
 call@count:	; 2 bytes @ 0x40
 	ds	2
-;;Data sizes: Strings 0, constant 0, data 24, bss 0, persistent 0 stack 0
+;;Data sizes: Strings 0, constant 0, data 27, bss 0, persistent 0 stack 0
 ;;Auto spaces:   Size  Autos    Used
 ;; COMMON          14     12      14
-;; BANK0           80     66      74
+;; BANK0           80     66      77
 ;; BANK1           80      0      14
 ;; BANK3           96      0       0
 ;; BANK2           96      0       0
@@ -335,7 +338,7 @@ call@count:	; 2 bytes @ 0x40
 ;; ?___awmod	int  size(1) Largest target is 0
 ;;
 ;; print_uart@str	PTR unsigned char  size(1) Largest target is 14
-;;		 -> text_uart2(BANK0[8]), text_uart(BANK1[14]), 
+;;		 -> text_uart2(BANK0[11]), text_uart(BANK1[14]), 
 ;;
 
 
@@ -372,7 +375,7 @@ call@count:	; 2 bytes @ 0x40
 ;; ---------------------------------------------------------------------------------
 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;; ---------------------------------------------------------------------------------
-;; (0) _main                                                 0     0      0    1027
+;; (0) _main                                                 0     0      0    1005
 ;;                          _uart_init
 ;;                              _delay
 ;;                         _print_uart
@@ -400,7 +403,7 @@ call@count:	; 2 bytes @ 0x40
 ;; ---------------------------------------------------------------------------------
 ;; (1) _uart_init                                            0     0      0       0
 ;; ---------------------------------------------------------------------------------
-;; (1) _delay                                                2     2      0      68
+;; (1) _delay                                                2     2      0      46
 ;;                                              0 COMMON     2     2      0
 ;; ---------------------------------------------------------------------------------
 ;; Estimated maximum stack depth 2
@@ -435,11 +438,11 @@ call@count:	; 2 bytes @ 0x40
 ;;BANK1               50      0       E       7       17.5%
 ;;BITBANK1            50      0       0       6        0.0%
 ;;CODE                 0      0       0       0        0.0%
-;;DATA                 0      0      68      12        0.0%
-;;ABS                  0      0      66       3        0.0%
+;;DATA                 0      0      6B      12        0.0%
+;;ABS                  0      0      69       3        0.0%
 ;;NULL                 0      0       0       0        0.0%
 ;;STACK                0      0       2       2        0.0%
-;;BANK0               50     42      4A       5       92.5%
+;;BANK0               50     42      4D       5       96.3%
 ;;BITBANK0            50      0       0       4        0.0%
 ;;SFR0                 0      0       0       1        0.0%
 ;;BITSFR0              0      0       0       1        0.0%
@@ -454,13 +457,13 @@ __pmaintext:
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 51 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 43 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  2  706[COMMON] int 
+;;                  2  704[COMMON] int 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -484,47 +487,67 @@ __pmaintext:
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
-	line	51
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
+	line	43
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
 _main:	
 	opt	stack 6
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	52
+	line	44
 	
-l2136:	
-;TUP.c: 52: uart_init();
+l2128:	
+;TUP.c: 44: uart_init();
 	fcall	_uart_init
-	line	53
+	line	45
 	
-l2138:	
-;TUP.c: 53: TRISB0 = 0;
+l2130:	
+;TUP.c: 45: TRISB7 = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
-	bcf	(1072/8)^080h,(1072)&7
-	goto	l2140
-	line	54
-;TUP.c: 54: while(1)
+	bcf	(1079/8)^080h,(1079)&7
+	goto	l2132
+	line	46
+;TUP.c: 46: while(1)
 	
-l707:	
-	line	56
+l705:	
+	line	48
+	
+l2132:	
+;TUP.c: 47: {
+;TUP.c: 48: delay();
+	fcall	_delay
+	line	49
+	
+l2134:	
+;TUP.c: 49: PORTB = 0XFF;
+	movlw	(0FFh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(6)	;volatile
+	line	50
+	
+l2136:	
+;TUP.c: 50: delay();
+	fcall	_delay
+	line	51
+	
+l2138:	
+;TUP.c: 51: PORTB = 0;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	clrf	(6)	;volatile
+	line	52
 	
 l2140:	
-;TUP.c: 55: {
-;TUP.c: 56: delay();
-	fcall	_delay
-	line	57
-	
-l2142:	
-;TUP.c: 57: print_uart(text_uart);
+;TUP.c: 52: print_uart(text_uart);
 	movlw	(_text_uart)&0ffh
 	fcall	_print_uart
-	line	58
+	line	53
 	
-l2144:	
-;TUP.c: 58: call(i);
+l2142:	
+;TUP.c: 53: call(i);
 	movf	(_i+1),w
 	clrf	(?_call+1)
 	addwf	(?_call+1)
@@ -533,33 +556,33 @@ l2144:
 	addwf	(?_call)
 
 	fcall	_call
-	line	59
+	line	54
 	
-l2146:	
-;TUP.c: 59: print_uart(text_uart2);
+l2144:	
+;TUP.c: 54: print_uart(text_uart2);
 	movlw	(_text_uart2)&0ffh
 	fcall	_print_uart
-	line	60
+	line	55
 	
-l2148:	
-;TUP.c: 60: i++;
+l2146:	
+;TUP.c: 55: i++;
 	movlw	low(01h)
 	addwf	(_i),f
 	skipnc
 	incf	(_i+1),f
 	movlw	high(01h)
 	addwf	(_i+1),f
-	goto	l2140
-	line	61
+	goto	l2132
+	line	56
+	
+l706:	
+	line	46
+	goto	l2132
+	
+l707:	
+	line	57
 	
 l708:	
-	line	54
-	goto	l2140
-	
-l709:	
-	line	62
-	
-l710:	
 	global	start
 	ljmp	start
 	opt stack 0
@@ -575,7 +598,7 @@ __ptext197:
 
 ;; *************** function _call *****************
 ;; Defined at:
-;;		line 95 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 90 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;  i               2    9[COMMON] int 
 ;; Auto vars:     Size  Location     Type
@@ -608,26 +631,26 @@ __ptext197:
 ;; This function uses a non-reentrant model
 ;;
 psect	text197
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
-	line	95
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
+	line	90
 	global	__size_of_call
 	__size_of_call	equ	__end_of_call-_call
 	
 _call:	
 	opt	stack 6
 ; Regs used in _call: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-	line	96
+	line	91
 	
-l2110:	
-;TUP.c: 96: int data,j,count=0,arr[30];
+l2102:	
+;TUP.c: 91: int data,j,count=0,arr[30];
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(call@count)
 	clrf	(call@count+1)
-	line	97
+	line	92
 	
-l2112:	
-;TUP.c: 97: data = i;
+l2104:	
+;TUP.c: 92: data = i;
 	movf	(call@i+1),w
 	clrf	(call@data+1)
 	addwf	(call@data+1)
@@ -635,16 +658,16 @@ l2112:
 	clrf	(call@data)
 	addwf	(call@data)
 
-	line	98
-;TUP.c: 98: while(data != 0)
-	goto	l2122
+	line	93
+;TUP.c: 93: while(data != 0)
+	goto	l2114
 	
-l729:	
-	line	100
+l727:	
+	line	95
 	
-l2114:	
-;TUP.c: 99: {
-;TUP.c: 100: j = data%10;
+l2106:	
+;TUP.c: 94: {
+;TUP.c: 95: j = data%10;
 	movlw	low(0Ah)
 	movwf	(?___awmod)
 	movlw	high(0Ah)
@@ -666,10 +689,10 @@ l2114:
 	clrf	(call@j)
 	addwf	(call@j)
 
-	line	101
+	line	96
 	
-l2116:	
-;TUP.c: 101: arr[count] = j;
+l2108:	
+;TUP.c: 96: arr[count] = j;
 	movf	(call@count),w
 	movwf	(??_call+0)+0
 	addwf	(??_call+0)+0,w
@@ -681,10 +704,10 @@ l2116:
 	incf	fsr0,f
 	movf	(call@j+1),w
 	movwf	indf
-	line	102
+	line	97
 	
-l2118:	
-;TUP.c: 102: data = data/10;
+l2110:	
+;TUP.c: 97: data = data/10;
 	movlw	low(0Ah)
 	movwf	(?___awdiv)
 	movlw	high(0Ah)
@@ -706,39 +729,39 @@ l2118:
 	clrf	(call@data)
 	addwf	(call@data)
 
-	line	103
+	line	98
 	
-l2120:	
-;TUP.c: 103: count++;
+l2112:	
+;TUP.c: 98: count++;
 	movlw	low(01h)
 	addwf	(call@count),f
 	skipnc
 	incf	(call@count+1),f
 	movlw	high(01h)
 	addwf	(call@count+1),f
-	goto	l2122
-	line	104
+	goto	l2114
+	line	99
 	
-l728:	
-	line	98
+l726:	
+	line	93
 	
-l2122:	
+l2114:	
 	movf	((call@data+1)),w
 	iorwf	((call@data)),w
 	skipz
-	goto	u2481
-	goto	u2480
-u2481:
-	goto	l2114
-u2480:
-	goto	l2124
+	goto	u2461
+	goto	u2460
+u2461:
+	goto	l2106
+u2460:
+	goto	l2116
 	
-l730:	
-	line	105
+l728:	
+	line	100
 	
-l2124:	
-;TUP.c: 104: }
-;TUP.c: 105: count = count-1;
+l2116:	
+;TUP.c: 99: }
+;TUP.c: 100: count = count-1;
 	movf	(call@count),w
 	addlw	low(-1)
 	movwf	(call@count)
@@ -747,36 +770,36 @@ l2124:
 	addlw	1
 	addlw	high(-1)
 	movwf	1+(call@count)
-	line	106
+	line	101
 	
-l2126:	
-;TUP.c: 106: for( ;count!=-1; )
+l2118:	
+;TUP.c: 101: for( ;count!=-1; )
 	movlw	high(-1)
 	xorwf	(call@count+1),w
 	skipz
-	goto	u2495
+	goto	u2475
 	movlw	low(-1)
 	xorwf	(call@count),w
-u2495:
+u2475:
 
 	skipz
-	goto	u2491
-	goto	u2490
-u2491:
-	goto	l2130
-u2490:
-	goto	l733
+	goto	u2471
+	goto	u2470
+u2471:
+	goto	l2122
+u2470:
+	goto	l731
 	
-l2128:	
-	goto	l733
-	line	107
+l2120:	
+	goto	l731
+	line	102
 	
-l731:	
-	line	108
+l729:	
+	line	103
 	
-l2130:	
-;TUP.c: 107: {
-;TUP.c: 108: uart_tx((arr[count]+48));
+l2122:	
+;TUP.c: 102: {
+;TUP.c: 103: uart_tx((arr[count]+48));
 	movf	(call@count),w
 	movwf	(??_call+0)+0
 	addwf	(??_call+0)+0,w
@@ -786,10 +809,10 @@ l2130:
 	movf	indf,w
 	addlw	030h
 	fcall	_uart_tx
-	line	109
+	line	104
 	
-l2132:	
-;TUP.c: 109: count--;
+l2124:	
+;TUP.c: 104: count--;
 	movlw	low(-1)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -798,29 +821,29 @@ l2132:
 	incf	(call@count+1),f
 	movlw	high(-1)
 	addwf	(call@count+1),f
-	line	106
+	line	101
 	
-l2134:	
+l2126:	
 	movlw	high(-1)
 	xorwf	(call@count+1),w
 	skipz
-	goto	u2505
+	goto	u2485
 	movlw	low(-1)
 	xorwf	(call@count),w
-u2505:
+u2485:
 
 	skipz
-	goto	u2501
-	goto	u2500
-u2501:
-	goto	l2130
-u2500:
-	goto	l733
+	goto	u2481
+	goto	u2480
+u2481:
+	goto	l2122
+u2480:
+	goto	l731
 	
-l732:	
-	line	111
+l730:	
+	line	106
 	
-l733:	
+l731:	
 	return
 	opt stack 0
 GLOBAL	__end_of_call
@@ -835,13 +858,13 @@ __ptext198:
 
 ;; *************** function _print_uart *****************
 ;; Defined at:
-;;		line 86 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 81 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;  str             1    wreg     PTR unsigned char 
-;;		 -> text_uart2(8), text_uart(14), 
+;;		 -> text_uart2(11), text_uart(14), 
 ;; Auto vars:     Size  Location     Type
 ;;  str             1    2[COMMON] PTR unsigned char 
-;;		 -> text_uart2(8), text_uart(14), 
+;;		 -> text_uart2(11), text_uart(14), 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
@@ -865,8 +888,8 @@ __ptext198:
 ;; This function uses a non-reentrant model
 ;;
 psect	text198
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
-	line	86
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
+	line	81
 	global	__size_of_print_uart
 	__size_of_print_uart	equ	__end_of_print_uart-_print_uart
 	
@@ -875,54 +898,54 @@ _print_uart:
 ; Regs used in _print_uart: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 ;print_uart@str stored from wreg
 	movwf	(print_uart@str)
-	line	87
+	line	82
 	
-l2102:	
-;TUP.c: 87: while(*str)
-	goto	l2108
+l2094:	
+;TUP.c: 82: while(*str)
+	goto	l2100
 	
-l723:	
-	line	89
+l721:	
+	line	84
 	
-l2104:	
-;TUP.c: 88: {
-;TUP.c: 89: uart_tx(*str);
+l2096:	
+;TUP.c: 83: {
+;TUP.c: 84: uart_tx(*str);
 	movf	(print_uart@str),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
 	movf	indf,w
 	fcall	_uart_tx
-	line	90
+	line	85
 	
-l2106:	
-;TUP.c: 90: str++;
+l2098:	
+;TUP.c: 85: str++;
 	movlw	(01h)
 	movwf	(??_print_uart+0)+0
 	movf	(??_print_uart+0)+0,w
 	addwf	(print_uart@str),f
-	goto	l2108
-	line	91
+	goto	l2100
+	line	86
 	
-l722:	
-	line	87
+l720:	
+	line	82
 	
-l2108:	
+l2100:	
 	movf	(print_uart@str),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
 	movf	indf,f
 	skipz
-	goto	u2471
-	goto	u2470
-u2471:
-	goto	l2104
-u2470:
-	goto	l725
+	goto	u2451
+	goto	u2450
+u2451:
+	goto	l2096
+u2450:
+	goto	l723
 	
-l724:	
-	line	92
+l722:	
+	line	87
 	
-l725:	
+l723:	
 	return
 	opt stack 0
 GLOBAL	__end_of_print_uart
@@ -976,18 +999,18 @@ ___awmod:
 ; Regs used in ___awmod: [wreg+status,2+status,0]
 	line	8
 	
-l2068:	
+l2060:	
 	clrf	(___awmod@sign)
 	line	9
 	btfss	(___awmod@dividend+1),7
-	goto	u2381
-	goto	u2380
-u2381:
-	goto	l2072
-u2380:
+	goto	u2361
+	goto	u2360
+u2361:
+	goto	l2064
+u2360:
 	line	10
 	
-l2070:	
+l2062:	
 	comf	(___awmod@dividend),f
 	comf	(___awmod@dividend+1),f
 	incf	(___awmod@dividend),f
@@ -997,170 +1020,170 @@ l2070:
 	clrf	(___awmod@sign)
 	bsf	status,0
 	rlf	(___awmod@sign),f
-	goto	l2072
+	goto	l2064
 	line	12
 	
-l950:	
+l948:	
 	line	13
 	
-l2072:	
+l2064:	
 	btfss	(___awmod@divisor+1),7
-	goto	u2391
-	goto	u2390
-u2391:
-	goto	l2076
-u2390:
+	goto	u2371
+	goto	u2370
+u2371:
+	goto	l2068
+u2370:
 	line	14
 	
-l2074:	
+l2066:	
 	comf	(___awmod@divisor),f
 	comf	(___awmod@divisor+1),f
 	incf	(___awmod@divisor),f
 	skipnz
 	incf	(___awmod@divisor+1),f
-	goto	l2076
+	goto	l2068
 	
-l951:	
+l949:	
 	line	15
 	
-l2076:	
+l2068:	
 	movf	(___awmod@divisor+1),w
 	iorwf	(___awmod@divisor),w
 	skipnz
-	goto	u2401
-	goto	u2400
-u2401:
-	goto	l2094
-u2400:
+	goto	u2381
+	goto	u2380
+u2381:
+	goto	l2086
+u2380:
 	line	16
 	
-l2078:	
+l2070:	
 	clrf	(___awmod@counter)
 	bsf	status,0
 	rlf	(___awmod@counter),f
 	line	17
-	goto	l2084
+	goto	l2076
 	
-l954:	
+l952:	
 	line	18
 	
-l2080:	
+l2072:	
 	movlw	01h
 	
-u2415:
+u2395:
 	clrc
 	rlf	(___awmod@divisor),f
 	rlf	(___awmod@divisor+1),f
 	addlw	-1
 	skipz
-	goto	u2415
+	goto	u2395
 	line	19
 	
-l2082:	
+l2074:	
 	movlw	(01h)
 	movwf	(??___awmod+0)+0
 	movf	(??___awmod+0)+0,w
 	addwf	(___awmod@counter),f
-	goto	l2084
+	goto	l2076
 	line	20
 	
-l953:	
+l951:	
 	line	17
 	
-l2084:	
+l2076:	
 	btfss	(___awmod@divisor+1),(15)&7
-	goto	u2421
-	goto	u2420
-u2421:
-	goto	l2080
-u2420:
-	goto	l2086
+	goto	u2401
+	goto	u2400
+u2401:
+	goto	l2072
+u2400:
+	goto	l2078
 	
-l955:	
-	goto	l2086
+l953:	
+	goto	l2078
 	line	21
 	
-l956:	
+l954:	
 	line	22
 	
-l2086:	
+l2078:	
 	movf	(___awmod@divisor+1),w
 	subwf	(___awmod@dividend+1),w
 	skipz
-	goto	u2435
+	goto	u2415
 	movf	(___awmod@divisor),w
 	subwf	(___awmod@dividend),w
-u2435:
+u2415:
 	skipc
-	goto	u2431
-	goto	u2430
-u2431:
-	goto	l2090
-u2430:
+	goto	u2411
+	goto	u2410
+u2411:
+	goto	l2082
+u2410:
 	line	23
 	
-l2088:	
+l2080:	
 	movf	(___awmod@divisor),w
 	subwf	(___awmod@dividend),f
 	movf	(___awmod@divisor+1),w
 	skipc
 	decf	(___awmod@dividend+1),f
 	subwf	(___awmod@dividend+1),f
-	goto	l2090
+	goto	l2082
 	
-l957:	
+l955:	
 	line	24
 	
-l2090:	
+l2082:	
 	movlw	01h
 	
-u2445:
+u2425:
 	clrc
 	rrf	(___awmod@divisor+1),f
 	rrf	(___awmod@divisor),f
 	addlw	-1
 	skipz
-	goto	u2445
+	goto	u2425
 	line	25
 	
-l2092:	
+l2084:	
 	movlw	low(01h)
 	subwf	(___awmod@counter),f
 	btfss	status,2
-	goto	u2451
-	goto	u2450
-u2451:
+	goto	u2431
+	goto	u2430
+u2431:
+	goto	l2078
+u2430:
 	goto	l2086
-u2450:
-	goto	l2094
 	
-l958:	
-	goto	l2094
+l956:	
+	goto	l2086
 	line	26
 	
-l952:	
+l950:	
 	line	27
 	
-l2094:	
+l2086:	
 	movf	(___awmod@sign),w
 	skipz
-	goto	u2460
-	goto	l2098
-u2460:
+	goto	u2440
+	goto	l2090
+u2440:
 	line	28
 	
-l2096:	
+l2088:	
 	comf	(___awmod@dividend),f
 	comf	(___awmod@dividend+1),f
 	incf	(___awmod@dividend),f
 	skipnz
 	incf	(___awmod@dividend+1),f
-	goto	l2098
+	goto	l2090
 	
-l959:	
+l957:	
 	line	29
 	
-l2098:	
+l2090:	
 	movf	(___awmod@dividend+1),w
 	clrf	(?___awmod+1)
 	addwf	(?___awmod+1)
@@ -1168,12 +1191,12 @@ l2098:
 	clrf	(?___awmod)
 	addwf	(?___awmod)
 
-	goto	l960
+	goto	l958
 	
-l2100:	
+l2092:	
 	line	30
 	
-l960:	
+l958:	
 	return
 	opt stack 0
 GLOBAL	__end_of___awmod
@@ -1228,18 +1251,18 @@ ___awdiv:
 ; Regs used in ___awdiv: [wreg+status,2+status,0]
 	line	9
 	
-l2028:	
+l2020:	
 	clrf	(___awdiv@sign)
 	line	10
 	btfss	(___awdiv@divisor+1),7
-	goto	u2281
-	goto	u2280
-u2281:
-	goto	l2032
-u2280:
+	goto	u2261
+	goto	u2260
+u2261:
+	goto	l2024
+u2260:
 	line	11
 	
-l2030:	
+l2022:	
 	comf	(___awdiv@divisor),f
 	comf	(___awdiv@divisor+1),f
 	incf	(___awdiv@divisor),f
@@ -1249,22 +1272,22 @@ l2030:
 	clrf	(___awdiv@sign)
 	bsf	status,0
 	rlf	(___awdiv@sign),f
-	goto	l2032
+	goto	l2024
 	line	13
 	
-l882:	
+l880:	
 	line	14
 	
-l2032:	
+l2024:	
 	btfss	(___awdiv@dividend+1),7
-	goto	u2291
-	goto	u2290
-u2291:
-	goto	l2038
-u2290:
+	goto	u2271
+	goto	u2270
+u2271:
+	goto	l2030
+u2270:
 	line	15
 	
-l2034:	
+l2026:	
 	comf	(___awdiv@dividend),f
 	comf	(___awdiv@dividend+1),f
 	incf	(___awdiv@dividend),f
@@ -1272,109 +1295,109 @@ l2034:
 	incf	(___awdiv@dividend+1),f
 	line	16
 	
-l2036:	
+l2028:	
 	movlw	(01h)
 	movwf	(??___awdiv+0)+0
 	movf	(??___awdiv+0)+0,w
 	xorwf	(___awdiv@sign),f
-	goto	l2038
+	goto	l2030
 	line	17
 	
-l883:	
+l881:	
 	line	18
 	
-l2038:	
+l2030:	
 	clrf	(___awdiv@quotient)
 	clrf	(___awdiv@quotient+1)
 	line	19
 	
-l2040:	
+l2032:	
 	movf	(___awdiv@divisor+1),w
 	iorwf	(___awdiv@divisor),w
 	skipnz
-	goto	u2301
-	goto	u2300
-u2301:
-	goto	l2060
-u2300:
+	goto	u2281
+	goto	u2280
+u2281:
+	goto	l2052
+u2280:
 	line	20
 	
-l2042:	
+l2034:	
 	clrf	(___awdiv@counter)
 	bsf	status,0
 	rlf	(___awdiv@counter),f
 	line	21
-	goto	l2048
+	goto	l2040
 	
-l886:	
+l884:	
 	line	22
 	
-l2044:	
+l2036:	
 	movlw	01h
 	
-u2315:
+u2295:
 	clrc
 	rlf	(___awdiv@divisor),f
 	rlf	(___awdiv@divisor+1),f
 	addlw	-1
 	skipz
-	goto	u2315
+	goto	u2295
 	line	23
 	
-l2046:	
+l2038:	
 	movlw	(01h)
 	movwf	(??___awdiv+0)+0
 	movf	(??___awdiv+0)+0,w
 	addwf	(___awdiv@counter),f
-	goto	l2048
+	goto	l2040
 	line	24
 	
-l885:	
+l883:	
 	line	21
 	
-l2048:	
+l2040:	
 	btfss	(___awdiv@divisor+1),(15)&7
-	goto	u2321
-	goto	u2320
-u2321:
-	goto	l2044
-u2320:
-	goto	l2050
+	goto	u2301
+	goto	u2300
+u2301:
+	goto	l2036
+u2300:
+	goto	l2042
 	
-l887:	
-	goto	l2050
+l885:	
+	goto	l2042
 	line	25
 	
-l888:	
+l886:	
 	line	26
 	
-l2050:	
+l2042:	
 	movlw	01h
 	
-u2335:
+u2315:
 	clrc
 	rlf	(___awdiv@quotient),f
 	rlf	(___awdiv@quotient+1),f
 	addlw	-1
 	skipz
-	goto	u2335
+	goto	u2315
 	line	27
 	movf	(___awdiv@divisor+1),w
 	subwf	(___awdiv@dividend+1),w
 	skipz
-	goto	u2345
+	goto	u2325
 	movf	(___awdiv@divisor),w
 	subwf	(___awdiv@dividend),w
-u2345:
+u2325:
 	skipc
-	goto	u2341
-	goto	u2340
-u2341:
-	goto	l2056
-u2340:
+	goto	u2321
+	goto	u2320
+u2321:
+	goto	l2048
+u2320:
 	line	28
 	
-l2052:	
+l2044:	
 	movf	(___awdiv@divisor),w
 	subwf	(___awdiv@dividend),f
 	movf	(___awdiv@divisor+1),w
@@ -1383,64 +1406,64 @@ l2052:
 	subwf	(___awdiv@dividend+1),f
 	line	29
 	
-l2054:	
+l2046:	
 	bsf	(___awdiv@quotient)+(0/8),(0)&7
-	goto	l2056
+	goto	l2048
 	line	30
 	
-l889:	
+l887:	
 	line	31
 	
-l2056:	
+l2048:	
 	movlw	01h
 	
-u2355:
+u2335:
 	clrc
 	rrf	(___awdiv@divisor+1),f
 	rrf	(___awdiv@divisor),f
 	addlw	-1
 	skipz
-	goto	u2355
+	goto	u2335
 	line	32
 	
-l2058:	
+l2050:	
 	movlw	low(01h)
 	subwf	(___awdiv@counter),f
 	btfss	status,2
-	goto	u2361
-	goto	u2360
-u2361:
-	goto	l2050
-u2360:
-	goto	l2060
+	goto	u2341
+	goto	u2340
+u2341:
+	goto	l2042
+u2340:
+	goto	l2052
 	
-l890:	
-	goto	l2060
+l888:	
+	goto	l2052
 	line	33
 	
-l884:	
+l882:	
 	line	34
 	
-l2060:	
+l2052:	
 	movf	(___awdiv@sign),w
 	skipz
-	goto	u2370
-	goto	l2064
-u2370:
+	goto	u2350
+	goto	l2056
+u2350:
 	line	35
 	
-l2062:	
+l2054:	
 	comf	(___awdiv@quotient),f
 	comf	(___awdiv@quotient+1),f
 	incf	(___awdiv@quotient),f
 	skipnz
 	incf	(___awdiv@quotient+1),f
-	goto	l2064
+	goto	l2056
 	
-l891:	
+l889:	
 	line	36
 	
-l2064:	
+l2056:	
 	movf	(___awdiv@quotient+1),w
 	clrf	(?___awdiv+1)
 	addwf	(?___awdiv+1)
@@ -1448,12 +1471,12 @@ l2064:
 	clrf	(?___awdiv)
 	addwf	(?___awdiv)
 
-	goto	l892
+	goto	l890
 	
-l2066:	
+l2058:	
 	line	37
 	
-l892:	
+l890:	
 	return
 	opt stack 0
 GLOBAL	__end_of___awdiv
@@ -1468,7 +1491,7 @@ __ptext201:
 
 ;; *************** function _uart_tx *****************
 ;; Defined at:
-;;		line 66 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 61 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;  val             1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1496,8 +1519,8 @@ __ptext201:
 ;; This function uses a non-reentrant model
 ;;
 psect	text201
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
-	line	66
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
+	line	61
 	global	__size_of_uart_tx
 	__size_of_uart_tx	equ	__end_of_uart_tx-_uart_tx
 	
@@ -1506,35 +1529,35 @@ _uart_tx:
 ; Regs used in _uart_tx: [wreg]
 ;uart_tx@val stored from wreg
 	movwf	(uart_tx@val)
-	line	67
+	line	62
 	
-l2026:	
-;TUP.c: 67: TXREG = val;
+l2018:	
+;TUP.c: 62: TXREG = val;
 	movf	(uart_tx@val),w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(25)	;volatile
-	line	68
-;TUP.c: 68: while(TXIF == 0);
-	goto	l713
+	line	63
+;TUP.c: 63: while(TXIF == 0);
+	goto	l711
 	
-l714:	
+l712:	
+	
+l711:	
+	btfss	(100/8),(100)&7
+	goto	u2251
+	goto	u2250
+u2251:
+	goto	l711
+u2250:
 	
 l713:	
-	btfss	(100/8),(100)&7
-	goto	u2271
-	goto	u2270
-u2271:
-	goto	l713
-u2270:
-	
-l715:	
-	line	69
-;TUP.c: 69: TXIF = 0;
+	line	64
+;TUP.c: 64: TXIF = 0;
 	bcf	(100/8),(100)&7
-	line	70
+	line	65
 	
-l716:	
+l714:	
 	return
 	opt stack 0
 GLOBAL	__end_of_uart_tx
@@ -1549,7 +1572,7 @@ __ptext202:
 
 ;; *************** function _uart_init *****************
 ;; Defined at:
-;;		line 73 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 68 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1576,67 +1599,67 @@ __ptext202:
 ;; This function uses a non-reentrant model
 ;;
 psect	text202
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
-	line	73
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
+	line	68
 	global	__size_of_uart_init
 	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
 	
 _uart_init:	
 	opt	stack 7
 ; Regs used in _uart_init: [wreg+status,2]
-	line	74
+	line	69
 	
-l2012:	
-;TUP.c: 74: TRISC6 = 0;
+l2004:	
+;TUP.c: 69: TRISC6 = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bcf	(1086/8)^080h,(1086)&7
-	line	75
-;TUP.c: 75: TRISC7 = 1;
+	line	70
+;TUP.c: 70: TRISC7 = 1;
 	bsf	(1087/8)^080h,(1087)&7
-	line	76
+	line	71
 	
-l2014:	
-;TUP.c: 76: TXSTA = 0X00;
+l2006:	
+;TUP.c: 71: TXSTA = 0X00;
 	clrf	(152)^080h	;volatile
-	line	77
-;TUP.c: 77: RCSTA = 0X00;
+	line	72
+;TUP.c: 72: RCSTA = 0X00;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(24)	;volatile
-	line	78
+	line	73
 	
-l2016:	
-;TUP.c: 78: SPBRG = 31;
+l2008:	
+;TUP.c: 73: SPBRG = 31;
 	movlw	(01Fh)
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(153)^080h	;volatile
-	line	79
+	line	74
 	
-l2018:	
-;TUP.c: 79: TXEN = 1;
+l2010:	
+;TUP.c: 74: TXEN = 1;
 	bsf	(1221/8)^080h,(1221)&7
-	line	80
+	line	75
 	
-l2020:	
-;TUP.c: 80: SPEN = 1;
+l2012:	
+;TUP.c: 75: SPEN = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(199/8),(199)&7
-	line	81
+	line	76
 	
-l2022:	
-;TUP.c: 81: TXIF = 0;
+l2014:	
+;TUP.c: 76: TXIF = 0;
 	bcf	(100/8),(100)&7
-	line	82
+	line	77
 	
-l2024:	
-;TUP.c: 82: RCIF = 0;
+l2016:	
+;TUP.c: 77: RCIF = 0;
 	bcf	(101/8),(101)&7
-	line	83
+	line	78
 	
-l719:	
+l717:	
 	return
 	opt stack 0
 GLOBAL	__end_of_uart_init
@@ -1651,7 +1674,7 @@ __ptext203:
 
 ;; *************** function _delay *****************
 ;; Defined at:
-;;		line 28 in file "C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+;;		line 28 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1678,7 +1701,7 @@ __ptext203:
 ;; This function uses a non-reentrant model
 ;;
 psect	text203
-	file	"C:\Users\M_A_N_I\Desktop\VINO\TUP.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c"
 	line	28
 	global	__size_of_delay
 	__size_of_delay	equ	__end_of_delay-_delay
@@ -1688,33 +1711,33 @@ _delay:
 ; Regs used in _delay: [wreg+status,2+btemp+1]
 	line	29
 	
-l1992:	
-;TUP.c: 29: for(int k = 0; k<10; k++)
+l1990:	
+;TUP.c: 29: for(int k = 0; k<5; k++)
 	clrf	(delay@k)
 	clrf	(delay@k+1)
 	
-l1994:	
+l1992:	
 	movf	(delay@k+1),w
 	xorlw	80h
 	movwf	btemp+1
-	movlw	(high(0Ah))^80h
+	movlw	(high(05h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u2235
-	movlw	low(0Ah)
+	goto	u2225
+	movlw	low(05h)
 	subwf	(delay@k),w
-u2235:
+u2225:
 
 	skipc
-	goto	u2231
-	goto	u2230
-u2231:
+	goto	u2221
+	goto	u2220
+u2221:
 	goto	l697
-u2230:
-	goto	l704
+u2220:
+	goto	l702
 	
-l1996:	
-	goto	l704
+l1994:	
+	goto	l702
 	line	30
 	
 l697:	
@@ -1732,7 +1755,7 @@ l697:
 	bsf	(132/8),(132)&7
 	line	34
 	
-l1998:	
+l1996:	
 ;TUP.c: 34: TMR1H = 0X0B;
 	movlw	(0Bh)
 	movwf	(15)	;volatile
@@ -1742,7 +1765,7 @@ l1998:
 	movwf	(14)	;volatile
 	line	36
 	
-l2000:	
+l1998:	
 ;TUP.c: 36: TMR1ON = 1;
 	bsf	(128/8),(128)&7
 	line	37
@@ -1753,68 +1776,19 @@ l700:
 	
 l699:	
 	btfss	(96/8),(96)&7
-	goto	u2241
-	goto	u2240
-u2241:
+	goto	u2231
+	goto	u2230
+u2231:
 	goto	l699
-u2240:
+u2230:
 	
 l701:	
 	line	38
 ;TUP.c: 38: TMR1IF = 0;
 	bcf	(96/8),(96)&7
-	line	39
-	
-l2002:	
-;TUP.c: 39: if(k >= 5)
-	movf	(delay@k+1),w
-	xorlw	80h
-	movwf	btemp+1
-	movlw	(high(05h))^80h
-	subwf	btemp+1,w
-	skipz
-	goto	u2255
-	movlw	low(05h)
-	subwf	(delay@k),w
-u2255:
-
-	skipc
-	goto	u2251
-	goto	u2250
-u2251:
-	goto	l2006
-u2250:
-	line	41
-	
-l2004:	
-;TUP.c: 40: {
-;TUP.c: 41: PORTB = 1;
-	movlw	(01h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(6)	;volatile
-	line	42
-;TUP.c: 42: }
-	goto	l2008
-	line	43
-	
-l702:	
-	line	45
-	
-l2006:	
-;TUP.c: 43: else
-;TUP.c: 44: {
-;TUP.c: 45: PORTB = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(6)	;volatile
-	goto	l2008
-	line	46
-	
-l703:	
 	line	29
 	
-l2008:	
+l2000:	
 	movlw	low(01h)
 	addwf	(delay@k),f
 	skipnc
@@ -1822,30 +1796,30 @@ l2008:
 	movlw	high(01h)
 	addwf	(delay@k+1),f
 	
-l2010:	
+l2002:	
 	movf	(delay@k+1),w
 	xorlw	80h
 	movwf	btemp+1
-	movlw	(high(0Ah))^80h
+	movlw	(high(05h))^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u2265
-	movlw	low(0Ah)
+	goto	u2245
+	movlw	low(05h)
 	subwf	(delay@k),w
-u2265:
+u2245:
 
 	skipc
-	goto	u2261
-	goto	u2260
-u2261:
+	goto	u2241
+	goto	u2240
+u2241:
 	goto	l697
-u2260:
-	goto	l704
+u2240:
+	goto	l702
 	
 l698:	
-	line	48
+	line	40
 	
-l704:	
+l702:	
 	return
 	opt stack 0
 GLOBAL	__end_of_delay

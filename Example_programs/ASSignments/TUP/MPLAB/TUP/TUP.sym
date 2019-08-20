@@ -12,12 +12,12 @@ _SPEN C7 0 ABS
 _TXEN 4C5 0 ABS
 __size_of_uart_tx 0 0 ABS
 _call 779 0 CODE
-_main 623 0 CODE
+_main 663 0 CODE
 btemp 7E 0 ABS
 _exit 0 0 CODE
 start 0 0 CODE
 call@data 5E 0 BANK0
-__end_of_uart_tx 5AC 0 CODE
+__end_of_uart_tx 5B6 0 CODE
 _TMR1H F 0 ABS
 _TMR1L E 0 ABS
 _RCSTA 18 0 ABS
@@ -27,7 +27,7 @@ _PORTB 6 0 ABS
 _SPBRG 99 0 ABS
 _TXSTA 98 0 ABS
 wtemp0 7E 0 ABS
-__end_of_delay 69F 0 CODE
+__end_of_delay 663 0 CODE
 __Hconfig 2008 0 CONFIG
 __Lconfig 2007 0 CONFIG
 ?___awmod 70 0 COMMON
@@ -38,11 +38,11 @@ __Lram 0 0 ABS
 ?_call 79 0 COMMON
 ?_main 70 0 COMMON
 __end_of_call 800 0 CODE
-_delay 653 0 CODE
-_TRISB0 430 0 ABS
+_delay 62D 0 CODE
 __Hfunctab 0 0 CODE
 __Lfunctab 0 0 CODE
 _TRISC6 43E 0 ABS
+_TRISB7 437 0 ABS
 _TRISC7 43F 0 ABS
 __Hcommon 0 0 ABS
 __Lcommon 0 0 ABS
@@ -63,12 +63,12 @@ __Lsfr2 0 0 ABS
 __Hsfr3 0 0 ABS
 __Lsfr3 0 0 ABS
 __ptext200 705 0 CODE
-__ptext201 5A0 0 CODE
+__ptext201 5AA 0 CODE
 __size_of_delay 0 0 ABS
 ?_uart_tx 70 0 COMMON
-init_fetch 5BA 0 CODE
-__ptext202 5CB 0 CODE
-__ptext203 653 0 CODE
+init_fetch 5C4 0 CODE
+__ptext202 5D5 0 CODE
+__ptext203 62D 0 CODE
 ??___awmod 74 0 COMMON
 __ptext204 0 0 CODE
 delay@k 70 0 COMMON
@@ -84,28 +84,28 @@ ___awmod@sign 76 0 COMMON
 __Hinit 0 0 CODE
 __Linit 0 0 CODE
 ?_delay 70 0 COMMON
-__end_of_main 653 0 CODE
+__end_of_main 69F 0 CODE
 __size_of_call 0 0 ABS
 __Htext 0 0 ABS
 __Ltext 0 0 ABS
 __HdataBANK0 0 0 ABS
 __LdataBANK0 0 0 ABS
 __pdataBANK0 62 0 BANK0
-end_of_initialization 61F 0 CODE
+end_of_initialization 629 0 CODE
 print_uart@str 72 0 COMMON
 ___awdiv@sign 76 0 COMMON
 ??_print_uart 71 0 COMMON
 __ptext197 779 0 CODE
 _T1CKPS0 84 0 ABS
 _T1CKPS1 85 0 ABS
-__ptext198 5DE 0 CODE
+__ptext198 5E8 0 CODE
 __HdataBANK1 0 0 ABS
 __LdataBANK1 0 0 ABS
 __ptext199 69F 0 CODE
 __pdataBANK1 A0 0 BANK1
 __Hstrings 0 0 ABS
 __Lstrings 0 0 ABS
-_uart_init 5CB 0 CODE
+_uart_init 5D5 0 CODE
 ??___awdiv 74 0 COMMON
 __Hbank0 0 0 ABS
 __Lbank0 0 0 ABS
@@ -119,7 +119,7 @@ __Lbank3 0 0 ABS
 __Hpowerup 0 0 CODE
 call@count 60 0 BANK0
 __Lpowerup 0 0 CODE
-__end_of_uart_init 5DE 0 CODE
+__end_of_uart_init 5E8 0 CODE
 __Hclrtext 0 0 ABS
 __Lclrtext 0 0 ABS
 __HdataCOMMON 0 0 ABS
@@ -133,23 +133,23 @@ __size_of_uart_init 0 0 ABS
 __Hidloc 0 0 IDLOC
 __Lidloc 0 0 IDLOC
 ___awmod 69F 0 CODE
-init_ram 5BE 0 CODE
+init_ram 5C8 0 CODE
 call@arr 20 0 BANK0
 __Hcinit 0 0 ABS
 ??_delay 70 0 COMMON
 __Lcinit 0 0 ABS
 ___awdiv 705 0 CODE
 __size_of_main 0 0 ABS
-_uart_tx 5A0 0 CODE
+_uart_tx 5AA 0 CODE
 __HidataBANK0 0 0 ABS
 __LidataBANK0 0 0 ABS
-__pidataBANK0 598 0 CODE
+__pidataBANK0 59F 0 CODE
 ?_print_uart 70 0 COMMON
 __size_of_print_uart 0 0 ABS
 __HidataBANK1 0 0 ABS
 __size_of___awdiv 0 0 ABS
 __LidataBANK1 0 0 ABS
-__pidataBANK1 5AC 0 CODE
+__pidataBANK1 5B6 0 CODE
 ___awmod@divisor 70 0 COMMON
 __Hend_init 3 0 CODE
 __Lend_init 0 0 CODE
@@ -157,9 +157,9 @@ ___awdiv@divisor 70 0 COMMON
 ?_uart_init 70 0 COMMON
 __Hreset_vec 0 0 CODE
 __Lreset_vec 0 0 CODE
-_print_uart 5DE 0 CODE
+_print_uart 5E8 0 CODE
 intlevel0 0 0 CODE
-__end_of_print_uart 5F8 0 CODE
+__end_of_print_uart 602 0 CODE
 intlevel1 0 0 CODE
 intlevel2 0 0 CODE
 intlevel3 0 0 CODE
@@ -168,16 +168,16 @@ intlevel5 0 0 CODE
 __HcstackCOMMON 0 0 ABS
 __LcstackCOMMON 0 0 ABS
 __pcstackCOMMON 70 0 COMMON
-start_initialization 5F8 0 CODE
+start_initialization 602 0 CODE
 ___awdiv@quotient 77 0 COMMON
 __Hmaintext 0 0 ABS
 __Lmaintext 0 0 ABS
-__pmaintext 623 0 CODE
+__pmaintext 663 0 CODE
 __HidataCOMMON 0 0 ABS
 __LidataCOMMON 0 0 ABS
 __Hinittext 0 0 ABS
 __Linittext 0 0 ABS
-__pidataCOMMON 596 0 CODE
+__pidataCOMMON 59D 0 CODE
 __size_of___awmod 0 0 ABS
 ___awmod@dividend 72 0 COMMON
 ___awmod@counter 75 0 COMMON
@@ -186,60 +186,63 @@ ___awdiv@dividend 72 0 COMMON
 reset_vec 0 5 CODE 0
 config 400E 400F CONFIG 400E
 cstackCOMMON 70 7D COMMON 70
-cstackBANK0 20 69 BANK0 20
+cstackBANK0 20 6C BANK0 20
 dataBANK1 A0 AD BANK1 A0
 text197 EF2 FFF CODE EF2
 text200 E0A EF1 CODE E0A
 text199 D3E E09 CODE D3E
-text203 CA6 D3D CODE CA6
-maintext C46 CA5 CODE C46
-cinit BF0 C45 CODE BF0
-text198 BBC BEF CODE BBC
-text202 B96 BBB CODE B96
-inittext B74 B95 CODE B74
-idataBANK1 B58 B73 CODE B58
-text201 B40 B57 CODE B40
-idataBANK0 B30 B3F CODE B30
-idataCOMMON B2C B2F CODE B2C
+maintext CC6 D3D CODE CC6
+text203 C5A CC5 CODE C5A
+cinit C04 C59 CODE C04
+text198 BD0 C03 CODE BD0
+text202 BAA BCF CODE BAA
+inittext B88 BA9 CODE B88
+idataBANK1 B6C B87 CODE B6C
+text201 B54 B6B CODE B54
+idataBANK0 B3E B53 CODE B3E
+idataCOMMON B3A B3D CODE B3A
 %locals
 startup.obj
 startup.as
 64 0 0 CODE
 TUP.obj
-C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 11 2007 0 CONFIG
-14 596 0 CODE
-21 598 0 CODE
-20 5AC 0 CODE
-52 623 0 CODE
-53 628 0 CODE
-56 62C 0 CODE
-57 631 0 CODE
-58 637 0 CODE
-59 642 0 CODE
-60 648 0 CODE
-54 64F 0 CODE
-62 650 0 CODE
-96 779 0 CODE
-97 77D 0 CODE
-98 783 0 CODE
-100 784 0 CODE
-101 79B 0 CODE
-102 7A6 0 CODE
-103 7BD 0 CODE
-98 7C4 0 CODE
-105 7CB 0 CODE
-106 7D3 0 CODE
-108 7DF 0 CODE
-109 7EC 0 CODE
-106 7F4 0 CODE
-111 7FF 0 CODE
-86 5DE 0 CODE
-87 5DF 0 CODE
-89 5E0 0 CODE
-90 5E9 0 CODE
-87 5EE 0 CODE
-92 5F7 0 CODE
+14 59D 0 CODE
+21 59F 0 CODE
+20 5B6 0 CODE
+44 663 0 CODE
+45 668 0 CODE
+48 66C 0 CODE
+49 671 0 CODE
+50 675 0 CODE
+51 67A 0 CODE
+52 67D 0 CODE
+53 683 0 CODE
+54 68E 0 CODE
+55 694 0 CODE
+46 69B 0 CODE
+57 69C 0 CODE
+91 779 0 CODE
+92 77D 0 CODE
+93 783 0 CODE
+95 784 0 CODE
+96 79B 0 CODE
+97 7A6 0 CODE
+98 7BD 0 CODE
+93 7C4 0 CODE
+100 7CB 0 CODE
+101 7D3 0 CODE
+103 7DF 0 CODE
+104 7EC 0 CODE
+101 7F4 0 CODE
+106 7FF 0 CODE
+81 5E8 0 CODE
+82 5E9 0 CODE
+84 5EA 0 CODE
+85 5F3 0 CODE
+82 5F8 0 CODE
+87 601 0 CODE
 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\awmod.c
 8 69F 0 CODE
 9 6A0 0 CODE
@@ -286,34 +289,30 @@ C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\awdiv.c
 35 76B 0 CODE
 36 771 0 CODE
 37 778 0 CODE
-C:\Users\M_A_N_I\Desktop\VINO\TUP.c
-66 5A0 0 CODE
-67 5A1 0 CODE
-68 5A5 0 CODE
-69 5AA 0 CODE
-70 5AB 0 CODE
-74 5CB 0 CODE
-75 5CE 0 CODE
-76 5CF 0 CODE
-77 5D0 0 CODE
-78 5D3 0 CODE
-79 5D7 0 CODE
-80 5D8 0 CODE
-81 5DB 0 CODE
-82 5DC 0 CODE
-83 5DD 0 CODE
-29 653 0 CODE
-31 664 0 CODE
-32 667 0 CODE
-33 668 0 CODE
-34 669 0 CODE
-35 66B 0 CODE
-36 66D 0 CODE
-37 66E 0 CODE
-38 673 0 CODE
-39 674 0 CODE
-41 681 0 CODE
-42 685 0 CODE
-45 686 0 CODE
-29 68A 0 CODE
-48 69E 0 CODE
+C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
+61 5AA 0 CODE
+62 5AB 0 CODE
+63 5AF 0 CODE
+64 5B4 0 CODE
+65 5B5 0 CODE
+69 5D5 0 CODE
+70 5D8 0 CODE
+71 5D9 0 CODE
+72 5DA 0 CODE
+73 5DD 0 CODE
+74 5E1 0 CODE
+75 5E2 0 CODE
+76 5E5 0 CODE
+77 5E6 0 CODE
+78 5E7 0 CODE
+29 62D 0 CODE
+31 63E 0 CODE
+32 641 0 CODE
+33 642 0 CODE
+34 643 0 CODE
+35 645 0 CODE
+36 647 0 CODE
+37 648 0 CODE
+38 64D 0 CODE
+29 64E 0 CODE
+40 662 0 CODE

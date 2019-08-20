@@ -18,7 +18,7 @@ int i = 1;
 void uart_tx(unsigned char val);
 void print_uart(unsigned char *str);
 unsigned char text_uart[]="I am Alive = ";
-unsigned char text_uart2[]="Second\t";
+unsigned char text_uart2[]="  Second\n\r";
 void uart_init(void);
 void call(int);
 void delay();
@@ -26,7 +26,7 @@ void delay();
 
 void delay()
 {
-	for(int k = 0; k<10; k++)
+	for(int k = 0; k<5; k++)
 	{
 	    TMR1CS  = 0;                        //WE SELECT INTERNAL CLOCK SOURCE IN TMR1
         T1CKPS1 = 1;                        //WE NEED TO SELECT PREESCALER 1 AS A 1 BECOUS WE NEED (1:16) FOR SUFFICENT
@@ -35,25 +35,20 @@ void delay()
         TMR1L   = 0XDB;                     //TMR1L VALUE IS USED TO WHARE IT END
         TMR1ON  = 1;                        //WE NEED TO TMR1ON TO START THE PROCESS
         while(!TMR1IF);                     //WHEN THE TIMER COMPLET THE ONE FULL PROCESS THAT TIMEIF=(INTERUPT FLAG) APPEAR WE NEED TO CLEAR THE FLAG
-        TMR1IF  = 0;                        //IT MAKE TMR1IF=0 MEANS IF HA MADE AGAIN ZERO(0).THEN IT STARTED AGAIN CYCLE
-		if(k >= 5)
-		{
-			PORTB  = 1;
-		}
-		else
-		{
-			PORTB = 0;
-		}
+        TMR1IF  = 0;                        //IT MAKE TMR1IF=0 MEANS IF HA MADE AGAIN ZERO(0).THEN IT STARTED AGAIN CYCLE.
 	}
 }
 
 int main()
 {
 	uart_init();
-	TRISB0 = 0;
+	TRISB7 = 0;
 	while(1)
 	{	
 		delay();
+		PORTB = 0XFF;
+		delay();
+		PORTB = 0;
 		print_uart(text_uart);
 		call(i);
 		print_uart(text_uart2);

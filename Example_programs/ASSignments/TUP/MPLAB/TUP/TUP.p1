@@ -881,18 +881,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS99 1 e@396 ]
 "1167 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h
 [v _EECON2 `Vuc 1 e@397 ]
-"14 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"14 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _i `i 1 e ]
-"20 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"20 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _text_uart `uc -> 0 `x e ]
-"21 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"21 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _text_uart2 `uc -> 0 `x e ]
 [p mainexit ]
-"22 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"22 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _uart_init `(v 0 ef ]
-"19 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"19 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _print_uart `(v 0 ef1`*uc ]
-"23 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"23 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [v _call `(v 0 ef1`i ]
 [; ;pic16f877a.h: 82: volatile unsigned char INDF @ 0x000;
 [; ;pic16f877a.h: 86: volatile unsigned char TMR0 @ 0x001;
@@ -1723,7 +1723,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
 [; ;pic.h: 148: extern void _delay(unsigned long);
-"11 C:\Users\M_A_N_I\Desktop\VINO\TUP.c
+"11 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\ASSignments\TUP\MPLAB\TUP\TUP.c
 [; ;TUP.c: 11: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F");
 [; 	psect config,class=CONFIG,delta=2 ;#
 [; 	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
@@ -1757,17 +1757,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "21
 [i _text_uart2
 :U ..
+-> 32 `c
+-> 32 `c
 -> 83 `c
 -> 101 `c
 -> 99 `c
 -> 111 `c
 -> 110 `c
 -> 100 `c
--> 9 `c
+-> 10 `c
+-> 13 `c
 -> 0 `c
 ..
 ]
-[; ;TUP.c: 21: unsigned char text_uart2[]="Second\t";
+[; ;TUP.c: 21: unsigned char text_uart2[]="  Second\n\r";
 [; ;TUP.c: 22: void uart_init(void);
 [; ;TUP.c: 23: void call(int);
 [; ;TUP.c: 24: void delay();
@@ -1778,12 +1781,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TUP.c: 28: {
 [e :U _delay ]
 [f ]
-[; ;TUP.c: 29: for(int k = 0; k<10; k++)
+[; ;TUP.c: 29: for(int k = 0; k<5; k++)
 "29
 {
 [v _k `i 1 a ]
 [e = _k -> 0 `i ]
-[e $ < _k -> 10 `i 102  ]
+[e $ < _k -> 5 `i 102  ]
 [e $U 103  ]
 "30
 [e :U 102 ]
@@ -1817,256 +1820,239 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;TUP.c: 38: TMR1IF = 0;
 "38
 [e = _TMR1IF -> -> 0 `i `b ]
-[; ;TUP.c: 39: if(k >= 5)
 "39
-[e $ ! >= _k -> 5 `i 108  ]
-[; ;TUP.c: 40: {
-"40
-{
-[; ;TUP.c: 41: PORTB = 1;
-"41
-[e = _PORTB -> -> 1 `i `uc ]
-"42
-}
-[; ;TUP.c: 42: }
-[e $U 109  ]
-"43
-[e :U 108 ]
-[; ;TUP.c: 43: else
-[; ;TUP.c: 44: {
-"44
-{
-[; ;TUP.c: 45: PORTB = 0;
-"45
-[e = _PORTB -> -> 0 `i `uc ]
-"46
-}
-[e :U 109 ]
-"47
 }
 "29
 [e ++ _k -> 1 `i ]
-[e $ < _k -> 10 `i 102  ]
+[e $ < _k -> 5 `i 102  ]
 [e :U 103 ]
-"47
+"39
 }
-[; ;TUP.c: 46: }
-[; ;TUP.c: 47: }
-[; ;TUP.c: 48: }
-"48
+[; ;TUP.c: 39: }
+[; ;TUP.c: 40: }
+"40
 [e :UE 101 ]
 }
-"51
+"43
 [v _main `(i 1 ef ]
 {
-[; ;TUP.c: 50: int main()
-[; ;TUP.c: 51: {
+[; ;TUP.c: 42: int main()
+[; ;TUP.c: 43: {
 [e :U _main ]
 [f ]
-[; ;TUP.c: 52: uart_init();
-"52
+[; ;TUP.c: 44: uart_init();
+"44
 [e ( _uart_init ..  ]
-[; ;TUP.c: 53: TRISB0 = 0;
-"53
-[e = _TRISB0 -> -> 0 `i `b ]
-[; ;TUP.c: 54: while(1)
-"54
-[e :U 112 ]
-[; ;TUP.c: 55: {
-"55
+[; ;TUP.c: 45: TRISB7 = 0;
+"45
+[e = _TRISB7 -> -> 0 `i `b ]
+[; ;TUP.c: 46: while(1)
+"46
+[e :U 110 ]
+[; ;TUP.c: 47: {
+"47
 {
-[; ;TUP.c: 56: delay();
-"56
+[; ;TUP.c: 48: delay();
+"48
 [e ( _delay ..  ]
-[; ;TUP.c: 57: print_uart(text_uart);
-"57
+[; ;TUP.c: 49: PORTB = 0XFF;
+"49
+[e = _PORTB -> -> 255 `i `uc ]
+[; ;TUP.c: 50: delay();
+"50
+[e ( _delay ..  ]
+[; ;TUP.c: 51: PORTB = 0;
+"51
+[e = _PORTB -> -> 0 `i `uc ]
+[; ;TUP.c: 52: print_uart(text_uart);
+"52
 [e ( _print_uart (1 &U _text_uart ]
-[; ;TUP.c: 58: call(i);
-"58
+[; ;TUP.c: 53: call(i);
+"53
 [e ( _call (1 _i ]
-[; ;TUP.c: 59: print_uart(text_uart2);
-"59
-[e ( _print_uart (1 &U _text_uart2 ]
-[; ;TUP.c: 60: i++;
-"60
-[e ++ _i -> 1 `i ]
-"61
-}
-[e :U 111 ]
+[; ;TUP.c: 54: print_uart(text_uart2);
 "54
-[e $U 112  ]
-[e :U 113 ]
-[; ;TUP.c: 61: }
-[; ;TUP.c: 62: }
-"62
-[e :UE 110 ]
+[e ( _print_uart (1 &U _text_uart2 ]
+[; ;TUP.c: 55: i++;
+"55
+[e ++ _i -> 1 `i ]
+"56
 }
-"66
+[e :U 109 ]
+"46
+[e $U 110  ]
+[e :U 111 ]
+[; ;TUP.c: 56: }
+[; ;TUP.c: 57: }
+"57
+[e :UE 108 ]
+}
+"61
 [v _uart_tx `(v 1 ef1`uc ]
 {
-[; ;TUP.c: 65: void uart_tx(unsigned char val)
-[; ;TUP.c: 66: {
+[; ;TUP.c: 60: void uart_tx(unsigned char val)
+[; ;TUP.c: 61: {
 [e :U _uart_tx ]
 [v _val `uc 1 r1 ]
 [f ]
-[; ;TUP.c: 67: TXREG = val;
-"67
+[; ;TUP.c: 62: TXREG = val;
+"62
 [e = _TXREG _val ]
-[; ;TUP.c: 68: while(TXIF == 0);
-"68
-[e $U 115  ]
-[e :U 116 ]
+[; ;TUP.c: 63: while(TXIF == 0);
+"63
+[e $U 113  ]
+[e :U 114 ]
+[e :U 113 ]
+[e $ == -> _TXIF `i -> 0 `i 114  ]
 [e :U 115 ]
-[e $ == -> _TXIF `i -> 0 `i 116  ]
-[e :U 117 ]
-[; ;TUP.c: 69: TXIF = 0;
-"69
+[; ;TUP.c: 64: TXIF = 0;
+"64
 [e = _TXIF -> -> 0 `i `b ]
-[; ;TUP.c: 70: }
-"70
-[e :UE 114 ]
+[; ;TUP.c: 65: }
+"65
+[e :UE 112 ]
 }
-"73
+"68
 [v _uart_init `(v 1 ef ]
 {
-[; ;TUP.c: 72: void uart_init(void)
-[; ;TUP.c: 73: {
+[; ;TUP.c: 67: void uart_init(void)
+[; ;TUP.c: 68: {
 [e :U _uart_init ]
 [f ]
-[; ;TUP.c: 74: TRISC6 = 0;
-"74
+[; ;TUP.c: 69: TRISC6 = 0;
+"69
 [e = _TRISC6 -> -> 0 `i `b ]
-[; ;TUP.c: 75: TRISC7 = 1;
-"75
+[; ;TUP.c: 70: TRISC7 = 1;
+"70
 [e = _TRISC7 -> -> 1 `i `b ]
-[; ;TUP.c: 76: TXSTA = 0X00;
-"76
+[; ;TUP.c: 71: TXSTA = 0X00;
+"71
 [e = _TXSTA -> -> 0 `i `uc ]
-[; ;TUP.c: 77: RCSTA = 0X00;
-"77
+[; ;TUP.c: 72: RCSTA = 0X00;
+"72
 [e = _RCSTA -> -> 0 `i `uc ]
-[; ;TUP.c: 78: SPBRG = 31;
-"78
+[; ;TUP.c: 73: SPBRG = 31;
+"73
 [e = _SPBRG -> -> 31 `i `uc ]
-[; ;TUP.c: 79: TXEN = 1;
-"79
+[; ;TUP.c: 74: TXEN = 1;
+"74
 [e = _TXEN -> -> 1 `i `b ]
-[; ;TUP.c: 80: SPEN = 1;
-"80
+[; ;TUP.c: 75: SPEN = 1;
+"75
 [e = _SPEN -> -> 1 `i `b ]
-[; ;TUP.c: 81: TXIF = 0;
-"81
+[; ;TUP.c: 76: TXIF = 0;
+"76
 [e = _TXIF -> -> 0 `i `b ]
-[; ;TUP.c: 82: RCIF = 0;
-"82
+[; ;TUP.c: 77: RCIF = 0;
+"77
 [e = _RCIF -> -> 0 `i `b ]
-[; ;TUP.c: 83: }
-"83
-[e :UE 118 ]
+[; ;TUP.c: 78: }
+"78
+[e :UE 116 ]
 }
-"86
+"81
 [v _print_uart `(v 1 ef1`*uc ]
 {
-[; ;TUP.c: 85: void print_uart(unsigned char *str)
-[; ;TUP.c: 86: {
+[; ;TUP.c: 80: void print_uart(unsigned char *str)
+[; ;TUP.c: 81: {
 [e :U _print_uart ]
 [v _str `*uc 1 r1 ]
 [f ]
-[; ;TUP.c: 87: while(*str)
-"87
-[e $U 120  ]
-[e :U 121 ]
-[; ;TUP.c: 88: {
-"88
+[; ;TUP.c: 82: while(*str)
+"82
+[e $U 118  ]
+[e :U 119 ]
+[; ;TUP.c: 83: {
+"83
 {
-[; ;TUP.c: 89: uart_tx(*str);
-"89
+[; ;TUP.c: 84: uart_tx(*str);
+"84
 [e ( _uart_tx (1 *U _str ]
-[; ;TUP.c: 90: str++;
-"90
+[; ;TUP.c: 85: str++;
+"85
 [e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"91
+"86
 }
+[e :U 118 ]
+"82
+[e $ != -> *U _str `i -> -> -> 0 `i `uc `i 119  ]
 [e :U 120 ]
+[; ;TUP.c: 86: }
+[; ;TUP.c: 87: }
 "87
-[e $ != -> *U _str `i -> -> -> 0 `i `uc `i 121  ]
-[e :U 122 ]
-[; ;TUP.c: 91: }
-[; ;TUP.c: 92: }
-"92
-[e :UE 119 ]
+[e :UE 117 ]
 }
-"95
+"90
 [v _call `(v 1 ef1`i ]
 {
-[; ;TUP.c: 94: void call(int i)
-[; ;TUP.c: 95: {
+[; ;TUP.c: 89: void call(int i)
+[; ;TUP.c: 90: {
 [e :U _call ]
 [v _i `i 1 r1 ]
 [f ]
-"96
+"91
 [v _data `i 1 a ]
 [v _j `i 1 a ]
 [v _count `i 1 a ]
-[; ;TUP.c: 96: int data,j,count=0,arr[30];
+[; ;TUP.c: 91: int data,j,count=0,arr[30];
 [e = _count -> 0 `i ]
 [v _arr `i -> 30 `i a ]
-[; ;TUP.c: 97: data = i;
-"97
+[; ;TUP.c: 92: data = i;
+"92
 [e = _data _i ]
-[; ;TUP.c: 98: while(data != 0)
-"98
-[e $U 124  ]
-[e :U 125 ]
-[; ;TUP.c: 99: {
-"99
+[; ;TUP.c: 93: while(data != 0)
+"93
+[e $U 122  ]
+[e :U 123 ]
+[; ;TUP.c: 94: {
+"94
 {
-[; ;TUP.c: 100: j = data%10;
-"100
+[; ;TUP.c: 95: j = data%10;
+"95
 [e = _j % _data -> 10 `i ]
-[; ;TUP.c: 101: arr[count] = j;
-"101
+[; ;TUP.c: 96: arr[count] = j;
+"96
 [e = *U + &U _arr * -> -> _count `ui `ux -> -> # *U &U _arr `ui `ux _j ]
-[; ;TUP.c: 102: data = data/10;
-"102
+[; ;TUP.c: 97: data = data/10;
+"97
 [e = _data / _data -> 10 `i ]
-[; ;TUP.c: 103: count++;
-"103
-[e ++ _count -> 1 `i ]
-"104
-}
-[e :U 124 ]
+[; ;TUP.c: 98: count++;
 "98
-[e $ != _data -> 0 `i 125  ]
-[e :U 126 ]
-[; ;TUP.c: 104: }
-[; ;TUP.c: 105: count = count-1;
-"105
+[e ++ _count -> 1 `i ]
+"99
+}
+[e :U 122 ]
+"93
+[e $ != _data -> 0 `i 123  ]
+[e :U 124 ]
+[; ;TUP.c: 99: }
+[; ;TUP.c: 100: count = count-1;
+"100
 [e = _count - _count -> 1 `i ]
-[; ;TUP.c: 106: for( ;count!=-1; )
-"106
+[; ;TUP.c: 101: for( ;count!=-1; )
+"101
 {
-[e $ != _count -U -> 1 `i 127  ]
-[e $U 128  ]
-"107
-[e :U 127 ]
-[; ;TUP.c: 107: {
+[e $ != _count -U -> 1 `i 125  ]
+[e $U 126  ]
+"102
+[e :U 125 ]
+[; ;TUP.c: 102: {
 {
-[; ;TUP.c: 108: uart_tx((arr[count]+48));
-"108
+[; ;TUP.c: 103: uart_tx((arr[count]+48));
+"103
 [e ( _uart_tx (1 -> + *U + &U _arr * -> -> _count `ui `ux -> -> # *U &U _arr `ui `ux -> 48 `i `uc ]
-[; ;TUP.c: 109: count--;
-"109
+[; ;TUP.c: 104: count--;
+"104
 [e -- _count -> 1 `i ]
-"110
+"105
 }
+"101
+[e $ != _count -U -> 1 `i 125  ]
+[e :U 126 ]
+"105
+}
+[; ;TUP.c: 105: }
+[; ;TUP.c: 106: }
 "106
-[e $ != _count -U -> 1 `i 127  ]
-[e :U 128 ]
-"110
-}
-[; ;TUP.c: 110: }
-[; ;TUP.c: 111: }
-"111
-[e :UE 123 ]
+[e :UE 121 ]
 }
