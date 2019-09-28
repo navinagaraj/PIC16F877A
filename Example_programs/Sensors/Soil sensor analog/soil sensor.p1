@@ -882,13 +882,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "1167 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h
 [v _EECON2 `Vuc 1 e@397 ]
 [p mainexit ]
-"12 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"12 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [v _lcd_cmd `(v 0 ef1`uc ]
-"14 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
-[v _ADC_Init `(v 0 ef ]
-"15 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
-[v _ADC_Read `(ui 0 ef1`uc ]
-"13 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"14 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
+[v _adc_init `(v 0 ef ]
+"15 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
+[v _adc_read `(ui 0 ef1`uc ]
+"13 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [v _lcd_data `(v 0 ef1`uc ]
 "148 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic.h
 [v __delay `(v 0 ef1`ul ]
@@ -1722,7 +1722,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
 [; ;pic.h: 148: extern void _delay(unsigned long);
-"3 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"3 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [; ;soil sensor.c: 3: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F");
 [; 	psect config,class=CONFIG,delta=2 ;#
 [; 	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
@@ -1730,8 +1730,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soil sensor.c: 11: void delay();
 [; ;soil sensor.c: 12: void lcd_cmd(unsigned char cmd);
 [; ;soil sensor.c: 13: void lcd_data(unsigned char data);
-[; ;soil sensor.c: 14: void ADC_Init();
-[; ;soil sensor.c: 15: unsigned int ADC_Read(unsigned char);
+[; ;soil sensor.c: 14: void adc_init();
+[; ;soil sensor.c: 15: unsigned int adc_read(unsigned char);
 "18
 [v _main `(i 1 ef ]
 {
@@ -1766,9 +1766,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;soil sensor.c: 29: lcd_cmd(0X80);
 "29
 [e ( _lcd_cmd (1 -> -> 128 `i `uc ]
-[; ;soil sensor.c: 30: ADC_Init();
+[; ;soil sensor.c: 30: adc_init();
 "30
-[e ( _ADC_Init ..  ]
+[e ( _adc_init ..  ]
 [; ;soil sensor.c: 31: while(1)
 "31
 [e :U 103 ]
@@ -1784,8 +1784,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "34
 [v _data `ui 1 a ]
 [; ;soil sensor.c: 33: int a,b,c,d,e;
-[; ;soil sensor.c: 34: unsigned int data=ADC_Read(0);
-[e = _data ( _ADC_Read (1 -> -> 0 `i `uc ]
+[; ;soil sensor.c: 34: unsigned int data=adc_read(0);
+[e = _data ( _adc_read (1 -> -> 0 `i `uc ]
 [; ;soil sensor.c: 35: data = ((data*100)/(1024));
 "35
 [e = _data / * _data -> -> 100 `i `ui -> -> 1024 `i `ui ]
@@ -1905,11 +1905,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 101 ]
 }
 "74
-[v _ADC_Init `(v 1 ef ]
+[v _adc_init `(v 1 ef ]
 {
-[; ;soil sensor.c: 73: void ADC_Init()
+[; ;soil sensor.c: 73: void adc_init()
 [; ;soil sensor.c: 74: {
-[e :U _ADC_Init ]
+[e :U _adc_init ]
 [f ]
 [; ;soil sensor.c: 75: ADCON0 = 0x41;
 "75
@@ -1922,22 +1922,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 114 ]
 }
 "81
-[v _ADC_Read `(ui 1 ef1`uc ]
+[v _adc_read `(ui 1 ef1`uc ]
 {
-[; ;soil sensor.c: 80: unsigned int ADC_Read(unsigned char ADC_channel)
+[; ;soil sensor.c: 80: unsigned int adc_read(unsigned char port)
 [; ;soil sensor.c: 81: {
-[e :U _ADC_Read ]
-[v _ADC_channel `uc 1 r1 ]
+[e :U _adc_read ]
+[v _port `uc 1 r1 ]
 [f ]
 [; ;soil sensor.c: 82: ADCON0 &= 0xC5;
 "82
 [e =& _ADCON0 -> -> 197 `i `uc ]
-[; ;soil sensor.c: 83: ADCON0 |= ADC_channel<<3;
+[; ;soil sensor.c: 83: ADCON0 |= port<<3;
 "83
-[e =| _ADCON0 -> << -> _ADC_channel `i -> 3 `i `uc ]
-[; ;soil sensor.c: 84: _delay((unsigned long)((2)*(20000000/4000.0)));
+[e =| _ADCON0 -> << -> _port `i -> 3 `i `uc ]
+[; ;soil sensor.c: 84: _delay((unsigned long)((4)*(20000000/4000.0)));
 "84
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 [; ;soil sensor.c: 85: GO_nDONE = 1;
 "85
 [e = _GO_nDONE -> -> 1 `i `b ]

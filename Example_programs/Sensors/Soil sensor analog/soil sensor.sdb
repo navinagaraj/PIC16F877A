@@ -527,12 +527,12 @@
 [v ___tmul `(um  1 e 3 0 ]
 "3 C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
-"18 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"18 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [v _main `(i  1 e 2 0 ]
 "74
-[v _ADC_Init `(v  1 e 0 0 ]
+[v _adc_init `(v  1 e 0 0 ]
 "81
-[v _ADC_Read `(ui  1 e 2 0 ]
+[v _adc_read `(ui  1 e 2 0 ]
 "92
 [v _delay `(v  1 e 0 0 ]
 "106
@@ -1223,7 +1223,7 @@
 [v _EECON1bits `VS1215  1 e 1 @396 ]
 "1167
 [v _EECON2 `Vuc  1 e 1 @397 ]
-"18 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"18 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [v _main `(i  1 e 2 0 ]
 {
 "63
@@ -1240,10 +1240,10 @@
 "141
 } 0
 "81
-[v _ADC_Read `(ui  1 e 2 0 ]
+[v _adc_read `(ui  1 e 2 0 ]
 {
-[v ADC_Read@ADC_channel `uc  1 a 1 wreg ]
-[v ADC_Read@ADC_channel `uc  1 a 1 wreg ]
+[v adc_read@port `uc  1 a 1 wreg ]
+[v adc_read@port `uc  1 a 1 wreg ]
 "88
 } 0
 "123
@@ -1263,13 +1263,13 @@
 [v ___wmul@multiplicand `ui  1 p 2 2 ]
 "13
 } 0
-"92 C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+"92 C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 [v _delay `(v  1 e 0 0 ]
 {
 "102
 } 0
 "74
-[v _ADC_Init `(v  1 e 0 0 ]
+[v _adc_init `(v  1 e 0 0 ]
 {
 "78
 } 0

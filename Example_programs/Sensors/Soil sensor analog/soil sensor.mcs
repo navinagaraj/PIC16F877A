@@ -11,10 +11,23 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
 [File001]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.p1
+Folder=Intermediary
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File002]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.cof
 Folder=Output
 DeviceName=PIC16F877A
@@ -24,10 +37,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File002]
+[File003]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.hex
 Folder=Output
 DeviceName=PIC16F877A
@@ -37,10 +50,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File003]
+[File004]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.sym
 Folder=Output
 DeviceName=PIC16F877A
@@ -50,10 +63,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File004]
+[File005]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.map
 Folder=Output
 DeviceName=PIC16F877A
@@ -63,10 +76,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File005]
+[File006]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.hxl
 Folder=Output
 DeviceName=PIC16F877A
@@ -76,10 +89,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File006]
+[File007]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\startup.lst
 Folder=Output
 DeviceName=PIC16F877A
@@ -89,10 +102,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File007]
+[File008]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\startup.rlf
 Folder=Output
 DeviceName=PIC16F877A
@@ -102,10 +115,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File008]
+[File009]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\doprnt.p1
 Folder=Output
 DeviceName=PIC16F877A
@@ -115,10 +128,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File009]
+[File010]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\doprnt.pre
 Folder=Output
 DeviceName=PIC16F877A
@@ -128,10 +141,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File010]
+[File011]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.obj
 Folder=Output
 DeviceName=PIC16F877A
@@ -141,10 +154,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File011]
+[File012]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.lst
 Folder=Output
 DeviceName=PIC16F877A
@@ -154,10 +167,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File012]
+[File013]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.rlf
 Folder=Output
 DeviceName=PIC16F877A
@@ -167,10 +180,10 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=
-[File013]
+[File014]
 Location=C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.sdb
 Folder=Output
 DeviceName=PIC16F877A
@@ -180,6 +193,175 @@ LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
-ToolArgsString= C9=1
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File015]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.cof
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File016]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.hex
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File017]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.sym
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File018]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.map
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File019]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.hxl
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File020]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\startup.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File021]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\startup.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File022]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\doprnt.p1
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File023]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\doprnt.pre
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File024]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.obj
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File025]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.lst
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File026]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.rlf
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
+TraceCmdString=
+DebugOptions=
+[File027]
+Location=C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.sdb
+Folder=Output
+DeviceName=PIC16F877A
+LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
+LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
+LanguageToolLocation=C:\Program Files (x86)\HI-TECH Software\PICC\9.81\bin\picc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|soil sensor.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=C9=1
 TraceCmdString=
 DebugOptions=

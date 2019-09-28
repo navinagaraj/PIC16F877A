@@ -1,5 +1,5 @@
 
-# 1 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+# 1 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 
 # 82 "C:\Program Files (x86)\HI-TECH Software\PICC\9.81\include\pic16f877a.h"
 volatile unsigned char INDF @ 0x000;
@@ -1088,7 +1088,7 @@ extern unsigned char eeprom_read(unsigned char addr);
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+# 3 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F");
 
 # 10
@@ -1096,8 +1096,8 @@ void delay_1();
 void delay();
 void lcd_cmd(unsigned char cmd);
 void lcd_data(unsigned char data);
-void ADC_Init();
-unsigned int ADC_Read(unsigned char);
+void adc_init();
+unsigned int adc_read(unsigned char);
 
 int main()
 {
@@ -1112,11 +1112,11 @@ lcd_cmd(0x02);
 lcd_cmd(0x0F);
 lcd_cmd(0X06);
 lcd_cmd(0X80);
-ADC_Init();
+adc_init();
 while(1)
 {
 int a,b,c,d,e;
-unsigned int data=ADC_Read(0);
+unsigned int data=adc_read(0);
 data = ((data*100)/(1024));
 if(data == 0 )
 {
@@ -1155,18 +1155,18 @@ lcd_cmd(0x01);
 }
 
 
-void ADC_Init()
+void adc_init()
 {
 ADCON0 = 0x41;
 ADCON1 = 0xC0;
 
 }
 
-unsigned int ADC_Read(unsigned char ADC_channel)
+unsigned int adc_read(unsigned char port)
 {
 ADCON0 &= 0xC5;
-ADCON0 |= ADC_channel<<3;
-_delay((unsigned long)((2)*(20000000/4000.0)));
+ADCON0 |= port<<3;
+_delay((unsigned long)((4)*(20000000/4000.0)));
 GO_nDONE = 1;
 while(GO_nDONE);
 return ((ADRESH<<8)+ADRESL);

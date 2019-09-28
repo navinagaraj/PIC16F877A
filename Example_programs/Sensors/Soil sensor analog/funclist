@@ -2,7 +2,7 @@ _delay: CODE, 1654 0 18
 _lcd_cmd: CODE, 1620 0 17
 _lcd_data: CODE, 1637 0 17
 _main: CODE, 1770 0 278
-_ADC_Read: CODE, 1714 0 56
+_adc_read: CODE, 1714 0 56
+_adc_init: CODE, 1611 0 9
 ___wmul: CODE, 1672 0 42
-_ADC_Init: CODE, 1611 0 9
 Total: 437

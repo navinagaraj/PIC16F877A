@@ -39,13 +39,13 @@ fsr0	equ	4
 c	equ	1
 z	equ	0
 pclath	equ	10
-# 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+# 3 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	psect config,class=CONFIG,delta=2 ;#
-# 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+# 3 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
 	FNCALL	_main,_lcd_cmd
-	FNCALL	_main,_ADC_Init
-	FNCALL	_main,_ADC_Read
+	FNCALL	_main,_adc_init
+	FNCALL	_main,_adc_read
 	FNCALL	_main,___wmul
 	FNCALL	_main,_lcd_data
 	FNCALL	_lcd_data,_delay
@@ -113,10 +113,10 @@ __pcstackCOMMON:
 ?_lcd_cmd:	; 0 bytes @ 0x0
 	global	??_lcd_cmd
 ??_lcd_cmd:	; 0 bytes @ 0x0
-	global	?_ADC_Init
-?_ADC_Init:	; 0 bytes @ 0x0
-	global	??_ADC_Init
-??_ADC_Init:	; 0 bytes @ 0x0
+	global	?_adc_init
+?_adc_init:	; 0 bytes @ 0x0
+	global	??_adc_init
+??_adc_init:	; 0 bytes @ 0x0
 	global	?_lcd_data
 ?_lcd_data:	; 0 bytes @ 0x0
 	global	??_lcd_data
@@ -125,8 +125,8 @@ __pcstackCOMMON:
 ?_delay:	; 0 bytes @ 0x0
 	global	??_delay
 ??_delay:	; 0 bytes @ 0x0
-	global	?_ADC_Read
-?_ADC_Read:	; 2 bytes @ 0x0
+	global	?_adc_read
+?_adc_read:	; 2 bytes @ 0x0
 	global	?_main
 ?_main:	; 2 bytes @ 0x0
 	global	?___wmul
@@ -138,15 +138,15 @@ lcd_data@data:	; 1 bytes @ 0x0
 	global	___wmul@multiplier
 ___wmul@multiplier:	; 2 bytes @ 0x0
 	ds	2
-	global	??_ADC_Read
-??_ADC_Read:	; 0 bytes @ 0x2
+	global	??_adc_read
+??_adc_read:	; 0 bytes @ 0x2
 	global	___wmul@multiplicand
 ___wmul@multiplicand:	; 2 bytes @ 0x2
 	ds	2
 	global	??___wmul
 ??___wmul:	; 0 bytes @ 0x4
-	global	ADC_Read@ADC_channel
-ADC_Read@ADC_channel:	; 1 bytes @ 0x4
+	global	adc_read@port
+adc_read@port:	; 1 bytes @ 0x4
 	global	___wmul@product
 ___wmul@product:	; 2 bytes @ 0x4
 	ds	2
@@ -170,7 +170,7 @@ main@data:	; 2 bytes @ 0xB
 ;;
 ;; Pointer list with targets:
 
-;; ?_ADC_Read	unsigned int  size(1) Largest target is 0
+;; ?_adc_read	unsigned int  size(1) Largest target is 0
 ;;
 ;; ?___wmul	unsigned int  size(1) Largest target is 0
 ;;
@@ -210,8 +210,8 @@ main@data:	; 2 bytes @ 0xB
 ;; (0) _main                                                17    17      0     300
 ;;                                              6 COMMON     7     7      0
 ;;                            _lcd_cmd
-;;                           _ADC_Init
-;;                           _ADC_Read
+;;                           _adc_init
+;;                           _adc_read
 ;;                             ___wmul
 ;;                           _lcd_data
 ;; ---------------------------------------------------------------------------------
@@ -219,7 +219,7 @@ main@data:	; 2 bytes @ 0xB
 ;;                                              0 COMMON     1     1      0
 ;;                              _delay
 ;; ---------------------------------------------------------------------------------
-;; (1) _ADC_Read                                             5     3      2      15
+;; (1) _adc_read                                             5     3      2      15
 ;;                                              0 COMMON     5     3      2
 ;; ---------------------------------------------------------------------------------
 ;; (1) _lcd_cmd                                              1     1      0      15
@@ -231,7 +231,7 @@ main@data:	; 2 bytes @ 0xB
 ;; ---------------------------------------------------------------------------------
 ;; (2) _delay                                                0     0      0       0
 ;; ---------------------------------------------------------------------------------
-;; (1) _ADC_Init                                             0     0      0       0
+;; (1) _adc_init                                             0     0      0       0
 ;; ---------------------------------------------------------------------------------
 ;; Estimated maximum stack depth 2
 ;; ---------------------------------------------------------------------------------
@@ -241,8 +241,8 @@ main@data:	; 2 bytes @ 0xB
 ;; _main (ROOT)
 ;;   _lcd_cmd
 ;;     _delay
-;;   _ADC_Init
-;;   _ADC_Read
+;;   _adc_init
+;;   _adc_read
 ;;   ___wmul
 ;;   _lcd_data
 ;;     _delay
@@ -283,7 +283,7 @@ __pmaintext:
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 18 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 18 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -311,8 +311,8 @@ __pmaintext:
 ;; Hardware stack levels required when called:    2
 ;; This function calls:
 ;;		_lcd_cmd
-;;		_ADC_Init
-;;		_ADC_Read
+;;		_adc_init
+;;		_adc_read
 ;;		___wmul
 ;;		_lcd_data
 ;; This function is called by:
@@ -320,7 +320,7 @@ __pmaintext:
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	18
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
@@ -382,8 +382,8 @@ l1948:
 	line	30
 	
 l1950:	
-;soil sensor.c: 30: ADC_Init();
-	fcall	_ADC_Init
+;soil sensor.c: 30: adc_init();
+	fcall	_adc_init
 	goto	l1952
 	line	31
 ;soil sensor.c: 31: while(1)
@@ -394,13 +394,13 @@ l695:
 l1952:	
 ;soil sensor.c: 32: {
 ;soil sensor.c: 33: int a,b,c,d,e;
-;soil sensor.c: 34: unsigned int data=ADC_Read(0);
+;soil sensor.c: 34: unsigned int data=adc_read(0);
 	movlw	(0)
-	fcall	_ADC_Read
-	movf	(1+(?_ADC_Read)),w
+	fcall	_adc_read
+	movf	(1+(?_adc_read)),w
 	clrf	(main@data+1)
 	addwf	(main@data+1)
-	movf	(0+(?_ADC_Read)),w
+	movf	(0+(?_adc_read)),w
 	clrf	(main@data)
 	addwf	(main@data)
 
@@ -762,7 +762,7 @@ __ptext116:
 
 ;; *************** function _lcd_data *****************
 ;; Defined at:
-;;		line 134 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 134 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
 ;;  data            1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -790,7 +790,7 @@ __ptext116:
 ;; This function uses a non-reentrant model
 ;;
 psect	text116
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	134
 	global	__size_of_lcd_data
 	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
@@ -841,18 +841,18 @@ GLOBAL	__end_of_lcd_data
 ;; =============== function _lcd_data ends ============
 
 	signat	_lcd_data,4216
-	global	_ADC_Read
+	global	_adc_read
 psect	text117,local,class=CODE,delta=2
 global __ptext117
 __ptext117:
 
-;; *************** function _ADC_Read *****************
+;; *************** function _adc_read *****************
 ;; Defined at:
-;;		line 81 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 81 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
-;;  ADC_channel     1    wreg     unsigned char 
+;;  port            1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  ADC_channel     1    4[COMMON] unsigned char 
+;;  port            1    4[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;                  2    0[COMMON] unsigned int 
 ;; Registers used:
@@ -875,57 +875,57 @@ __ptext117:
 ;; This function uses a non-reentrant model
 ;;
 psect	text117
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	81
-	global	__size_of_ADC_Read
-	__size_of_ADC_Read	equ	__end_of_ADC_Read-_ADC_Read
+	global	__size_of_adc_read
+	__size_of_adc_read	equ	__end_of_adc_read-_adc_read
 	
-_ADC_Read:	
+_adc_read:	
 	opt	stack 7
-; Regs used in _ADC_Read: [wreg+status,2+status,0+btemp+1]
-;ADC_Read@ADC_channel stored from wreg
-	movwf	(ADC_Read@ADC_channel)
+; Regs used in _adc_read: [wreg+status,2+status,0+btemp+1]
+;adc_read@port stored from wreg
+	movwf	(adc_read@port)
 	line	82
 	
 l1916:	
 ;soil sensor.c: 82: ADCON0 &= 0xC5;
 	movlw	(0C5h)
-	movwf	(??_ADC_Read+0)+0
-	movf	(??_ADC_Read+0)+0,w
+	movwf	(??_adc_read+0)+0
+	movf	(??_adc_read+0)+0,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	andwf	(31),f	;volatile
 	line	83
-;soil sensor.c: 83: ADCON0 |= ADC_channel<<3;
-	movf	(ADC_Read@ADC_channel),w
-	movwf	(??_ADC_Read+0)+0
+;soil sensor.c: 83: ADCON0 |= port<<3;
+	movf	(adc_read@port),w
+	movwf	(??_adc_read+0)+0
 	movlw	(03h)-1
 u2185:
 	clrc
-	rlf	(??_ADC_Read+0)+0,f
+	rlf	(??_adc_read+0)+0,f
 	addlw	-1
 	skipz
 	goto	u2185
 	clrc
-	rlf	(??_ADC_Read+0)+0,w
-	movwf	(??_ADC_Read+1)+0
-	movf	(??_ADC_Read+1)+0,w
+	rlf	(??_adc_read+0)+0,w
+	movwf	(??_adc_read+1)+0
+	movf	(??_adc_read+1)+0,w
 	iorwf	(31),f	;volatile
 	line	84
 	
 l1918:	
-;soil sensor.c: 84: _delay((unsigned long)((2)*(20000000/4000.0)));
+;soil sensor.c: 84: _delay((unsigned long)((4)*(20000000/4000.0)));
 	opt asmopt_off
-movlw	13
-movwf	((??_ADC_Read+0)+0+1),f
-	movlw	251
-movwf	((??_ADC_Read+0)+0),f
+movlw	26
+movwf	((??_adc_read+0)+0+1),f
+	movlw	248
+movwf	((??_adc_read+0)+0),f
 u2347:
-	decfsz	((??_ADC_Read+0)+0),f
+	decfsz	((??_adc_read+0)+0),f
 	goto	u2347
-	decfsz	((??_ADC_Read+0)+0+1),f
+	decfsz	((??_adc_read+0)+0+1),f
 	goto	u2347
-	nop2
+	clrwdt
 opt asmopt_on
 
 	line	85
@@ -956,21 +956,21 @@ l714:
 l1922:	
 ;soil sensor.c: 87: return ((ADRESH<<8)+ADRESL);
 	movf	(30),w	;volatile
-	movwf	(??_ADC_Read+0)+0
-	clrf	(??_ADC_Read+0)+0+1
-	movf	(??_ADC_Read+0)+0,w
-	movwf	(??_ADC_Read+0)+1
-	clrf	(??_ADC_Read+0)+0
+	movwf	(??_adc_read+0)+0
+	clrf	(??_adc_read+0)+0+1
+	movf	(??_adc_read+0)+0,w
+	movwf	(??_adc_read+0)+1
+	clrf	(??_adc_read+0)+0
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(158)^080h,w	;volatile
-	addwf	0+(??_ADC_Read+0)+0,w
-	movwf	(?_ADC_Read)
+	addwf	0+(??_adc_read+0)+0,w
+	movwf	(?_adc_read)
 	movlw	0
 	skipnc
 	movlw	1
-	addwf	1+(??_ADC_Read+0)+0,w
-	movwf	1+(?_ADC_Read)
+	addwf	1+(??_adc_read+0)+0,w
+	movwf	1+(?_adc_read)
 	goto	l715
 	
 l1924:	
@@ -979,11 +979,11 @@ l1924:
 l715:	
 	return
 	opt stack 0
-GLOBAL	__end_of_ADC_Read
-	__end_of_ADC_Read:
-;; =============== function _ADC_Read ends ============
+GLOBAL	__end_of_adc_read
+	__end_of_adc_read:
+;; =============== function _adc_read ends ============
 
-	signat	_ADC_Read,4218
+	signat	_adc_read,4218
 	global	_lcd_cmd
 psect	text118,local,class=CODE,delta=2
 global __ptext118
@@ -991,7 +991,7 @@ __ptext118:
 
 ;; *************** function _lcd_cmd *****************
 ;; Defined at:
-;;		line 123 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 123 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
 ;;  cmd             1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -1019,7 +1019,7 @@ __ptext118:
 ;; This function uses a non-reentrant model
 ;;
 psect	text118
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	123
 	global	__size_of_lcd_cmd
 	__size_of_lcd_cmd	equ	__end_of_lcd_cmd-_lcd_cmd
@@ -1206,7 +1206,7 @@ __ptext120:
 
 ;; *************** function _delay *****************
 ;; Defined at:
-;;		line 92 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 92 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1234,7 +1234,7 @@ __ptext120:
 ;; This function uses a non-reentrant model
 ;;
 psect	text120
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	92
 	global	__size_of_delay
 	__size_of_delay	equ	__end_of_delay-_delay
@@ -1301,14 +1301,14 @@ GLOBAL	__end_of_delay
 ;; =============== function _delay ends ============
 
 	signat	_delay,88
-	global	_ADC_Init
+	global	_adc_init
 psect	text121,local,class=CODE,delta=2
 global __ptext121
 __ptext121:
 
-;; *************** function _ADC_Init *****************
+;; *************** function _adc_init *****************
 ;; Defined at:
-;;		line 74 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+;;		line 74 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -1335,14 +1335,14 @@ __ptext121:
 ;; This function uses a non-reentrant model
 ;;
 psect	text121
-	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c"
 	line	74
-	global	__size_of_ADC_Init
-	__size_of_ADC_Init	equ	__end_of_ADC_Init-_ADC_Init
+	global	__size_of_adc_init
+	__size_of_adc_init	equ	__end_of_adc_init-_adc_init
 	
-_ADC_Init:	
+_adc_init:	
 	opt	stack 7
-; Regs used in _ADC_Init: [wreg]
+; Regs used in _adc_init: [wreg]
 	line	75
 	
 l1116:	
@@ -1362,11 +1362,11 @@ l1116:
 l709:	
 	return
 	opt stack 0
-GLOBAL	__end_of_ADC_Init
-	__end_of_ADC_Init:
-;; =============== function _ADC_Init ends ============
+GLOBAL	__end_of_adc_init
+	__end_of_adc_init:
+;; =============== function _adc_init ends ============
 
-	signat	_ADC_Init,88
+	signat	_adc_init,88
 psect	text122,local,class=CODE,delta=2
 global __ptext122
 __ptext122:

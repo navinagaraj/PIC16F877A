@@ -134,25 +134,22 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-??_ADC_Init           cstackCOMMON 0070
-??_ADC_Read           cstackCOMMON 0072
 ??___wmul             cstackCOMMON 0074
+??_adc_init           cstackCOMMON 0070
+??_adc_read           cstackCOMMON 0072
 ??_delay              cstackCOMMON 0070
 ??_lcd_cmd            cstackCOMMON 0070
 ??_lcd_data           cstackCOMMON 0070
 ??_main               cstackCOMMON 0076
-?_ADC_Init            cstackCOMMON 0070
-?_ADC_Read            cstackCOMMON 0070
 ?___wmul              cstackCOMMON 0070
+?_adc_init            cstackCOMMON 0070
+?_adc_read            cstackCOMMON 0070
 ?_delay               cstackCOMMON 0070
 ?_lcd_cmd             cstackCOMMON 0070
 ?_lcd_data            cstackCOMMON 0070
 ?_main                cstackCOMMON 0070
-ADC_Read@ADC_channel  cstackCOMMON 0074
 _ADCON0               (abs)        001F
 _ADCON1               (abs)        009F
-_ADC_Init             text121      064B
-_ADC_Read             text117      06B2
 _ADRESH               (abs)        001E
 _ADRESL               (abs)        009E
 _GO_nDONE             (abs)        00FA
@@ -231,9 +228,9 @@ ___wmul               text119      0688
 ___wmul@multiplicand  cstackCOMMON 0072
 ___wmul@multiplier    cstackCOMMON 0070
 ___wmul@product       cstackCOMMON 0074
-__end_of_ADC_Init     text121      0654
-__end_of_ADC_Read     text117      06EA
 __end_of___wmul       text119      06B2
+__end_of_adc_init     text121      0654
+__end_of_adc_read     text117      06EA
 __end_of_delay        text120      0688
 __end_of_lcd_cmd      text118      0665
 __end_of_lcd_data     text116      0676
@@ -248,18 +245,21 @@ __ptext119            text119      0688
 __ptext120            text120      0676
 __ptext121            text121      064B
 __ptext122            text122      0000
-__size_of_ADC_Init    (abs)        0000
-__size_of_ADC_Read    (abs)        0000
 __size_of___wmul      (abs)        0000
+__size_of_adc_init    (abs)        0000
+__size_of_adc_read    (abs)        0000
 __size_of_delay       (abs)        0000
 __size_of_lcd_cmd     (abs)        0000
 __size_of_lcd_data    (abs)        0000
 __size_of_main        (abs)        0000
+_adc_init             text121      064B
+_adc_read             text117      06B2
 _delay                text120      0676
 _exit                 init         0000
 _lcd_cmd              text118      0654
 _lcd_data             text116      0665
 _main                 maintext     06EA
+adc_read@port         cstackCOMMON 0074
 btemp                 (abs)        007E
 end_of_initialization cinit        0647
 intlevel0             functab      0000

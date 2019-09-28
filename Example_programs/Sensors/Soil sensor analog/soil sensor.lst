@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
-                                                                                               Mon Aug 12 12:02:29 2019
+                                                                                               Fri Sep 06 00:35:03 2019
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
@@ -45,13 +45,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
     39  0001                     c	equ	1
     40  0000                     z	equ	0
     41  000A                     pclath	equ	10
-    42                           # 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+    42                           # 3 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor a
+                                 nalog\soil sensor.c"
     43                           	psect config,class=CONFIG,delta=2 ;#
-    44                           # 3 "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+    44                           # 3 "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor a
+                                 nalog\soil sensor.c"
     45  2007  FF7A               	dw 0xFFFE & 0xFFFB & 0xFFFF & 0xFFFF & 0xFF7F ;#
     46                           	FNCALL	_main,_lcd_cmd
-    47                           	FNCALL	_main,_ADC_Init
-    48                           	FNCALL	_main,_ADC_Read
+    47                           	FNCALL	_main,_adc_init
+    48                           	FNCALL	_main,_adc_read
     49                           	FNCALL	_main,___wmul
     50                           	FNCALL	_main,_lcd_data
     51                           	FNCALL	_lcd_data,_delay
@@ -119,10 +121,10 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    113  0070                     ?_lcd_cmd:	; 0 bytes @ 0x0
    114                           	global	??_lcd_cmd
    115  0070                     ??_lcd_cmd:	; 0 bytes @ 0x0
-   116                           	global	?_ADC_Init
-   117  0070                     ?_ADC_Init:	; 0 bytes @ 0x0
-   118                           	global	??_ADC_Init
-   119  0070                     ??_ADC_Init:	; 0 bytes @ 0x0
+   116                           	global	?_adc_init
+   117  0070                     ?_adc_init:	; 0 bytes @ 0x0
+   118                           	global	??_adc_init
+   119  0070                     ??_adc_init:	; 0 bytes @ 0x0
    120                           	global	?_lcd_data
    121  0070                     ?_lcd_data:	; 0 bytes @ 0x0
    122                           	global	??_lcd_data
@@ -131,8 +133,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    125  0070                     ?_delay:	; 0 bytes @ 0x0
    126                           	global	??_delay
    127  0070                     ??_delay:	; 0 bytes @ 0x0
-   128                           	global	?_ADC_Read
-   129  0070                     ?_ADC_Read:	; 2 bytes @ 0x0
+   128                           	global	?_adc_read
+   129  0070                     ?_adc_read:	; 2 bytes @ 0x0
    130                           	global	?_main
    131  0070                     ?_main:	; 2 bytes @ 0x0
    132                           	global	?___wmul
@@ -144,15 +146,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    138                           	global	___wmul@multiplier
    139  0070                     ___wmul@multiplier:	; 2 bytes @ 0x0
    140  0070                     	ds	2
-   141                           	global	??_ADC_Read
-   142  0072                     ??_ADC_Read:	; 0 bytes @ 0x2
+   141                           	global	??_adc_read
+   142  0072                     ??_adc_read:	; 0 bytes @ 0x2
    143                           	global	___wmul@multiplicand
    144  0072                     ___wmul@multiplicand:	; 2 bytes @ 0x2
    145  0072                     	ds	2
    146                           	global	??___wmul
    147  0074                     ??___wmul:	; 0 bytes @ 0x4
-   148                           	global	ADC_Read@ADC_channel
-   149  0074                     ADC_Read@ADC_channel:	; 1 bytes @ 0x4
+   148                           	global	adc_read@port
+   149  0074                     adc_read@port:	; 1 bytes @ 0x4
    150                           	global	___wmul@product
    151  0074                     ___wmul@product:	; 2 bytes @ 0x4
    152  0074                     	ds	2
@@ -176,7 +178,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    170 ;;
    171 ;; Pointer list with targets:
    172                           
-   173 ;; ?_ADC_Read	unsigned int  size(1) Largest target is 0
+   173 ;; ?_adc_read	unsigned int  size(1) Largest target is 0
    174 ;;
    175 ;; ?___wmul	unsigned int  size(1) Largest target is 0
    176 ;;
@@ -216,8 +218,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    210 ;; (0) _main                                                17    17      0     300
    211 ;;                                              6 COMMON     7     7      0
    212 ;;                            _lcd_cmd
-   213 ;;                           _ADC_Init
-   214 ;;                           _ADC_Read
+   213 ;;                           _adc_init
+   214 ;;                           _adc_read
    215 ;;                             ___wmul
    216 ;;                           _lcd_data
    217 ;; ---------------------------------------------------------------------------------
@@ -225,7 +227,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    219 ;;                                              0 COMMON     1     1      0
    220 ;;                              _delay
    221 ;; ---------------------------------------------------------------------------------
-   222 ;; (1) _ADC_Read                                             5     3      2      15
+   222 ;; (1) _adc_read                                             5     3      2      15
    223 ;;                                              0 COMMON     5     3      2
    224 ;; ---------------------------------------------------------------------------------
    225 ;; (1) _lcd_cmd                                              1     1      0      15
@@ -237,7 +239,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    231 ;; ---------------------------------------------------------------------------------
    232 ;; (2) _delay                                                0     0      0       0
    233 ;; ---------------------------------------------------------------------------------
-   234 ;; (1) _ADC_Init                                             0     0      0       0
+   234 ;; (1) _adc_init                                             0     0      0       0
    235 ;; ---------------------------------------------------------------------------------
    236 ;; Estimated maximum stack depth 2
    237 ;; ---------------------------------------------------------------------------------
@@ -247,8 +249,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    241 ;; _main (ROOT)
    242 ;;   _lcd_cmd
    243 ;;     _delay
-   244 ;;   _ADC_Init
-   245 ;;   _ADC_Read
+   244 ;;   _adc_init
+   245 ;;   _adc_read
    246 ;;   ___wmul
    247 ;;   _lcd_data
    248 ;;     _delay
@@ -289,7 +291,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    283                           
    284 ;; *************** function _main *****************
    285 ;; Defined at:
-   286 ;;		line 18 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   286 ;;		line 18 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil senso
+       r.c"
    287 ;; Parameters:    Size  Location     Type
    288 ;;		None
    289 ;; Auto vars:     Size  Location     Type
@@ -317,8 +320,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    311 ;; Hardware stack levels required when called:    2
    312 ;; This function calls:
    313 ;;		_lcd_cmd
-   314 ;;		_ADC_Init
-   315 ;;		_ADC_Read
+   314 ;;		_adc_init
+   315 ;;		_adc_read
    316 ;;		___wmul
    317 ;;		_lcd_data
    318 ;; This function is called by:
@@ -326,7 +329,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    320 ;; This function uses a non-reentrant model
    321 ;;
    322                           psect	maintext
-   323                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   323                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
    324                           	line	18
    325                           	global	__size_of_main
    326  0116                     	__size_of_main	equ	__end_of_main-_main
@@ -394,8 +398,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    382                           	line	30
    383                           	
    384  0713                     l1950:	
-   385                           ;soil sensor.c: 30: ADC_Init();
-   386  0713  120A  118A  264B   	fcall	_ADC_Init
+   385                           ;soil sensor.c: 30: adc_init();
+   386  0713  120A  118A  264B   	fcall	_adc_init
               120A  118A         
    387  0718  2F19               	goto	l1952
    388                           	line	31
@@ -407,14 +411,14 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    394  0719                     l1952:	
    395                           ;soil sensor.c: 32: {
    396                           ;soil sensor.c: 33: int a,b,c,d,e;
-   397                           ;soil sensor.c: 34: unsigned int data=ADC_Read(0);
+   397                           ;soil sensor.c: 34: unsigned int data=adc_read(0);
    398  0719  3000               	movlw	(0)
-   399  071A  120A  118A  26B2   	fcall	_ADC_Read
+   399  071A  120A  118A  26B2   	fcall	_adc_read
               120A  118A         
-   400  071F  0871               	movf	(1+(?_ADC_Read)),w
+   400  071F  0871               	movf	(1+(?_adc_read)),w
    401  0720  01FC               	clrf	(main@data+1)
    402  0721  07FC               	addwf	(main@data+1)
-   403  0722  0870               	movf	(0+(?_ADC_Read)),w
+   403  0722  0870               	movf	(0+(?_adc_read)),w
    404  0723  01FB               	clrf	(main@data)
    405  0724  07FB               	addwf	(main@data)
    406                           
@@ -784,7 +788,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    762                           
    763 ;; *************** function _lcd_data *****************
    764 ;; Defined at:
-   765 ;;		line 134 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   765 ;;		line 134 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sens
+       or.c"
    766 ;; Parameters:    Size  Location     Type
    767 ;;  data            1    wreg     unsigned char 
    768 ;; Auto vars:     Size  Location     Type
@@ -812,7 +817,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    790 ;; This function uses a non-reentrant model
    791 ;;
    792                           psect	text116
-   793                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   793                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
    794                           	line	134
    795                           	global	__size_of_lcd_data
    796  0011                     	__size_of_lcd_data	equ	__end_of_lcd_data-_lcd_data
@@ -864,18 +870,19 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    841 ;; =============== function _lcd_data ends ============
    842                           
    843                           	signat	_lcd_data,4216
-   844                           	global	_ADC_Read
+   844                           	global	_adc_read
    845                           psect	text117,local,class=CODE,delta=2
    846                           global __ptext117
    847  06B2                     __ptext117:
    848                           
-   849 ;; *************** function _ADC_Read *****************
+   849 ;; *************** function _adc_read *****************
    850 ;; Defined at:
-   851 ;;		line 81 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   851 ;;		line 81 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil senso
+       r.c"
    852 ;; Parameters:    Size  Location     Type
-   853 ;;  ADC_channel     1    wreg     unsigned char 
+   853 ;;  port            1    wreg     unsigned char 
    854 ;; Auto vars:     Size  Location     Type
-   855 ;;  ADC_channel     1    4[COMMON] unsigned char 
+   855 ;;  port            1    4[COMMON] unsigned char 
    856 ;; Return value:  Size  Location     Type
    857 ;;                  2    0[COMMON] unsigned int 
    858 ;; Registers used:
@@ -898,57 +905,58 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    875 ;; This function uses a non-reentrant model
    876 ;;
    877                           psect	text117
-   878                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   878                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
    879                           	line	81
-   880                           	global	__size_of_ADC_Read
-   881  0038                     	__size_of_ADC_Read	equ	__end_of_ADC_Read-_ADC_Read
+   880                           	global	__size_of_adc_read
+   881  0038                     	__size_of_adc_read	equ	__end_of_adc_read-_adc_read
    882                           	
-   883  06B2                     _ADC_Read:	
+   883  06B2                     _adc_read:	
    884                           	opt	stack 7
-   885                           ; Regs used in _ADC_Read: [wreg+status,2+status,0+btemp+1]
-   886                           ;ADC_Read@ADC_channel stored from wreg
-   887  06B2  00F4               	movwf	(ADC_Read@ADC_channel)
+   885                           ; Regs used in _adc_read: [wreg+status,2+status,0+btemp+1]
+   886                           ;adc_read@port stored from wreg
+   887  06B2  00F4               	movwf	(adc_read@port)
    888                           	line	82
    889                           	
    890  06B3                     l1916:	
    891                           ;soil sensor.c: 82: ADCON0 &= 0xC5;
    892  06B3  30C5               	movlw	(0C5h)
-   893  06B4  00F2               	movwf	(??_ADC_Read+0)+0
-   894  06B5  0872               	movf	(??_ADC_Read+0)+0,w
+   893  06B4  00F2               	movwf	(??_adc_read+0)+0
+   894  06B5  0872               	movf	(??_adc_read+0)+0,w
    895  06B6  1283               	bcf	status, 5	;RP0=0, select bank0
    896  06B7  1303               	bcf	status, 6	;RP1=0, select bank0
    897  06B8  059F               	andwf	(31),f	;volatile
    898                           	line	83
-   899                           ;soil sensor.c: 83: ADCON0 |= ADC_channel<<3;
-   900  06B9  0874               	movf	(ADC_Read@ADC_channel),w
-   901  06BA  00F2               	movwf	(??_ADC_Read+0)+0
+   899                           ;soil sensor.c: 83: ADCON0 |= port<<3;
+   900  06B9  0874               	movf	(adc_read@port),w
+   901  06BA  00F2               	movwf	(??_adc_read+0)+0
    902  06BB  3002               	movlw	(03h)-1
    903  06BC                     u2185:
    904  06BC  1003               	clrc
-   905  06BD  0DF2               	rlf	(??_ADC_Read+0)+0,f
+   905  06BD  0DF2               	rlf	(??_adc_read+0)+0,f
    906  06BE  3EFF               	addlw	-1
    907  06BF  1D03               	skipz
    908  06C0  2EBC               	goto	u2185
    909  06C1  1003               	clrc
-   910  06C2  0D72               	rlf	(??_ADC_Read+0)+0,w
-   911  06C3  00F3               	movwf	(??_ADC_Read+1)+0
-   912  06C4  0873               	movf	(??_ADC_Read+1)+0,w
+   910  06C2  0D72               	rlf	(??_adc_read+0)+0,w
+   911  06C3  00F3               	movwf	(??_adc_read+1)+0
+   912  06C4  0873               	movf	(??_adc_read+1)+0,w
    913  06C5  049F               	iorwf	(31),f	;volatile
    914                           	line	84
    915                           	
    916  06C6                     l1918:	
-   917                           ;soil sensor.c: 84: _delay((unsigned long)((2)*(20000000/4000.0)));
+   917                           ;soil sensor.c: 84: _delay((unsigned long)((4)*(20000000/4000.0)));
    918                           	opt asmopt_off
-   919  06C6  300D               movlw	13
-   920  06C7  00F3               movwf	((??_ADC_Read+0)+0+1),f
-   921  06C8  30FB               	movlw	251
-   922  06C9  00F2               movwf	((??_ADC_Read+0)+0),f
+   919  06C6  301A               movlw	26
+   920  06C7  00F3               movwf	((??_adc_read+0)+0+1),f
+   921  06C8  30F8               	movlw	248
+   922  06C9  00F2               movwf	((??_adc_read+0)+0),f
    923  06CA                     u2347:
-   924  06CA  0BF2               	decfsz	((??_ADC_Read+0)+0),f
+   924  06CA  0BF2               	decfsz	((??_adc_read+0)+0),f
    925  06CB  2ECA               	goto	u2347
-   926  06CC  0BF3               	decfsz	((??_ADC_Read+0)+0+1),f
+   926  06CC  0BF3               	decfsz	((??_adc_read+0)+0+1),f
    927  06CD  2ECA               	goto	u2347
-   928  06CE  2ECF               	nop2
+   928  06CE  0064               	clrwdt
    929                           opt asmopt_on
    930                           
    931                           	line	85
@@ -979,21 +987,21 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    956  06D8                     l1922:	
    957                           ;soil sensor.c: 87: return ((ADRESH<<8)+ADRESL);
    958  06D8  081E               	movf	(30),w	;volatile
-   959  06D9  00F2               	movwf	(??_ADC_Read+0)+0
-   960  06DA  01F3               	clrf	(??_ADC_Read+0)+0+1
-   961  06DB  0872               	movf	(??_ADC_Read+0)+0,w
-   962  06DC  00F3               	movwf	(??_ADC_Read+0)+1
-   963  06DD  01F2               	clrf	(??_ADC_Read+0)+0
+   959  06D9  00F2               	movwf	(??_adc_read+0)+0
+   960  06DA  01F3               	clrf	(??_adc_read+0)+0+1
+   961  06DB  0872               	movf	(??_adc_read+0)+0,w
+   962  06DC  00F3               	movwf	(??_adc_read+0)+1
+   963  06DD  01F2               	clrf	(??_adc_read+0)+0
    964  06DE  1683               	bsf	status, 5	;RP0=1, select bank1
    965  06DF  1303               	bcf	status, 6	;RP1=0, select bank1
    966  06E0  081E               	movf	(158)^080h,w	;volatile
-   967  06E1  0772               	addwf	0+(??_ADC_Read+0)+0,w
-   968  06E2  00F0               	movwf	(?_ADC_Read)
+   967  06E1  0772               	addwf	0+(??_adc_read+0)+0,w
+   968  06E2  00F0               	movwf	(?_adc_read)
    969  06E3  3000               	movlw	0
    970  06E4  1803               	skipnc
    971  06E5  3001               	movlw	1
-   972  06E6  0773               	addwf	1+(??_ADC_Read+0)+0,w
-   973  06E7  00F1               	movwf	1+(?_ADC_Read)
+   972  06E6  0773               	addwf	1+(??_adc_read+0)+0,w
+   973  06E7  00F1               	movwf	1+(?_adc_read)
    974  06E8  2EE9               	goto	l715
    975                           	
    976  06E9                     l1924:	
@@ -1002,11 +1010,11 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    979  06E9                     l715:	
    980  06E9  0008               	return
    981                           	opt stack 0
-   982                           GLOBAL	__end_of_ADC_Read
-   983  06EA                     	__end_of_ADC_Read:
-   984 ;; =============== function _ADC_Read ends ============
+   982                           GLOBAL	__end_of_adc_read
+   983  06EA                     	__end_of_adc_read:
+   984 ;; =============== function _adc_read ends ============
    985                           
-   986                           	signat	_ADC_Read,4218
+   986                           	signat	_adc_read,4218
    987                           	global	_lcd_cmd
    988                           psect	text118,local,class=CODE,delta=2
    989                           global __ptext118
@@ -1014,7 +1022,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
    991                           
    992 ;; *************** function _lcd_cmd *****************
    993 ;; Defined at:
-   994 ;;		line 123 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+   994 ;;		line 123 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sens
+       or.c"
    995 ;; Parameters:    Size  Location     Type
    996 ;;  cmd             1    wreg     unsigned char 
    997 ;; Auto vars:     Size  Location     Type
@@ -1042,7 +1051,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1019 ;; This function uses a non-reentrant model
   1020 ;;
   1021                           psect	text118
-  1022                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1022                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
   1023                           	line	123
   1024                           	global	__size_of_lcd_cmd
   1025  0011                     	__size_of_lcd_cmd	equ	__end_of_lcd_cmd-_lcd_cmd
@@ -1230,7 +1240,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1206                           
   1207 ;; *************** function _delay *****************
   1208 ;; Defined at:
-  1209 ;;		line 92 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1209 ;;		line 92 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil senso
+       r.c"
   1210 ;; Parameters:    Size  Location     Type
   1211 ;;		None
   1212 ;; Auto vars:     Size  Location     Type
@@ -1258,7 +1269,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1234 ;; This function uses a non-reentrant model
   1235 ;;
   1236                           psect	text120
-  1237                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1237                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
   1238                           	line	92
   1239                           	global	__size_of_delay
   1240  0012                     	__size_of_delay	equ	__end_of_delay-_delay
@@ -1325,14 +1337,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1301 ;; =============== function _delay ends ============
   1302                           
   1303                           	signat	_delay,88
-  1304                           	global	_ADC_Init
+  1304                           	global	_adc_init
   1305                           psect	text121,local,class=CODE,delta=2
   1306                           global __ptext121
   1307  064B                     __ptext121:
   1308                           
-  1309 ;; *************** function _ADC_Init *****************
+  1309 ;; *************** function _adc_init *****************
   1310 ;; Defined at:
-  1311 ;;		line 74 in file "C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1311 ;;		line 74 in file "C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil senso
+       r.c"
   1312 ;; Parameters:    Size  Location     Type
   1313 ;;		None
   1314 ;; Auto vars:     Size  Location     Type
@@ -1359,14 +1372,15 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1335 ;; This function uses a non-reentrant model
   1336 ;;
   1337                           psect	text121
-  1338                           	file	"C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c"
+  1338                           	file	"C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor
+                                  analog\soil sensor.c"
   1339                           	line	74
-  1340                           	global	__size_of_ADC_Init
-  1341  0009                     	__size_of_ADC_Init	equ	__end_of_ADC_Init-_ADC_Init
+  1340                           	global	__size_of_adc_init
+  1341  0009                     	__size_of_adc_init	equ	__end_of_adc_init-_adc_init
   1342                           	
-  1343  064B                     _ADC_Init:	
+  1343  064B                     _adc_init:	
   1344                           	opt	stack 7
-  1345                           ; Regs used in _ADC_Init: [wreg]
+  1345                           ; Regs used in _adc_init: [wreg]
   1346                           	line	75
   1347                           	
   1348  064B                     l1116:	
@@ -1386,11 +1400,11 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
   1362  0653                     l709:	
   1363  0653  0008               	return
   1364                           	opt stack 0
-  1365                           GLOBAL	__end_of_ADC_Init
-  1366  0654                     	__end_of_ADC_Init:
-  1367 ;; =============== function _ADC_Init ends ============
+  1365                           GLOBAL	__end_of_adc_init
+  1366  0654                     	__end_of_adc_init:
+  1367 ;; =============== function _adc_init ends ============
   1368                           
-  1369                           	signat	_ADC_Init,88
+  1369                           	signat	_adc_init,88
   1370                           psect	text122,local,class=CODE,delta=2
   1371                           global __ptext122
   1372  0000                     __ptext122:
@@ -1403,7 +1417,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
 
 
 HI-TECH Software PICC Macro Assembler V9.81 build 7503 
-Symbol Table                                                                                   Mon Aug 12 12:02:29 2019
+Symbol Table                                                                                   Fri Sep 06 00:35:03 2019
 
         lcd_data@data 0070                    u10 0685                    u11 0684                    u70 068F  
                   u71 068E                    u85 0696                    u95 069D   ___wmul@multiplicand 0072  
@@ -1437,22 +1451,22 @@ Symbol Table                                                                    
                 u2261 078A                  u2190 06D7                  u2270 0794                  u2191 06D6  
                 u2271 0793                  u2280 07A4                  u2185 06BC                  u2337 07DB  
                 u2281 07A3                  u2290 07AD                  u2347 06CA                  u2291 07AC  
-                _main 06EA                  btemp 007E      __end_of_ADC_Init 0654      __end_of_ADC_Read 06EA  
-                start 0000                 ?_main 0070                 _TMR1H 000F                 _TMR1L 000E  
-               _PORTD 0008                 _TRISC 0087                 _TRISD 0088       __end_of_lcd_cmd 0665  
-               _delay 0676                 main@i 0079                 status 0003                 wtemp0 007E  
-        __end_of_main 0800                ??_main 0076                ?_delay 0070                _ADCON0 001F  
-              _ADCON1 009F                _ADRESH 001E                _ADRESL 009E                _TMR1IF 0060  
+                _main 06EA                  btemp 007E                  start 0000                 ?_main 0070  
+               _TMR1H 000F                 _TMR1L 000E                 _PORTD 0008                 _TRISC 0087  
+               _TRISD 0088       __end_of_lcd_cmd 0665                 _delay 0676                 main@i 0079  
+               status 0003                 wtemp0 007E          __end_of_main 0800                ??_main 0076  
+              ?_delay 0070                _ADCON0 001F                _ADCON1 009F                _ADRESH 001E  
+              _ADRESL 009E      __end_of_adc_init 0654      __end_of_adc_read 06EA                _TMR1IF 0060  
               _TMR1CS 0081                _TMR1ON 0080                _TRISB0 0430      __end_of_lcd_data 0676  
-              ___wmul 0688             ??_lcd_cmd 0070             ?_ADC_Init 0070             ?_ADC_Read 0070  
-      __pcstackCOMMON 0070         __end_of_delay 0688            ??_ADC_Init 0070            ??_ADC_Read 0072  
-             ??_delay 0070            __pmaintext 06EA   ADC_Read@ADC_channel 0074               ?___wmul 0070  
-             _T1CKPS0 0084               _T1CKPS1 0085             ?_lcd_data 0070       __size_of___wmul 002A  
+              ___wmul 0688             ??_lcd_cmd 0070        __pcstackCOMMON 0070         __end_of_delay 0688  
+             ??_delay 0070          adc_read@port 0074            __pmaintext 06EA               ?___wmul 0070  
+           ?_adc_init 0070             ?_adc_read 0070               _T1CKPS0 0084               _T1CKPS1 0085  
+           ?_lcd_data 0070       __size_of___wmul 002A            ??_adc_init 0070            ??_adc_read 0072  
              _lcd_cmd 0654            ??_lcd_data 0070  end_of_initialization 0647            lcd_cmd@cmd 0070  
-   __size_of_ADC_Init 0009     __size_of_ADC_Read 0038        __end_of___wmul 06B2   start_initialization 0647  
-            ??___wmul 0074     __size_of_lcd_data 0011             __ptext120 0676             __ptext121 064B  
+      __end_of___wmul 06B2   start_initialization 0647              ??___wmul 0074     __size_of_adc_init 0009  
+   __size_of_adc_read 0038     __size_of_lcd_data 0011             __ptext120 0676             __ptext121 064B  
            __ptext122 0000             __ptext115 0000             __ptext116 0665             __ptext117 06B2  
-           __ptext118 0654             __ptext119 0688              ?_lcd_cmd 0070              _ADC_Init 064B  
-            _ADC_Read 06B2        __size_of_delay 0012        ___wmul@product 0074              _GO_nDONE 00FA  
-   ___wmul@multiplier 0070      __size_of_lcd_cmd 0011              _lcd_data 0665         __size_of_main 0116  
+           __ptext118 0654             __ptext119 0688              ?_lcd_cmd 0070        __size_of_delay 0012  
+      ___wmul@product 0074              _GO_nDONE 00FA     ___wmul@multiplier 0070              _adc_init 064B  
+            _adc_read 06B2      __size_of_lcd_cmd 0011              _lcd_data 0665         __size_of_main 0116  
             main@data 007B  

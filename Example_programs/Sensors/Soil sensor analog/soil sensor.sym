@@ -6,13 +6,13 @@ __S1 7D 0 ABS
 __S2 0 0 ABS
 __Hintentry 0 0 CODE
 __Lintentry 0 0 CODE
-_ADC_Read 6B2 0 CODE
 _main 6EA 0 CODE
 btemp 7E 0 ABS
 _exit 0 0 CODE
+_adc_read 6B2 0 CODE
 start 0 0 CODE
+__size_of_adc_read 0 0 ABS
 main@data 7B 0 COMMON
-?_ADC_Read 70 0 COMMON
 _TMR1H F 0 ABS
 ?_lcd_cmd 70 0 COMMON
 _TMR1L E 0 ABS
@@ -31,20 +31,21 @@ __Lram 0 0 ABS
 ?_main 70 0 COMMON
 __end_of_lcd_cmd 665 0 CODE
 _delay 676 0 CODE
-_ADC_Init 64B 0 CODE
+?_adc_read 70 0 COMMON
 _TRISB0 430 0 ABS
 __Hfunctab 0 0 CODE
 __Lfunctab 0 0 CODE
 _ADCON0 1F 0 ABS
 _ADCON1 9F 0 ABS
-??_ADC_Read 72 0 COMMON
 __Hcommon 0 0 ABS
 __Lcommon 0 0 ABS
 __Heeprom_data 0 0 EEDATA
 __Leeprom_data 0 0 EEDATA
+__size_of_adc_init 0 0 ABS
 ??___wmul 74 0 COMMON
 ??_lcd_cmd 70 0 COMMON
 _TMR1IF 60 0 ABS
+_adc_init 64B 0 CODE
 ?_lcd_data 70 0 COMMON
 __end_of_lcd_data 676 0 CODE
 _TMR1CS 81 0 ABS
@@ -65,7 +66,6 @@ __ptext120 676 0 CODE
 __size_of_delay 0 0 ABS
 __ptext121 64B 0 CODE
 __ptext122 0 0 CODE
-__size_of_ADC_Read 0 0 ABS
 __Hcode 0 0 ABS
 __Lcode 0 0 ABS
 __ptext115 0 0 CODE
@@ -78,19 +78,20 @@ ___wmul 688 0 CODE
 ?_delay 70 0 COMMON
 __end_of_main 800 0 CODE
 lcd_cmd@cmd 70 0 COMMON
+??_adc_read 72 0 COMMON
 __Htext 0 0 ABS
 __Ltext 0 0 ABS
 __ptext118 654 0 CODE
 ___wmul@multiplier 70 0 COMMON
 __ptext119 688 0 CODE
-?_ADC_Init 70 0 COMMON
 end_of_initialization 647 0 CODE
 ___wmul@multiplicand 72 0 COMMON
 _T1CKPS0 84 0 ABS
 _T1CKPS1 85 0 ABS
-__size_of_ADC_Init 0 0 ABS
+adc_read@port 74 0 COMMON
 __Hstrings 0 0 ABS
 __Lstrings 0 0 ABS
+?_adc_init 70 0 COMMON
 lcd_data@data 70 0 COMMON
 ??_lcd_data 70 0 COMMON
 __Hbank0 0 0 ABS
@@ -113,29 +114,28 @@ __Hcinit 0 0 ABS
 ??_delay 70 0 COMMON
 __Lcinit 0 0 ABS
 __size_of_main 0 0 ABS
-??_ADC_Init 70 0 COMMON
-ADC_Read@ADC_channel 74 0 COMMON
 __size_of_lcd_cmd 0 0 ABS
+??_adc_init 70 0 COMMON
 __Hend_init 3 0 CODE
 __Lend_init 0 0 CODE
+__end_of_adc_read 6EA 0 CODE
 __size_of___wmul 0 0 ABS
 __size_of_lcd_data 0 0 ABS
 _GO_nDONE FA 0 ABS
 __Hreset_vec 0 0 CODE
 __Lreset_vec 0 0 CODE
+__end_of_adc_init 654 0 CODE
 intlevel0 0 0 CODE
 intlevel1 0 0 CODE
 intlevel2 0 0 CODE
 intlevel3 0 0 CODE
 intlevel4 0 0 CODE
 intlevel5 0 0 CODE
-__end_of_ADC_Read 6EA 0 CODE
 __HcstackCOMMON 0 0 ABS
 __LcstackCOMMON 0 0 ABS
 __pcstackCOMMON 70 0 COMMON
 __end_of___wmul 6B2 0 CODE
 start_initialization 647 0 CODE
-__end_of_ADC_Init 654 0 CODE
 __Hmaintext 0 0 ABS
 __Lmaintext 0 0 ABS
 __pmaintext 6EA 0 CODE
@@ -157,12 +157,12 @@ startup.obj
 startup.as
 65 0 0 CODE
 soil sensor.obj
-C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 3 2007 0 CONFIG
 soil sensor.as
 107 647 0 CODE
 108 648 0 CODE
-C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 20 6EA 0 CODE
 21 6ED 0 CODE
 22 6EE 0 CODE
@@ -226,7 +226,7 @@ C:\Program Files (x86)\HI-TECH Software\PICC\9.81\sources\wmul.c
 11 6A3 0 CODE
 12 6AA 0 CODE
 13 6B1 0 CODE
-C:\Users\M_A_N_I\Desktop\Soil sensor\soil sensor.c
+C:\Users\M_A_N_I\Documents\GitHub\PIC16F877A\Example_programs\Sensors\Soil sensor analog\soil sensor.c
 93 676 0 CODE
 94 679 0 CODE
 95 67A 0 CODE
