@@ -1,0 +1,5 @@
+Advisory[1207]   : some of the command line options you are using are now obsolete
+Advisory[1208]   : use --help option or refer to the user manual for option details
+Warning[176] C:\Users\Jeeva\Desktop\mplab\hardware\PWM\pwm.c 42 : missing newline
+Warning[349] C:\Users\Jeeva\Desktop\mplab\hardware\PWM\pwm.c 7 : non-prototyped function declaration for "delay"
+Warning[337] C:\Users\Jeeva\Desktop\mplab\hardware\PWM\pwm.c 41 : line does not have a newline on the end
